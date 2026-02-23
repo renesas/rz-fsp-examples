@@ -1,0 +1,49 @@
+/***********************************************************************************************************************
+* File Name    : readme.txt
+* Description  : Contains general information about Example Project and detailed instructions.
+***********************************************************************************************************************/
+
+1. Project Overview:
+    This Example Project demonstrates the xSPI HyperBus driver with an external HyperRAM on CS1 of xSPI0.
+    At start-up, open the xSPI HyperBus instance, and dumps key register settings for sanity check.
+    A memory-mapped test writes/reads pattern data across the HyperRAM range while checking for AHB bus errors and DS timeouts.
+    The demo then issues manual-command reads of Device ID Registers and Configuration registers, converting from big-endian before printing.
+    The xSPI clock and overall pass/fail status are displayed on the RTT Viewer.
+
+2. Software Requirements:
+    Renesas Flexible Software Package (FSP): Version 4.0.0
+    e2 studio: Version 2025-12
+    GCC ARM Embedded Toolchain: Version 13.3.1.arm-13-24
+    SEGGER J-Link RTT Viewer: Version 8.60
+
+3. Hardware Requirements:
+    RZ supported boards: RZ/N2L-RSK.
+    1 x RZ board.
+    1 x USB Type-C cable.
+    1 x USB Type-A to micro USB cable.
+
+4. Hardware Configurations:
+    (1) Boot Mode:
+        16-bit bus boot mode (NOR flash).
+    (2) Set for DIP switches and jumpers as follow:
+    Hardware Connection:
+
+        1. *External flash memory must be blank to start this sample program (RAM execution).
+        NOR flash memory on this board is blank, so set the operating mode switch for 16-bit bus boot mode (NOR flash).
+        SW4.1 : ON
+        SW4.2 : OFF
+        SW4.3 : ON
+
+        2. *Connect 1.8V Power rail to VCC1833_3.
+        CN24 2-3 Short
+
+        3. *Enable the HyperRAM (IC41) signal.
+        CN27 1-2 Short
+
+Note:
+1. Segger RTT block address may be needed to download and observe EP operation using a hex file with RTT-Viewer.
+   RTT Block address for hex file committed in repository are as follows:
+   a. e2studio: 0x30100000.
+
+2. If an EP is modified, compiled, and downloaded please find the block address (for the variable in RAM called _SEGGER_RTT) 
+   in .map file generated in the build configuration folder (Debug/Release).
