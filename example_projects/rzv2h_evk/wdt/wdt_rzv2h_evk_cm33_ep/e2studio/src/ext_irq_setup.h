@@ -1,0 +1,23 @@
+/***********************************************************************************************************************
+ * File Name    : ext_irq_setup.h
+ * Description  : Contains declarations of data structures and functions used in ext_irq_setup.c.
+ **********************************************************************************************************************/
+/***********************************************************************************************************************
+* Copyright (c) 2024 - 2026 Renesas Electronics Corporation and/or its affiliates
+*
+* SPDX-License-Identifier: BSD-3-Clause
+***********************************************************************************************************************/
+
+#ifndef EXT_IRQ_SETUP_H_
+#define EXT_IRQ_SETUP_H_
+
+/*
+ * Function declarations
+ */
+fsp_err_t init_irq_module (void);
+fsp_err_t enable_irq_module (void);
+void deinit_irq_module (void);
+
+extern volatile bool g_system_reset_flag;
+
+#endif /* EXT_IRQ_SETUP_H_ */

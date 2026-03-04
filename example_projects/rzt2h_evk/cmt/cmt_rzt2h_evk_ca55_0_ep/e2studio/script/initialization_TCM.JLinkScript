@@ -1,0 +1,320 @@
+/***********************************************************************
+*                    SEGGER Microcontroller GmbH                       *
+*                        The Embedded Experts                          *
+************************************************************************
+*                                                                      *
+*                  (c) SEGGER Microcontroller GmbH                     *
+*                        All rights reserved                           *
+*                          www.segger.com                              *
+*                                                                      *
+************************************************************************
+*                                                                      *
+************************************************************************
+*                                                                      *
+*                                                                      *
+*  Licensing terms                                                     *
+*                                                                      *
+* This software may be distributed to your customers free of charge.   *
+* This grant of redistribution does not entitle YOU or enduser to      *
+* receive from SEGGER hard-copy documentation, technical support,      *
+* phone assistance, or enhancements or updates to the Software unless  *
+* a specific agreement clearly states otherwise.                       *
+*                                                                      *
+*                                                                      *
+* THIS SOFTWARE IS PROVIDED BY COPYRIGHT HOLDER "AS IS" AND ANY        *
+* EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE    *
+* IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR   *
+* PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL COPYRIGHT HOLDER BE        *
+* LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY,     *
+* OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,             *
+* PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR   *
+* PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY  *
+* OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT         *
+* (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE    *
+* USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH     *
+* DAMAGE.                                                              *
+*                                                                      *
+************************************************************************
+
+-------------------------- END-OF-HEADER -----------------------------
+
+Purpose: Script which shows how to enable the BTCM and ATCM area of the Renesas RZ/T2H / RZ/N2H.
+
+Literature:
+  [1]  J-Link User Guide
+*/
+
+/*********************************************************************
+*
+*       Constants (similar to defines)
+*
+**********************************************************************
+*/
+
+__constant U32 _RAMBASEADDR     = (0x10000000);  // RAM base addr.
+//
+// TCM Region Registers
+//
+__constant U32 _BTCM_BASE_ADDR  = 0x00100000;
+__constant U32 _ATCM_BASE_ADDR  = 0x00000000;
+__constant U32 _BTCM_SIZE       =    0x10000;
+__constant U32 _ATCM_SIZE       =    0x80000;
+//
+// Bits & Shifts
+//
+__constant U32 _ENABLEEL012     =    (3 << 0);  // Enable TCM at EL1, EL0 and EL2.
+__constant U32 _BASEADDRSHIFT   =        (13);
+__constant U32 _BTCMBASEADDR    =      (0x80);
+//
+// CPU Registers
+//
+__constant U32 _CPU_REG_R0      =  0;
+__constant U32 _CPU_REG_R1      =  1;
+__constant U32 _CPU_REG_R2      =  2;
+__constant U32 _CPU_REG_PC      = 33;
+__constant U32 _CPU_REG_CPSR    = 41;
+
+/*********************************************************************
+*
+*       Types
+*
+**********************************************************************
+*/
+
+const U8 _aBTCMInitRAMCode[] = {
+  0x19, 0xEE, 0x31, 0x0F,  // mrc p15, 0, r0, c9, c1
+  0x08, 0x43,              // orrs r0, r1
+  0x09, 0xEE, 0x31, 0x0F,  // mcr p15, 0, r0, c9, c1
+  0x8A, 0xBA               // HLT #10
+};
+
+//
+//   do {
+//     *(U64*)(RAMInitAddr) = InitPattern;
+//     RAMInitAddr += 0x08;
+//   } while (--NumItems);
+//   do { } while (1);
+//
+const U8 _aECCRAMInitRAMCode[] = {
+  0xE0, 0xE8, 0x02, 0x22,  // strd r2, r2, [r0], #+0x08
+  0x49, 0x1E,              // subs r1,r1 #1
+  0xFB, 0xD1,              // bne #-0x0A
+  0x8A, 0xBA               // HLT #10
+};
+
+/*********************************************************************
+*
+*       Static code
+*
+**********************************************************************
+*/
+
+/*********************************************************************
+*
+*       _InitializeRAMViaCPU64BitWise
+*
+*  Function description
+*    Initializes a RAM region via the CPU by executing a small
+*    application from a specified RAM region (RAMCode). This RAM
+*    code uses a 64 bit store instruction.
+*/
+static int _InitializeRAMViaCPU64BitWise(U32 RAMCodeAddr, U32 RAMInitAddr, U32 RAMInitSize, U32 InitPattern) {
+  U8  aReadback[12];
+  U32 vR0;
+  U32 vR1;
+  U32 vR2;
+  U32 vPC;
+  U32 vCPSR;
+  U32 CPSR;
+  int t;
+  int r;
+
+  JLINK_SYS_Report("  Clear ATCM area... ");
+  JLINK_SYS_Report1("    _ATCM_BASE_ADDR: ", _ATCM_BASE_ADDR);
+  JLINK_SYS_Report1("    _ATCM_SIZE: ", _ATCM_SIZE);
+  //
+  // Preserve registers
+  //
+  JLINK_CPU_Halt();
+  JLINK_CPU_ReadReg(_CPU_REG_R0,  &vR0);
+  JLINK_CPU_ReadReg(_CPU_REG_R1,  &vR1);
+  JLINK_CPU_ReadReg(_CPU_REG_R2,  &vR2);
+  JLINK_CPU_ReadReg(_CPU_REG_PC,  &vPC);
+  JLINK_CPU_ReadReg(_CPU_REG_CPSR, &vCPSR);
+  //
+  // Download RAMCode
+  //
+  JLINK_MEM_Read(RAMCodeAddr,  10, &aReadback[0]);
+  JLINK_MEM_Write(RAMCodeAddr, 10, &_aECCRAMInitRAMCode[0]);
+  //
+  // Prepare registers
+  //
+  CPSR = 0 | (0xA << 0) | (0x3 << 4) | (0x7 << 6);
+  JLINK_CPU_WriteReg(_CPU_REG_R0,   RAMInitAddr);
+  JLINK_CPU_WriteReg(_CPU_REG_R1,   RAMInitSize >> 3);
+  JLINK_CPU_WriteReg(_CPU_REG_R2,   InitPattern);
+  JLINK_CPU_WriteReg(_CPU_REG_PC,   RAMCodeAddr);
+  JLINK_CPU_WriteReg(_CPU_REG_CPSR, CPSR);
+  //
+  // Start CPU and wait until it hits the breakpoint or timeout is reached
+  //
+  JLINK_CPU_Go();
+  t = JLINK_GetTime() + 500;
+  do {
+    r = JLINK_CPU_IsHalted();
+    if (r == 1) {
+      JLINK_SYS_Report("  ECC RAM initialized successfully");
+      break;
+    }
+    if ((t - JLINK_GetTime()) < 0) {
+      JLINK_SYS_Report("  Timeout while initializing ECC RAM");
+      JLINK_CPU_Halt();
+      break;
+    }
+  } while (1);
+  //
+  // Restore registers and BPs
+  //
+  JLINK_MEM_Write(RAMCodeAddr, 10, &aReadback[0]);
+  JLINK_CPU_WriteReg(_CPU_REG_R0,  vR0);
+  JLINK_CPU_WriteReg(_CPU_REG_R1,  vR1);
+  JLINK_CPU_WriteReg(_CPU_REG_R2,  vR2);
+  JLINK_CPU_WriteReg(_CPU_REG_PC,  vPC);
+  JLINK_CPU_WriteReg(_CPU_REG_CPSR, vCPSR);
+  return 0;
+}
+
+/*********************************************************************
+*
+*       _EnableBTCM
+*
+*  Function description
+*    Jlinkscriptfiles do not support the ARM MCR instruction.
+*    As a workaround this function initializes the BTCM region
+*    via the MCU by executing a small application from a specified RAM region (RAMCode).
+*/
+static void _EnableBTCM(U32 RAMCodeAddr, U32 BTCMREGIONR_Mask) {
+  U32 vR0;
+  U32 vR1;
+  U32 vPC;
+  U32 vCPSR;
+  U32 CPSR;
+  int t;
+  int r;
+  U8 aReadback[12];
+
+  JLINK_SYS_Report("  Enable BTCM RAM ... ");
+  JLINK_SYS_Report1("  RAMCodeAddr: ",      RAMCodeAddr);
+  JLINK_SYS_Report1("  BTCMREGIONR_Mask: ", BTCMREGIONR_Mask);
+  //
+  // Preserve registers
+  //
+  JLINK_CPU_Halt();
+  JLINK_CPU_ReadReg(_CPU_REG_R0, &vR0);
+  JLINK_CPU_ReadReg(_CPU_REG_R1, &vR1);
+  JLINK_CPU_ReadReg(_CPU_REG_PC, &vPC);
+  JLINK_CPU_ReadReg(_CPU_REG_CPSR, &vCPSR);
+  //
+  // Download RAMCode
+  //
+  JLINK_MEM_Read(RAMCodeAddr, 12, &aReadback[0]);
+  JLINK_MEM_Write(RAMCodeAddr, 12, &_aBTCMInitRAMCode[0]);
+  //
+  // Prepare registers
+  //
+  CPSR = 0 | (0xA << 0) | (0x3 << 4) | (0x7 << 6);
+  JLINK_CPU_WriteReg(_CPU_REG_R1,   BTCMREGIONR_Mask);
+  JLINK_CPU_WriteReg(_CPU_REG_PC,   RAMCodeAddr);
+  JLINK_CPU_WriteReg(_CPU_REG_CPSR, CPSR);
+  //
+  // Start CPU and wait until it hits the breakpoint or timeout is reached.
+  //
+  JLINK_CPU_Go();
+  t = JLINK_GetTime() + 500;
+  do {
+    r = JLINK_CPU_IsHalted();
+    if (r == 1) {
+      JLINK_SYS_Report("  BTCM RAM initialized successfully!");
+      break;
+    }
+    if ((t - JLINK_GetTime()) < 0) {
+      JLINK_SYS_Report("  Timeout while initializing BTCM RAM!");
+      JLINK_CPU_Halt();
+      break;
+    }
+  } while (1);
+  //
+  // Restore registers and RAM
+  //
+  JLINK_MEM_Write(RAMCodeAddr, 12, &aReadback[0]);
+  JLINK_CPU_WriteReg(_CPU_REG_R0, vR0);
+  JLINK_CPU_WriteReg(_CPU_REG_R1, vR1);
+  JLINK_CPU_WriteReg(_CPU_REG_PC, vPC);
+  JLINK_CPU_WriteReg(_CPU_REG_CPSR, vCPSR);
+}
+
+/*********************************************************************
+*
+*       _EnableTCM
+*
+*  Function description
+*    Enables access to BTCM and clears BTCM and ATCM area to 0.
+*
+*  Return value
+*    >= 0  O.K.
+*     < 0  Error
+*/
+void _EnableTCM(void) {
+  U32 Mask;
+  int r;
+  //
+  // Set the BTCM base addr and enable the access to EL2, EL1, EL0.
+  //
+  Mask = 0;
+  Mask |= _ENABLEEL012;
+  Mask |= (_BTCMBASEADDR << _BASEADDRSHIFT);
+  _EnableBTCM(_RAMBASEADDR, Mask);
+  //
+  // Clear BTCM area.
+  //
+  JLINK_SYS_Report("  Clear BTCM area... ");
+  JLINK_SYS_Report1("    _BTCM_BASE_ADDR: ", _BTCM_BASE_ADDR);
+  JLINK_SYS_Report1("    _BTCM_SIZE: ", _BTCM_SIZE);
+  r = JLINK_MEM_Fill(_BTCM_BASE_ADDR, _BTCM_SIZE, 0);
+  if (r < 0) {
+    JLINK_SYS_Report("Failed to clear BTCM area.");
+  }
+  //
+  // Clear ATCM area.
+  //
+  r = _InitializeRAMViaCPU64BitWise(_RAMBASEADDR, _ATCM_BASE_ADDR, _ATCM_SIZE, 0);
+  if (r < 0) {
+    JLINK_SYS_Report("Failed to clear ATCM area.");
+  }
+}
+
+/*********************************************************************
+*
+*       Global functions
+*
+**********************************************************************
+*/
+
+/*********************************************************************
+*
+*       SetupTarget()
+*
+*  Function description
+*    https://wiki.segger.com/J-Link_script_files#SetupTarget.28.29
+*
+*  Return value
+*    >= 0  O.K.
+*     < 0  Error
+*
+*  Notes
+*    https://wiki.segger.com/J-Link_script_files#SetupTarget.28.29
+*/
+int SetupTarget(void) {
+  _EnableTCM();
+  return 0;
+}
