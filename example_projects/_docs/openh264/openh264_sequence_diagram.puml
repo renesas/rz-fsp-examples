@@ -1,0 +1,93 @@
+@startuml OpenH264_Sequence_Diagram
+
+skinparam sequenceArrowThickness 2
+skinparam backgroundColor #FAFAFA
+
+title OpenH264 Example Project
+
+actor "Application" as APP
+participant "Image Task\n(image_thread_entry)" as TASK
+participant "OpenH264 EP\n(openh264_ep)" as EP
+participant "OpenH264 Decoder" as DEC
+participant "LCDC Driver" as LCDC
+participant "MIPI-DSI Driver" as MIPI
+participant "ILI9881 Panel" as LCD
+
+legend top left
+**loop**  : Repeated decoding per frame  
+**opt**   : Optional / conditional flow  
+**note**  : Key design explanation
+endlegend
+
+== System Initialization ==
+
+APP -> TASK: Create / start FreeRTOS task
+
+TASK -> LCDC: R_LCDC_Open()
+TASK -> LCDC: R_LCDC_Start()
+
+TASK -> MIPI: R_MIPI_DSI_B_Open()
+TASK -> LCD: ili9881_init()
+note over LCD, MIPI #FFF9C4
+ILI9881 initialized via
+MIPI DSI commands
+end note
+TASK -> MIPI: R_MIPI_DSI_B_Start()
+
+TASK -> LCDC: Display splash image
+
+== H.264 Decoder Initialization ==
+
+TASK -> EP: h264_start_decode_task()
+EP -> DEC: WelsCreateDecoder()
+EP -> DEC: Initialize(decParam)
+
+note over DEC #D4E6F1
+Decoder initialized
+with default parameters
+end note
+
+== Decode and Display Loop ==
+
+loop For each video cycle
+    TASK -> EP: h264_decode_task(h264_data)
+
+    EP -> EP: parse_annexb()
+    note right of EP
+    Split Annex-B stream
+    into NAL units
+    end note
+
+    loop For each NAL unit
+        EP -> DEC: DecodeFrameNoDelay(NAL)
+        DEC --> EP: YUV420 frame
+    end loop
+
+    opt Frame ready to display
+        EP -> TASK: lcd_draw_yuv(Y, U, V)
+
+        TASK -> LCDC: Update framebuffer
+        LCDC -> LCDC: YUV → RGB conversion
+        LCDC -> MIPI: Video data stream
+        MIPI -> LCD: Display frame
+    end opt
+end loop
+
+== Frame Timing and Sync ==
+
+LCDC -> TASK: Frame end interrupt
+note over TASK
+Used for FPS statistics
+and timing control
+end note
+
+== Decoder Stop (Optional) ==
+
+opt Stop playback
+    TASK -> EP: h264_stop_decode_task()
+    EP -> DEC: Uninitialize()
+    EP -> DEC: WelsDestroyDecoder()
+end opt
+
+@enduml
+``
