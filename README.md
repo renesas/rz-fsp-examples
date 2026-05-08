@@ -17,7 +17,7 @@ Application Projects illustrate solutions in various core technologies
 
 #### Instructions For Running Application Projects
 1. Refer to the **_'Application Note'_** listed per ID in [Applications table](./application_projects/README.md) for steps on importing and running the projects.
-2. Application Projects source code (if available) is in **_\application_projects\<ID>_** folder.
+2. Application Projects source code (if available) is in **_\application_projects\\\<ID>_** folder.
 
 
 ## References
