@@ -9,7 +9,7 @@
     <option key="#DeviceCommand#" value="R9A07G074M04"/>
     <option key="#RTOS#" value="_none"/>
     <option key="#pinconfiguration#" value="R9A07G074M04GBG.pincfg"/>
-    <option key="#FSPVersion#" value="4.0.0"/>
+    <option key="#FSPVersion#" value="4.1.0"/>
     <option key="#ConfigurationFragments#" value="Renesas##BSP##Board##rzt2l_rsk##ram_execution"/>
     <option key="#SELECTED_TOOLCHAIN#" value="gcc-arm-embedded"/>
     <option key="#ToolchainVersion#" value="13.3.1.arm-13-24"/>
@@ -596,49 +596,49 @@
     <node id="board.clock.tclk.freq" option="board.clock.tclk.freq.100m"/>
   </raClockConfiguration>
   <raComponentSelection>
-    <component apiversion="" class="Common" condition="" group="all" subgroup="fsp_common" variant="" vendor="Renesas" version="4.0.0">
+    <component apiversion="" class="Common" condition="" group="all" subgroup="fsp_common" variant="" vendor="Renesas" version="4.1.0">
       <description>Board Support Package Common Files</description>
-      <originalPack>Renesas.RZ.4.0.0.pack</originalPack>
+      <originalPack>Renesas.RZ.4.1.0.pack</originalPack>
     </component>
-    <component apiversion="" class="Common" condition="" group="rzt" subgroup="fsp_common" variant="" vendor="Renesas" version="4.0.0">
+    <component apiversion="" class="Common" condition="" group="rzt" subgroup="fsp_common" variant="" vendor="Renesas" version="4.1.0">
       <description>Board Support Package Common Files</description>
-      <originalPack>Renesas.RZT.4.0.0.pack</originalPack>
+      <originalPack>Renesas.RZT.4.1.0.pack</originalPack>
     </component>
-    <component apiversion="" class="BSP" condition="" group="rzt" subgroup="Memory" variant="" vendor="Renesas" version="4.0.0">
+    <component apiversion="" class="BSP" condition="" group="rzt" subgroup="Memory" variant="" vendor="Renesas" version="4.1.0">
       <description>Memory Config Checking</description>
-      <originalPack>Renesas.RZT.4.0.0.pack</originalPack>
+      <originalPack>Renesas.RZT.4.1.0.pack</originalPack>
     </component>
-    <component apiversion="" class="HAL Drivers" condition="" group="rzt" subgroup="r_ioport" variant="" vendor="Renesas" version="4.0.0">
+    <component apiversion="" class="HAL Drivers" condition="" group="rzt" subgroup="r_ioport" variant="" vendor="Renesas" version="4.1.0">
       <description>I/O Port</description>
-      <originalPack>Renesas.RZT.4.0.0.pack</originalPack>
+      <originalPack>Renesas.RZT.4.1.0.pack</originalPack>
     </component>
-    <component apiversion="" class="CMSIS" condition="" group="CMSIS6" subgroup="CoreM" variant="" vendor="Arm" version="6.1.0+fsp.4.0.0">
+    <component apiversion="" class="CMSIS" condition="" group="CMSIS6" subgroup="CoreM" variant="" vendor="Arm" version="6.1.0+fsp.4.1.0">
       <description>Arm CMSIS Version 6 - Core</description>
-      <originalPack>Arm.CMSIS6.6.1.0+fsp.4.0.0.pack</originalPack>
+      <originalPack>Arm.CMSIS6.6.1.0+fsp.4.1.0.pack</originalPack>
     </component>
-    <component apiversion="" class="BSP" condition="" group="rzt2l" subgroup="device" variant="R9A07G074M04GBG" vendor="Renesas" version="4.0.0">
+    <component apiversion="" class="BSP" condition="" group="rzt2l" subgroup="device" variant="R9A07G074M04GBG" vendor="Renesas" version="4.1.0">
       <description>Board support package for R9A07G074M04GBG</description>
-      <originalPack>Renesas.RZT_mcu_rzt2l.4.0.0.pack</originalPack>
+      <originalPack>Renesas.RZT_mcu_rzt2l.4.1.0.pack</originalPack>
     </component>
-    <component apiversion="" class="BSP" condition="" group="rzt2l" subgroup="device" variant="" vendor="Renesas" version="4.0.0">
+    <component apiversion="" class="BSP" condition="" group="rzt2l" subgroup="device" variant="" vendor="Renesas" version="4.1.0">
       <description>Board support package for RZT2L</description>
-      <originalPack>Renesas.RZT_mcu_rzt2l.4.0.0.pack</originalPack>
+      <originalPack>Renesas.RZT_mcu_rzt2l.4.1.0.pack</originalPack>
     </component>
-    <component apiversion="" class="BSP" condition="" group="rzt2l" subgroup="fsp" variant="" vendor="Renesas" version="4.0.0">
+    <component apiversion="" class="BSP" condition="" group="rzt2l" subgroup="fsp" variant="" vendor="Renesas" version="4.1.0">
       <description>Board support package for RZT2L - FSP Data</description>
-      <originalPack>Renesas.RZT_mcu_rzt2l.4.0.0.pack</originalPack>
+      <originalPack>Renesas.RZT_mcu_rzt2l.4.1.0.pack</originalPack>
     </component>
-    <component apiversion="" class="BSP" condition="" group="Board" subgroup="rzt2l_rsk" variant="ram_execution" vendor="Renesas" version="4.0.0">
+    <component apiversion="" class="BSP" condition="" group="Board" subgroup="rzt2l_rsk" variant="ram_execution" vendor="Renesas" version="4.1.0">
       <description>RSK+RZT2L Board Support Files (RAM execution without flash memory)</description>
-      <originalPack>Renesas.RZT_board_rzt2l_rsk.4.0.0.pack</originalPack>
+      <originalPack>Renesas.RZT_board_rzt2l_rsk.4.1.0.pack</originalPack>
     </component>
-    <component apiversion="" class="HAL Drivers" condition="" group="rzt" subgroup="r_dmac" variant="" vendor="Renesas" version="4.0.0">
+    <component apiversion="" class="HAL Drivers" condition="" group="rzt" subgroup="r_dmac" variant="" vendor="Renesas" version="4.1.0">
       <description>Direct Memory Access Controller</description>
-      <originalPack>Renesas.RZT.4.0.0.pack</originalPack>
+      <originalPack>Renesas.RZT.4.1.0.pack</originalPack>
     </component>
-    <component apiversion="" class="HAL Drivers" condition="" group="rzt" subgroup="r_iic_master" variant="" vendor="Renesas" version="4.0.0">
+    <component apiversion="" class="HAL Drivers" condition="" group="rzt" subgroup="r_iic_master" variant="" vendor="Renesas" version="4.1.0">
       <description>I2C Master Interface</description>
-      <originalPack>Renesas.RZT.4.0.0.pack</originalPack>
+      <originalPack>Renesas.RZT.4.1.0.pack</originalPack>
     </component>
   </raComponentSelection>
   <raElcConfiguration/>

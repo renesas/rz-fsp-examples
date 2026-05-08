@@ -7,15 +7,15 @@
     The example project demonstrates the typical use of the ADC HAL module APIs.
     The project initializes the ADC in single scan or continuous scan mode based on user selection in RZ configurator.
     Once initialized, user can initiate the ADC scan and also stop the scan (in the case of continuous scan mode) using 
-    JLinkRTTViewer by sending commands. User provide ADC channel input voltage from 0V to 1.8V with a on board Potentiometer R5
+    J-Link RTT Viewer by sending commands. User provide ADC channel input voltage from 0V to 1.8V with a on board Potentiometer R5
     at the ADC channel voltage input pin AN000. Once ADC scan is initialized, Window Compare Mode is enabled and compares the 
     ADC channel input voltage with the upper and lower limits. The upper limit and lower limit are configured in RZ 
     Configurator. If the ADC channel input voltage is above the upper limit or below the lower limit, it triggers an event 
-    and notifies the user to act accordingly. Result and ADC status are displayed on the JLinkRTTViewer.
+    and notifies the user to act accordingly. Result and ADC status are displayed on the J-Link RTT Viewer.
 
 2. Software Requirements:
-    Renesas Flexible Software Package (FSP): Version 4.0.0
-    e2 studio: Version 2025-12
+    Renesas Flexible Software Package (FSP): Version 4.1.0
+    e2 studio: Version 2026-04.1
     GCC ARM Embedded Toolchain: Version 13.3.1.arm-13-24
     SEGGER J-Link RTT Viewer: Version 8.60
 
@@ -40,7 +40,7 @@
         Therefore, the following settings (MDW = 1) are required.
         SW4.4  : OFF
 
-4. Configuration Settings:
+5. Configuration Settings:
     The example project, by default, runs in Single scan mode on the board.
     In order to switch the scan mode, change the 'Mode' field of ADC Driver in the RZ configurator to Continuous Scan.
 

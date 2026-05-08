@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<raConfiguration version="11">
+<raConfiguration version="12">
   <generalSettings>
     <option key="#Board#" value="board.rzg3s_smarc"/>
     <option key="CPU" value="RZG3S"/>
@@ -9,7 +9,7 @@
     <option key="#DeviceCommand#" value="R9A08G045S33GBG"/>
     <option key="#RTOS#" value="rtos.awsfreertos"/>
     <option key="#pinconfiguration#" value="R9A08G045S33GBG.pincfg"/>
-    <option key="#FSPVersion#" value="4.0.0"/>
+    <option key="#FSPVersion#" value="4.1.0"/>
     <option key="#ConfigurationFragments#" value="Renesas##BSP##Board##rzg3s_smarc##"/>
     <option key="#SELECTED_TOOLCHAIN#" value="gcc-arm-embedded"/>
     <option key="#ToolchainVersion#" value="13.3.1.arm-13-24"/>
@@ -25,6 +25,7 @@
     <config id="config.bsp.rzg3s">
       <property id="config.bsp.launch_ca55" value="config.bsp.launch_ca55.disabled"/>
       <property id="config.bsp.launch_cm33_fpu" value="config.bsp.launch_cm33_fpu.disabled"/>
+      <property id="config.bsp.clock_init" value="config.bsp.clock_init.disabled"/>
     </config>
     <config id="config.bsp.rzg3s.fsp.cm33">
       <property id="config.bsp.fsp.inline_irq_functions" value="config.bsp.common.inline_irq_functions.enabled"/>
@@ -34,6 +35,7 @@
       <property id="config.bsp.fsp.mcu.canfd.min_nominal_timeseg1" value="2"/>
       <property id="config.bsp.fsp.mcu.canfd.max_nominal_timeseg1" value="256"/>
       <property id="config.bsp.fsp.mcu.canfd.max_nominal_timeseg2" value="128"/>
+      <property id="config.bsp.fsp.mcu.canfd.min_nominal_sync_jump_width" value="2"/>
       <property id="config.bsp.fsp.mcu.canfd.max_nominal_sync_jump_width" value="128"/>
       <property id="config.bsp.fsp.mcu.canfd.max_data_prescaler" value="1024"/>
       <property id="config.bsp.fsp.mcu.canfd.max_data_timeseg1" value="32"/>
@@ -53,7 +55,6 @@
       <property id="config.bsp.common.vcc" value="3300"/>
       <property id="config.bsp.common.checking" value="config.bsp.common.checking.enabled"/>
       <property id="config.bsp.common.assert" value="config.bsp.common.assert.none"/>
-      <property id="config.bsp.common.error_log" value="config.bsp.common.error_log.none"/>
       <property id="config.bsp.common.pfs_protect" value="config.bsp.common.pfs_protect.enabled"/>
       <property id="config.bsp.common.c_runtime_init" value="config.bsp.common.c_runtime_init.enabled"/>
       <property id="config.bsp.common.early_init" value="config.bsp.common.early_init.disabled"/>
@@ -135,57 +136,57 @@
     <node id="board.clock.osc2.display" option="board.clock.osc2.display.value"/>
   </raClockConfiguration>
   <raComponentSelection>
-    <component apiversion="" class="Common" condition="" group="all" subgroup="fsp_common" variant="" vendor="Renesas" version="4.0.0">
-      <description>Board Support Package Common Files</description>
-      <originalPack>Renesas.RZ.4.0.0.pack</originalPack>
-    </component>
-    <component apiversion="" class="Common" condition="" group="rzg" subgroup="fsp_common" variant="" vendor="Renesas" version="4.0.0">
-      <description>Board Support Package Common Files</description>
-      <originalPack>Renesas.RZG.4.0.0.pack</originalPack>
-    </component>
-    <component apiversion="" class="HAL Drivers" condition="" group="rzg" subgroup="r_ioport" variant="" vendor="Renesas" version="4.0.0">
-      <description>I/O Port</description>
-      <originalPack>Renesas.RZG.4.0.0.pack</originalPack>
-    </component>
-    <component apiversion="" class="HAL Drivers" condition="" group="rzg" subgroup="r_gtm" variant="" vendor="Renesas" version="4.0.0">
-      <description>General Timer</description>
-      <originalPack>Renesas.RZG.4.0.0.pack</originalPack>
-    </component>
-    <component apiversion="" class="HAL Drivers" condition="" group="rzg" subgroup="r_xspi_qspi" variant="" vendor="Renesas" version="4.0.0">
-      <description>Quad Serial Peripheral Interface Flash on Expanded Serial Peripheral Interface</description>
-      <originalPack>Renesas.RZG.4.0.0.pack</originalPack>
-    </component>
-    <component apiversion="" class="Middleware" condition="" group="rzg" subgroup="rm_freertos_port" variant="" vendor="Renesas" version="4.0.0">
-      <description>FreeRTOS Port</description>
-      <originalPack>Renesas.RZG.4.0.0.pack</originalPack>
-    </component>
-    <component apiversion="" class="RTOS" condition="" group="FreeRTOS" subgroup="all" variant="" vendor="AWS" version="11.1.0+fsp.4.0.0">
-      <description>FreeRTOS</description>
-      <originalPack>Amazon.FreeRTOS-Kernel.11.1.0+fsp.4.0.0.pack</originalPack>
-    </component>
-    <component apiversion="" class="CMSIS" condition="" group="CMSIS6" subgroup="CoreM" variant="" vendor="Arm" version="6.1.0+fsp.4.0.0">
+    <component apiversion="" class="CMSIS" condition="" group="CMSIS6" subgroup="CoreM" variant="" vendor="Arm" version="6.1.0+fsp.4.1.0">
       <description>Arm CMSIS Version 6 - Core</description>
-      <originalPack>Arm.CMSIS6.6.1.0+fsp.4.0.0.pack</originalPack>
+      <originalPack>Arm.CMSIS6.6.1.0+fsp.4.1.0.pack</originalPack>
     </component>
-    <component apiversion="" class="BSP" condition="" group="rzg3s" subgroup="device" variant="R9A08G045S33GBG" vendor="Renesas" version="4.0.0">
-      <description>Board support package for R9A08G045S33GBG</description>
-      <originalPack>Renesas.RZG_mcu_rzg3s.4.0.0.pack</originalPack>
+    <component apiversion="" class="Common" condition="" group="all" subgroup="fsp_common" variant="" vendor="Renesas" version="4.1.0">
+      <description>Board Support Package Common Files</description>
+      <originalPack>Renesas.RZ.4.1.0.pack</originalPack>
     </component>
-    <component apiversion="" class="BSP" condition="" group="rzg3s" subgroup="device" variant="" vendor="Renesas" version="4.0.0">
-      <description>Board support package for RZG3S</description>
-      <originalPack>Renesas.RZG_mcu_rzg3s.4.0.0.pack</originalPack>
+    <component apiversion="" class="Common" condition="" group="rzg" subgroup="fsp_common" variant="" vendor="Renesas" version="4.1.0">
+      <description>Board Support Package Common Files</description>
+      <originalPack>Renesas.RZG.4.1.0.pack</originalPack>
     </component>
-    <component apiversion="" class="BSP" condition="" group="rzg3s" subgroup="fsp" variant="" vendor="Renesas" version="4.0.0">
-      <description>Board support package for RZ/G3S - FSP Data</description>
-      <originalPack>Renesas.RZG_mcu_rzg3s.4.0.0.pack</originalPack>
+    <component apiversion="" class="HAL Drivers" condition="" group="rzg" subgroup="r_gtm" variant="" vendor="Renesas" version="4.1.0">
+      <description>General Timer</description>
+      <originalPack>Renesas.RZG.4.1.0.pack</originalPack>
     </component>
-    <component apiversion="" class="BSP" condition="" group="Board" subgroup="rzg3s_smarc" variant="" vendor="Renesas" version="4.0.0">
+    <component apiversion="" class="HAL Drivers" condition="" group="rzg" subgroup="r_ioport" variant="" vendor="Renesas" version="4.1.0">
+      <description>I/O Port</description>
+      <originalPack>Renesas.RZG.4.1.0.pack</originalPack>
+    </component>
+    <component apiversion="" class="HAL Drivers" condition="" group="rzg" subgroup="r_xspi_qspi" variant="" vendor="Renesas" version="4.1.0">
+      <description>Quad Serial Peripheral Interface Flash on Expanded Serial Peripheral Interface</description>
+      <originalPack>Renesas.RZG.4.1.0.pack</originalPack>
+    </component>
+    <component apiversion="" class="Middleware" condition="" group="rzg" subgroup="rm_freertos_port" variant="" vendor="Renesas" version="4.1.0">
+      <description>FreeRTOS Port</description>
+      <originalPack>Renesas.RZG.4.1.0.pack</originalPack>
+    </component>
+    <component apiversion="" class="BSP" condition="" group="Board" subgroup="rzg3s_smarc" variant="" vendor="Renesas" version="4.1.0">
       <description>Evaluation Kit RZ/G3S Support Files (RZ/G3S)</description>
-      <originalPack>Renesas.RZG_board_rzg3s_smarc.4.0.0.pack</originalPack>
+      <originalPack>Renesas.RZG_board_rzg3s_smarc.4.1.0.pack</originalPack>
     </component>
-    <component apiversion="" class="Heaps" condition="" group="FreeRTOS" subgroup="heap_4" variant="" vendor="AWS" version="11.1.0+fsp.4.0.0">
+    <component apiversion="" class="BSP" condition="" group="rzg3s" subgroup="device" variant="R9A08G045S33GBG" vendor="Renesas" version="4.1.0">
+      <description>Board support package for R9A08G045S33GBG</description>
+      <originalPack>Renesas.RZG_mcu_rzg3s.4.1.0.pack</originalPack>
+    </component>
+    <component apiversion="" class="BSP" condition="" group="rzg3s" subgroup="device" variant="" vendor="Renesas" version="4.1.0">
+      <description>Board support package for RZG3S</description>
+      <originalPack>Renesas.RZG_mcu_rzg3s.4.1.0.pack</originalPack>
+    </component>
+    <component apiversion="" class="BSP" condition="" group="rzg3s" subgroup="fsp" variant="" vendor="Renesas" version="4.1.0">
+      <description>Board support package for RZ/G3S - FSP Data</description>
+      <originalPack>Renesas.RZG_mcu_rzg3s.4.1.0.pack</originalPack>
+    </component>
+    <component apiversion="" class="RTOS" condition="" group="FreeRTOS" subgroup="all" variant="" vendor="AWS" version="11.1.0+fsp.4.1.0">
+      <description>FreeRTOS</description>
+      <originalPack>Amazon.FreeRTOS-Kernel.11.1.0+fsp.4.1.0.pack</originalPack>
+    </component>
+    <component apiversion="" class="Heaps" condition="" group="FreeRTOS" subgroup="heap_4" variant="" vendor="AWS" version="11.1.0+fsp.4.1.0">
       <description>FreeRTOS - Memory Management - Heap 4</description>
-      <originalPack>Amazon.FreeRTOS-Kernel.11.1.0+fsp.4.0.0.pack</originalPack>
+      <originalPack>Amazon.FreeRTOS-Kernel.11.1.0+fsp.4.1.0.pack</originalPack>
     </component>
   </raComponentSelection>
   <raElcConfiguration/>
@@ -416,6 +417,8 @@
       <property id="config.awsfreertos.thread.configmax_syscall_interrupt_priority" value="configLIBRARY_MAX_SYSCALL_INTERRUPT_PRIORITY"/>
       <property id="config.awsfreertos.thread.configassert" value="assert(x)"/>
       <property id="config.awsfreertos.thread.configinclude_application_defined_privileged_functions" value="config.awsfreertos.thread.configinclude_application_defined_privileged_functions.disabled"/>
+      <property id="config.awsfreertos.thread.configue_posix_errno" value="config.awsfreertos.thread.configue_posix_errno.disabled"/>
+      <property id="config.awsfreertos.thread.configuse_application_task_tag" value="config.awsfreertos.thread.configuse_application_task_tag.disabled"/>
       <property id="config.awsfreertos.thread.include_vtaskpriorityset" value="config.awsfreertos.thread.include_vtaskpriorityset.enabled"/>
       <property id="config.awsfreertos.thread.include_uxtaskpriorityget" value="config.awsfreertos.thread.include_uxtaskpriorityget.enabled"/>
       <property id="config.awsfreertos.thread.include_vtaskdelete" value="config.awsfreertos.thread.include_vtaskdelete.enabled"/>
@@ -433,6 +436,7 @@
       <property id="config.awsfreertos.thread.include_xtaskabortdelay" value="config.awsfreertos.thread.include_xtaskabortdelay.disabled"/>
       <property id="config.awsfreertos.thread.include_xtaskgethandle" value="config.awsfreertos.thread.include_xtaskgethandle.disabled"/>
       <property id="config.awsfreertos.thread.include_xtaskresumefromisr" value="config.awsfreertos.thread.include_xtaskresumefromisr.enabled"/>
+      <property id="config.awsfreertos.thread.include_xsemaphoregetmutexholder" value="config.awsfreertos.thread.include_xsemaphoregetmutexholder.disabled"/>
       <property id="config.awsfreertos.thread.print_function" value="printf(x)"/>
       <property id="config.awsfreertos.thread.max_length" value="192"/>
       <property id="config.awsfreertos.thread.include_time_and_task" value="config.awsfreertos.thread.include_time_and_task.disabled"/>

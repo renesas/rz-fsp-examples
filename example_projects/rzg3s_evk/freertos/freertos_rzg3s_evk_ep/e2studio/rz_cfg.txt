@@ -8,8 +8,9 @@ FSP Configuration
     package_pins: 359
     
   RZG3S(Cortex-M33)
-    Launch CA55(core0): Disabled
-    Launch CM33_FPU: Disabled
+    Launch Cortex-A55(core0): Disabled
+    Launch Cortex-M33_FPU: Disabled
+    Clock initialization: Disabled
     
   RZG3S Family
     Enable inline BSP IRQ functions: Enabled
@@ -21,11 +22,9 @@ FSP Configuration
     MPU Vcc (mV): 3300
     Parameter checking: Enabled
     Assert Failures: Return FSP_ERR_ASSERTION
-    Error Log: No Error Log
     PFS Protect: Enabled
     C Runtime Initialization : Enabled
     Early BSP Initialization : Disabled
-    Device Family RZG: RZG
     
   RZ all Common
   Clocks
@@ -781,11 +780,11 @@ FSP Configuration
   Module "I/O Port (r_ioport)"
     Parameter Checking: Default (BSP)
     
-  Module "Timer (r_gtm)"
+  Module "Timer, General Timer (r_gtm)"
     Parameter Checking: Default (BSP)
     
   Module "FreeRTOS Port (rm_freertos_port)"
-  Module "QSPI Flash (r_xspi_qspi)"
+  Module "QSPI (r_xspi_qspi)"
     Parameter Checking: Default (BSP)
     Memory-mapping Support: Prefetch Function: Disable
     
@@ -824,10 +823,10 @@ FSP Configuration
     General: Num Thread Local Storage Pointers: 5
     General: Stack Depth Type: uint32_t
     General: Message Buffer Length Type: size_t
-    Memory Allocation: Support Static Allocation: Enabled
-    Memory Allocation: Support Dynamic Allocation: Enabled
-    Memory Allocation: Total Heap Size: 4096
-    Memory Allocation: Application Allocated Heap: Enabled
+    Memory Allocations: Support Static Allocation: Enabled
+    Memory Allocations: Support Dynamic Allocation: Enabled
+    Memory Allocations: Total Heap Size: 4096
+    Memory Allocations: Application Allocated Heap: Enabled
     Stats: Generate Run Time Stats: Disabled
     Timers: Use Timers: Enabled
     Timers: Timer Task Priority: 3
@@ -837,6 +836,8 @@ FSP Configuration
     General: Max Syscall Interrupt Priority: configLIBRARY_MAX_SYSCALL_INTERRUPT_PRIORITY
     General: Assert: assert(x)
     General: Include Application Defined Privileged Functions: Disabled
+    General: Use POSIX errno: Disabled
+    General: Use Application Task Tag: Disabled
     Optional Functions: vTaskPrioritySet() Function: Enabled
     Optional Functions: uxTaskPriorityGet() Function: Enabled
     Optional Functions: vTaskDelete() Function: Enabled
@@ -854,6 +855,7 @@ FSP Configuration
     Optional Functions: xTaskAbortDelay() Function: Disabled
     Optional Functions: xTaskGetHandle() Function: Disabled
     Optional Functions: xTaskResumeFromISR() Function: Enabled
+    Optional Functions: xSemaphoreGetMutexHolder() Function: Disabled
     Logging: Print String Function: printf(x)
     Logging: Logging Max Message Length: 192
     Logging: Logging Include Time and Task Name: Disabled
@@ -921,7 +923,7 @@ FSP Configuration
       ELC Single Port 3: Output Direction Setting: Output Operation: Disabled
       ELC Single Port 3: Input Direction Setting: Edge Detection: Disabled
       
-    Instance "g_qspi0 QSPI Flash (r_xspi_qspi)"
+    Instance "g_qspi0 QSPI (r_xspi_qspi)"
       General: Name: g_qspi0
       General: unit: 0
       General: Chip Select: Chip Select 0
@@ -950,7 +952,7 @@ FSP Configuration
       Extra: Post initialize function: xspi_post_init
       
     Instance "FreeRTOS Port (rm_freertos_port)"
-      Instance "g_timer2 Timer (r_gtm)"
+      Instance "g_timer2 Timer, General Timer (r_gtm)"
         General: Name: g_timer2
         General: Channel: GTM2
         General: Mode: Periodic
@@ -962,7 +964,7 @@ FSP Configuration
         Interrupts: Generate at Start: Disable
         Extra Features: GTM Mode: Interval timer mode
         
-    Instance "g_periodic_timer_msgq Timer (r_gtm)"
+    Instance "g_periodic_timer_msgq Timer, General Timer (r_gtm)"
       General: Name: g_periodic_timer_msgq
       General: Channel: GTM1
       General: Mode: Periodic
@@ -974,7 +976,7 @@ FSP Configuration
       Interrupts: Generate at Start: Disable
       Extra Features: GTM Mode: Interval timer mode
       
-    Instance "g_periodic_timer_sem Timer (r_gtm)"
+    Instance "g_periodic_timer_sem Timer, General Timer (r_gtm)"
       General: Name: g_periodic_timer_sem
       General: Channel: GTM1
       General: Mode: Periodic

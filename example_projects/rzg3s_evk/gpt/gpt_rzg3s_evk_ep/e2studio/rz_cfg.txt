@@ -8,8 +8,9 @@ FSP Configuration
     package_pins: 359
     
   RZG3S(Cortex-M33)
-    Launch CA55(core0): Disabled
-    Launch CM33_FPU: Disabled
+    Launch Cortex-A55(core0): Disabled
+    Launch Cortex-M33_FPU: Disabled
+    Clock initialization: Disabled
     
   RZG3S Family
     Enable inline BSP IRQ functions: Enabled
@@ -21,11 +22,9 @@ FSP Configuration
     MPU Vcc (mV): 3300
     Parameter checking: Enabled
     Assert Failures: Return FSP_ERR_ASSERTION
-    Error Log: No Error Log
     PFS Protect: Enabled
     C Runtime Initialization : Enabled
     Early BSP Initialization : Disabled
-    Device Family RZG: RZG
     
   RZ all Common
   Clocks
@@ -781,7 +780,7 @@ FSP Configuration
   Module "I/O Port (r_ioport)"
     Parameter Checking: Default (BSP)
     
-  Module "QSPI Flash (r_xspi_qspi)"
+  Module "QSPI (r_xspi_qspi)"
     Parameter Checking: Default (BSP)
     Memory-mapping Support: Prefetch Function: Disable
     
@@ -851,7 +850,7 @@ FSP Configuration
       ELC Single Port 3: Output Direction Setting: Output Operation: Disabled
       ELC Single Port 3: Input Direction Setting: Edge Detection: Disabled
       
-    Instance "g_qspi0 QSPI Flash (r_xspi_qspi)"
+    Instance "g_qspi0 QSPI (r_xspi_qspi)"
       General: Name: g_qspi0
       General: unit: 0
       General: Chip Select: Chip Select 0
@@ -903,8 +902,10 @@ FSP Configuration
       Output: GTIOCA Stop Level: Pin Level Low
       Output: GTIOCB Output Enabled: True
       Output: GTIOCB Stop Level: Pin Level High
-      Input: Count Up Source: 
-      Input: Count Down Source: 
+      Input: Count Mode: Phase Count: Phase Count Setting Automatically Enable: Disabled
+      Input: Count Mode: Phase Count: Phase Counting Mode: Mode1
+      Input: Count Mode: Event Count: Count Up Source: 
+      Input: Count Mode: Event Count: Count Down Source: 
       Input: Start Source: 
       Input: Stop Source: 
       Input: Clear Source: 
@@ -923,6 +924,8 @@ FSP Configuration
       Interrupts: Underflow/Trough Interrupt Priority: 4
       Interrupts: Dead Time Error Interrupt Enable: Disabled
       Interrupts: Dead Time Error Interrupt Priority: 4
+      Interrupts: Overflow/Underflow Crest/Trough Interrupt Enable: Disabled
+      Interrupts: Overflow/Underflow Crest/Trough Interrupt Priority: 4
       Extra Features: Extra Features: Disabled
       Extra Features: Output Disable: POEG Link: POEG Channel 0
       Extra Features: Output Disable: Output Disable POEG Trigger: 
@@ -936,6 +939,14 @@ FSP Configuration
       Extra Features: Interrupt Skipping: Skip ADC Events: None
       Extra Features: Output Disable: GTIOCA Disable Setting: Disable Prohibited
       Extra Features: Output Disable: GTIOCB Disable Setting: Disable Prohibited
+      Extra Features: Extended Interrupt Skipping 1: Interrupt to Count: None
+      Extra Features: Extended Interrupt Skipping 1: Interrupt Skip Count: 0
+      Extra Features: Extended Interrupt Skipping 2: Interrupt to Count: None
+      Extra Features: Extended Interrupt Skipping 2: Interrupt Skip Count: 0
+      Extra Features: Input Capture Interrupt Extended Skipping Function: Overflow Interrupt: None
+      Extra Features: Input Capture Interrupt Extended Skipping Function: Underflow Interrupt: None
+      Extra Features: Input Capture Interrupt Extended Skipping Function: GTADTRA A/D Converter Start Request: None
+      Extra Features: Input Capture Interrupt Extended Skipping Function: GTADTRB A/D Converter Start Request: None
       
     Instance "g_timer_pwm Timer, General PWM (r_gpt)"
       General: Name: g_timer_pwm
@@ -961,8 +972,10 @@ FSP Configuration
       Output: GTIOCA Stop Level: Pin Level Low
       Output: GTIOCB Output Enabled: True
       Output: GTIOCB Stop Level: Pin Level High
-      Input: Count Up Source: 
-      Input: Count Down Source: 
+      Input: Count Mode: Phase Count: Phase Count Setting Automatically Enable: Disabled
+      Input: Count Mode: Phase Count: Phase Counting Mode: Mode1
+      Input: Count Mode: Event Count: Count Up Source: 
+      Input: Count Mode: Event Count: Count Down Source: 
       Input: Start Source: 
       Input: Stop Source: 
       Input: Clear Source: 
@@ -981,6 +994,8 @@ FSP Configuration
       Interrupts: Underflow/Trough Interrupt Priority: 4
       Interrupts: Dead Time Error Interrupt Enable: Disabled
       Interrupts: Dead Time Error Interrupt Priority: 4
+      Interrupts: Overflow/Underflow Crest/Trough Interrupt Enable: Disabled
+      Interrupts: Overflow/Underflow Crest/Trough Interrupt Priority: 4
       Extra Features: Extra Features: Disabled
       Extra Features: Output Disable: POEG Link: POEG Channel 0
       Extra Features: Output Disable: Output Disable POEG Trigger: 
@@ -994,6 +1009,14 @@ FSP Configuration
       Extra Features: Interrupt Skipping: Skip ADC Events: None
       Extra Features: Output Disable: GTIOCA Disable Setting: Disable Prohibited
       Extra Features: Output Disable: GTIOCB Disable Setting: Disable Prohibited
+      Extra Features: Extended Interrupt Skipping 1: Interrupt to Count: None
+      Extra Features: Extended Interrupt Skipping 1: Interrupt Skip Count: 0
+      Extra Features: Extended Interrupt Skipping 2: Interrupt to Count: None
+      Extra Features: Extended Interrupt Skipping 2: Interrupt Skip Count: 0
+      Extra Features: Input Capture Interrupt Extended Skipping Function: Overflow Interrupt: None
+      Extra Features: Input Capture Interrupt Extended Skipping Function: Underflow Interrupt: None
+      Extra Features: Input Capture Interrupt Extended Skipping Function: GTADTRA A/D Converter Start Request: None
+      Extra Features: Input Capture Interrupt Extended Skipping Function: GTADTRB A/D Converter Start Request: None
       
     Instance "g_timer_one_shot_mode Timer, General PWM (r_gpt)"
       General: Name: g_timer_one_shot_mode
@@ -1019,8 +1042,10 @@ FSP Configuration
       Output: GTIOCA Stop Level: Pin Level Low
       Output: GTIOCB Output Enabled: True
       Output: GTIOCB Stop Level: Pin Level High
-      Input: Count Up Source: 
-      Input: Count Down Source: 
+      Input: Count Mode: Phase Count: Phase Count Setting Automatically Enable: Disabled
+      Input: Count Mode: Phase Count: Phase Counting Mode: Mode1
+      Input: Count Mode: Event Count: Count Up Source: 
+      Input: Count Mode: Event Count: Count Down Source: 
       Input: Start Source: 
       Input: Stop Source: 
       Input: Clear Source: 
@@ -1039,6 +1064,8 @@ FSP Configuration
       Interrupts: Underflow/Trough Interrupt Priority: 4
       Interrupts: Dead Time Error Interrupt Enable: Disabled
       Interrupts: Dead Time Error Interrupt Priority: 4
+      Interrupts: Overflow/Underflow Crest/Trough Interrupt Enable: Disabled
+      Interrupts: Overflow/Underflow Crest/Trough Interrupt Priority: 4
       Extra Features: Extra Features: Disabled
       Extra Features: Output Disable: POEG Link: POEG Channel 0
       Extra Features: Output Disable: Output Disable POEG Trigger: 
@@ -1052,4 +1079,12 @@ FSP Configuration
       Extra Features: Interrupt Skipping: Skip ADC Events: None
       Extra Features: Output Disable: GTIOCA Disable Setting: Disable Prohibited
       Extra Features: Output Disable: GTIOCB Disable Setting: Disable Prohibited
+      Extra Features: Extended Interrupt Skipping 1: Interrupt to Count: None
+      Extra Features: Extended Interrupt Skipping 1: Interrupt Skip Count: 0
+      Extra Features: Extended Interrupt Skipping 2: Interrupt to Count: None
+      Extra Features: Extended Interrupt Skipping 2: Interrupt Skip Count: 0
+      Extra Features: Input Capture Interrupt Extended Skipping Function: Overflow Interrupt: None
+      Extra Features: Input Capture Interrupt Extended Skipping Function: Underflow Interrupt: None
+      Extra Features: Input Capture Interrupt Extended Skipping Function: GTADTRA A/D Converter Start Request: None
+      Extra Features: Input Capture Interrupt Extended Skipping Function: GTADTRB A/D Converter Start Request: None
       

@@ -9,8 +9,8 @@
     User is requested to press the USER_SW1 push button on Carrier Board to trigger the external irq and this then will start toggling of user LED.
 
 2. Software Requirements:
-    Renesas Flexible Software Package (FSP): Version 4.0.0
-    e2 studio: Version 2025-12
+    Renesas Flexible Software Package (FSP): Version 4.1.0
+    e2 studio: Version 2026-04.1
     GCC ARM Embedded Toolchain: Version 13.3.1.arm-13-24
     SEGGER J-Link RTT Viewer: Version 8.60
     

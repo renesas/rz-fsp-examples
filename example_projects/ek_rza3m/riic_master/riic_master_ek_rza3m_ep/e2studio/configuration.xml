@@ -9,10 +9,10 @@
     <option key="#DeviceCommand#" value="R9A07G066M04GBG"/>
     <option key="#RTOS#" value="_none"/>
     <option key="#pinconfiguration#" value="R9A07G066M04GBG.pincfg"/>
-    <option key="#FSPVersion#" value="4.0.0"/>
+    <option key="#FSPVersion#" value="4.1.0"/>
     <option key="#ConfigurationFragments#" value="Renesas##BSP##Board##rza3m_ek_nor##"/>
     <option key="#SELECTED_TOOLCHAIN#" value="gcc-arm-a-profile-aarch64"/>
-    <option key="#ToolchainVersion#" value="13.2.1.20231009"/>
+    <option key="#ToolchainVersion#" value="13.2.1.arm-13-7"/>
   </generalSettings>
   <raBspConfiguration>
     <config id="config.bsp.rza3m.R9A07G066M04GBG">
@@ -107,53 +107,53 @@
     <node id="board.clock.m1clk.display" option="board.clock.m3clk.display.value"/>
   </raClockConfiguration>
   <raComponentSelection>
-    <component apiversion="" class="BSP" condition="" group="Board" subgroup="rza3m_ek_nor" variant="" vendor="Renesas" version="4.0.0">
+    <component apiversion="" class="BSP" condition="" group="Board" subgroup="rza3m_ek_nor" variant="" vendor="Renesas" version="4.1.0">
       <description>RZ/A3M Evaluation Board NOR Boot (Exec with DDR SDRAM) Board Support Files</description>
-      <originalPack>Renesas.RZA_board_rza3m_ek_nor.4.0.0.pack</originalPack>
+      <originalPack>Renesas.RZA_board_rza3m_ek_nor.4.1.0.pack</originalPack>
     </component>
-    <component apiversion="" class="Common" condition="" group="rza" subgroup="fsp_common" variant="" vendor="Renesas" version="4.0.0">
+    <component apiversion="" class="Common" condition="" group="rza" subgroup="fsp_common" variant="" vendor="Renesas" version="4.1.0">
       <description>Board Support Package Common Files</description>
-      <originalPack>Renesas.RZA.4.0.0.pack</originalPack>
+      <originalPack>Renesas.RZA.4.1.0.pack</originalPack>
     </component>
-    <component apiversion="" class="HAL Drivers" condition="" group="rza" subgroup="r_dmac" variant="" vendor="Renesas" version="4.0.0">
+    <component apiversion="" class="HAL Drivers" condition="" group="rza" subgroup="r_dmac" variant="" vendor="Renesas" version="4.1.0">
       <description>Direct Memory Access Controller</description>
-      <originalPack>Renesas.RZA.4.0.0.pack</originalPack>
+      <originalPack>Renesas.RZA.4.1.0.pack</originalPack>
     </component>
-    <component apiversion="" class="HAL Drivers" condition="" group="rza" subgroup="r_ioport" variant="" vendor="Renesas" version="4.0.0">
+    <component apiversion="" class="HAL Drivers" condition="" group="rza" subgroup="r_ioport" variant="" vendor="Renesas" version="4.1.0">
       <description>I/O Port</description>
-      <originalPack>Renesas.RZA.4.0.0.pack</originalPack>
+      <originalPack>Renesas.RZA.4.1.0.pack</originalPack>
     </component>
-    <component apiversion="" class="HAL Drivers" condition="" group="rza" subgroup="r_mmu" variant="" vendor="Renesas" version="4.0.0">
+    <component apiversion="" class="HAL Drivers" condition="" group="rza" subgroup="r_mmu" variant="" vendor="Renesas" version="4.1.0">
       <description>Memory Management Unit</description>
-      <originalPack>Renesas.RZA.4.0.0.pack</originalPack>
+      <originalPack>Renesas.RZA.4.1.0.pack</originalPack>
     </component>
-    <component apiversion="" class="HAL Drivers" condition="" group="rza" subgroup="r_riic_master" variant="" vendor="Renesas" version="4.0.0">
+    <component apiversion="" class="HAL Drivers" condition="" group="rza" subgroup="r_riic_master" variant="" vendor="Renesas" version="4.1.0">
       <description>I2C Master Interface</description>
-      <originalPack>Renesas.RZA.4.0.0.pack</originalPack>
+      <originalPack>Renesas.RZA.4.1.0.pack</originalPack>
     </component>
-    <component apiversion="" class="HAL Drivers" condition="" group="rza" subgroup="r_scif_uart" variant="" vendor="Renesas" version="4.0.0">
+    <component apiversion="" class="HAL Drivers" condition="" group="rza" subgroup="r_scif_uart" variant="" vendor="Renesas" version="4.1.0">
       <description>SCIF UART</description>
-      <originalPack>Renesas.RZA.4.0.0.pack</originalPack>
+      <originalPack>Renesas.RZA.4.1.0.pack</originalPack>
     </component>
-    <component apiversion="" class="BSP" condition="" group="rza3m" subgroup="device" variant="R9A07G066M04GBG" vendor="Renesas" version="4.0.0">
+    <component apiversion="" class="BSP" condition="" group="rza3m" subgroup="device" variant="R9A07G066M04GBG" vendor="Renesas" version="4.1.0">
       <description>Board support package for R9A07G066M04GBG</description>
-      <originalPack>Renesas.RZA_mcu_rza3m.4.0.0.pack</originalPack>
+      <originalPack>Renesas.RZA_mcu_rza3m.4.1.0.pack</originalPack>
     </component>
-    <component apiversion="" class="BSP" condition="" group="rza3m" subgroup="device" variant="" vendor="Renesas" version="4.0.0">
+    <component apiversion="" class="BSP" condition="" group="rza3m" subgroup="device" variant="" vendor="Renesas" version="4.1.0">
       <description>Board support package for RZA3M</description>
-      <originalPack>Renesas.RZA_mcu_rza3m.4.0.0.pack</originalPack>
+      <originalPack>Renesas.RZA_mcu_rza3m.4.1.0.pack</originalPack>
     </component>
-    <component apiversion="" class="BSP" condition="" group="rza3m" subgroup="fsp" variant="" vendor="Renesas" version="4.0.0">
+    <component apiversion="" class="BSP" condition="" group="rza3m" subgroup="fsp" variant="" vendor="Renesas" version="4.1.0">
       <description>Board support package for RZ/A3M (RZ/A3M) - FSP Data</description>
-      <originalPack>Renesas.RZA_mcu_rza3m.4.0.0.pack</originalPack>
+      <originalPack>Renesas.RZA_mcu_rza3m.4.1.0.pack</originalPack>
     </component>
-    <component apiversion="" class="Common" condition="" group="rza" subgroup="fsp_common_asm" variant="" vendor="Renesas" version="4.0.0">
+    <component apiversion="" class="Common" condition="" group="rza" subgroup="fsp_common_asm" variant="" vendor="Renesas" version="4.1.0">
       <description>GCC assemble options</description>
-      <originalPack>Renesas.RZA_GCC_ASM.4.0.0.pack</originalPack>
+      <originalPack>Renesas.RZA_GCC_ASM.4.1.0.pack</originalPack>
     </component>
-    <component apiversion="" class="Common" condition="" group="all" subgroup="fsp_common" variant="" vendor="Renesas" version="4.0.0">
+    <component apiversion="" class="Common" condition="" group="all" subgroup="fsp_common" variant="" vendor="Renesas" version="4.1.0">
       <description>Board Support Package Common Files</description>
-      <originalPack>Renesas.RZ.4.0.0.pack</originalPack>
+      <originalPack>Renesas.RZ.4.1.0.pack</originalPack>
     </component>
   </raComponentSelection>
   <raElcConfiguration/>

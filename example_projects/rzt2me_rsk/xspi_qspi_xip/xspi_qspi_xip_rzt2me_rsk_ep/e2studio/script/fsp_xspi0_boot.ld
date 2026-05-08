@@ -360,6 +360,15 @@ SECTIONS
         KEEP(*(.software_reset)) /* Do not initialize */
     } > LOADER_DATA_STACK
 
+    /* Place the uninitialized variables. */
+    .noinit (NOLOAD):
+    {
+        . = ALIGN(8);
+        __noinit_start = .;
+        KEEP(*(.noinit*))
+        __noinit_end = .;
+    } > LOADER_DATA_STACK
+
 /*-----------------------------------------------*/
 /*  AArch32 STACK                                */
 /*-----------------------------------------------*/

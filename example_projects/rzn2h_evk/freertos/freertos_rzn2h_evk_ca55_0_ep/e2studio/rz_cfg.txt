@@ -10,6 +10,7 @@ FSP Configuration
     package_pins: 576
     Cortex-A55 CPU core: CA55_0
     Number of interrupts: 828
+    Semaphore: Enabled
     
   RZN2H Memory Config
     Master MPU: MPU0 : GMAC Unit 1: Enable or disable read control for Region 0: Disabled
@@ -1756,15 +1757,15 @@ FSP Configuration
   RZN2H Family
     
   RZN Common
-    MCU Vcc (mV): 3300
+    MPU Vcc (mV): 3300
     Parameter checking: Enabled
     Assert Failures: Return FSP_ERR_ASSERTION
     Error Log: No Error Log
     Soft Reset: Disabled
     Port Protect: Enabled
     Early BSP Initialization : Disabled
-    Multiplex Interrupt: Enabled
-    Device Family RZN: RZN
+    Nested Interrupt (Multiplex Interrupt): Enabled
+    Register Protect Polling Count: 0xFFFFFFFF
     
   RZ all Common
   Clocks
@@ -3018,14 +3019,14 @@ FSP Configuration
   Module "FreeRTOS Port (rm_freertos_port)"
   Module "Timer, Compare Match (r_cmt)"
     Parameter Checking: Default (BSP)
-    Multiplex Interrupt: Disabled
+    Nested Interrupt (Multiplex Interrupt): Disabled
     
   Module "UART (r_sci_uart)"
     Parameter Checking: Default (BSP)
     FIFO Support: Disable
     DMAC Support: Disable
     Flow Control Support: Disable
-    Multiplex Interrupt: Disabled
+    Nested Interrupt (Multiplex Interrupt): Disabled
     
   Module "FreeRTOS Heap 2"
   FreeRTOS
@@ -3075,6 +3076,8 @@ FSP Configuration
     General: Max Syscall Interrupt Priority: configLIBRARY_MAX_SYSCALL_INTERRUPT_PRIORITY
     General: Assert: assert(x)
     General: Include Application Defined Privileged Functions: Disabled
+    General: Use POSIX errno: Disabled
+    General: Use Application Task Tag: Disabled
     Optional Functions: vTaskPrioritySet() Function: Enabled
     Optional Functions: uxTaskPriorityGet() Function: Enabled
     Optional Functions: vTaskDelete() Function: Enabled
@@ -3092,6 +3095,7 @@ FSP Configuration
     Optional Functions: xTaskAbortDelay() Function: Disabled
     Optional Functions: xTaskGetHandle() Function: Disabled
     Optional Functions: xTaskResumeFromISR() Function: Enabled
+    Optional Functions: xSemaphoreGetMutexHolder() Function: Disabled
     Logging: Print String Function: 
     Logging: Logging Max Message Length: 192
     Logging: Logging Include Time and Task Name: Disabled
@@ -3208,7 +3212,7 @@ FSP Configuration
   Thread "Sender Task"
     Symbol: sender_task
     Name: Sender Task
-    Stack size (bytes): 1024
+    Stack size (bytes): 2048
     Priority: 1
     Thread Context: NULL
     Memory Allocation: Static
@@ -3217,7 +3221,7 @@ FSP Configuration
   Thread "Receiver Task"
     Symbol: receiver_task
     Name: Receiver Task
-    Stack size (bytes): 1024
+    Stack size (bytes): 2048
     Priority: 1
     Thread Context: NULL
     Memory Allocation: Dynamic

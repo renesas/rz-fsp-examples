@@ -12,8 +12,8 @@
     ISR releases semaphore periodically at 1000msec. All the tasks run with equal priority level.
 
 2. Software Requirements:
-    Renesas Flexible Software Package (FSP): Version 4.0.0
-    e2 studio: Version 2025-12
+    Renesas Flexible Software Package (FSP): Version 4.1.0
+    e2 studio: Version 2026-04.1
     GCC ARM A-Profile (AArch64 bare-metal): Version 13.2 rel1
     Terminal Console Application: Tera Term or a similar application
 
@@ -48,3 +48,12 @@
 5. Hardware Connections:
     Connect the DEBUG1 port of the RZ board to the PC using a USB Type-C cable for board power supply, debugging, and
     serial terminal communication (Tera Term).
+
+Note:
+1. Set the configuration of Terminal Emulator (Tera Term) as follows:
+   Port: is COM port provided by the RZ board.
+   Speed: 115200 bps
+   Data: 8 bit  
+   Parity: none
+   Stop bits: 1 bit
+   Flow control: none

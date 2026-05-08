@@ -15,8 +15,8 @@
     Any API/event failure message is also displayed.
 
 2. Software Requirements:
-    Renesas Flexible Software Package (FSP): Version 4.0.0
-    e2 studio: Version 2025-12
+    Renesas Flexible Software Package (FSP): Version 4.1.0
+    e2 studio: Version 2026-04.1
     GCC ARM Embedded Toolchain: Version 13.3.1.arm-13-24
     SEGGER J-Link RTT Viewer: Version 8.60
 
@@ -25,7 +25,7 @@
     1 x RZ board.
     1 x USB Type-C cable.
     1 x USB Type-A to micro USB cable.
-    1 x MB057GA140 Encoder(Motor).
+    1 x MB057GA140 Encoder (Motor).
 
 4. Hardware Configurations:
     (1) Boot Mode:

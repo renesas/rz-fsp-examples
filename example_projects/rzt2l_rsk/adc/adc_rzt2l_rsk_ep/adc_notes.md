@@ -4,11 +4,11 @@ This example project demonstrates basic functionalities of ADC driver, including
 RZ MPUs based on Renesas FSP. An RTT input command triggers the ADC scan to read the analog data of adc channel and outputs 
 the converted data onto the RTT output.The project initializes the ADC in single scan or continuous scan mode based on user 
 selection in RZ configurator. Once initialized, user can initiate the ADC scan and also stop the scan (in the case of continuous 
-scan mode) using JLinkRTTViewer by sending commands. User provide ADC channel input voltage from 0V to 1.8V with a variable 
+scan mode) using J-Link RTT Viewer by sending commands. User provide ADC channel input voltage from 0V to 1.8V with a variable 
 power supply unit at the ADC channel voltage input pin. Once ADC scan is initialized, Window Compare Mode is enabled and compares 
 the ADC channel input voltage with the upper and lower limits. The upper limit and lower limit are configured in RZ Configurator. 
 If the ADC channel input voltage is above the upper limit or below the lower limit, it triggers an event and notifies the user to 
-act accordingly. Result and ADC status are displayed on the JLinkRTTViewer.
+act accordingly. Result and ADC status are displayed on the J-Link RTT Viewer.
 
 
 Please refer to the Example Project Usage Guide for general information on example projects and [readme.txt](./readme.txt) for specifics of operation.
@@ -17,9 +17,10 @@ Please refer to the Example Project Usage Guide for general information on examp
 To build and run the ADC example project, the following resources are needed.
 
 ### Hardware
-* 1x Renesas Starter Kit+ for RZ/T2L
-* 1x USB A to USB Micro B Cable
-* 1x Potentiometer on Renesas Starter Kit+ for RZ/T2L
+* RZ supported boards: RZ/T2L-RSK.
+* 1 x RZ board.
+* 1 x USB Type-C cable.
+* 1 x USB Type-A to micro USB cable.
 
 Refer to [readme.txt](./readme.txt) for information on how to connect the hardware.
 

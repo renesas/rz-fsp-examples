@@ -8,8 +8,6 @@ FSP Configuration
     package_pins: 361
     
   RZA3UL
-    series: 2
-    
   RZA3UL Family
     
   RZ/A FSP Common
@@ -1510,33 +1508,33 @@ FSP Configuration
   Module "I/O Port (r_ioport)"
     Parameter Checking: Default (BSP)
     
-  Module "MMU Driver on r_mmu"
+  Module "MMU (r_mmu)"
     Parameter Checking: Default (BSP)
     
-  Module "ADC Driver on r_adc_c"
+  Module "ADC (r_adc_c)"
     Parameter Checking: Default (BSP)
     
-  Module "UART Driver on r_scif_uart"
+  Module "UART (r_scif_uart)"
     Parameter Checking: Default (BSP)
     DMAC Support: Disable
     RS485 Flow (Driver Enable) Control Support: Disable
     
-  Module "Timer Driver on r_mtu3"
+  Module "Timer, Multi-Function (r_mtu3)"
     Parameter Checking: Default (BSP)
-    Pin Output Support: Disabled
+    Pin Output Support: Enabled with Extra Features
     
   HAL
     Instance "g_ioport I/O Port (r_ioport)"
       Name: g_ioport
       Pin Configuration Name: g_bsp_pin_cfg
       
-    Instance "g_mmu MMU Driver on r_mmu"
+    Instance "g_mmu MMU (r_mmu)"
       Name: g_mmu
       
-    Instance "g_adc ADC Driver on r_adc_c"
+    Instance "g_adc ADC (r_adc_c)"
       General: Unit: Unit 0
       General: Name: g_adc
-      General: Trigger mode: Software trgger mode
+      General: Trigger mode: Software trigger mode
       General: Operating mode: Scan mode
       General: Conversion mode: Single mode
       General: Buffer mode: 1-buffer mode
@@ -1550,7 +1548,7 @@ FSP Configuration
       Interrupts: Conversion end interrupt Enable: Disabled
       Interrupts: Conversion end Interrupt Priority: 24
       
-    Instance "g_uart0 UART Driver on r_scif_uart"
+    Instance "g_uart0 UART (r_scif_uart)"
       General: Name: g_uart0
       General: Channel: 0
       General: Data Bits: 8bits
@@ -1574,32 +1572,49 @@ FSP Configuration
       Interrupts: Receive Interrupt Priority: 24
       Interrupts: Transmit Data Empty Interrupt Priority: 24
       
-    Instance "g_timer0 Timer Driver on r_mtu3"
+    Instance "g_timer0 Timer, Multi-Function (r_mtu3)"
       General: Name: g_timer0
       General: Channel: 4
       General: Mode: Periodic
-      General: TGRA(Output Compare or Input Capture Value): 0x10000
-      General: TGRB(Output Compare or Input Capture Value): 0x10000
-      General: TGRC(Output Compare or Input Capture Value): 0x10000
-      General: TGRD(Output Compare or Input Capture Value): 0x10000
-      General: Time Prescaler: Clock source divided by 1  (common ch)
-      General: Clock Edge: Rising
+      General: Period: 0x10000
+      General: Period Unit: Raw Counts
       General: Counter Clear Source: Disabled
       General: Buffer Operation Support: Enabled
-      Noise Filter: External Clock: Enable: 
-      Noise Filter: External Clock: Clock Select: Clock source divided by 1
-      Noise Filter: Input Capture: Enable: 
-      Noise Filter: Input Capture: Clock Select: Clock source divided by 1
-      I/O Control: MTIOCnA Pin Function: No Output
-      I/O Control: MTIOCnB Pin Function: No Output
+      General: Clock Edge: Rising
+      General: Compare Match: Status: Disabled
+      General: Compare Match: Compare match value: 0
+      Output: Duty Cycle Percent (only applicable in PWM mode): 50
+      Output: MTIOCA Output Enabled: False
+      Output: MTIOCA Stop Level: Pin Level Low
+      Output: Initial Output Level (only applicable in PWM mode): Pin Level Low
+      Output: MTIOCB Output Enabled: False
+      Output: MTIOCB Stop Level: Pin Level Low
+      Output: Retain Output Level at Count Stop: Disabled
+      Input: Phase Count: Bit Mode: 16-bit
+      Input: Phase Count: Counting Mode: None
+      Input: Phase Count: Clock Pin Select: MTCLKA, MTCLKB
+      Input: Input Capture: MTIOCnA Source: No Output
+      Input: Input Capture: MTIOCnB Source: No Output
+      Input: Noise Filter: External Clock: Enable: 
+      Input: Noise Filter: External Clock: Clock Select: Clock source divided by 1
+      Input: Noise Filter: Input Capture: Enable: 
+      Input: Noise Filter: Input Capture: Clock Select: Clock source divided by 1
+      Custom Waveform: Custom Waveform Enable: Disabled
+      Custom Waveform: TGRA(Output Compare or Input Capture Value): 0x10000
+      Custom Waveform: TGRB(Output Compare or Input Capture Value): 0x10000
+      Custom Waveform: TGRC(The Buffer Value of TGRA): 0x10000
+      Custom Waveform: TGRD(The Buffer Value of TGRB): 0x10000
+      Custom Waveform: Time Prescaler: Clock source divided by 1  (common ch)
+      Custom Waveform: MTIOCnA Pin Function: No Output
+      Custom Waveform: MTIOCnB Pin Function: No Output
       Interrupts: Callback: NULL
       Interrupts: Overflow/Crest Interrupt Enable: Disabled
       Interrupts: Overflow/Crest Interrupt Priority: 24
-      Interrupts: Capture/Compare Match A Interrupt Enable: Disabled
-      Interrupts: Capture/Compare Match A Interrupt Priority: 24
-      Interrupts: Capture/Compare Match B Interrupt Enable: Disabled
-      Interrupts: Capture/Compare Match B Interrupt Priority: 24
-      Extra Features: Extra Features Enable: Disabled
+      Interrupts: Capture/Compare match A Interrupt Enable: Disabled
+      Interrupts: Capture/Compare match A Interrupt Priority: 24
+      Interrupts: Capture/Compare match B Interrupt Enable: Disabled
+      Interrupts: Capture/Compare match B Interrupt Priority: 24
+      Extra Features: Extra Features Enable: Enabled
       Extra Features: ADC Trigger: Start request cycle A (Start Request Delaying Function): 0
       Extra Features: ADC Trigger: Start request cycle B (Start Request Delaying Function): 0
       Extra Features: ADC Trigger: A/D Converter Activation by TGRA Input Capture/Compare Match Enable: Enabled

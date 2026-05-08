@@ -1,0 +1,236 @@
+/***********************************************************************************************************************
+ * File Name    : usb_app_thread_entry.c
+ * Description  : Contains data structures and functions used in usb_app_thread_entry.c.
+ **********************************************************************************************************************/
+/***********************************************************************************************************************
+* Copyright (c) 2025 - 2026 Renesas Electronics Corporation and/or its affiliates
+*
+* SPDX-License-Identifier: BSD-3-Clause
+***********************************************************************************************************************/
+
+#include "usb_app_thread.h"
+#include "usb_hhid_appl.h"
+#include "common_utils.h"
+
+/***********************************************************************************************************************
+ * @addtogroup usb_hhid_ep
+ * @{
+ **********************************************************************************************************************/
+
+/* Private global variables and functions */
+static  uint8_t     g_buf[BUFSIZE] USB_BUFFER_PLACE_IN_SECTION; /* USB Receive data */
+static  uint32_t    g_setup_data;
+uint16_t            g_mxps;
+static  usb_event_info_t    g_event_info;
+static fsp_err_t  set_protocol (usb_instance_ctrl_t *p_ctrl, uint8_t protocol, uint8_t device_address);
+extern void R_USB_CstdScheduler(void);
+
+/***********************************************************************************************************************
+ * @brief       This function is the USB application task entry. It initializes the USB driver,
+ *              handles USB host events, and manages HID data reception and queue transfer.
+ * @param[in]   pvParameters    Task parameters (TaskHandle_t), not used.
+ * @retval      None.
+ **********************************************************************************************************************/
+void usb_app_thread_entry(void *pvParameters)
+{
+    FSP_PARAMETER_NOT_USED (pvParameters);
+    BaseType_t         err_queue     = pdFALSE;
+    fsp_err_t err                    = FSP_SUCCESS;
+    fsp_pack_version_t version       = {RESET_VALUE};
+
+    /* Get the FSP version */
+    R_FSP_VersionGet(&version);
+
+    /* Example project information printed on the console */
+    APP_PRINT(BANNER_INFO, EP_VERSION, version.version_id_b.major, version.version_id_b.minor,
+            version.version_id_b.patch);
+    APP_PRINT(EP_INFO);
+
+    /* Open basic USB driver */
+    err = R_USB_Open(&g_usb_basic_ctrl, &g_usb_basic_cfg);
+
+    /* Handle error */
+    if (FSP_SUCCESS != err)
+    {
+        APP_ERR_PRINT("** R_USB_Open API failed **\r\n");
+        APP_ERR_TRAP(err);
+    }
+
+    while (true)
+    {
+        /* Scheduler */
+        R_USB_CstdScheduler();
+
+        /* Check application state */
+        switch (g_event_info.event)
+        {
+            case USB_STATUS_CONFIGURED :
+            {
+                APP_PRINT("USB Configured Successfully\r\n");
+
+                /* Get max packet size for the connected HID device */
+                err = R_USB_HHID_MaxPacketSizeGet(&g_usb_basic_ctrl, &g_mxps, USB_HID_IN, g_event_info.device_address);
+
+                /* Handle error */
+                if (FSP_SUCCESS != err)
+                {
+                    APP_ERR_PRINT ("** R_USB_HHID_MaxPacketSizeGet API failed **\r\n");
+
+                    /* Close the opened USB driver and trap error */
+                    deinit_usb();
+                    APP_ERR_TRAP(err);
+                }
+
+                /* Send the HID request(SetProtocol) to HID device */
+                err = set_protocol(&g_usb_basic_ctrl, BOOT_PROTOCOL, g_event_info.device_address);
+
+                /* Handle error */
+                if (FSP_SUCCESS != err)
+                {
+                    APP_ERR_PRINT ("** Send the HID request(SetProtocol) to HID device failed **\r\n");
+
+                    /* Close the opened USB driver and trap error */
+                    deinit_usb();
+                    APP_ERR_TRAP(err);
+                }
+                g_event_info.event = 1;
+                break;
+            }
+
+            case USB_STATUS_READ_COMPLETE:
+            {
+                /* Send data received to queue */
+                err_queue = xQueueSend(g_data_queue, &g_buf[RESET_VALUE], portMAX_DELAY);
+
+                /* Handle error */
+                if (pdTRUE != err_queue)
+                {
+                    APP_ERR_PRINT ("Error in sending USB data through queue\r\n\r\n");
+
+                    /* Close the opened USB driver and trap error */
+                    deinit_usb();
+                    APP_ERR_TRAP(FSP_ERR_ASSERTION);
+                }
+
+                /* Send data receive request to HHID device */
+                err = R_USB_Read(&g_usb_basic_ctrl, g_buf, (uint32_t)g_mxps, g_event_info.device_address);
+
+                /* Handle error */
+                if (FSP_SUCCESS != err)
+                {
+                    APP_ERR_PRINT ("** R_USB_Read API FAILED **\r\n");
+
+                    /* Close the opened USB driver and trap error */
+                    deinit_usb();
+                    APP_ERR_TRAP(err);
+                }
+                g_event_info.event = 1;
+                break;
+            }
+
+            case USB_STATUS_REQUEST_COMPLETE:
+            {
+                APP_PRINT("USB Status Request Completed Successfully\r\n");
+                if (USB_HID_SET_PROTOCOL == (g_event_info.setup.request_type & USB_BREQUEST))
+                {
+                    /* Send data receive request to HHID device */
+                    err = R_USB_Read(&g_usb_basic_ctrl, g_buf, (uint32_t)g_mxps, g_event_info.device_address);
+
+                    /* Handle error */
+                    if (FSP_SUCCESS != err)
+                    {
+                        APP_ERR_PRINT ("** R_USB_Read API FAILED **\r\n");
+
+                        /* Close the opened USB driver and trap error */
+                        deinit_usb();
+                        APP_ERR_TRAP(err);
+                    }
+                    g_event_info.event = 1;
+                }
+                APP_PRINT("Enter any key as specified from a to z, A to Z, 0 to 9 and any special character "
+                          "\r\non keyboard\r\n\r\n");
+                break;
+            }
+            case USB_STATUS_DETACH:
+            {
+                APP_PRINT("USB Removed Successfully\r\n");
+                g_event_info.event = 1;
+                break;
+            }
+
+            default:
+            {
+                g_event_info.event = 1;
+                break;
+            }
+        }
+        vTaskDelay(TASK_DELAY);
+    }
+}
+
+/***********************************************************************************************************************
+ * @brief       Sending SetProtocol request to HID device.
+ * @param[IN] : usb_ctrl_t   *p_ctrl : Pointer to usb_instance_ctrl_t structure.
+ *            : uint8_t      protocol: Protocol Type.
+ *            : uint8_t      device_address: Device address that sends this request.
+ * @retval      FSP_SUCCESS  Upon successful Sending SetProtocol request to HID device.
+ * @retval      Any other error code apart from FSP_SUCCESS on Unsuccessful Sending SetProtocol request to HID device.
+ **********************************************************************************************************************/
+static fsp_err_t set_protocol(usb_instance_ctrl_t *p_ctrl, uint8_t protocol, uint8_t device_address)
+{
+    usb_setup_t setup;
+    fsp_err_t err = FSP_SUCCESS;
+
+    setup.request_type   = SET_PROTOCOL;  /* bRequestCode:SET_PROTOCOL, bmRequestType */
+    setup.request_value  = protocol;      /* wValue: Protocol Type */
+    setup.request_index  = SET_ZERO;      /* wIndex:Interface */
+    setup.request_length = SET_ZERO;      /* wLength:Zero */
+
+    /* Request Control transfer */
+    err = R_USB_HostControlTransfer(p_ctrl, &setup, (uint8_t *)&g_setup_data, device_address);
+    if (FSP_SUCCESS != err)
+    {
+        APP_ERR_PRINT("** R_USB_HostControlTransfer API failed **\r\n");
+    }
+    return err;
+}
+
+/***********************************************************************************************************************
+ * @brief       This function is callback for FreeRTOS+HHID.
+ * @param[IN]   usb_event_info_t  *p_event_info.
+ * @param[IN]   usb_hdl_t         handler.
+ * @param[IN]   usb_onoff_t       on_off.
+ * @retval      None.
+ **********************************************************************************************************************/
+void usb_hhid_callback(usb_event_info_t * p_event_info, usb_hdl_t handler, usb_onoff_t on_off)
+{
+
+    FSP_PARAMETER_NOT_USED (handler);
+    FSP_PARAMETER_NOT_USED (on_off);
+
+    g_event_info = *p_event_info;
+}
+
+/***********************************************************************************************************************
+ * @brief     This function closes the USB module, handles the error internally with proper message.
+ *            Application handles the rest.
+ * @param[IN] None.
+ * @retval    None.
+ **********************************************************************************************************************/
+void deinit_usb(void)
+{
+    fsp_err_t err = FSP_SUCCESS;
+
+    /* Close opened USB module */
+    err = R_USB_Close(&g_usb_basic_ctrl);
+
+    /* Handle error */
+    if (FSP_SUCCESS != err)
+    {
+        APP_ERR_PRINT("** R_USB_Close API failed **\r\n");
+    }
+}
+
+/***********************************************************************************************************************
+ * @} (end addtogroup usb_hhid_ep)
+ **********************************************************************************************************************/

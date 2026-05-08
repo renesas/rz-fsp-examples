@@ -10,8 +10,8 @@
     RZA MPUs. API Failure messages will be displayed on Terminal Emulator.
 
 2. Software Requirement:
-    Renesas Flexible Software Package (FSP): Version 4.0.0
-    e2 studio: Version 2025-12
+    Renesas Flexible Software Package (FSP): Version 4.1.0
+    e2 studio: Version 2026-04.1
     GCC ARM A-Profile (AArch64 bare-metal): Version 13.2 rel1
     Terminal Console Application: Tera Term or a similar application
 

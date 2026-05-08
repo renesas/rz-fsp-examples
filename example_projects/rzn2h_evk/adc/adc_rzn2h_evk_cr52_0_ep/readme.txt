@@ -14,8 +14,8 @@
     and notifies the user to act accordingly. Result and ADC status are displayed on the JLinkRTTViewer.
 
 2. Software Requirements:
-    Renesas Flexible Software Package (FSP): Version 4.0.0
-    e2 studio: Version 2025-12
+    Renesas Flexible Software Package (FSP): Version 4.1.0
+    e2 studio: Version 2026-04.1
     GCC ARM Embedded Toolchain: Version 13.3.1.arm-13-24
     SEGGER J-Link RTT Viewer: Version 8.60
 
@@ -47,7 +47,7 @@
         - USB connection between Evaluation board and PC
           CN26 - USB Type-A to micro USB cable.
 
-4. Configuration Settings:
+5. Configuration Settings:
     The example project, by default, runs in Single scan mode on the boards.
     In order to switch the scan mode, change the 'Mode' field of ADC Driver in the RZ configurator to Continuous Scan.
 
@@ -56,5 +56,5 @@ Note:
    RTT Block address for hex file committed in repository are as follows:
    a. e2studio: 0x10180000
 
-2. If an EP is modified, compiled, and downloaded please find the block address (for the variable in RAM called _SEGGER_RTT) 
-   in .map file generated in the build configuration folder (Debug/Release).
+2. If an EP is modified, compiled, and downloaded please find the block address (for the variable in RAM called 
+   _SEGGER_RTT) in .map file generated in the build configuration folder (Debug/Release).

@@ -8,8 +8,6 @@ FSP Configuration
     package_pins: 361
     
   RZA3UL
-    series: 2
-    
   RZA3UL Family
     
   RZ/A FSP Common
@@ -1510,15 +1508,15 @@ FSP Configuration
   Module "I/O Port (r_ioport)"
     Parameter Checking: Default (BSP)
     
-  Module "MMU Driver on r_mmu"
+  Module "MMU (r_mmu)"
     Parameter Checking: Default (BSP)
     
   Module "FreeRTOS Port (rm_freertos_port)"
-  Module "Timer (r_gtm)"
+  Module "Timer, General Timer (r_gtm)"
     Parameter Checking: Default (BSP)
     
   Module "FreeRTOS Heap 4"
-  Module "UART Driver on r_scif_uart"
+  Module "UART (r_scif_uart)"
     Parameter Checking: Default (BSP)
     DMAC Support: Disable
     RS485 Flow (Driver Enable) Control Support: Disable
@@ -1601,11 +1599,11 @@ FSP Configuration
       Name: g_ioport
       Pin Configuration Name: g_bsp_pin_cfg
       
-    Instance "g_mmu MMU Driver on r_mmu"
+    Instance "g_mmu MMU (r_mmu)"
       Name: g_mmu
       
     Instance "FreeRTOS Port (rm_freertos_port)"
-      Instance "g_timer0 Timer (r_gtm)"
+      Instance "g_timer0 Timer, General Timer (r_gtm)"
         General: Name: g_timer0
         General: Channel: 0
         General: Mode: Periodic
@@ -1618,7 +1616,7 @@ FSP Configuration
         Extra Features: GTM Mode: Interval timer mode
         
     Instance "FreeRTOS Heap 4"
-    Instance "g_periodic_timer_msgq Timer (r_gtm)"
+    Instance "g_periodic_timer_msgq Timer, General Timer (r_gtm)"
       General: Name: g_periodic_timer_msgq
       General: Channel: 1
       General: Mode: Periodic
@@ -1630,7 +1628,7 @@ FSP Configuration
       Interrupts: Generate at Start: Disable
       Extra Features: GTM Mode: Interval timer mode
       
-    Instance "g_periodic_timer_sem Timer (r_gtm)"
+    Instance "g_periodic_timer_sem Timer, General Timer (r_gtm)"
       General: Name: g_periodic_timer_sem
       General: Channel: 1
       General: Mode: Periodic
@@ -1642,7 +1640,7 @@ FSP Configuration
       Interrupts: Generate at Start: Disable
       Extra Features: GTM Mode: Interval timer mode
       
-    Instance "g_uart0 UART Driver on r_scif_uart"
+    Instance "g_uart0 UART (r_scif_uart)"
       General: Name: g_uart0
       General: Channel: 0
       General: Data Bits: 8bits
@@ -1669,7 +1667,7 @@ FSP Configuration
   Thread "Sender Task"
     Symbol: sender_task
     Name: Sender Task
-    Stack size (bytes): 1024
+    Stack size (bytes): 2048
     Priority: 1
     Thread Context: NULL
     Memory Allocation: Static
@@ -1678,7 +1676,7 @@ FSP Configuration
   Thread "Receiver Task"
     Symbol: receiver_task
     Name: Receiver Task
-    Stack size (bytes): 1024
+    Stack size (bytes): 2048
     Priority: 1
     Thread Context: NULL
     Memory Allocation: Dynamic
@@ -1687,7 +1685,7 @@ FSP Configuration
   Thread "Semaphore Task"
     Symbol: semaphore_task
     Name: Semaphore Task
-    Stack size (bytes): 1024
+    Stack size (bytes): 2048
     Priority: 1
     Thread Context: NULL
     Memory Allocation: Dynamic

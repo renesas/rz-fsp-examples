@@ -13,8 +13,11 @@ Please refer to the Example Project Usage Guide for general information on examp
 To build and run the Ethernet example project, the following resources are needed.
 
 ### Hardware
-* 1x Renesas Starter Kit+ for RZ/T2L
-* 1x Ethernet Cable
+* RZ supported boards: RZ/T2L-RSK.
+* 1 x RZ board.
+* 1 x USB Type-C cable.
+* 1 x USB Type-A to micro USB cable.
+* 1 x Ethernet cable.
 
 Refer to [readme.txt](./readme.txt) for information on how to connect the hardware.
 

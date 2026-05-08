@@ -10,8 +10,8 @@
     is printed on JLinkRTTViewer.
 
 2. Software Requirements:
-    Renesas Flexible Software Package (FSP): Version 4.0.0
-    e2 studio: Version 2025-12
+    Renesas Flexible Software Package (FSP): Version 4.1.0
+    e2 studio: Version 2026-04.1
     GCC ARM Embedded Toolchain: Version 13.3.1.arm-13-24
     SEGGER J-Link RTT Viewer: Version 8.60
 
@@ -48,5 +48,5 @@ Note:
    RTT Block address for hex file committed in repository are as follows:
    a. e2studio: 0x10180000
 
-2. If an EP is modified, compiled, and downloaded please find the block address (for the variable in RAM called _SEGGER_RTT) 
-   in .map file generated in the build configuration folder (Debug/Release).
+2. If an EP is modified, compiled, and downloaded please find the block address (for the variable in RAM called 
+   _SEGGER_RTT) in .map file generated in the build configuration folder (Debug/Release).

@@ -5,7 +5,7 @@ It counts pulses from a two-phase encoder (A phase, B phase) and provides RTT Vi
 when user input "g": Retrieves the current count value from the GPT counter.
 when user input "s": Allows the user to set a specific count value. After entering s, the user inputs the desired value.
 when user input "r": Resets the GPT counter value to zero.
-Result and GPT status is displayed on the JLinkRTTViewer.
+Result and GPT status is displayed on the J-Link RTT Viewer.
 
 Please refer to the Example Project Usage Guide for general information on example projects and [readme.txt](./readme.txt) for specifics of operation.
 
@@ -13,8 +13,11 @@ Please refer to the Example Project Usage Guide for general information on examp
 To build and run the GPT example project, the following resources are needed.
 
 ### Hardware
-* 1x Renesas Starter Kit+ for RZ/T2L
-* 1x MB057GA140 Encoder(Motor)
+* RZ supported boards: RZ/T2L-RSK.
+* 1 x RZ board.
+* 1 x USB Type-C cable.
+* 1 x USB Type-A to micro USB cable.
+* 1x MB057GA140 Encoder (Motor).
 
 Refer to [readme.txt](./readme.txt) for information on how to connect the hardware.
 
@@ -53,11 +56,11 @@ The table below lists the FSP provided API used at the application layer by this
 
 
 ## Verifying operation
-1. Import, generate and build GPT EP in e2studio.
+1. Import, generate and build gpt_phase_count EP in e2studio.
    Before running the example project, make sure hardware connections are done.
 2. Download GPT EP to one Renesas RZ MPU Evaluation kit and run the project.
-3. Now open JLink RTT Viewer and connect to RZ MPU board.
-4. User can perform Menu option operations and check corresponding results JLinkRTTViewer.
+3. Now open J-Link RTT Viewer and connect to RZ MPU board.
+4. User can perform Menu option operations and check corresponding results J-Link RTT Viewer.
 5. Verify phase count direction by rotating the encoder shaft:
    - Input `r` to reset the counter to 0.
    - Input `g` and confirm the current count value is `0`.
@@ -66,10 +69,10 @@ The table below lists the FSP provided API used at the application layer by this
    - From the current position, rotate the encoder shaft counter-clockwise, then input `g`.
      The count value should decrease. It may remain positive if the rotation does not pass the zero reference.
    - To observe a negative value, either:
-     - keep rotating counter-clockwise until the count passes below 0, or
-     - input `r` at the current position (set a new zero reference) and then rotate counter-clockwise; the next `g` should show a negative count.
+     - Keep rotating counter-clockwise until the count passes below 0, or
+     - Input `r` at the current position (set a new zero reference) and then rotate counter-clockwise; the next `g` should show a negative count.
 
-   Below images showcases the GPT output on JLinkRTTViewer:
+   The images below showcase the GPT output on J-Link RTT Viewer:
 
 + Banner Info:
 

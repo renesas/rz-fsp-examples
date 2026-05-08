@@ -8,8 +8,8 @@
     This project demonstrates basic serial communication between a host PC and the target board using Tera Term. After launching Tera Term, the user establishes a new serial connection. Once the connection is established, any key pressed on the host PC is transmitted via the USB serial interface to the target device. The corresponding character data is then displayed on RTT Viewer.
 
 2. Software Requirements:
-    Renesas Flexible Software Package (FSP): Version 4.0.0
-    e2 studio: Version 2025-12
+    Renesas Flexible Software Package (FSP): Version 4.1.0
+    e2 studio: Version 2026-04.1
     GCC ARM Embedded Toolchain: Version 13.3.1.arm-13-24
     SEGGER J-Link RTT Viewer: Version 8.60
     Terminal Console Application: Tera Term or a similar application

@@ -6,16 +6,16 @@
 1. Project Overview:
     The example projects demonstrates Message Queue and Semaphore between tasks and interrupt.
     Message Queue is demonstrated between Tasks and between Task and interrupt. GTM timer
-    periodically generates interrupt at 1000 miliseconds. For first few seconds, messages are
+    periodically generates interrupt at 1000 milliseconds. For first few seconds, messages are
     shared between Sender and Receiver Tasks and GTM msgq (Message Queue) ISR. Receiver task
     pends on Message Queue, receives and displays message received on RTT Viewer periodically
-    at 500 miliseconds. For next few seconds, Semaphore Task waits for semaphore until it is
+    at 500 milliseconds. For next few seconds, Semaphore Task waits for semaphore until it is
     released by GTM sem (semaphore) ISR. GTM sem ISR releases semaphore periodically at 1000
-    miliseconds. All the tasks run with equal priority level.
+    milliseconds. All the tasks run with equal priority level.
 
 2. Software Requirements:
-    Renesas Flexible Software Package (FSP): Version 4.0.0
-    e2 studio: Version 2025-12
+    Renesas Flexible Software Package (FSP): Version 4.1.0
+    e2 studio: Version 2026-04.1
     GCC ARM Embedded Toolchain: Version 13.3.1.arm-13-24
     SEGGER J-Link RTT Viewer: Version 8.60
 

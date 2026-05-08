@@ -9,10 +9,10 @@
     <option key="#DeviceCommand#" value="R9A07G066M04GBG"/>
     <option key="#RTOS#" value="_none"/>
     <option key="#pinconfiguration#" value="R9A07G066M04GBG.pincfg"/>
-    <option key="#FSPVersion#" value="4.0.0"/>
+    <option key="#FSPVersion#" value="4.1.0"/>
     <option key="#ConfigurationFragments#" value="Renesas##BSP##Board##rza3m_ek_nor##"/>
     <option key="#SELECTED_TOOLCHAIN#" value="gcc-arm-a-profile-aarch64"/>
-    <option key="#ToolchainVersion#" value="13.2.1.20231009"/>
+    <option key="#ToolchainVersion#" value="13.2.1.arm-13-7"/>
   </generalSettings>
   <raBspConfiguration>
     <config id="config.bsp.rza3m.R9A07G066M04GBG">
@@ -21,9 +21,6 @@
       <property id="config.bsp.ram_size_bytes" value="config.bsp.ram_size_bytes.value"/>
       <property id="config.bsp.package_style" value="config.bsp.package_style.value"/>
       <property id="config.bsp.package_pins" value="config.bsp.package_pins.value"/>
-    </config>
-    <config id="config.bsp.rza3m">
-      <property id="config.bsp.series" value="config.bsp.series.value"/>
     </config>
     <config id="config.bsp.rza3m.fsp">
       <property id="config.bsp.fsp.mcu.sci_uart.max_baud" value="12500000"/>
@@ -107,57 +104,57 @@
     <node id="board.clock.m1clk.display" option="board.clock.m3clk.display.value"/>
   </raClockConfiguration>
   <raComponentSelection>
-    <component apiversion="" class="BSP" condition="" group="Board" subgroup="rza3m_ek_nor" variant="" vendor="Renesas" version="4.0.0">
+    <component apiversion="" class="BSP" condition="" group="Board" subgroup="rza3m_ek_nor" variant="" vendor="Renesas" version="4.1.0">
       <description>RZ/A3M Evaluation Board NOR Boot (Exec with DDR SDRAM) Board Support Files</description>
-      <originalPack>Renesas.RZA_board_rza3m_ek_nor.4.0.0.pack</originalPack>
+      <originalPack>Renesas.RZA_board_rza3m_ek_nor.4.1.0.pack</originalPack>
     </component>
-    <component apiversion="" class="Common" condition="" group="rza" subgroup="fsp_common" variant="" vendor="Renesas" version="4.0.0">
+    <component apiversion="" class="Common" condition="" group="rza" subgroup="fsp_common" variant="" vendor="Renesas" version="4.1.0">
       <description>Board Support Package Common Files</description>
-      <originalPack>Renesas.RZA.4.0.0.pack</originalPack>
+      <originalPack>Renesas.RZA.4.1.0.pack</originalPack>
     </component>
-    <component apiversion="" class="HAL Drivers" condition="" group="rza" subgroup="r_dmac" variant="" vendor="Renesas" version="4.0.0">
+    <component apiversion="" class="HAL Drivers" condition="" group="rza" subgroup="r_dmac" variant="" vendor="Renesas" version="4.1.0">
       <description>Direct Memory Access Controller</description>
-      <originalPack>Renesas.RZA.4.0.0.pack</originalPack>
+      <originalPack>Renesas.RZA.4.1.0.pack</originalPack>
     </component>
-    <component apiversion="" class="HAL Drivers" condition="" group="rza" subgroup="r_gtm" variant="" vendor="Renesas" version="4.0.0">
+    <component apiversion="" class="HAL Drivers" condition="" group="rza" subgroup="r_gtm" variant="" vendor="Renesas" version="4.1.0">
       <description>General Timer</description>
-      <originalPack>Renesas.RZA.4.0.0.pack</originalPack>
+      <originalPack>Renesas.RZA.4.1.0.pack</originalPack>
     </component>
-    <component apiversion="" class="HAL Drivers" condition="" group="rza" subgroup="r_ioport" variant="" vendor="Renesas" version="4.0.0">
+    <component apiversion="" class="HAL Drivers" condition="" group="rza" subgroup="r_ioport" variant="" vendor="Renesas" version="4.1.0">
       <description>I/O Port</description>
-      <originalPack>Renesas.RZA.4.0.0.pack</originalPack>
+      <originalPack>Renesas.RZA.4.1.0.pack</originalPack>
     </component>
-    <component apiversion="" class="HAL Drivers" condition="" group="rza" subgroup="r_mmu" variant="" vendor="Renesas" version="4.0.0">
+    <component apiversion="" class="HAL Drivers" condition="" group="rza" subgroup="r_mmu" variant="" vendor="Renesas" version="4.1.0">
       <description>Memory Management Unit</description>
-      <originalPack>Renesas.RZA.4.0.0.pack</originalPack>
+      <originalPack>Renesas.RZA.4.1.0.pack</originalPack>
     </component>
-    <component apiversion="" class="HAL Drivers" condition="" group="rza" subgroup="r_mtu3" variant="" vendor="Renesas" version="4.0.0">
+    <component apiversion="" class="HAL Drivers" condition="" group="rza" subgroup="r_mtu3" variant="" vendor="Renesas" version="4.1.0">
       <description>Multi-Function Timer Pulse Unit 3</description>
-      <originalPack>Renesas.RZA.4.0.0.pack</originalPack>
+      <originalPack>Renesas.RZA.4.1.0.pack</originalPack>
     </component>
-    <component apiversion="" class="HAL Drivers" condition="" group="rza" subgroup="r_scif_uart" variant="" vendor="Renesas" version="4.0.0">
+    <component apiversion="" class="HAL Drivers" condition="" group="rza" subgroup="r_scif_uart" variant="" vendor="Renesas" version="4.1.0">
       <description>SCIF UART</description>
-      <originalPack>Renesas.RZA.4.0.0.pack</originalPack>
+      <originalPack>Renesas.RZA.4.1.0.pack</originalPack>
     </component>
-    <component apiversion="" class="BSP" condition="" group="rza3m" subgroup="device" variant="R9A07G066M04GBG" vendor="Renesas" version="4.0.0">
+    <component apiversion="" class="BSP" condition="" group="rza3m" subgroup="device" variant="R9A07G066M04GBG" vendor="Renesas" version="4.1.0">
       <description>Board support package for R9A07G066M04GBG</description>
-      <originalPack>Renesas.RZA_mcu_rza3m.4.0.0.pack</originalPack>
+      <originalPack>Renesas.RZA_mcu_rza3m.4.1.0.pack</originalPack>
     </component>
-    <component apiversion="" class="BSP" condition="" group="rza3m" subgroup="device" variant="" vendor="Renesas" version="4.0.0">
+    <component apiversion="" class="BSP" condition="" group="rza3m" subgroup="device" variant="" vendor="Renesas" version="4.1.0">
       <description>Board support package for RZA3M</description>
-      <originalPack>Renesas.RZA_mcu_rza3m.4.0.0.pack</originalPack>
+      <originalPack>Renesas.RZA_mcu_rza3m.4.1.0.pack</originalPack>
     </component>
-    <component apiversion="" class="BSP" condition="" group="rza3m" subgroup="fsp" variant="" vendor="Renesas" version="4.0.0">
+    <component apiversion="" class="BSP" condition="" group="rza3m" subgroup="fsp" variant="" vendor="Renesas" version="4.1.0">
       <description>Board support package for RZ/A3M (RZ/A3M) - FSP Data</description>
-      <originalPack>Renesas.RZA_mcu_rza3m.4.0.0.pack</originalPack>
+      <originalPack>Renesas.RZA_mcu_rza3m.4.1.0.pack</originalPack>
     </component>
-    <component apiversion="" class="Common" condition="" group="rza" subgroup="fsp_common_asm" variant="" vendor="Renesas" version="4.0.0">
+    <component apiversion="" class="Common" condition="" group="rza" subgroup="fsp_common_asm" variant="" vendor="Renesas" version="4.1.0">
       <description>GCC assemble options</description>
-      <originalPack>Renesas.RZA_GCC_ASM.4.0.0.pack</originalPack>
+      <originalPack>Renesas.RZA_GCC_ASM.4.1.0.pack</originalPack>
     </component>
-    <component apiversion="" class="Common" condition="" group="all" subgroup="fsp_common" variant="" vendor="Renesas" version="4.0.0">
+    <component apiversion="" class="Common" condition="" group="all" subgroup="fsp_common" variant="" vendor="Renesas" version="4.1.0">
       <description>Board Support Package Common Files</description>
-      <originalPack>Renesas.RZ.4.0.0.pack</originalPack>
+      <originalPack>Renesas.RZ.4.1.0.pack</originalPack>
     </component>
   </raComponentSelection>
   <raElcConfiguration/>
@@ -180,6 +177,9 @@
       <property id="module.driver.rza.transfer_on_dmac.dest_addr_mode" value="module.driver.rza.transfer_on_dmac.dest_addr_mode.addr_mode_fixed"/>
       <property id="module.driver.rza.transfer_on_dmac.src_addr_mode" value="module.driver.rza.transfer_on_dmac.src_addr_mode.addr_mode_incremented"/>
       <property id="module.driver.rza.transfer_on_dmac.activation_source" value="module.driver.rza.transfer_on_dmac.activation_source.gtm_ostm0tint"/>
+      <property id="module.driver.rza.transfer_on_dmac.dreq_input_pin" value="module.driver.rza.transfer_on_dmac.dreq_input_pin.not_use_external_input_pin"/>
+      <property id="module.driver.rza.transfer_on_dmac.ack_output_pin" value="module.driver.rza.transfer_on_dmac.ack_output_pin.no_output"/>
+      <property id="module.driver.rza.transfer_on_dmac.tend_output_pin" value="module.driver.rza.transfer_on_dmac.tend_output_pin.no_output"/>
       <property id="module.driver.rza.transfer_on_dmac.request_source" value="module.driver.rza.transfer_on_dmac.request_source.source"/>
       <property id="module.driver.rza.transfer_on_dmac.dmac_mode" value="module.driver.rza.transfer_on_dmac.dmac_mode.register_mode"/>
       <property id="module.driver.rza.transfer_on_dmac.descriptor" value="NULL"/>
@@ -205,6 +205,9 @@
       <property id="module.driver.rza.transfer_on_dmac.dest_addr_mode" value="module.driver.rza.transfer_on_dmac.dest_addr_mode.addr_mode_incremented"/>
       <property id="module.driver.rza.transfer_on_dmac.src_addr_mode" value="module.driver.rza.transfer_on_dmac.src_addr_mode.addr_mode_fixed"/>
       <property id="module.driver.rza.transfer_on_dmac.activation_source" value="module.driver.rza.transfer_on_dmac.activation_source.software_trigger"/>
+      <property id="module.driver.rza.transfer_on_dmac.dreq_input_pin" value="module.driver.rza.transfer_on_dmac.dreq_input_pin.not_use_external_input_pin"/>
+      <property id="module.driver.rza.transfer_on_dmac.ack_output_pin" value="module.driver.rza.transfer_on_dmac.ack_output_pin.no_output"/>
+      <property id="module.driver.rza.transfer_on_dmac.tend_output_pin" value="module.driver.rza.transfer_on_dmac.tend_output_pin.no_output"/>
       <property id="module.driver.rza.transfer_on_dmac.request_source" value="module.driver.rza.transfer_on_dmac.request_source.source"/>
       <property id="module.driver.rza.transfer_on_dmac.dmac_mode" value="module.driver.rza.transfer_on_dmac.dmac_mode.register_mode"/>
       <property id="module.driver.rza.transfer_on_dmac.descriptor" value="NULL"/>
@@ -225,18 +228,35 @@
       <property id="module.driver.rza.timer.name" value="g_mtu3"/>
       <property id="module.driver.rza.timer.channel" value="8"/>
       <property id="module.driver.rza.timer.mode" value="module.driver.rza.timer.mode.mode_periodic"/>
+      <property id="module.driver.rza.timer.period" value="0x10000"/>
+      <property id="module.driver.rza.timer.unit" value="module.driver.rza.timer.unit.unit_period_raw_counts"/>
+      <property id="module.driver.rza.timer.mtu3_clear" value="module.driver.rza.timer.mtu3_clear.tgra"/>
+      <property id="module.driver.rza.timer.buffer_mode" value="module.driver.rza.timer.buffer_mode.enabled"/>
+      <property id="module.driver.rza.timer.clk_edge" value="module.driver.rza.timer.clk_edge.rising"/>
+      <property id="module.driver.rza.timer.compare_match.status" value="module.driver.rza.timer.compare_match.status.disabled"/>
+      <property id="module.driver.rza.timer.compare_match.value" value="0"/>
+      <property id="module.driver.rza.timer.duty_cycle" value="50"/>
+      <property id="module.driver.rza.timer.mtioca_output_enabled" value="module.driver.rza.timer.mtioca_output_enabled.false"/>
+      <property id="module.driver.rza.timer.mtioca_stop_level" value="module.driver.rza.timer.mtioca_stop_level.pin_level_low"/>
+      <property id="module.driver.rza.timer.initial_level" value="module.driver.rza.timer.initial_level.pin_level_low"/>
+      <property id="module.driver.rza.timer.mtiocb_output_enabled" value="module.driver.rza.timer.mtiocb_output_enabled.false"/>
+      <property id="module.driver.rza.timer.mtiocb_stop_level" value="module.driver.rza.timer.mtiocb_stop_level.pin_level_low"/>
+      <property id="module.driver.rza.timer.mtioc_output_retain" value="module.driver.rza.timer.mtioc_output_retain.false"/>
+      <property id="module.driver.rza.timer.bit_mode" value="module.driver.rza.timer.bit_mode.16"/>
+      <property id="module.driver.rza.timer.mtu3.counting_mode" value="module.driver.rza.timer.mtu3.counting_mode.none"/>
+      <property id="module.driver.rza.timer.input_clock_pin" value="module.driver.rza.timer.input_clock_pin.a_b"/>
+      <property id="module.driver.rza.timer.mtioca_capture_source" value="module.driver.rza.timer.mtioca_capture_source.no_output"/>
+      <property id="module.driver.rza.timer.mtiocb_capture_source" value="module.driver.rza.timer.mtiocb_capture_source.no_output"/>
+      <property id="module.driver.rza.timer.external_noise_filter.enable" value=""/>
+      <property id="module.driver.rza.timer.external_noise_filter.clock" value="module.driver.rza.timer.external_noise_filter.clock.div1"/>
+      <property id="module.driver.rza.timer.input_noise_filter.enable" value=""/>
+      <property id="module.driver.rza.timer.input_noise_filter.clock" value="module.driver.rza.timer.input_noise_filter.clock.div1"/>
+      <property id="module.driver.rza.timer.mtioc.custom_waveform_enable" value="module.driver.rza.timer.mtioc.custom_waveform_enable.enabled"/>
       <property id="module.driver.rza.timer.tgra_val" value="65536"/>
       <property id="module.driver.rza.timer.tgrb_val" value="0x10000"/>
       <property id="module.driver.rza.timer.tgrc_val" value="0x10000"/>
       <property id="module.driver.rza.timer.tgrd_val" value="0x10000"/>
       <property id="module.driver.rza.timer.mtu3_clk_div" value="module.driver.rza.timer.mtu3_clk_div.div1"/>
-      <property id="module.driver.rza.timer.clk_edge" value="module.driver.rza.timer.clk_edge.rising"/>
-      <property id="module.driver.rza.timer.mtu3_clear" value="module.driver.rza.timer.mtu3_clear.tgra"/>
-      <property id="module.driver.rza.timer.buffer_mode" value="module.driver.rza.timer.buffer_mode.enabled"/>
-      <property id="module.driver.rza.timer.external_noise_filter.enable" value=""/>
-      <property id="module.driver.rza.timer.external_noise_filter.clock" value="module.driver.rza.timer.external_noise_filter.clock.div1"/>
-      <property id="module.driver.rza.timer.input_noise_filter.enable" value=""/>
-      <property id="module.driver.rza.timer.input_noise_filter.clock" value="module.driver.rza.timer.input_noise_filter.clock.div1"/>
       <property id="module.driver.rza.timer.output_pin_level_a" value="module.driver.rza.timer.output_pin_level_a.no_output"/>
       <property id="module.driver.rza.timer.output_pin_level_b" value="module.driver.rza.timer.output_pin_level_b.no_output"/>
       <property id="module.driver.rza.timer.p_callback" value="NULL"/>
@@ -324,6 +344,16 @@
     </config>
     <config id="config.driver.rza.dmac">
       <property id="config.driver.rza.dmac.param_checking_enable" value="config.driver.rza.dmac.param_checking_enable.bsp"/>
+      <property id="config.driver.rza.dmac.dack0_active_level" value="config.driver.rza.dmac.external_output_signal_active_level.no_output"/>
+      <property id="config.driver.rza.dmac.dack1_active_level" value="config.driver.rza.dmac.external_output_signal_active_level.no_output"/>
+      <property id="config.driver.rza.dmac.dack2_active_level" value="config.driver.rza.dmac.external_output_signal_active_level.no_output"/>
+      <property id="config.driver.rza.dmac.dack3_active_level" value="config.driver.rza.dmac.external_output_signal_active_level.no_output"/>
+      <property id="config.driver.rza.dmac.dack4_active_level" value="config.driver.rza.dmac.external_output_signal_active_level.no_output"/>
+      <property id="config.driver.rza.dmac.tend0_active_level" value="config.driver.rza.dmac.external_output_signal_active_level.no_output"/>
+      <property id="config.driver.rza.dmac.tend1_active_level" value="config.driver.rza.dmac.external_output_signal_active_level.no_output"/>
+      <property id="config.driver.rza.dmac.tend2_active_level" value="config.driver.rza.dmac.external_output_signal_active_level.no_output"/>
+      <property id="config.driver.rza.dmac.tend3_active_level" value="config.driver.rza.dmac.external_output_signal_active_level.no_output"/>
+      <property id="config.driver.rza.dmac.tend4_active_level" value="config.driver.rza.dmac.external_output_signal_active_level.no_output"/>
     </config>
   </raModuleConfiguration>
   <raPinConfiguration>

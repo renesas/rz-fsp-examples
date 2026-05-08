@@ -360,6 +360,15 @@ SECTIONS
         KEEP(*(.software_reset)) /* Do not initialize */
     } > LOADER_DATA_STACK
 
+    /* Place the uninitialized variables. */
+    .noinit (NOLOAD):
+    {
+        . = ALIGN(8);
+        __noinit_start = .;
+        KEEP(*(.noinit*))
+        __noinit_end = .;
+    } > LOADER_DATA_STACK
+
 /*-----------------------------------------------*/
 /*  AArch32 STACK                                */
 /*-----------------------------------------------*/
@@ -579,9 +588,9 @@ SECTIONS
         /* Place the noncache variables. */
         . = ALIGN(8);
         _data_noncache_start = .;
-        *  (  .bss._SEGGER_RTT  )
-		*  (  .bss._acDownBuffer  )
-		*  (  .bss._acUpBuffer  )
+        *(.bss._SEGGER_RTT)
+        *(.bss._acDownBuffer)
+        *(.bss._acUpBuffer)
         KEEP(*(.data_noncache*))
         _data_noncache_end = .;
 

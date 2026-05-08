@@ -8,8 +8,6 @@ FSP Configuration
     package_pins: 361
     
   RZA3UL
-    series: 2
-    
   RZA3UL Family
     
   RZ/A FSP Common
@@ -1510,10 +1508,10 @@ FSP Configuration
   Module "I/O Port (r_ioport)"
     Parameter Checking: Default (BSP)
     
-  Module "MMU Driver on r_mmu"
+  Module "MMU (r_mmu)"
     Parameter Checking: Default (BSP)
     
-  Module "UART Driver on r_scif_uart"
+  Module "UART (r_scif_uart)"
     Parameter Checking: Default (BSP)
     DMAC Support: Disable
     RS485 Flow (Driver Enable) Control Support: Disable
@@ -1528,10 +1526,10 @@ FSP Configuration
       Name: g_ioport
       Pin Configuration Name: g_bsp_pin_cfg
       
-    Instance "g_mmu MMU Driver on r_mmu"
+    Instance "g_mmu MMU (r_mmu)"
       Name: g_mmu
       
-    Instance "g_uart0 UART Driver on r_scif_uart"
+    Instance "g_uart0 UART (r_scif_uart)"
       General: Name: g_uart0
       General: Channel: 0
       General: Data Bits: 8bits

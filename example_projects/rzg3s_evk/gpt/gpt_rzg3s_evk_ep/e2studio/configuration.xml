@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<raConfiguration version="11">
+<raConfiguration version="12">
   <generalSettings>
     <option key="#Board#" value="board.rzg3s_smarc"/>
     <option key="CPU" value="RZG3S"/>
@@ -9,7 +9,7 @@
     <option key="#DeviceCommand#" value="R9A08G045S33GBG"/>
     <option key="#RTOS#" value="_none"/>
     <option key="#pinconfiguration#" value="R9A08G045S33GBG.pincfg"/>
-    <option key="#FSPVersion#" value="4.0.0"/>
+    <option key="#FSPVersion#" value="4.1.0"/>
     <option key="#ConfigurationFragments#" value="Renesas##BSP##Board##rzg3s_smarc##"/>
     <option key="#SELECTED_TOOLCHAIN#" value="gcc-arm-embedded"/>
     <option key="#ToolchainVersion#" value="13.3.1.arm-13-24"/>
@@ -25,6 +25,7 @@
     <config id="config.bsp.rzg3s">
       <property id="config.bsp.launch_ca55" value="config.bsp.launch_ca55.disabled"/>
       <property id="config.bsp.launch_cm33_fpu" value="config.bsp.launch_cm33_fpu.disabled"/>
+      <property id="config.bsp.clock_init" value="config.bsp.clock_init.disabled"/>
     </config>
     <config id="config.bsp.rzg3s.fsp.cm33">
       <property id="config.bsp.fsp.inline_irq_functions" value="config.bsp.common.inline_irq_functions.enabled"/>
@@ -34,6 +35,7 @@
       <property id="config.bsp.fsp.mcu.canfd.min_nominal_timeseg1" value="2"/>
       <property id="config.bsp.fsp.mcu.canfd.max_nominal_timeseg1" value="256"/>
       <property id="config.bsp.fsp.mcu.canfd.max_nominal_timeseg2" value="128"/>
+      <property id="config.bsp.fsp.mcu.canfd.min_nominal_sync_jump_width" value="2"/>
       <property id="config.bsp.fsp.mcu.canfd.max_nominal_sync_jump_width" value="128"/>
       <property id="config.bsp.fsp.mcu.canfd.max_data_prescaler" value="1024"/>
       <property id="config.bsp.fsp.mcu.canfd.max_data_timeseg1" value="32"/>
@@ -53,7 +55,6 @@
       <property id="config.bsp.common.vcc" value="3300"/>
       <property id="config.bsp.common.checking" value="config.bsp.common.checking.enabled"/>
       <property id="config.bsp.common.assert" value="config.bsp.common.assert.none"/>
-      <property id="config.bsp.common.error_log" value="config.bsp.common.error_log.none"/>
       <property id="config.bsp.common.pfs_protect" value="config.bsp.common.pfs_protect.enabled"/>
       <property id="config.bsp.common.c_runtime_init" value="config.bsp.common.c_runtime_init.enabled"/>
       <property id="config.bsp.common.early_init" value="config.bsp.common.early_init.disabled"/>
@@ -135,45 +136,45 @@
     <node id="board.clock.osc2.display" option="board.clock.osc2.display.value"/>
   </raClockConfiguration>
   <raComponentSelection>
-    <component apiversion="" class="Common" condition="" group="all" subgroup="fsp_common" variant="" vendor="Renesas" version="4.0.0">
-      <description>Board Support Package Common Files</description>
-      <originalPack>Renesas.RZ.4.0.0.pack</originalPack>
-    </component>
-    <component apiversion="" class="Common" condition="" group="rzg" subgroup="fsp_common" variant="" vendor="Renesas" version="4.0.0">
-      <description>Board Support Package Common Files</description>
-      <originalPack>Renesas.RZG.4.0.0.pack</originalPack>
-    </component>
-    <component apiversion="" class="HAL Drivers" condition="" group="rzg" subgroup="r_ioport" variant="" vendor="Renesas" version="4.0.0">
-      <description>I/O Port</description>
-      <originalPack>Renesas.RZG.4.0.0.pack</originalPack>
-    </component>
-    <component apiversion="" class="HAL Drivers" condition="" group="rzg" subgroup="r_xspi_qspi" variant="" vendor="Renesas" version="4.0.0">
-      <description>Quad Serial Peripheral Interface Flash on Expanded Serial Peripheral Interface</description>
-      <originalPack>Renesas.RZG.4.0.0.pack</originalPack>
-    </component>
-    <component apiversion="" class="CMSIS" condition="" group="CMSIS6" subgroup="CoreM" variant="" vendor="Arm" version="6.1.0+fsp.4.0.0">
+    <component apiversion="" class="CMSIS" condition="" group="CMSIS6" subgroup="CoreM" variant="" vendor="Arm" version="6.1.0+fsp.4.1.0">
       <description>Arm CMSIS Version 6 - Core</description>
-      <originalPack>Arm.CMSIS6.6.1.0+fsp.4.0.0.pack</originalPack>
+      <originalPack>Arm.CMSIS6.6.1.0+fsp.4.1.0.pack</originalPack>
     </component>
-    <component apiversion="" class="BSP" condition="" group="rzg3s" subgroup="device" variant="R9A08G045S33GBG" vendor="Renesas" version="4.0.0">
-      <description>Board support package for R9A08G045S33GBG</description>
-      <originalPack>Renesas.RZG_mcu_rzg3s.4.0.0.pack</originalPack>
+    <component apiversion="" class="Common" condition="" group="all" subgroup="fsp_common" variant="" vendor="Renesas" version="4.1.0">
+      <description>Board Support Package Common Files</description>
+      <originalPack>Renesas.RZ.4.1.0.pack</originalPack>
     </component>
-    <component apiversion="" class="BSP" condition="" group="rzg3s" subgroup="device" variant="" vendor="Renesas" version="4.0.0">
-      <description>Board support package for RZG3S</description>
-      <originalPack>Renesas.RZG_mcu_rzg3s.4.0.0.pack</originalPack>
+    <component apiversion="" class="Common" condition="" group="rzg" subgroup="fsp_common" variant="" vendor="Renesas" version="4.1.0">
+      <description>Board Support Package Common Files</description>
+      <originalPack>Renesas.RZG.4.1.0.pack</originalPack>
     </component>
-    <component apiversion="" class="BSP" condition="" group="rzg3s" subgroup="fsp" variant="" vendor="Renesas" version="4.0.0">
-      <description>Board support package for RZ/G3S - FSP Data</description>
-      <originalPack>Renesas.RZG_mcu_rzg3s.4.0.0.pack</originalPack>
-    </component>
-    <component apiversion="" class="BSP" condition="" group="Board" subgroup="rzg3s_smarc" variant="" vendor="Renesas" version="4.0.0">
-      <description>Evaluation Kit RZ/G3S Support Files (RZ/G3S)</description>
-      <originalPack>Renesas.RZG_board_rzg3s_smarc.4.0.0.pack</originalPack>
-    </component>
-    <component apiversion="" class="HAL Drivers" condition="" group="rzg" subgroup="r_gpt" variant="" vendor="Renesas" version="4.0.0">
+    <component apiversion="" class="HAL Drivers" condition="" group="rzg" subgroup="r_gpt" variant="" vendor="Renesas" version="4.1.0">
       <description>General PWM Timer</description>
-      <originalPack>Renesas.RZG.4.0.0.pack</originalPack>
+      <originalPack>Renesas.RZG.4.1.0.pack</originalPack>
+    </component>
+    <component apiversion="" class="HAL Drivers" condition="" group="rzg" subgroup="r_ioport" variant="" vendor="Renesas" version="4.1.0">
+      <description>I/O Port</description>
+      <originalPack>Renesas.RZG.4.1.0.pack</originalPack>
+    </component>
+    <component apiversion="" class="HAL Drivers" condition="" group="rzg" subgroup="r_xspi_qspi" variant="" vendor="Renesas" version="4.1.0">
+      <description>Quad Serial Peripheral Interface Flash on Expanded Serial Peripheral Interface</description>
+      <originalPack>Renesas.RZG.4.1.0.pack</originalPack>
+    </component>
+    <component apiversion="" class="BSP" condition="" group="Board" subgroup="rzg3s_smarc" variant="" vendor="Renesas" version="4.1.0">
+      <description>Evaluation Kit RZ/G3S Support Files (RZ/G3S)</description>
+      <originalPack>Renesas.RZG_board_rzg3s_smarc.4.1.0.pack</originalPack>
+    </component>
+    <component apiversion="" class="BSP" condition="" group="rzg3s" subgroup="device" variant="R9A08G045S33GBG" vendor="Renesas" version="4.1.0">
+      <description>Board support package for R9A08G045S33GBG</description>
+      <originalPack>Renesas.RZG_mcu_rzg3s.4.1.0.pack</originalPack>
+    </component>
+    <component apiversion="" class="BSP" condition="" group="rzg3s" subgroup="device" variant="" vendor="Renesas" version="4.1.0">
+      <description>Board support package for RZG3S</description>
+      <originalPack>Renesas.RZG_mcu_rzg3s.4.1.0.pack</originalPack>
+    </component>
+    <component apiversion="" class="BSP" condition="" group="rzg3s" subgroup="fsp" variant="" vendor="Renesas" version="4.1.0">
+      <description>Board support package for RZ/G3S - FSP Data</description>
+      <originalPack>Renesas.RZG_mcu_rzg3s.4.1.0.pack</originalPack>
     </component>
   </raComponentSelection>
   <raElcConfiguration/>
@@ -292,6 +293,8 @@
       <property id="module.driver.rzg.timer.gtioca_stop_level" value="module.driver.rzg.timer.gtioca_stop_level.pin_level_low"/>
       <property id="module.driver.rzg.timer.gtiocb_output_enabled" value="module.driver.rzg.timer.gtiocb_output_enabled.true"/>
       <property id="module.driver.rzg.timer.gtiocb_stop_level" value="module.driver.rzg.timer.gtiocb_stop_level.pin_level_high"/>
+      <property id="module.driver.rzg.timer.phase_count_setting_automatically_enable" value="module.driver.rzg.timer.phase_count_setting_automatically_enable.disabled"/>
+      <property id="module.driver.rzg.timer.counting_mode" value="module.driver.rzg.timer.counting_mode.mode1"/>
       <property id="module.driver.rzg.timer.count_up_source" value=""/>
       <property id="module.driver.rzg.timer.count_down_source" value=""/>
       <property id="module.driver.rzg.timer.start_source" value=""/>
@@ -312,8 +315,10 @@
       <property id="module.driver.rzg.timer.trough_ipl" value="4"/>
       <property id="module.driver.rzg.timer.interrupt.dead_time_error" value="_disabled"/>
       <property id="module.driver.rzg.timer.dead_time_error_ipl" value="4"/>
-      <property id="module.driver.rzg.timer.extra" value="_disabled"/>
-      <property id="module.driver.rzg.timer.poeg_link" value=""/>
+      <property id="module.driver.rzg.timer.interrupt.ovfunf" value="_disabled"/>
+      <property id="module.driver.rzg.timer.ovfunf_ipl" value="4"/>
+      <property id="module.driver.rzg.timer.extra" value="module.driver.rzg.timer.extra.disabled"/>
+      <property id="module.driver.rzg.timer.poeg_link" value="module.driver.rzg.timer.poeg_link.poeg_link_poeg0"/>
       <property id="module.driver.rzg.timer.output_disable" value=""/>
       <property id="module.driver.rzg.timer.adc_trigger" value=""/>
       <property id="module.driver.rzg.timer.dead_time_count_up" value="0"/>
@@ -322,9 +327,17 @@
       <property id="module.driver.rzg.timer.adc_b_compare_match" value="0"/>
       <property id="module.driver.rzg.timer.interrupt_skip.source" value="module.driver.rzg.timer.interrupt_skip.source.none"/>
       <property id="module.driver.rzg.timer.interrupt_skip.count" value="module.driver.rzg.timer.interrupt_skip.count.count_0"/>
-      <property id="module.driver.rzg.timer.interrupt_skip.adc" value="module.driver.rzg.timer.interrupt_skip.adc.none"/>
+      <property id="module.driver.rzg.timer.interrupt_skip.adc" value="module.driver.rzg.timer.interrupt_skip.skip_sources.interrupt_skip.adc.none"/>
       <property id="module.driver.rzg.timer.gtioca_disable_setting" value="module.driver.rzg.timer.gtioca_disable_setting.gtioc_disable_prohibited"/>
       <property id="module.driver.rzg.timer.gtiocb_disable_setting" value="module.driver.rzg.timer.gtiocb_disable_setting.gtioc_disable_prohibited"/>
+      <property id="module.driver.rzg.timer.interrupt_skip_ext1.source" value="module.driver.rzg.timer.interrupt_skip_ext1.source.none"/>
+      <property id="module.driver.rzg.timer.interrupt_skip_ext1.count" value="module.driver.rzg.timer.interrupt_skip_ext1.count.count_0"/>
+      <property id="module.driver.rzg.timer.interrupt_skip_ext2.source" value="module.driver.rzg.timer.interrupt_skip_ext2.source.none"/>
+      <property id="module.driver.rzg.timer.interrupt_skip_ext2.count" value="module.driver.rzg.timer.interrupt_skip_ext2.count.count_0"/>
+      <property id="module.driver.rzg.timer.interrupt_skip_func.ovf" value="module.driver.rzg.timer.interrupt_skip_func.ovf.none"/>
+      <property id="module.driver.rzg.timer.interrupt_skip_func.unf" value="module.driver.rzg.timer.interrupt_skip_func.unf.none"/>
+      <property id="module.driver.rzg.timer.interrupt_skip_func.adc_a" value="module.driver.rzg.timer.interrupt_skip_func.adc_a.none"/>
+      <property id="module.driver.rzg.timer.interrupt_skip_func.adc_b" value="module.driver.rzg.timer.interrupt_skip_func.adc_b.none"/>
     </module>
     <module id="module.driver.rzg.timer_on_gpt.1713340017">
       <property id="module.driver.rzg.timer.name" value="g_timer_pwm"/>
@@ -350,6 +363,8 @@
       <property id="module.driver.rzg.timer.gtioca_stop_level" value="module.driver.rzg.timer.gtioca_stop_level.pin_level_low"/>
       <property id="module.driver.rzg.timer.gtiocb_output_enabled" value="module.driver.rzg.timer.gtiocb_output_enabled.true"/>
       <property id="module.driver.rzg.timer.gtiocb_stop_level" value="module.driver.rzg.timer.gtiocb_stop_level.pin_level_high"/>
+      <property id="module.driver.rzg.timer.phase_count_setting_automatically_enable" value="module.driver.rzg.timer.phase_count_setting_automatically_enable.disabled"/>
+      <property id="module.driver.rzg.timer.counting_mode" value="module.driver.rzg.timer.counting_mode.mode1"/>
       <property id="module.driver.rzg.timer.count_up_source" value=""/>
       <property id="module.driver.rzg.timer.count_down_source" value=""/>
       <property id="module.driver.rzg.timer.start_source" value=""/>
@@ -370,8 +385,10 @@
       <property id="module.driver.rzg.timer.trough_ipl" value="4"/>
       <property id="module.driver.rzg.timer.interrupt.dead_time_error" value="_disabled"/>
       <property id="module.driver.rzg.timer.dead_time_error_ipl" value="4"/>
-      <property id="module.driver.rzg.timer.extra" value="_disabled"/>
-      <property id="module.driver.rzg.timer.poeg_link" value=""/>
+      <property id="module.driver.rzg.timer.interrupt.ovfunf" value="_disabled"/>
+      <property id="module.driver.rzg.timer.ovfunf_ipl" value="4"/>
+      <property id="module.driver.rzg.timer.extra" value="module.driver.rzg.timer.extra.disabled"/>
+      <property id="module.driver.rzg.timer.poeg_link" value="module.driver.rzg.timer.poeg_link.poeg_link_poeg0"/>
       <property id="module.driver.rzg.timer.output_disable" value=""/>
       <property id="module.driver.rzg.timer.adc_trigger" value=""/>
       <property id="module.driver.rzg.timer.dead_time_count_up" value="0"/>
@@ -380,9 +397,17 @@
       <property id="module.driver.rzg.timer.adc_b_compare_match" value="0"/>
       <property id="module.driver.rzg.timer.interrupt_skip.source" value="module.driver.rzg.timer.interrupt_skip.source.none"/>
       <property id="module.driver.rzg.timer.interrupt_skip.count" value="module.driver.rzg.timer.interrupt_skip.count.count_0"/>
-      <property id="module.driver.rzg.timer.interrupt_skip.adc" value="module.driver.rzg.timer.interrupt_skip.adc.none"/>
+      <property id="module.driver.rzg.timer.interrupt_skip.adc" value="module.driver.rzg.timer.interrupt_skip.skip_sources.interrupt_skip.adc.none"/>
       <property id="module.driver.rzg.timer.gtioca_disable_setting" value="module.driver.rzg.timer.gtioca_disable_setting.gtioc_disable_prohibited"/>
       <property id="module.driver.rzg.timer.gtiocb_disable_setting" value="module.driver.rzg.timer.gtiocb_disable_setting.gtioc_disable_prohibited"/>
+      <property id="module.driver.rzg.timer.interrupt_skip_ext1.source" value="module.driver.rzg.timer.interrupt_skip_ext1.source.none"/>
+      <property id="module.driver.rzg.timer.interrupt_skip_ext1.count" value="module.driver.rzg.timer.interrupt_skip_ext1.count.count_0"/>
+      <property id="module.driver.rzg.timer.interrupt_skip_ext2.source" value="module.driver.rzg.timer.interrupt_skip_ext2.source.none"/>
+      <property id="module.driver.rzg.timer.interrupt_skip_ext2.count" value="module.driver.rzg.timer.interrupt_skip_ext2.count.count_0"/>
+      <property id="module.driver.rzg.timer.interrupt_skip_func.ovf" value="module.driver.rzg.timer.interrupt_skip_func.ovf.none"/>
+      <property id="module.driver.rzg.timer.interrupt_skip_func.unf" value="module.driver.rzg.timer.interrupt_skip_func.unf.none"/>
+      <property id="module.driver.rzg.timer.interrupt_skip_func.adc_a" value="module.driver.rzg.timer.interrupt_skip_func.adc_a.none"/>
+      <property id="module.driver.rzg.timer.interrupt_skip_func.adc_b" value="module.driver.rzg.timer.interrupt_skip_func.adc_b.none"/>
     </module>
     <module id="module.driver.rzg.timer_on_gpt.1638705464">
       <property id="module.driver.rzg.timer.name" value="g_timer_one_shot_mode"/>
@@ -408,6 +433,8 @@
       <property id="module.driver.rzg.timer.gtioca_stop_level" value="module.driver.rzg.timer.gtioca_stop_level.pin_level_low"/>
       <property id="module.driver.rzg.timer.gtiocb_output_enabled" value="module.driver.rzg.timer.gtiocb_output_enabled.true"/>
       <property id="module.driver.rzg.timer.gtiocb_stop_level" value="module.driver.rzg.timer.gtiocb_stop_level.pin_level_high"/>
+      <property id="module.driver.rzg.timer.phase_count_setting_automatically_enable" value="module.driver.rzg.timer.phase_count_setting_automatically_enable.disabled"/>
+      <property id="module.driver.rzg.timer.counting_mode" value="module.driver.rzg.timer.counting_mode.mode1"/>
       <property id="module.driver.rzg.timer.count_up_source" value=""/>
       <property id="module.driver.rzg.timer.count_down_source" value=""/>
       <property id="module.driver.rzg.timer.start_source" value=""/>
@@ -428,8 +455,10 @@
       <property id="module.driver.rzg.timer.trough_ipl" value="4"/>
       <property id="module.driver.rzg.timer.interrupt.dead_time_error" value="_disabled"/>
       <property id="module.driver.rzg.timer.dead_time_error_ipl" value="4"/>
-      <property id="module.driver.rzg.timer.extra" value="_disabled"/>
-      <property id="module.driver.rzg.timer.poeg_link" value=""/>
+      <property id="module.driver.rzg.timer.interrupt.ovfunf" value="_disabled"/>
+      <property id="module.driver.rzg.timer.ovfunf_ipl" value="4"/>
+      <property id="module.driver.rzg.timer.extra" value="module.driver.rzg.timer.extra.disabled"/>
+      <property id="module.driver.rzg.timer.poeg_link" value="module.driver.rzg.timer.poeg_link.poeg_link_poeg0"/>
       <property id="module.driver.rzg.timer.output_disable" value=""/>
       <property id="module.driver.rzg.timer.adc_trigger" value=""/>
       <property id="module.driver.rzg.timer.dead_time_count_up" value="0"/>
@@ -438,9 +467,17 @@
       <property id="module.driver.rzg.timer.adc_b_compare_match" value="0"/>
       <property id="module.driver.rzg.timer.interrupt_skip.source" value="module.driver.rzg.timer.interrupt_skip.source.none"/>
       <property id="module.driver.rzg.timer.interrupt_skip.count" value="module.driver.rzg.timer.interrupt_skip.count.count_0"/>
-      <property id="module.driver.rzg.timer.interrupt_skip.adc" value="module.driver.rzg.timer.interrupt_skip.adc.none"/>
+      <property id="module.driver.rzg.timer.interrupt_skip.adc" value="module.driver.rzg.timer.interrupt_skip.skip_sources.interrupt_skip.adc.none"/>
       <property id="module.driver.rzg.timer.gtioca_disable_setting" value="module.driver.rzg.timer.gtioca_disable_setting.gtioc_disable_prohibited"/>
       <property id="module.driver.rzg.timer.gtiocb_disable_setting" value="module.driver.rzg.timer.gtiocb_disable_setting.gtioc_disable_prohibited"/>
+      <property id="module.driver.rzg.timer.interrupt_skip_ext1.source" value="module.driver.rzg.timer.interrupt_skip_ext1.source.none"/>
+      <property id="module.driver.rzg.timer.interrupt_skip_ext1.count" value="module.driver.rzg.timer.interrupt_skip_ext1.count.count_0"/>
+      <property id="module.driver.rzg.timer.interrupt_skip_ext2.source" value="module.driver.rzg.timer.interrupt_skip_ext2.source.none"/>
+      <property id="module.driver.rzg.timer.interrupt_skip_ext2.count" value="module.driver.rzg.timer.interrupt_skip_ext2.count.count_0"/>
+      <property id="module.driver.rzg.timer.interrupt_skip_func.ovf" value="module.driver.rzg.timer.interrupt_skip_func.ovf.none"/>
+      <property id="module.driver.rzg.timer.interrupt_skip_func.unf" value="module.driver.rzg.timer.interrupt_skip_func.unf.none"/>
+      <property id="module.driver.rzg.timer.interrupt_skip_func.adc_a" value="module.driver.rzg.timer.interrupt_skip_func.adc_a.none"/>
+      <property id="module.driver.rzg.timer.interrupt_skip_func.adc_b" value="module.driver.rzg.timer.interrupt_skip_func.adc_b.none"/>
     </module>
     <context id="_hal.0">
       <stack module="module.driver.rzg.ioport_on_ioport.0"/>

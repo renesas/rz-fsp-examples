@@ -14,8 +14,8 @@
     and notifies the user to act accordingly. Result and ADC status are displayed on the Tera Term.
 
 2. Software Requirements:
-    Renesas Flexible Software Package (FSP): Version 4.0.0
-    e2 studio: Version 2025-12
+    Renesas Flexible Software Package (FSP): Version 4.1.0
+    e2 studio: Version 2026-04.1
     GCC ARM A-Profile (AArch64 bare-metal): Version 13.2 rel1
     Terminal Console Application: Tera Term or a similar application
 
@@ -55,6 +55,6 @@
           CN27 - USB Type-A to USB Mini-B cable
           CN26 - USB Type-A to micro USB cable.
 
-4. Configuration Settings:
+5. Configuration Settings:
     The example project, by default, runs in Single scan mode on the boards.
     In order to switch the scan mode, change the 'Mode' field of ADC Driver in the RZ configurator to Continuous Scan.

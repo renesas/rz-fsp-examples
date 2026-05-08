@@ -5,14 +5,14 @@
 
 1. Project Overview:
     The example project demonstrates the functionality of GPT input capture module. GPT4 is
-    used to generate periodic pulses of 500 miliseconds duration and provided as input to GPT
+    used to generate periodic pulses of 500 milliseconds duration and provided as input to GPT
     input capture (GPT3). GPT3 counts the event pulse received at its input. Based on the
     period and capture event, the time period of pulse is calculated and displayed on
     RTT Viewer.
 
 2. Software Requirements:
-    Renesas Flexible Software Package (FSP): Version 4.0.0
-    e2 studio: Version 2025-12
+    Renesas Flexible Software Package (FSP): Version 4.1.0
+    e2 studio: Version 2026-04.1
     GCC ARM Embedded Toolchain: Version 13.3.1.arm-13-24
     SEGGER J-Link RTT Viewer: Version 8.60
 

@@ -38,7 +38,7 @@
 #define BANNER_INFO     "\r\n********************************************************************************"\
                         "\r\n*   Renesas FSP Example Project for "MODULE_NAME" Module                       *"\
                         "\r\n*   Example Project Version %s                                              *"\
-                        "\r\n*   Flex Software Pack Version %d.%d.%d                                         *"\
+                        "\r\n*   Flex Software Pack Version %d.%d.%d                                           *"\
                         "\r\n********************************************************************************"\
                         "\r\nRefer to readme.txt file for more details on Example Project and"\
                         "\r\nFSP User's Manual for more information about "MODULE_NAME" driver\r\n"

@@ -83,9 +83,9 @@ SECTIONS
 
         KEEP(*(.int_handler))
 
-        ./rzv_gen/*.o(.text*)
-        ./rzv/fsp/*.o(.text*)
-        ./rzv/board/*.o(.text*)
+        ./rz_gen/*.o(.text*)
+        ./rz/fsp/*.o(.text*)
+        ./rz/board/*.o(.text*)
 
         KEEP(*(.init))
         KEEP(*(.fini))
@@ -137,13 +137,13 @@ SECTIONS
 
         *(vtable)
         KEEP(*(.application_vectors))
-        ./rzv_gen/*.o(.data*)
-        ./rzv/fsp/*.o(.data*)
-        ./rzv/board/*.o(.data*)
+        ./rz_gen/*.o(.data*)
+        ./rz/fsp/*.o(.data*)
+        ./rz/board/*.o(.data*)
 
-        ./rzv_gen/*.o(.rodata*)
-        ./rzv/fsp/*.o(.rodata*)
-        ./rzv/board/*.o(.rodata*)
+        ./rz_gen/*.o(.rodata*)
+        ./rz/fsp/*.o(.rodata*)
+        ./rz/board/*.o(.rodata*)
         _erodata = .;
 
         . = ALIGN(0x04);
@@ -234,9 +234,9 @@ SECTIONS
         . = ALIGN(0x04);
         __bss_start__ = .;
         _bss = .;
-        ./rzv_gen/*.o (.bss*)
-        ./rzv/fsp/*.o (.bss*)
-        ./rzv/board/*.o (.bss*)
+        ./rz_gen/*.o (.bss*)
+        ./rz/fsp/*.o (.bss*)
+        ./rz/board/*.o (.bss*)
         *(COMMON)
         . = ALIGN(0x04);
         __bss_end__ = .;
@@ -247,7 +247,7 @@ SECTIONS
     {
         . = ALIGN ( 0x04 ) ;
         _sdram_load_start = .;
-        ./rzv/linaro/*.o(.data*)
+        ./rz/linaro/*.o(.data*)
         . = ALIGN(0x04);
         _sdram_load_end = .;
     } > DDR_SDRAM_CACHE

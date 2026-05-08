@@ -10,8 +10,8 @@
     Error and info messages will be printed on Terminal Emulator.
 
 2. Software Requirements:
-    Renesas Flexible Software Package (FSP): Version 4.0.0
-    e2 studio: Version 2025-12
+    Renesas Flexible Software Package (FSP): Version 4.1.0
+    e2 studio: Version 2026-04.1
     GCC ARM A-Profile (AArch64 bare-metal): Version 13.2 rel1
     Terminal Console Application: Tera Term or a similar application
 
@@ -19,8 +19,7 @@
     1 x RZ board.
     1 x USB Type-C cable.
     1 x USB Type-microB cable.
-    1 x PMOD LED module.
-    1 x Micro SD Card
+    1 x Micro SD Card.
 
     RZ supported boards:
         RZ/A3UL Evaluation Board Kit QSPI Edition  (Exec with DDR SDRAM).
@@ -61,11 +60,11 @@
 5. Hardware Connections:
     (1) Connect the CN6 port on the SMARC Carrier Board to a 5V power source using a USB Type-C cable for board power
         supply.
-    (2) Connect the J-Link Base and the connector on the SMRAC Module Board with a JTAG cable for debugging.
+    (2) Connect the J-Link Base and the connector on the SMARC Module Board with a JTAG cable for debugging.
         When connecting the conversion adapter "J-Link 9-pin Cortex-M Adapter" made by SEGGER will be required.
     (3) Connect the CN14 port on the Smarc Carrier Board to the PC using a USB Type-microB cable for serial terminal
         communication (Tera Term).
-    (4) Insert micro sd card into card slot(CN3) on the Module board.
+    (4) Insert micro SD card into card slot(CN3) on the Module board.
 
 Note:
 0. SD channel 0 is supported.

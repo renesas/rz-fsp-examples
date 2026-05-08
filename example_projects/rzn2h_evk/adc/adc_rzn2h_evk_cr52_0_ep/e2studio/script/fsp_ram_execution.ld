@@ -13,6 +13,41 @@ INCLUDE redefinition_memory_regions_gcc.h
 /* Determine whether it is a primary project or not. */
 _RZ_ORDINAL = (0 == SECONDARY_PRV) ? 1 : 2;
 
+/* Check whether TCM is implemented on the core you intend to use. */
+IMPLEMENTED_TCM = ((DEFINED(ATCM_CR52_0_START) || DEFINED(ATCM_CR52_1_START)) && (DEFINED(BTCM_CR52_0_START) || DEFINED(BTCM_CR52_1_START))) ? 1 : 0;
+
+/* Change the location region of the loader program and user program.
+ * For details, refer to the "Change Program Location" chapter in the FSP documentation (BSP -> MCU Board Support Package). */
+
+/* The following values can be set.
+ * 0: ATCM
+ * 1: BTCM
+ * 2: SYSTEM_RAM */
+
+LOADER_PROGRAM_LOCATION_PRV = DEFINED(LOADER_PROGRAM_LOCATION) ?
+                                  LOADER_PROGRAM_LOCATION :
+                                  (1 == IMPLEMENTED_TCM) ?
+                                      1 :
+                                      2;
+
+USER_PROGRAM_LOCATION_PRV   = DEFINED(USER_PROGRAM_LOCATION) ?
+                                  USER_PROGRAM_LOCATION :
+                                  (1 == IMPLEMENTED_TCM) ?
+                                      0 :
+                                      2;
+
+/* In the primary project, setting a loader program other than BTCM will cause a build error. */
+ASSERT_LOADER_PROGRAM_LOCATION = ((1 == _RZ_ORDINAL) && (1 == IMPLEMENTED_TCM) && (1 != LOADER_PROGRAM_LOCATION_PRV)) ? 0 : 1;
+ASSERT(ASSERT_LOADER_PROGRAM_LOCATION, "ERROR: In the primary project, the location of the loader program cannot be changed.");
+
+/* In cores without TCM, setting TCM for the loader program and user program will cause a build error. */
+ASSERT_TCM = ((1 != IMPLEMENTED_TCM) && ((2 != LOADER_PROGRAM_LOCATION_PRV) || (2 != USER_PROGRAM_LOCATION_PRV))) ? 0 : 1;
+ASSERT(ASSERT_TCM, "ERROR: There is no TCM in this core.");
+
+/* The purpose of this process is to prevent the aforementioned build error from being buried among other build errors. */
+LOADER_PROGRAM_LOCATION_PRV = (0 == ASSERT_TCM) ? 2 : LOADER_PROGRAM_LOCATION_PRV;
+USER_PROGRAM_LOCATION_PRV = (0 == ASSERT_TCM) ? 2 : USER_PROGRAM_LOCATION_PRV;
+
 /* The start address of the SYSTEM_RAM in the secondary project is located 0x20000 from the end address of the primary project. */
 SYSTEM_RAM_ALIGN_START             = ALIGN(SYSTEM_RAM_PRV_START, 0x00020000);
 SYSTEM_RAM_ALIGN_LENGTH            = SYSTEM_RAM_PRV_LENGTH - (SYSTEM_RAM_PRV_LENGTH % 0x00020000);
@@ -27,19 +62,37 @@ SYSTEM_RAM_MIRROR_OFFSET           = DEFINED(SYSTEM_RAM_START) ?
                                          0;
 
 /* Specifies the region where the user program is placed. */
-RAM_START                          = (DEFINED(ATCM_CR52_0_START) || DEFINED(ATCM_CR52_1_START)) ? ATCM_PRV_START : SYSTEM_RAM_ALIGN_START;
-RAM_LENGTH                         = (DEFINED(ATCM_CR52_0_LENGTH) || DEFINED(ATCM_CR52_1_LENGTH)) ? ATCM_PRV_LENGTH : SYSTEM_RAM_ALIGN_LENGTH;
-TEXT_OFFSET                        = (DEFINED(ATCM_CR52_0_START) || DEFINED(ATCM_CR52_1_START)) ? 0x00000100 : 0x00010000;
+RAM_START                          = (0 == USER_PROGRAM_LOCATION_PRV) ? ATCM_PRV_START :
+                                     (1 == USER_PROGRAM_LOCATION_PRV) ? BTCM_PRV_START :
+                                     (2 == USER_PROGRAM_LOCATION_PRV) ? SYSTEM_RAM_ALIGN_START : 0;
+RAM_LENGTH                         = (0 == USER_PROGRAM_LOCATION_PRV) ? ATCM_PRV_LENGTH :
+                                     (1 == USER_PROGRAM_LOCATION_PRV) ? BTCM_PRV_LENGTH :
+                                     (2 == USER_PROGRAM_LOCATION_PRV) ? SYSTEM_RAM_ALIGN_LENGTH : 0;
+TEXT_OFFSET                        = (0 == USER_PROGRAM_LOCATION_PRV) ?
+                                         (0 == LOADER_PROGRAM_LOCATION_PRV) ? 0x00008000 : 0x00000100 :
+                                     (1 == USER_PROGRAM_LOCATION_PRV) ?
+                                         (1 == LOADER_PROGRAM_LOCATION_PRV) ? 0x00007000 : 0x00002000 :
+                                     (2 == USER_PROGRAM_LOCATION_PRV) ?
+                                         (2 == LOADER_PROGRAM_LOCATION_PRV) ? 0x00010000 : 0x00001000 :
+                                     0;
 TEXT_ADDRESS                       = RAM_START + TEXT_OFFSET;
 
 /* Specifies the region where the loader program (SSBL) is placed. */
-LOADER_START                       = (DEFINED(BTCM_CR52_0_START) || DEFINED(BTCM_CR52_1_START)) ? BTCM_PRV_START : SYSTEM_RAM_ALIGN_START;
-LOADER_LENGTH                      = (DEFINED(BTCM_CR52_0_LENGTH) || DEFINED(BTCM_CR52_1_LENGTH)) ? BTCM_PRV_LENGTH : SYSTEM_RAM_ALIGN_LENGTH;
-LOADER_TEXT_OFFSET                 = (DEFINED(BTCM_CR52_0_START) || DEFINED(BTCM_CR52_1_START)) ? 0x00002000 : 0x00001000;
+LOADER_START                       = (0 == LOADER_PROGRAM_LOCATION_PRV) ? ATCM_PRV_START :
+                                     (1 == LOADER_PROGRAM_LOCATION_PRV) ? BTCM_PRV_START :
+                                     (2 == LOADER_PROGRAM_LOCATION_PRV) ? SYSTEM_RAM_ALIGN_START : 0;
+LOADER_LENGTH                      = (0 == LOADER_PROGRAM_LOCATION_PRV) ? ATCM_PRV_LENGTH :
+                                     (1 == LOADER_PROGRAM_LOCATION_PRV) ? BTCM_PRV_LENGTH :
+                                     (2 == LOADER_PROGRAM_LOCATION_PRV) ? SYSTEM_RAM_ALIGN_LENGTH : 0;
+LOADER_TEXT_OFFSET                 = (0 == LOADER_PROGRAM_LOCATION_PRV) ? 0x00000100 :
+                                     (1 == LOADER_PROGRAM_LOCATION_PRV) ? 0x00002000 :
+                                     (2 == LOADER_PROGRAM_LOCATION_PRV) ? 0x00001000 : 0;
 LOADER_TEXT_ADDRESS                = LOADER_START + LOADER_TEXT_OFFSET;
 
 /* Specifies the region where the vector table is placed. */
-INTVEC_ADDRESS                     = RAM_START;
+INTVEC_START                       = (1 == IMPLEMENTED_TCM) ? ATCM_PRV_START : SYSTEM_RAM_ALIGN_START;
+INTVEC_LENGTH                      = (1 == IMPLEMENTED_TCM) ? ATCM_PRV_LENGTH : SYSTEM_RAM_ALIGN_LENGTH;
+INTVEC_ADDRESS                     = INTVEC_START;
 
 /* Calculate the offset address of the noncache region. */
 NONCACHE_OFFSET                    = DEFINED(NONCACHE_START) ? 0x00080000 : 0;
@@ -89,7 +142,7 @@ MEMORY
     CS5_SPACE_MIRROR       : ORIGIN = CS5_SPACE_MIRROR_PRV_START,       LENGTH = CS5_SPACE_MIRROR_PRV_LENGTH
     xSPI0_CS0_SPACE        : ORIGIN = xSPI0_CS0_SPACE_PRV_START,        LENGTH = xSPI0_CS0_SPACE_PRV_LENGTH
     xSPI0_CS1_SPACE        : ORIGIN = xSPI0_CS1_SPACE_PRV_START,        LENGTH = xSPI0_CS1_SPACE_PRV_LENGTH
-    xSPI1_CS0_SPACE        : ORIGIN = xSPI1_CS0_SPACE_PRV_START,        LENGTH = xSPI1_CS0_SPACE_PRV_START
+    xSPI1_CS0_SPACE        : ORIGIN = xSPI1_CS0_SPACE_PRV_START,        LENGTH = xSPI1_CS0_SPACE_PRV_LENGTH
     xSPI1_CS1_SPACE        : ORIGIN = xSPI1_CS1_SPACE_PRV_START,        LENGTH = xSPI1_CS1_SPACE_PRV_LENGTH
     CS0_SPACE              : ORIGIN = CS0_SPACE_PRV_START,              LENGTH = CS0_SPACE_PRV_LENGTH
     CS2_SPACE              : ORIGIN = CS2_SPACE_PRV_START,              LENGTH = CS2_SPACE_PRV_LENGTH
@@ -103,6 +156,7 @@ MEMORY
     PCIE0                  : ORIGIN = PCIE0_PRV_START,                  LENGTH = PCIE0_PRV_LENGTH
     PCIE1                  : ORIGIN = PCIE1_PRV_START,                  LENGTH = PCIE1_PRV_LENGTH
 
+    INTVEC                 : ORIGIN = INTVEC_START,                     LENGTH = INTVEC_LENGTH
     RAM_TEXT               : ORIGIN = RAM_START,                        LENGTH = RAM_LENGTH
     RAM_DATA               : ORIGIN = RAM_START,                        LENGTH = RAM_LENGTH
     LOADER_TEXT_STACK      : ORIGIN = LOADER_START,                     LENGTH = LOADER_LENGTH
@@ -132,17 +186,17 @@ SECTIONS
         */system.o(.text*)
         */all*/bsp_*.o(.text*)
         */r_ioport.o(.text*)
-        KEEP(*(.eh_frame*))
         KEEP(*(.warm_start))
         _loader_text_end = .;
     } > LOADER_TEXT_STACK
 
     /* Place the variables to be used in the loader program (SSBL). */
     /* Since .loader_data is placed immediately after .loader_text, the start address is set to _loader_text_end.
-     * If you move the associated section to another area, you will need to modify this symbol,
-     * so check the usage_notes in the bsp and make the modifications. */
+     * If you move the associated section to another area, you will need to modify this symbol.
+     * For details, refer to the "Linker Script" chapter in the FSP documentation (BSP -> MCU Board Support Package). */
     .loader_data _loader_text_end :
     {
+        __loader_data_start = .;
         */startup_core.o(.data*)
         */system_core.o(.data*)
         */startup.o(.data*)
@@ -155,7 +209,12 @@ SECTIONS
         */bsp_tzc400.o(.rodata*)
         KEEP(*(.warm_start.data*))
         . = ALIGN(8);
+        __loader_data_end = .;
+    } > LOADER_DATA_STACK
 
+    /* Place the variables in the loader program (SSBL) that do not have initial values. */
+    .loader_bss (NOLOAD) :
+    {
         __loader_bss_start = .;
         */startup_core.o(.bss*)
         */system_core.o(.bss*)
@@ -175,6 +234,15 @@ SECTIONS
         __loader_bss_end = . ;
 
         KEEP(*(.software_reset)) /* Do not initialize */
+    } > LOADER_DATA_STACK
+
+    /* Place the uninitialized variables. */
+    .noinit (NOLOAD):
+    {
+        . = ALIGN(8);
+        __noinit_start = .;
+        KEEP(*(.noinit*))
+        __noinit_end = .;
     } > LOADER_DATA_STACK
 
 /*-----------------------------------------------*/
@@ -228,6 +296,7 @@ SECTIONS
     {
         _fvector_start = .;
         KEEP(*(.intvec))
+        KEEP(*(.reset_handler))
         . = ALIGN(0x80);
         KEEP(*(.intvec_0x080))
         . = ALIGN(0x80);
@@ -259,7 +328,7 @@ SECTIONS
         . = ALIGN(0x80);
         KEEP(*(.intvec_0x780))
         _fvector_end = .;
-    } > RAM_TEXT
+    } > INTVEC
 
 /*-----------------------------------------------*/
 /*  USER PROGRAM                                 */
@@ -270,8 +339,6 @@ SECTIONS
         _text_start = .;
 
         *(.text*)
-
-        KEEP(*(.reset_handler))
 
         KEEP(*(.init))
         KEEP(*(.fini))
@@ -320,8 +387,8 @@ SECTIONS
 
     /* Place the variables to be used in the user program (Programs other than SSBL). */
     /* Since .data is placed immediately after .ARM.exidx, the start address is set to __exidx_end.
-     * If you move the associated section to another area, you will need to modify this symbol,
-     * so check the usage_notes in the bsp and make the modifications. */
+     * If you move the associated section to another area, you will need to modify this symbol.
+     * For details, refer to the "Linker Script" chapter in the FSP documentation (BSP -> MCU Board Support Package). */
     .data __exidx_end :
     {
         _data_start = .;
@@ -366,6 +433,7 @@ SECTIONS
         /* All data end */
         _data_end = .;
     } > RAM_DATA
+
     /* Place the noncache variables. */
     .noncache NONCACHE_AREA_START : AT(NONCACHE_AREA_INIT_START)
     {
@@ -394,8 +462,9 @@ SECTIONS
 
         _noncache_end = .;
     } > NONCACHE
+
     /* Place the variables in the user program that do not have initial values. */
-    .bss :
+    .bss (NOLOAD) :
     {
         . = ALIGN(8);
         __bss_start__ = .;
@@ -464,6 +533,25 @@ SECTIONS
         KEEP(*(.lcdc_frame_buffer*))
         _lcdc_frame_buffer_end = .;
     } > LCDC_FRAME_BUFFER
+
+/*-----------------------------------------------*/
+/*  SECTION END ADDRESS                          */
+/*-----------------------------------------------*/
+    /* Specify the end address for each program. */
+    LOADER_PROGRAM_END_ADDRESS_SYMBOL = __AbtStackLimit;
+    USER_PROGRAM_END_ADDRESS_SYMBOL   = __ThreadStackLimit;
+
+    /* Specify the ATCM end address */
+    ATCM_END_ADDRESS       = (0 == USER_PROGRAM_LOCATION_PRV) ? USER_PROGRAM_END_ADDRESS_SYMBOL :
+                             (0 == LOADER_PROGRAM_LOCATION_PRV) ? LOADER_PROGRAM_END_ADDRESS_SYMBOL : ORIGIN(ATCM);
+
+    /* Specify the BTCM end address */
+    BTCM_END_ADDRESS       = (1 == USER_PROGRAM_LOCATION_PRV) ? USER_PROGRAM_END_ADDRESS_SYMBOL :
+                             (1 == LOADER_PROGRAM_LOCATION_PRV) ? LOADER_PROGRAM_END_ADDRESS_SYMBOL : ORIGIN(BTCM);
+
+    /* Specify the SYSTEM_RAM end address */
+    SYSTEM_RAM_END_ADDRESS = (2 == USER_PROGRAM_LOCATION_PRV) ? USER_PROGRAM_END_ADDRESS_SYMBOL :
+                             (2 == LOADER_PROGRAM_LOCATION_PRV) ? LOADER_PROGRAM_END_ADDRESS_SYMBOL : ORIGIN(SYSTEM_RAM);
 }
 
 /*============================================================================*/
@@ -475,23 +563,23 @@ SECTIONS
 
 /* ATCM_CR52_0 region */
 __ddsc_ATCM_CR52_0_START      = ORIGIN(ATCM);
-__ddsc_ATCM_CR52_0_END        = DEFINED(ATCM_CR52_0_START) ? __ThreadStackLimit : __ddsc_ATCM_CR52_0_START;
+__ddsc_ATCM_CR52_0_END        = ATCM_END_ADDRESS;
 
 /* BTCM_CR52_0 region */
 __ddsc_BTCM_CR52_0_START      = ORIGIN(BTCM);
-__ddsc_BTCM_CR52_0_END        = DEFINED(BTCM_CR52_0_START) ? __AbtStackLimit : __ddsc_BTCM_CR52_0_START;
+__ddsc_BTCM_CR52_0_END        = BTCM_END_ADDRESS;
 
 /* ATCM_CR52_1 region */
 __ddsc_ATCM_CR52_1_START      = ORIGIN(ATCM);
-__ddsc_ATCM_CR52_1_END        = DEFINED(ATCM_CR52_1_START) ? __ThreadStackLimit : __ddsc_ATCM_CR52_1_START;
+__ddsc_ATCM_CR52_1_END        = ATCM_END_ADDRESS;
 
 /* BTCM_CR52_1 region */
 __ddsc_BTCM_CR52_1_START      = ORIGIN(BTCM);
-__ddsc_BTCM_CR52_1_END        = DEFINED(BTCM_CR52_1_START) ? __AbtStackLimit : __ddsc_BTCM_CR52_1_START;
+__ddsc_BTCM_CR52_1_END        = BTCM_END_ADDRESS;
 
 /* SYSTEM_RAM region */
 __ddsc_SYSTEM_RAM_START       = ORIGIN(SYSTEM_RAM);
-__ddsc_SYSTEM_RAM_END         = (DEFINED(ATCM_CR52_0_START) || DEFINED(ATCM_CR52_1_START)) ? __ddsc_SYSTEM_RAM_START : __ThreadStackLimit;
+__ddsc_SYSTEM_RAM_END         = SYSTEM_RAM_END_ADDRESS;
 
 /* NONCACHE region */
 __ddsc_NONCACHE_START         = NONCACHE_AREA_START - SYSTEM_RAM_MIRROR_OFFSET;
