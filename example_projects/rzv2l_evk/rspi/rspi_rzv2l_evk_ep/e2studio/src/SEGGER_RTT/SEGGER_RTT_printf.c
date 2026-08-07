@@ -42,7 +42,7 @@
 *                                                                    *
 **********************************************************************
 *                                                                    *
-*       RTT version: 8.60                                           *
+*       RTT version: 856a                                            *
 *                                                                    *
 **********************************************************************
 
@@ -381,7 +381,7 @@ int SEGGER_RTT_vprintf(unsigned BufferIndex, const char * sFormat, va_list * pPa
         if (*sFormat == '*') {
           sFormat++;
           PrecisionSet = 1;
-          Precision = (unsigned)va_arg(*pParamList, int);
+          Precision = va_arg(*pParamList, int);
         } else {
           do {
             c = *sFormat;

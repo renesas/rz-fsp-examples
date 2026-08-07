@@ -9,7 +9,7 @@
     <option key="#DeviceCommand#" value="R9A09G056N48GBG_CM33_0"/>
     <option key="#RTOS#" value="_none"/>
     <option key="#pinconfiguration#" value="R9A09G056N48GBG.pincfg"/>
-    <option key="#FSPVersion#" value="4.1.0"/>
+    <option key="#FSPVersion#" value="4.2.0"/>
     <option key="#ConfigurationFragments#" value="Renesas##BSP##Board##rzv2n_evk##"/>
     <option key="#SELECTED_TOOLCHAIN#" value="gcc-arm-embedded"/>
     <option key="#ToolchainVersion#" value="13.3.1.arm-13-24"/>
@@ -186,45 +186,45 @@
     <node id="board.clock.osc2clk.display" option="board.clock.osc2clk.display.value"/>
   </raClockConfiguration>
   <raComponentSelection>
-    <component apiversion="" class="Common" condition="" group="all" subgroup="fsp_common" variant="" vendor="Renesas" version="4.1.0">
+    <component apiversion="" class="Common" condition="" group="all" subgroup="fsp_common" variant="" vendor="Renesas" version="4.2.0">
       <description>Board Support Package Common Files</description>
-      <originalPack>Renesas.RZ.4.1.0.pack</originalPack>
+      <originalPack>Renesas.RZ.4.2.0.pack</originalPack>
     </component>
-    <component apiversion="" class="Common" condition="" group="rzv" subgroup="fsp_common" variant="" vendor="Renesas" version="4.1.0">
+    <component apiversion="" class="Common" condition="" group="rzv" subgroup="fsp_common" variant="" vendor="Renesas" version="4.2.0">
       <description>Board Support Package Common Files</description>
-      <originalPack>Renesas.RZV.4.1.0.pack</originalPack>
+      <originalPack>Renesas.RZV.4.2.0.pack</originalPack>
     </component>
-    <component apiversion="" class="HAL Drivers" condition="" group="rzv" subgroup="r_ioport" variant="" vendor="Renesas" version="4.1.0">
+    <component apiversion="" class="HAL Drivers" condition="" group="rzv" subgroup="r_ioport" variant="" vendor="Renesas" version="4.2.0">
       <description>I/O Port</description>
-      <originalPack>Renesas.RZV.4.1.0.pack</originalPack>
+      <originalPack>Renesas.RZV.4.2.0.pack</originalPack>
     </component>
-    <component apiversion="" class="HAL Drivers" condition="" group="rzv" subgroup="r_riic_master" variant="" vendor="Renesas" version="4.1.0">
+    <component apiversion="" class="HAL Drivers" condition="" group="rzv" subgroup="r_riic_master" variant="" vendor="Renesas" version="4.2.0">
       <description>I2C Master Interface</description>
-      <originalPack>Renesas.RZV.4.1.0.pack</originalPack>
+      <originalPack>Renesas.RZV.4.2.0.pack</originalPack>
     </component>
-    <component apiversion="" class="HAL Drivers" condition="" group="rzv" subgroup="r_xspi_qspi" variant="" vendor="Renesas" version="4.1.0">
+    <component apiversion="" class="HAL Drivers" condition="" group="rzv" subgroup="r_xspi_qspi" variant="" vendor="Renesas" version="4.2.0">
       <description>Quad Serial Peripheral Interface Flash on Expanded Serial Peripheral Interface</description>
-      <originalPack>Renesas.RZV.4.1.0.pack</originalPack>
+      <originalPack>Renesas.RZV.4.2.0.pack</originalPack>
     </component>
-    <component apiversion="" class="CMSIS" condition="" group="CMSIS6" subgroup="CoreM" variant="" vendor="Arm" version="6.1.0+fsp.4.1.0">
+    <component apiversion="" class="CMSIS" condition="" group="CMSIS6" subgroup="CoreM" variant="" vendor="Arm" version="6.1.0+fsp.4.2.0">
       <description>Arm CMSIS Version 6 - Core</description>
-      <originalPack>Arm.CMSIS6.6.1.0+fsp.4.1.0.pack</originalPack>
+      <originalPack>Arm.CMSIS6.6.1.0+fsp.4.2.0.pack</originalPack>
     </component>
-    <component apiversion="" class="BSP" condition="" group="Board" subgroup="rzv2n_evk" variant="" vendor="Renesas" version="4.1.0">
+    <component apiversion="" class="BSP" condition="" group="Board" subgroup="rzv2n_evk" variant="" vendor="Renesas" version="4.2.0">
       <description>Evaluation Kit RZ/V2N Support Files (RZ/V2N)</description>
-      <originalPack>Renesas.RZV_board_rzv2n_evk.4.1.0.pack</originalPack>
+      <originalPack>Renesas.RZV_board_rzv2n_evk.4.2.0.pack</originalPack>
     </component>
-    <component apiversion="" class="BSP" condition="" group="rzv2n" subgroup="device" variant="R9A09G056N48GBG" vendor="Renesas" version="4.1.0">
+    <component apiversion="" class="BSP" condition="" group="rzv2n" subgroup="device" variant="R9A09G056N48GBG" vendor="Renesas" version="4.2.0">
       <description>Board support package for R9A09G056N48GBG</description>
-      <originalPack>Renesas.RZV_mcu_rzv2n.4.1.0.pack</originalPack>
+      <originalPack>Renesas.RZV_mcu_rzv2n.4.2.0.pack</originalPack>
     </component>
-    <component apiversion="" class="BSP" condition="" group="rzv2n" subgroup="device" variant="" vendor="Renesas" version="4.1.0">
+    <component apiversion="" class="BSP" condition="" group="rzv2n" subgroup="device" variant="" vendor="Renesas" version="4.2.0">
       <description>Board support package for RZV2N</description>
-      <originalPack>Renesas.RZV_mcu_rzv2n.4.1.0.pack</originalPack>
+      <originalPack>Renesas.RZV_mcu_rzv2n.4.2.0.pack</originalPack>
     </component>
-    <component apiversion="" class="BSP" condition="" group="rzv2n" subgroup="fsp" variant="" vendor="Renesas" version="4.1.0">
+    <component apiversion="" class="BSP" condition="" group="rzv2n" subgroup="fsp" variant="" vendor="Renesas" version="4.2.0">
       <description>Board support package for RZ/V2N (RZ/V2N) - FSP Data</description>
-      <originalPack>Renesas.RZV_mcu_rzv2n.4.1.0.pack</originalPack>
+      <originalPack>Renesas.RZV_mcu_rzv2n.4.2.0.pack</originalPack>
     </component>
   </raComponentSelection>
   <raElcConfiguration/>

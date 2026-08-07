@@ -9,7 +9,7 @@
     <option key="#DeviceCommand#" value="R9A09G077M44_CR52_0"/>
     <option key="#RTOS#" value="rtos.awsfreertos"/>
     <option key="#pinconfiguration#" value="R9A09G077M44GBG.pincfg"/>
-    <option key="#FSPVersion#" value="4.1.0"/>
+    <option key="#FSPVersion#" value="4.2.0"/>
     <option key="#ConfigurationFragments#" value="Renesas##BSP##Board##rzt2h_evb##ram_execution"/>
     <option key="#SELECTED_TOOLCHAIN#" value="gcc-arm-a-profile-aarch64"/>
     <option key="#ToolchainVersion#" value="13.2.1.arm-13-7"/>
@@ -1924,89 +1924,85 @@
     <node id="board.clock.clma6.cmph" mul="1023" option="_edit"/>
   </raClockConfiguration>
   <raComponentSelection>
-    <component apiversion="" class="CMSIS" condition="" group="CMSIS6" subgroup="CoreM" variant="" vendor="Arm" version="6.1.0+fsp.4.1.0">
-      <description>Arm CMSIS Version 6 - Core</description>
-      <originalPack>Arm.CMSIS6.6.1.0+fsp.4.1.0.pack</originalPack>
-    </component>
-    <component apiversion="" class="BSP" condition="" group="Board" subgroup="rzt2h_evb" variant="ram_execution" vendor="Renesas" version="4.1.0">
-      <description>RZT2H Evaluation Board Support Files (RAM execution without flash memory)</description>
-      <originalPack>Renesas.RZT_board_rzt2h_evb.4.1.0.pack</originalPack>
-    </component>
-    <component apiversion="" class="Common" condition="" group="all" subgroup="fsp_common" variant="" vendor="Renesas" version="4.1.0">
+    <component apiversion="" class="Common" condition="" group="all" subgroup="fsp_common" variant="" vendor="Renesas" version="4.2.0">
       <description>Board Support Package Common Files</description>
-      <originalPack>Renesas.RZ.4.1.0.pack</originalPack>
+      <originalPack>Renesas.RZ.4.2.0.pack</originalPack>
     </component>
-    <component apiversion="" class="Common" condition="" group="rzt" subgroup="fsp_common" variant="" vendor="Renesas" version="4.1.0">
+    <component apiversion="" class="Common" condition="" group="rzt" subgroup="fsp_common" variant="" vendor="Renesas" version="4.2.0">
       <description>Board Support Package Common Files</description>
-      <originalPack>Renesas.RZT.4.1.0.pack</originalPack>
+      <originalPack>Renesas.RZT.4.2.0.pack</originalPack>
     </component>
-    <component apiversion="" class="BSP" condition="" group="rzt" subgroup="Memory" variant="" vendor="Renesas" version="4.1.0">
+    <component apiversion="" class="BSP" condition="" group="rzt" subgroup="Memory" variant="" vendor="Renesas" version="4.2.0">
       <description>Memory Config Checking</description>
-      <originalPack>Renesas.RZT.4.1.0.pack</originalPack>
+      <originalPack>Renesas.RZT.4.2.0.pack</originalPack>
     </component>
-    <component apiversion="" class="HAL Drivers" condition="" group="rzt" subgroup="r_ether_phy" variant="" vendor="Renesas" version="4.1.0">
-      <description>Ethernet PHY</description>
-      <originalPack>Renesas.RZT.4.1.0.pack</originalPack>
-    </component>
-    <component apiversion="" class="HAL Drivers" condition="" group="rzt" subgroup="r_ether_selector" variant="" vendor="Renesas" version="4.1.0">
-      <description>Ethernet Selector</description>
-      <originalPack>Renesas.RZT.4.1.0.pack</originalPack>
-    </component>
-    <component apiversion="" class="HAL Drivers" condition="" group="rzt" subgroup="r_ethsw" variant="" vendor="Renesas" version="4.1.0">
-      <description>Ethernet Switch</description>
-      <originalPack>Renesas.RZT.4.1.0.pack</originalPack>
-    </component>
-    <component apiversion="" class="HAL Drivers" condition="" group="rzt" subgroup="r_gmac_b" variant="" vendor="Renesas" version="4.1.0">
-      <description>Ethernet</description>
-      <originalPack>Renesas.RZT.4.1.0.pack</originalPack>
-    </component>
-    <component apiversion="" class="HAL Drivers" condition="" group="rzt" subgroup="r_ioport" variant="" vendor="Renesas" version="4.1.0">
+    <component apiversion="" class="HAL Drivers" condition="" group="rzt" subgroup="r_ioport" variant="" vendor="Renesas" version="4.2.0">
       <description>I/O Port</description>
-      <originalPack>Renesas.RZT.4.1.0.pack</originalPack>
+      <originalPack>Renesas.RZT.4.2.0.pack</originalPack>
     </component>
-    <component apiversion="" class="HAL Drivers" condition="" group="rzt" subgroup="r_sci_uart" variant="" vendor="Renesas" version="4.1.0">
-      <description>SCI UART</description>
-      <originalPack>Renesas.RZT.4.1.0.pack</originalPack>
-    </component>
-    <component apiversion="" class="Middleware" condition="" group="rzt" subgroup="rm_freertos_plus_tcp" variant="" vendor="Renesas" version="4.1.0">
-      <description>r_ether to FreeRTOS+TCP Wrapper</description>
-      <originalPack>Renesas.RZT.4.1.0.pack</originalPack>
-    </component>
-    <component apiversion="" class="Middleware" condition="" group="rzt" subgroup="rm_freertos_port" variant="" vendor="Renesas" version="4.1.0">
-      <description>FreeRTOS Port</description>
-      <originalPack>Renesas.RZT.4.1.0.pack</originalPack>
-    </component>
-    <component apiversion="" class="BSP" condition="" group="rzt2h" subgroup="device" variant="R9A09G077M44GBG" vendor="Renesas" version="4.1.0">
-      <description>Board support package for R9A09G077M44GBG</description>
-      <originalPack>Renesas.RZT_mcu_rzt2h.4.1.0.pack</originalPack>
-    </component>
-    <component apiversion="" class="BSP" condition="" group="rzt2h" subgroup="device" variant="" vendor="Renesas" version="4.1.0">
-      <description>Board support package for RZT2H</description>
-      <originalPack>Renesas.RZT_mcu_rzt2h.4.1.0.pack</originalPack>
-    </component>
-    <component apiversion="" class="BSP" condition="" group="rzt2h" subgroup="fsp" variant="" vendor="Renesas" version="4.1.0">
-      <description>Board support package for RZT2H - FSP Data</description>
-      <originalPack>Renesas.RZT_mcu_rzt2h.4.1.0.pack</originalPack>
-    </component>
-    <component apiversion="" class="Libraries" condition="" group="FreeRTOS" subgroup="BufferAllocation2" variant="" vendor="AWS" version="4.2.2+fsp.4.1.0">
-      <description>FreeRTOS - Buffer Allocation 2</description>
-      <originalPack>Amazon.FreeRTOS-Plus-TCP.4.2.2+fsp.4.1.0.pack</originalPack>
-    </component>
-    <component apiversion="" class="Libraries" condition="" group="FreeRTOS_Plus" subgroup="FreeRTOS_Plus_TCP" variant="" vendor="AWS" version="4.2.2+fsp.4.1.0">
-      <description>FreeRTOS+TCP</description>
-      <originalPack>Amazon.FreeRTOS-Plus-TCP.4.2.2+fsp.4.1.0.pack</originalPack>
-    </component>
-    <component apiversion="" class="RTOS" condition="" group="FreeRTOS" subgroup="all" variant="" vendor="AWS" version="11.1.0+fsp.4.1.0">
+    <component apiversion="" class="RTOS" condition="" group="FreeRTOS" subgroup="all" variant="" vendor="AWS" version="11.1.0+fsp.4.2.0">
       <description>FreeRTOS</description>
-      <originalPack>Amazon.FreeRTOS-Kernel.11.1.0+fsp.4.1.0.pack</originalPack>
+      <originalPack>Amazon.FreeRTOS-Kernel.11.1.0+fsp.4.2.0.pack</originalPack>
     </component>
-    <component apiversion="" class="Heaps" condition="" group="FreeRTOS" subgroup="heap_4" variant="" vendor="AWS" version="11.1.0+fsp.4.1.0">
+    <component apiversion="" class="Middleware" condition="" group="rzt" subgroup="rm_freertos_port" variant="" vendor="Renesas" version="4.2.0">
+      <description>FreeRTOS Port</description>
+      <originalPack>Renesas.RZT.4.2.0.pack</originalPack>
+    </component>
+    <component apiversion="" class="CMSIS" condition="" group="CMSIS6" subgroup="CoreM" variant="" vendor="Arm" version="6.1.0+fsp.4.2.0">
+      <description>Arm CMSIS Version 6 - Core</description>
+      <originalPack>Arm.CMSIS6.6.1.0+fsp.4.2.0.pack</originalPack>
+    </component>
+    <component apiversion="" class="BSP" condition="" group="Board" subgroup="rzt2h_evb" variant="ram_execution" vendor="Renesas" version="4.2.0">
+      <description>RZT2H Evaluation Board Support Files (RAM execution without flash memory)</description>
+      <originalPack>Renesas.RZT_board_rzt2h_evb.4.2.0.pack</originalPack>
+    </component>
+    <component apiversion="" class="BSP" condition="" group="rzt2h" subgroup="device" variant="R9A09G077M44GBG" vendor="Renesas" version="4.2.0">
+      <description>Board support package for R9A09G077M44GBG</description>
+      <originalPack>Renesas.RZT_mcu_rzt2h.4.2.0.pack</originalPack>
+    </component>
+    <component apiversion="" class="BSP" condition="" group="rzt2h" subgroup="device" variant="" vendor="Renesas" version="4.2.0">
+      <description>Board support package for RZT2H</description>
+      <originalPack>Renesas.RZT_mcu_rzt2h.4.2.0.pack</originalPack>
+    </component>
+    <component apiversion="" class="BSP" condition="" group="rzt2h" subgroup="fsp" variant="" vendor="Renesas" version="4.2.0">
+      <description>Board support package for RZT2H - FSP Data</description>
+      <originalPack>Renesas.RZT_mcu_rzt2h.4.2.0.pack</originalPack>
+    </component>
+    <component apiversion="" class="Heaps" condition="" group="FreeRTOS" subgroup="heap_4" variant="" vendor="AWS" version="11.1.0+fsp.4.2.0">
       <description>FreeRTOS - Memory Management - Heap 4</description>
-      <originalPack>Amazon.FreeRTOS-Kernel.11.1.0+fsp.4.1.0.pack</originalPack>
+      <originalPack>Amazon.FreeRTOS-Kernel.11.1.0+fsp.4.2.0.pack</originalPack>
     </component>
-    <component apiversion="" class="Common" condition="" group="rzt" subgroup="config" variant="" vendor="Renesas" version="4.1.0">
-      <description>RZT Configuration Template File</description>
-      <originalPack>Renesas.RZT_config.4.1.0.pack</originalPack>
+    <component apiversion="" class="HAL Drivers" condition="" group="rzt" subgroup="r_ether_phy" variant="" vendor="Renesas" version="4.2.0">
+      <description>Ethernet PHY</description>
+      <originalPack>Renesas.RZT.4.2.0.pack</originalPack>
+    </component>
+    <component apiversion="" class="HAL Drivers" condition="" group="rzt" subgroup="r_ether_selector" variant="" vendor="Renesas" version="4.2.0">
+      <description>Ethernet Selector</description>
+      <originalPack>Renesas.RZT.4.2.0.pack</originalPack>
+    </component>
+    <component apiversion="" class="HAL Drivers" condition="" group="rzt" subgroup="r_ethsw" variant="" vendor="Renesas" version="4.2.0">
+      <description>Ethernet Switch</description>
+      <originalPack>Renesas.RZT.4.2.0.pack</originalPack>
+    </component>
+    <component apiversion="" class="HAL Drivers" condition="" group="rzt" subgroup="r_gmac_b" variant="" vendor="Renesas" version="4.2.0">
+      <description>Ethernet</description>
+      <originalPack>Renesas.RZT.4.2.0.pack</originalPack>
+    </component>
+    <component apiversion="" class="HAL Drivers" condition="" group="rzt" subgroup="r_sci_uart" variant="" vendor="Renesas" version="4.2.0">
+      <description>SCI UART</description>
+      <originalPack>Renesas.RZT.4.2.0.pack</originalPack>
+    </component>
+    <component apiversion="" class="Middleware" condition="" group="rzt" subgroup="rm_freertos_plus_tcp" variant="" vendor="Renesas" version="4.2.0">
+      <description>r_ether to FreeRTOS+TCP Wrapper</description>
+      <originalPack>Renesas.RZT.4.2.0.pack</originalPack>
+    </component>
+    <component apiversion="" class="Libraries" condition="" group="FreeRTOS" subgroup="BufferAllocation2" variant="" vendor="AWS" version="4.3.3+fsp.4.2.0">
+      <description>FreeRTOS - Buffer Allocation 2</description>
+      <originalPack>Amazon.FreeRTOS-Plus-TCP.4.3.3+fsp.4.2.0.pack</originalPack>
+    </component>
+    <component apiversion="" class="Libraries" condition="" group="FreeRTOS_Plus" subgroup="FreeRTOS_Plus_TCP" variant="" vendor="AWS" version="4.3.3+fsp.4.2.0">
+      <description>FreeRTOS+TCP</description>
+      <originalPack>Amazon.FreeRTOS-Plus-TCP.4.3.3+fsp.4.2.0.pack</originalPack>
     </component>
   </raComponentSelection>
   <raElcConfiguration/>
@@ -2074,115 +2070,9 @@
     </module>
     <module id="module.bsp.rzt.memory_config.0"/>
     <module id="module.middleware.rzt.rm_freertos_port.0"/>
-    <module id="module.aws.freertosplus.freertosplus_tcp.513562776">
-      <property id="module.aws.freertosplus.freertosplus_tcp.name" value="g_freertos_plus_tcp"/>
-    </module>
-    <module id="module.driver.rzt.freertos_plus_tcp_on_ether.1647745254"/>
-    <module id="module.driver.rzt.ether_on_ether_2.573885855">
-      <property id="module.driver.rzt.ether.name" value="g_ether0"/>
-      <property id="module.driver.rzt.ether.channel" value="module.driver.rzt.ether.channel.0"/>
-      <property id="module.driver.rzt.ether.mac_address" value="00:11:22:33:44:55"/>
-      <property id="module.driver.rzt.ether.mac_address_1" value="NULL"/>
-      <property id="module.driver.rzt.ether.mac_address_2" value="NULL"/>
-      <property id="module.driver.rzt.ether.zerocopy" value="module.driver.rzt.ether.zerocopy.0"/>
-      <property id="module.driver.rzt.ether.flow_control" value="module.driver.rzt.ether.flow_control.disable"/>
-      <property id="module.driver.rzt.ether.promiscuous" value="module.driver.rzt.ether.promiscuous.1"/>
-      <property id="module.driver.rzt.ether.num_tx_descriptors" value="8"/>
-      <property id="module.driver.rzt.ether.num_rx_descriptors" value="8"/>
-      <property id="module.driver.rzt.ether.ether_buffer_size" value="1536"/>
-      <property id="module.driver.rzt.ether.sbd_interrupt_priority" value="board.icu.common.irq.priority12"/>
-      <property id="module.driver.rzt.ether.p_callback" value="NULL"/>
-      <property id="module.driver.rzt.ether.phylink" value="module.driver.rzt.ether.phylink.disable"/>
-    </module>
-    <module id="module.driver.rzt.ether_phy_on_ether_phy.1104657458">
-      <property id="module.driver.rzt.ether_phy.name" value="g_ether_phy0"/>
-      <property id="module.driver.rzt.ether_phy.channel" value="module.driver.rzt.ether_phy.channel.0"/>
-      <property id="module.driver.rzt.ether_phy.phy_lsi_address" value="0"/>
-      <property id="module.driver.rzt.ether_phy.phy_reset_wait_time" value="0x00020000"/>
-      <property id="module.driver.rzt.ether_phy.flow_control" value="module.driver.rzt.ether_phy.flow_control.disable"/>
-      <property id="module.driver.rzt.ether_phy.port_type" value="module.driver.rzt.ether_phy.port_type.0"/>
-      <property id="module.driver.rzt.ether_phy.phy_lsi_type" value="module.driver.rzt.ether_phy.phy_lsi_type.kit_component"/>
-      <property id="module.driver.rzt.ether_phy.target_init" value="NULL"/>
-      <property id="module.driver.rzt.ether_phy.mdio_type" value="module.driver.rzt.ether_phy.mdio_type.0"/>
-      <property id="module.driver.rzt.ether_phy.auto_negotiation" value="module.driver.rzt.ether_phy.auto_negotiation.1"/>
-      <property id="module.driver.rzt.ether_phy.bps" value="module.driver.rzt.ether_phy.bps.3"/>
-      <property id="module.driver.rzt.ether_phy.duplex" value="module.driver.rzt.ether_phy.duplex.1"/>
-      <property id="module.driver.rzt.ether_phy.reset_pin" value="enum_mcu.port.external.pin.p11_0"/>
-      <property id="module.driver.rzt.ether_phy.reset_time" value="15000"/>
-    </module>
-    <module id="module.driver.rzt.ether_selector_on_ether_selector.1378368893">
-      <property id="module.driver.rzt.ether_selector.name" value="g_ether_selector0"/>
-      <property id="module.driver.rzt.ether_selector.channel" value="module.driver.rzt.ether_selector.channel.0"/>
-      <property id="module.driver.rzt.ether_selector.phylink" value="module.driver.rzt.ether_selector.phylink.low"/>
-      <property id="module.driver.rzt.ether_selector.interface_type" value="module.driver.rzt.ether_selector.interface_type.mii"/>
-      <property id="module.driver.rzt.ether_selector.speed" value="module.driver.rzt.ether_selector.speed.bps1000m"/>
-      <property id="module.driver.rzt.ether_selector.duplex" value="module.driver.rzt.ether_selector.duplex.full"/>
-      <property id="module.driver.rzt.ether_selector.ref_clock" value="module.driver.rzt.ether_selector.ref_clock.input"/>
-    </module>
-    <module id="module.driver.rzt.ether_switch_on_ether_switch.1653383315">
-      <property id="module.driver.rzt.ethsw.name" value="g_ethsw0"/>
-      <property id="module.driver.rzt.ethsw.channel" value="module.driver.rzt.ethsw.channel.0"/>
-      <property id="module.driver.rzt.ethsw.specific_tag" value="module.driver.rzt.ethsw.specific_tag.0"/>
-      <property id="module.driver.rzt.ethsw.specific_tag_id" value="0xE001"/>
-      <property id="module.driver.rzt.ethsw.phylink" value="module.driver.rzt.ethsw.phylink.disable"/>
-      <property id="module.driver.rzt.ethsw.priority" value="board.icu.common.irq.priority12"/>
-      <property id="module.driver.rzt.ethsw.p_callback" value="NULL"/>
-      <property id="module.driver.rzt.ethsw.p_context" value="NULL"/>
-    </module>
-    <module id="module.freertos.bufferallocation2.553983087"/>
-    <module id="module.driver.rzt.ether_phy_on_ether_phy.584918793">
-      <property id="module.driver.rzt.ether_phy.name" value="g_ether_phy1"/>
-      <property id="module.driver.rzt.ether_phy.channel" value="module.driver.rzt.ether_phy.channel.0"/>
-      <property id="module.driver.rzt.ether_phy.phy_lsi_address" value="1"/>
-      <property id="module.driver.rzt.ether_phy.phy_reset_wait_time" value="0x00020000"/>
-      <property id="module.driver.rzt.ether_phy.flow_control" value="module.driver.rzt.ether_phy.flow_control.disable"/>
-      <property id="module.driver.rzt.ether_phy.port_type" value="module.driver.rzt.ether_phy.port_type.0"/>
-      <property id="module.driver.rzt.ether_phy.phy_lsi_type" value="module.driver.rzt.ether_phy.phy_lsi_type.kit_component"/>
-      <property id="module.driver.rzt.ether_phy.target_init" value="NULL"/>
-      <property id="module.driver.rzt.ether_phy.mdio_type" value="module.driver.rzt.ether_phy.mdio_type.0"/>
-      <property id="module.driver.rzt.ether_phy.auto_negotiation" value="module.driver.rzt.ether_phy.auto_negotiation.1"/>
-      <property id="module.driver.rzt.ether_phy.bps" value="module.driver.rzt.ether_phy.bps.3"/>
-      <property id="module.driver.rzt.ether_phy.duplex" value="module.driver.rzt.ether_phy.duplex.1"/>
-      <property id="module.driver.rzt.ether_phy.reset_pin" value="enum_mcu.port.external.pin.p11_0"/>
-      <property id="module.driver.rzt.ether_phy.reset_time" value="15000"/>
-    </module>
-    <module id="module.driver.rzt.ether_selector_on_ether_selector.540627346">
-      <property id="module.driver.rzt.ether_selector.name" value="g_ether_selector1"/>
-      <property id="module.driver.rzt.ether_selector.channel" value="module.driver.rzt.ether_selector.channel.0"/>
-      <property id="module.driver.rzt.ether_selector.phylink" value="module.driver.rzt.ether_selector.phylink.low"/>
-      <property id="module.driver.rzt.ether_selector.interface_type" value="module.driver.rzt.ether_selector.interface_type.mii"/>
-      <property id="module.driver.rzt.ether_selector.speed" value="module.driver.rzt.ether_selector.speed.bps1000m"/>
-      <property id="module.driver.rzt.ether_selector.duplex" value="module.driver.rzt.ether_selector.duplex.full"/>
-      <property id="module.driver.rzt.ether_selector.ref_clock" value="module.driver.rzt.ether_selector.ref_clock.input"/>
-    </module>
-    <module id="module.driver.rzt.ether_phy_on_ether_phy.2106297072">
-      <property id="module.driver.rzt.ether_phy.name" value="g_ether_phy2"/>
-      <property id="module.driver.rzt.ether_phy.channel" value="module.driver.rzt.ether_phy.channel.0"/>
-      <property id="module.driver.rzt.ether_phy.phy_lsi_address" value="2"/>
-      <property id="module.driver.rzt.ether_phy.phy_reset_wait_time" value="0x00020000"/>
-      <property id="module.driver.rzt.ether_phy.flow_control" value="module.driver.rzt.ether_phy.flow_control.disable"/>
-      <property id="module.driver.rzt.ether_phy.port_type" value="module.driver.rzt.ether_phy.port_type.0"/>
-      <property id="module.driver.rzt.ether_phy.phy_lsi_type" value="module.driver.rzt.ether_phy.phy_lsi_type.kit_component"/>
-      <property id="module.driver.rzt.ether_phy.target_init" value="NULL"/>
-      <property id="module.driver.rzt.ether_phy.mdio_type" value="module.driver.rzt.ether_phy.mdio_type.0"/>
-      <property id="module.driver.rzt.ether_phy.auto_negotiation" value="module.driver.rzt.ether_phy.auto_negotiation.1"/>
-      <property id="module.driver.rzt.ether_phy.bps" value="module.driver.rzt.ether_phy.bps.1"/>
-      <property id="module.driver.rzt.ether_phy.duplex" value="module.driver.rzt.ether_phy.duplex.1"/>
-      <property id="module.driver.rzt.ether_phy.reset_pin" value="enum_mcu.port.external.pin.p11_0"/>
-      <property id="module.driver.rzt.ether_phy.reset_time" value="15000"/>
-    </module>
-    <module id="module.driver.rzt.ether_selector_on_ether_selector.799366088">
-      <property id="module.driver.rzt.ether_selector.name" value="g_ether_selector2"/>
-      <property id="module.driver.rzt.ether_selector.channel" value="module.driver.rzt.ether_selector.channel.0"/>
-      <property id="module.driver.rzt.ether_selector.phylink" value="module.driver.rzt.ether_selector.phylink.low"/>
-      <property id="module.driver.rzt.ether_selector.interface_type" value="module.driver.rzt.ether_selector.interface_type.rgmii"/>
-      <property id="module.driver.rzt.ether_selector.speed" value="module.driver.rzt.ether_selector.speed.bps1000m"/>
-      <property id="module.driver.rzt.ether_selector.duplex" value="module.driver.rzt.ether_selector.duplex.full"/>
-      <property id="module.driver.rzt.ether_selector.ref_clock" value="module.driver.rzt.ether_selector.ref_clock.input"/>
-    </module>
-    <module id="module.freertos.heap.4.860188865"/>
-    <module id="module.driver.rzt.uart_on_sci_uart.239958816">
+    <module id="module.driver.rzt.uart_on_sci_uart.1797677059">
       <property id="module.driver.rzt.uart.name" value="g_uart0"/>
+      <property id="module.driver.rzt.uart.unit" value="module.driver.rzt.uart.unit.sci"/>
       <property id="module.driver.rzt.uart.channel" value="0"/>
       <property id="module.driver.rzt.uart.data_bits" value="module.driver.rzt.uart.data_bits.data_bits_8"/>
       <property id="module.driver.rzt.uart.parity" value="module.driver.rzt.uart.parity.parity_off"/>
@@ -2207,13 +2097,123 @@
       <property id="module.driver.rzt.uart.tei_ipl" value="board.icu.common.irq.priority5"/>
       <property id="module.driver.rzt.uart.eri_ipl" value="board.icu.common.irq.priority5"/>
     </module>
+    <module id="module.aws.freertosplus.freertosplus_tcp.749638379">
+      <property id="module.aws.freertosplus.freertosplus_tcp.name" value="g_freertos_plus_tcp"/>
+    </module>
+    <module id="module.driver.rzt.freertos_plus_tcp_on_ether.1782405100"/>
+    <module id="module.driver.rzt.ether_on_ether_2.478903253">
+      <property id="module.driver.rzt.ether.name" value="g_ether0"/>
+      <property id="module.driver.rzt.ether.channel" value="module.driver.rzt.ether.channel.0"/>
+      <property id="module.driver.rzt.ether.mac_address" value="00:11:22:33:44:55"/>
+      <property id="module.driver.rzt.ether.mac_address_1" value="NULL"/>
+      <property id="module.driver.rzt.ether.mac_address_2" value="NULL"/>
+      <property id="module.driver.rzt.ether.zerocopy" value="module.driver.rzt.ether.zerocopy.0"/>
+      <property id="module.driver.rzt.ether.flow_control" value="module.driver.rzt.ether.flow_control.disable"/>
+      <property id="module.driver.rzt.ether.promiscuous" value="module.driver.rzt.ether.promiscuous.1"/>
+      <property id="module.driver.rzt.ether.num_tx_descriptors" value="8"/>
+      <property id="module.driver.rzt.ether.num_rx_descriptors" value="8"/>
+      <property id="module.driver.rzt.ether.ether_buffer_size" value="1536"/>
+      <property id="module.driver.rzt.ether.sbd_interrupt_priority" value="board.icu.common.irq.priority12"/>
+      <property id="module.driver.rzt.ether.p_callback" value="NULL"/>
+      <property id="module.driver.rzt.ether.phylink" value="module.driver.rzt.ether.phylink.disable"/>
+    </module>
+    <module id="module.driver.rzt.ether_phy_on_ether_phy.1683721344">
+      <property id="module.driver.rzt.ether_phy.name" value="g_ether_phy0"/>
+      <property id="module.driver.rzt.ether_phy.channel" value="module.driver.rzt.ether_phy.channel.0"/>
+      <property id="module.driver.rzt.ether_phy.phy_lsi_address" value="0"/>
+      <property id="module.driver.rzt.ether_phy.phy_reset_wait_time" value="0x00020000"/>
+      <property id="module.driver.rzt.ether_phy.flow_control" value="module.driver.rzt.ether_phy.flow_control.disable"/>
+      <property id="module.driver.rzt.ether_phy.port_type" value="module.driver.rzt.ether_phy.port_type.0"/>
+      <property id="module.driver.rzt.ether_phy.phy_lsi_type" value="module.driver.rzt.ether_phy.phy_lsi_type.kit_component"/>
+      <property id="module.driver.rzt.ether_phy.target_init" value="NULL"/>
+      <property id="module.driver.rzt.ether_phy.mdio_type" value="module.driver.rzt.ether_phy.mdio_type.0"/>
+      <property id="module.driver.rzt.ether_phy.auto_negotiation" value="module.driver.rzt.ether_phy.auto_negotiation.1"/>
+      <property id="module.driver.rzt.ether_phy.mdi_mode" value="module.driver.rzt.ether_phy.mdi_mode.0"/>
+      <property id="module.driver.rzt.ether_phy.bps" value="module.driver.rzt.ether_phy.bps.3"/>
+      <property id="module.driver.rzt.ether_phy.duplex" value="module.driver.rzt.ether_phy.duplex.1"/>
+      <property id="module.driver.rzt.ether_phy.reset_pin" value="enum_mcu.port.external.pin.p11_0"/>
+      <property id="module.driver.rzt.ether_phy.reset_time" value="15000"/>
+    </module>
+    <module id="module.driver.rzt.ether_selector_on_ether_selector.50476652">
+      <property id="module.driver.rzt.ether_selector.name" value="g_ether_selector0"/>
+      <property id="module.driver.rzt.ether_selector.channel" value="module.driver.rzt.ether_selector.channel.0"/>
+      <property id="module.driver.rzt.ether_selector.phylink" value="module.driver.rzt.ether_selector.phylink.low"/>
+      <property id="module.driver.rzt.ether_selector.interface_type" value="module.driver.rzt.ether_selector.interface_type.mii"/>
+      <property id="module.driver.rzt.ether_selector.speed" value="module.driver.rzt.ether_selector.speed.bps1000m"/>
+      <property id="module.driver.rzt.ether_selector.duplex" value="module.driver.rzt.ether_selector.duplex.full"/>
+      <property id="module.driver.rzt.ether_selector.ref_clock" value="module.driver.rzt.ether_selector.ref_clock.input"/>
+    </module>
+    <module id="module.driver.rzt.ether_switch_on_ether_switch.1692658134">
+      <property id="module.driver.rzt.ethsw.name" value="g_ethsw0"/>
+      <property id="module.driver.rzt.ethsw.channel" value="module.driver.rzt.ethsw.channel.0"/>
+      <property id="module.driver.rzt.ethsw.specific_tag" value="module.driver.rzt.ethsw.specific_tag.0"/>
+      <property id="module.driver.rzt.ethsw.specific_tag_id" value="0xE001"/>
+      <property id="module.driver.rzt.ethsw.phylink" value="module.driver.rzt.ethsw.phylink.disable"/>
+      <property id="module.driver.rzt.ethsw.priority" value="board.icu.common.irq.priority12"/>
+      <property id="module.driver.rzt.ethsw.p_callback" value="NULL"/>
+      <property id="module.driver.rzt.ethsw.p_context" value="NULL"/>
+    </module>
+    <module id="module.freertos.bufferallocation2.2146238867"/>
+    <module id="module.driver.rzt.ether_phy_on_ether_phy.1077104936">
+      <property id="module.driver.rzt.ether_phy.name" value="g_ether_phy1"/>
+      <property id="module.driver.rzt.ether_phy.channel" value="module.driver.rzt.ether_phy.channel.0"/>
+      <property id="module.driver.rzt.ether_phy.phy_lsi_address" value="1"/>
+      <property id="module.driver.rzt.ether_phy.phy_reset_wait_time" value="0x00020000"/>
+      <property id="module.driver.rzt.ether_phy.flow_control" value="module.driver.rzt.ether_phy.flow_control.disable"/>
+      <property id="module.driver.rzt.ether_phy.port_type" value="module.driver.rzt.ether_phy.port_type.0"/>
+      <property id="module.driver.rzt.ether_phy.phy_lsi_type" value="module.driver.rzt.ether_phy.phy_lsi_type.kit_component"/>
+      <property id="module.driver.rzt.ether_phy.target_init" value="NULL"/>
+      <property id="module.driver.rzt.ether_phy.mdio_type" value="module.driver.rzt.ether_phy.mdio_type.0"/>
+      <property id="module.driver.rzt.ether_phy.auto_negotiation" value="module.driver.rzt.ether_phy.auto_negotiation.1"/>
+      <property id="module.driver.rzt.ether_phy.mdi_mode" value="module.driver.rzt.ether_phy.mdi_mode.0"/>
+      <property id="module.driver.rzt.ether_phy.bps" value="module.driver.rzt.ether_phy.bps.3"/>
+      <property id="module.driver.rzt.ether_phy.duplex" value="module.driver.rzt.ether_phy.duplex.1"/>
+      <property id="module.driver.rzt.ether_phy.reset_pin" value="enum_mcu.port.external.pin.p11_0"/>
+      <property id="module.driver.rzt.ether_phy.reset_time" value="15000"/>
+    </module>
+    <module id="module.driver.rzt.ether_selector_on_ether_selector.802657135">
+      <property id="module.driver.rzt.ether_selector.name" value="g_ether_selector1"/>
+      <property id="module.driver.rzt.ether_selector.channel" value="module.driver.rzt.ether_selector.channel.0"/>
+      <property id="module.driver.rzt.ether_selector.phylink" value="module.driver.rzt.ether_selector.phylink.low"/>
+      <property id="module.driver.rzt.ether_selector.interface_type" value="module.driver.rzt.ether_selector.interface_type.mii"/>
+      <property id="module.driver.rzt.ether_selector.speed" value="module.driver.rzt.ether_selector.speed.bps1000m"/>
+      <property id="module.driver.rzt.ether_selector.duplex" value="module.driver.rzt.ether_selector.duplex.full"/>
+      <property id="module.driver.rzt.ether_selector.ref_clock" value="module.driver.rzt.ether_selector.ref_clock.input"/>
+    </module>
+    <module id="module.driver.rzt.ether_phy_on_ether_phy.999425769">
+      <property id="module.driver.rzt.ether_phy.name" value="g_ether_phy2"/>
+      <property id="module.driver.rzt.ether_phy.channel" value="module.driver.rzt.ether_phy.channel.0"/>
+      <property id="module.driver.rzt.ether_phy.phy_lsi_address" value="2"/>
+      <property id="module.driver.rzt.ether_phy.phy_reset_wait_time" value="0x00020000"/>
+      <property id="module.driver.rzt.ether_phy.flow_control" value="module.driver.rzt.ether_phy.flow_control.disable"/>
+      <property id="module.driver.rzt.ether_phy.port_type" value="module.driver.rzt.ether_phy.port_type.0"/>
+      <property id="module.driver.rzt.ether_phy.phy_lsi_type" value="module.driver.rzt.ether_phy.phy_lsi_type.kit_component"/>
+      <property id="module.driver.rzt.ether_phy.target_init" value="NULL"/>
+      <property id="module.driver.rzt.ether_phy.mdio_type" value="module.driver.rzt.ether_phy.mdio_type.0"/>
+      <property id="module.driver.rzt.ether_phy.auto_negotiation" value="module.driver.rzt.ether_phy.auto_negotiation.1"/>
+      <property id="module.driver.rzt.ether_phy.mdi_mode" value="module.driver.rzt.ether_phy.mdi_mode.0"/>
+      <property id="module.driver.rzt.ether_phy.bps" value="module.driver.rzt.ether_phy.bps.1"/>
+      <property id="module.driver.rzt.ether_phy.duplex" value="module.driver.rzt.ether_phy.duplex.1"/>
+      <property id="module.driver.rzt.ether_phy.reset_pin" value="enum_mcu.port.external.pin.p11_0"/>
+      <property id="module.driver.rzt.ether_phy.reset_time" value="15000"/>
+    </module>
+    <module id="module.driver.rzt.ether_selector_on_ether_selector.1143258407">
+      <property id="module.driver.rzt.ether_selector.name" value="g_ether_selector2"/>
+      <property id="module.driver.rzt.ether_selector.channel" value="module.driver.rzt.ether_selector.channel.0"/>
+      <property id="module.driver.rzt.ether_selector.phylink" value="module.driver.rzt.ether_selector.phylink.low"/>
+      <property id="module.driver.rzt.ether_selector.interface_type" value="module.driver.rzt.ether_selector.interface_type.rgmii"/>
+      <property id="module.driver.rzt.ether_selector.speed" value="module.driver.rzt.ether_selector.speed.bps1000m"/>
+      <property id="module.driver.rzt.ether_selector.duplex" value="module.driver.rzt.ether_selector.duplex.full"/>
+      <property id="module.driver.rzt.ether_selector.ref_clock" value="module.driver.rzt.ether_selector.ref_clock.input"/>
+    </module>
+    <module id="module.freertos.heap.4.991553242"/>
     <context id="_hal.0">
       <stack module="module.driver.rzt.ioport_on_ioport.0"/>
       <stack module="module.middleware.rzt.rm_freertos_port.0"/>
       <stack module="module.bsp.rzt.memory_config.0"/>
-      <stack module="module.driver.rzt.uart_on_sci_uart.239958816"/>
+      <stack module="module.driver.rzt.uart_on_sci_uart.1797677059"/>
     </context>
-    <context id="rtos.awsfreertos.thread.400828761">
+    <context id="rtos.awsfreertos.thread.989206059">
       <property id="_symbol" value="net_thread"/>
       <property id="rtos.awsfreertos.thread.name" value="Net Thread"/>
       <property id="rtos.awsfreertos.thread.stack" value="4096"/>
@@ -2221,26 +2221,26 @@
       <property id="rtos.awsfreertos.thread.context" value="NULL"/>
       <property id="rtos.awsfreertos.thread.allocation" value="rtos.awsfreertos.thread.allocation.static"/>
       <property id="rtos.awsfreertos.thread.secure_context" value="rtos.awsfreertos.thread.secure_context.enable"/>
-      <stack module="module.aws.freertosplus.freertosplus_tcp.513562776">
-        <stack module="module.driver.rzt.freertos_plus_tcp_on_ether.1647745254" requires="module.aws.freertosplus.freertosplus_tcp.requires.freertosplus_tcp_driver">
-          <stack module="module.driver.rzt.ether_on_ether_2.573885855" requires="module.driver.rzt.freertos_plus_tcp_on_ether.requires.ether">
-            <stack module="module.driver.rzt.ether_phy_on_ether_phy.1104657458" requires="module.driver.rzt.ether.requires.ether_phy0">
-              <stack module="module.driver.rzt.ether_selector_on_ether_selector.1378368893" requires="module.driver.rzt.ether.requires.ether_selector"/>
+      <stack module="module.aws.freertosplus.freertosplus_tcp.749638379">
+        <stack module="module.driver.rzt.freertos_plus_tcp_on_ether.1782405100" requires="module.aws.freertosplus.freertosplus_tcp.requires.freertosplus_tcp_driver">
+          <stack module="module.driver.rzt.ether_on_ether_2.478903253" requires="module.driver.rzt.freertos_plus_tcp_on_ether.requires.ether">
+            <stack module="module.driver.rzt.ether_phy_on_ether_phy.1683721344" requires="module.driver.rzt.ether.requires.ether_phy0">
+              <stack module="module.driver.rzt.ether_selector_on_ether_selector.50476652" requires="module.driver.rzt.ether.requires.ether_selector"/>
             </stack>
-            <stack module="module.driver.rzt.ether_phy_on_ether_phy.584918793" requires="module.driver.rzt.ether.requires.ether_phy1">
-              <stack module="module.driver.rzt.ether_selector_on_ether_selector.540627346" requires="module.driver.rzt.ether.requires.ether_selector"/>
+            <stack module="module.driver.rzt.ether_phy_on_ether_phy.1077104936" requires="module.driver.rzt.ether.requires.ether_phy1">
+              <stack module="module.driver.rzt.ether_selector_on_ether_selector.802657135" requires="module.driver.rzt.ether.requires.ether_selector"/>
             </stack>
-            <stack module="module.driver.rzt.ether_phy_on_ether_phy.2106297072" requires="module.driver.rzt.ether.requires.ether_phy2">
-              <stack module="module.driver.rzt.ether_selector_on_ether_selector.799366088" requires="module.driver.rzt.ether.requires.ether_selector"/>
+            <stack module="module.driver.rzt.ether_phy_on_ether_phy.999425769" requires="module.driver.rzt.ether.requires.ether_phy2">
+              <stack module="module.driver.rzt.ether_selector_on_ether_selector.1143258407" requires="module.driver.rzt.ether.requires.ether_selector"/>
             </stack>
-            <stack module="module.driver.rzt.ether_switch_on_ether_switch.1653383315" requires="module.driver.rzt.ether.requires.ethsw"/>
+            <stack module="module.driver.rzt.ether_switch_on_ether_switch.1692658134" requires="module.driver.rzt.ether.requires.ethsw"/>
           </stack>
-          <stack module="module.freertos.bufferallocation2.553983087" requires="module.driver.rzt.freertos_plus_tcp_on_ether.requires.bufferallocation2"/>
+          <stack module="module.freertos.bufferallocation2.2146238867" requires="module.driver.rzt.freertos_plus_tcp_on_ether.requires.bufferallocation2"/>
         </stack>
       </stack>
-      <stack module="module.freertos.heap.4.860188865"/>
+      <stack module="module.freertos.heap.4.991553242"/>
     </context>
-    <context id="rtos.awsfreertos.thread.2109460446">
+    <context id="rtos.awsfreertos.thread.446327368">
       <property id="_symbol" value="tcp_echo_server_thread"/>
       <property id="rtos.awsfreertos.thread.name" value="TCP Echo Server"/>
       <property id="rtos.awsfreertos.thread.stack" value="4096"/>
@@ -2249,7 +2249,7 @@
       <property id="rtos.awsfreertos.thread.allocation" value="rtos.awsfreertos.thread.allocation.static"/>
       <property id="rtos.awsfreertos.thread.secure_context" value="rtos.awsfreertos.thread.secure_context.enable"/>
     </context>
-    <context id="rtos.awsfreertos.thread.1789348530">
+    <context id="rtos.awsfreertos.thread.306877083">
       <property id="_symbol" value="udp_echo_server_thread"/>
       <property id="rtos.awsfreertos.thread.name" value="UDP Echo Server"/>
       <property id="rtos.awsfreertos.thread.stack" value="4096"/>
@@ -2471,9 +2471,6 @@
     <symbolicName propertyId="p13_4.symbolic_name" value="RXD3"/>
     <symbolicName propertyId="p13_5.symbolic_name" value="TXD3"/>
     <symbolicName propertyId="p14_0.symbolic_name" value="DE3"/>
-    <symbolicName propertyId="p14_1.symbolic_name" value="SD0_CD"/>
-    <symbolicName propertyId="p14_6.symbolic_name" value="SD0_PWEN"/>
-    <symbolicName propertyId="p14_7.symbolic_name" value="SD0_IOVS"/>
     <symbolicName propertyId="p16_3.symbolic_name" value="RXD5"/>
     <symbolicName propertyId="p16_4.symbolic_name" value="TXD5"/>
     <symbolicName propertyId="p16_5.symbolic_name" value="SD1_CLK"/>

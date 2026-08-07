@@ -3322,12 +3322,12 @@ FSP Configuration
   Module "Memory config check"
     MPU/MMU Type: MMU
     
-  Module "Timer , Multi-Function Timer Pulse Unit 3 (r_mtu3)"
+  Module "Timer, Multi-Function (r_mtu3)"
     Parameter Checking: Default (BSP)
     Pin Output Support: Disabled
     Nested Interrupt (Multiplex Interrupt): Disabled
     
-  Module "UART (r_sci_uart)"
+  Module "UART (r_sci_uart, r_scie_uart)"
     Parameter Checking: Default (BSP)
     FIFO Support: Disable
     DMAC Support: Disable
@@ -3395,7 +3395,7 @@ FSP Configuration
       ELC Single Port 3: Input Direction Setting: Edge Detection: Rising edge
       
     Instance "Memory config check"
-    Instance "g_timer Timer , Multi-Function Timer Pulse Unit 3 (r_mtu3)"
+    Instance "g_timer Timer, Multi-Function (r_mtu3)"
       General: Name: g_timer
       General: Channel: 1
       General: Mode: Periodic
@@ -3408,13 +3408,21 @@ FSP Configuration
       Output: MTIOCB Output Enabled: False
       Output: MTIOCB Stop Level: Pin Level Low
       Output: Retain Output Level at Count Stop: Disabled
-      General: Compare Match: Compare match value: 0
-      General: Compare Match: Status: Disabled
+      Output: MTIOCC Output Enabled: False
+      Output: MTIOCC Stop Level: Pin Level Low
+      Output: MTIOCD Output Enabled: False
+      Output: MTIOCD Stop Level: Pin Level Low
+      General: Compare Match: Compare Match: Status: Disabled
+      General: Compare Match: Compare Match: Compare match value: 0
+      General: Compare Match: Compare Match B: Status: Disabled
+      General: Compare Match: Compare Match B: Compare match value: 0x10000
       General: Period Unit: Raw Counts
       General: Clock Edge: Rising
       General: Counter Clear Source: Disabled
       Input: Input Capture: MTIOCnA Source: No Output
       Input: Input Capture: MTIOCnB Source: No Output
+      Input: Input Capture: MTIOCnC Source: No Output
+      Input: Input Capture: MTIOCnD Source: No Output
       Input: Phase Count: Bit Mode: 16-bit
       Input: Phase Count: Counting Mode: Mode1
       Input: Phase Count: Clock Pin Select: MTCLKA, MTCLKB
@@ -3422,22 +3430,28 @@ FSP Configuration
       Noise Filter: External Clock: Clock Select: PCLK divided by 1
       Noise Filter: Input Capture: Enable: 
       Noise Filter: Input Capture: Clock Select: PCLK divided by 1
-      Custom Waveform: Custom Waveform Enable: Disabled
+      Custom Waveform: Custom Waveform Enable: Enabled
       Custom Waveform: TGRA(Output Compare or Input Capture Value): 0x0000
       Custom Waveform: TGRB(Output Compare or Input Capture Value): 0x0000
       Custom Waveform: TGRC(The Buffer Value of TGRA): 0x10000
       Custom Waveform: TGRD(The Buffer Value of TGRB): 0x10000
       Custom Waveform: TGRA I/O Pin Setting: No Output
       Custom Waveform: TGRB I/O Pin Setting: No Output
+      Custom Waveform: TGRC I/O Pin Setting: No Output
+      Custom Waveform: TGRD I/O Pin Setting: No Output
       Custom Waveform: Time Prescaler: PCLKH divided by 1  (common ch)
       Interrupts: Callback: NULL
       Interrupts: Overflow/Crest Interrupt Priority: Disabled
       Interrupts: Capture/Compare A Interrupt Priority: Disabled
       Interrupts: Capture/Compare B Interrupt Priority: Disabled
+      Interrupts: Capture/Compare C Interrupt Priority: Disabled
+      Interrupts: Capture/Compare D Interrupt Priority: Disabled
       Interrupts (GPT_SEL): Callback: NULL
       Interrupts (GPT_SEL): Overflow/Crest Interrupt Source: INT4
       Interrupts (GPT_SEL): Capture/Compare A Interrupt Source: None
       Interrupts (GPT_SEL): Capture/Compare B Interrupt Source: None
+      Interrupts (GPT_SEL): Capture/Compare C Interrupt Source: None
+      Interrupts (GPT_SEL): Capture/Compare D Interrupt Source: None
       Interrupts (GPT_SEL): INT0 Interrupt Priority: Disabled
       Interrupts (GPT_SEL): INT1 Interrupt Priority: Disabled
       Interrupts (GPT_SEL): INT2 Interrupt Priority: Disabled
@@ -3462,8 +3476,9 @@ FSP Configuration
       ELC: MTU4: Trigger Source: Disabled
       ELC: MTU4: Operation Select: Disabled
       
-    Instance "g_uart0 UART (r_sci_uart)"
+    Instance "g_uart0 UART (r_sci_uart, r_scie_uart)"
       General: Name: g_uart0
+      General: Unit: SCI
       General: Channel: 0
       General: Data Bits: 8bits
       General: Parity: None

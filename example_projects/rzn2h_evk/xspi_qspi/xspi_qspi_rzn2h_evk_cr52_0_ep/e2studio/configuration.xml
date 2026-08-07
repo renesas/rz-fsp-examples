@@ -9,7 +9,7 @@
     <option key="#DeviceCommand#" value="R9A09G087M44_CR52_0"/>
     <option key="#RTOS#" value="_none"/>
     <option key="#pinconfiguration#" value="R9A09G087M44GBG.pincfg"/>
-    <option key="#FSPVersion#" value="4.1.0"/>
+    <option key="#FSPVersion#" value="4.2.0"/>
     <option key="#ConfigurationFragments#" value="Renesas##BSP##Board##rzn2h_evb##ram_execution"/>
     <option key="#SELECTED_TOOLCHAIN#" value="gcc-arm-embedded"/>
     <option key="#ToolchainVersion#" value="13.3.1.arm-13-24"/>
@@ -1613,49 +1613,49 @@
     <node id="board.clock.clma6.cmph" mul="1023" option="_edit"/>
   </raClockConfiguration>
   <raComponentSelection>
-    <component apiversion="" class="Common" condition="" group="all" subgroup="fsp_common" variant="" vendor="Renesas" version="4.1.0">
+    <component apiversion="" class="Common" condition="" group="all" subgroup="fsp_common" variant="" vendor="Renesas" version="4.2.0">
       <description>Board Support Package Common Files</description>
-      <originalPack>Renesas.RZ.4.1.0.pack</originalPack>
+      <originalPack>Renesas.RZ.4.2.0.pack</originalPack>
     </component>
-    <component apiversion="" class="Common" condition="" group="rzn" subgroup="fsp_common" variant="" vendor="Renesas" version="4.1.0">
+    <component apiversion="" class="Common" condition="" group="rzn" subgroup="fsp_common" variant="" vendor="Renesas" version="4.2.0">
       <description>Board Support Package Common Files</description>
-      <originalPack>Renesas.RZN.4.1.0.pack</originalPack>
+      <originalPack>Renesas.RZN.4.2.0.pack</originalPack>
     </component>
-    <component apiversion="" class="Common" condition="" group="rzn" subgroup="config" variant="" vendor="Renesas" version="4.1.0">
+    <component apiversion="" class="Common" condition="" group="rzn" subgroup="config" variant="" vendor="Renesas" version="4.2.0">
       <description>RZN Configuration Template File</description>
-      <originalPack>Renesas.RZN_config.4.1.0.pack</originalPack>
+      <originalPack>Renesas.RZN_config.4.2.0.pack</originalPack>
     </component>
-    <component apiversion="" class="BSP" condition="" group="rzn" subgroup="Memory" variant="" vendor="Renesas" version="4.1.0">
+    <component apiversion="" class="BSP" condition="" group="rzn" subgroup="Memory" variant="" vendor="Renesas" version="4.2.0">
       <description>Memory Config Checking</description>
-      <originalPack>Renesas.RZN.4.1.0.pack</originalPack>
+      <originalPack>Renesas.RZN.4.2.0.pack</originalPack>
     </component>
-    <component apiversion="" class="HAL Drivers" condition="" group="rzn" subgroup="r_ioport" variant="" vendor="Renesas" version="4.1.0">
+    <component apiversion="" class="HAL Drivers" condition="" group="rzn" subgroup="r_ioport" variant="" vendor="Renesas" version="4.2.0">
       <description>I/O Port</description>
-      <originalPack>Renesas.RZN.4.1.0.pack</originalPack>
+      <originalPack>Renesas.RZN.4.2.0.pack</originalPack>
     </component>
-    <component apiversion="" class="CMSIS" condition="" group="CMSIS6" subgroup="CoreM" variant="" vendor="Arm" version="6.1.0+fsp.4.1.0">
+    <component apiversion="" class="CMSIS" condition="" group="CMSIS6" subgroup="CoreM" variant="" vendor="Arm" version="6.1.0+fsp.4.2.0">
       <description>Arm CMSIS Version 6 - Core</description>
-      <originalPack>Arm.CMSIS6.6.1.0+fsp.4.1.0.pack</originalPack>
+      <originalPack>Arm.CMSIS6.6.1.0+fsp.4.2.0.pack</originalPack>
     </component>
-    <component apiversion="" class="BSP" condition="" group="rzn2h" subgroup="device" variant="R9A09G087M44GBG" vendor="Renesas" version="4.1.0">
+    <component apiversion="" class="BSP" condition="" group="rzn2h" subgroup="device" variant="R9A09G087M44GBG" vendor="Renesas" version="4.2.0">
       <description>Board support package for R9A09G087M44GBG</description>
-      <originalPack>Renesas.RZN_mcu_rzn2h.4.1.0.pack</originalPack>
+      <originalPack>Renesas.RZN_mcu_rzn2h.4.2.0.pack</originalPack>
     </component>
-    <component apiversion="" class="BSP" condition="" group="rzn2h" subgroup="device" variant="" vendor="Renesas" version="4.1.0">
+    <component apiversion="" class="BSP" condition="" group="rzn2h" subgroup="device" variant="" vendor="Renesas" version="4.2.0">
       <description>Board support package for RZN2H</description>
-      <originalPack>Renesas.RZN_mcu_rzn2h.4.1.0.pack</originalPack>
+      <originalPack>Renesas.RZN_mcu_rzn2h.4.2.0.pack</originalPack>
     </component>
-    <component apiversion="" class="BSP" condition="" group="rzn2h" subgroup="fsp" variant="" vendor="Renesas" version="4.1.0">
+    <component apiversion="" class="BSP" condition="" group="rzn2h" subgroup="fsp" variant="" vendor="Renesas" version="4.2.0">
       <description>Board support package for RZN2H - FSP Data</description>
-      <originalPack>Renesas.RZN_mcu_rzn2h.4.1.0.pack</originalPack>
+      <originalPack>Renesas.RZN_mcu_rzn2h.4.2.0.pack</originalPack>
     </component>
-    <component apiversion="" class="BSP" condition="" group="Board" subgroup="rzn2h_evb" variant="ram_execution" vendor="Renesas" version="4.1.0">
+    <component apiversion="" class="BSP" condition="" group="Board" subgroup="rzn2h_evb" variant="ram_execution" vendor="Renesas" version="4.2.0">
       <description>RZN2H Evaluation Board Support Files (RAM execution without flash memory)</description>
-      <originalPack>Renesas.RZN_board_rzn2h_evb.4.1.0.pack</originalPack>
+      <originalPack>Renesas.RZN_board_rzn2h_evb.4.2.0.pack</originalPack>
     </component>
-    <component apiversion="" class="HAL Drivers" condition="" group="rzn" subgroup="r_xspi_qspi" variant="" vendor="Renesas" version="4.1.0">
+    <component apiversion="" class="HAL Drivers" condition="" group="rzn" subgroup="r_xspi_qspi" variant="" vendor="Renesas" version="4.2.0">
       <description>Quad Serial Peripheral Interface Flash on Expanded Serial Peripheral Interface</description>
-      <originalPack>Renesas.RZN.4.1.0.pack</originalPack>
+      <originalPack>Renesas.RZN.4.2.0.pack</originalPack>
     </component>
   </raComponentSelection>
   <raElcConfiguration/>

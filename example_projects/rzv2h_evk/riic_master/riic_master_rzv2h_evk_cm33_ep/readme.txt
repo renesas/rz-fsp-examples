@@ -11,10 +11,10 @@
     RTTviewer. Any API/event failure will be displayed on RTTviewer.
 
 2. Software Requirements:
-    Renesas Flexible Software Package (FSP): Version 4.1.0
-    e2 studio: Version 2026-04.1
+    Renesas Flexible Software Package (FSP): Version 4.2.0
+    e2 studio: Version 2026-07
     GCC ARM Embedded Toolchain: Version 13.3.1.arm-13-24
-    SEGGER J-Link RTT Viewer: Version 8.60
+    SEGGER J-Link RTT Viewer: Version 9.44
 
 3. Hardware Requirements:
     RZ supported boards: RZ/V2H-EVK.
@@ -59,6 +59,6 @@ Note:
    An alternate I2C address of 0x53 (followed by the R/W bit) can be chosen by grounding the SDO/ALT ADDRESS pin.
 2. Segger RTT block address may be needed to download and observe EP operation using a hex file with RTT-Viewer.
    RTT Block address for hex file committed in repository are as follows:
-   a. e2studio: 0x0800e718
+   a. e2studio: 0x0800e770
 3. If an EP is modified, compiled, and downloaded please find the block address (for the variable in RAM called
    _SEGGER_RTT) in .map file generated in the build configuration folder (Debug/Release).

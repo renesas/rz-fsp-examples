@@ -118,8 +118,8 @@ SHARED_NONCACHE_BUFFER_LENGTH      = SHARED_NONCACHE_BUFFER_INIT_LENGTH;
 
 /* Calculate the start address of the noncache region used by the LCDC. */
 LCDC_FRAME_BUFFER_START            = (DEFINED(CR52_0) || DEFINED(CR52_1)) ?
-                                         DDR_MIRROR1_PRV_START + DDR_MIRROR1_PRV_LENGTH - LCDC_FRAME_BUFFER_OFFSET :
-                                         DDR_MIRROR0_PRV_START + DDR_MIRROR0_PRV_LENGTH - LCDC_FRAME_BUFFER_OFFSET;
+                                        DDR_MIRROR1_PRV_START + DDR_MIRROR1_PRV_LENGTH - LCDC_FRAME_BUFFER_OFFSET :
+                                        DDR_MIRROR0_PRV_START + DDR_MIRROR0_PRV_LENGTH - LCDC_FRAME_BUFFER_OFFSET;
 LCDC_FRAME_BUFFER_LENGTH           = LCDC_FRAME_BUFFER_OFFSET;
 
 /*============================================================================*/
@@ -131,6 +131,10 @@ MEMORY
     ATCM                   : ORIGIN = ATCM_PRV_START,                   LENGTH = ATCM_PRV_LENGTH
     BTCM                   : ORIGIN = BTCM_PRV_START,                   LENGTH = BTCM_PRV_LENGTH
     SYSTEM_RAM             : ORIGIN = SYSTEM_RAM_ALIGN_START,           LENGTH = SYSTEM_RAM_ALIGN_LENGTH
+    CPU0_ATCM_VIA_AXIS     : ORIGIN = CPU0_ATCM_VIA_AXIS_PRV_START,     LENGTH = CPU0_ATCM_VIA_AXIS_PRV_LENGTH
+    CPU0_BTCM_VIA_AXIS     : ORIGIN = CPU0_BTCM_VIA_AXIS_PRV_START,     LENGTH = CPU0_BTCM_VIA_AXIS_PRV_LENGTH
+    CPU1_ATCM_VIA_AXIS     : ORIGIN = CPU1_ATCM_VIA_AXIS_PRV_START,     LENGTH = CPU1_ATCM_VIA_AXIS_PRV_LENGTH
+    CPU1_BTCM_VIA_AXIS     : ORIGIN = CPU1_BTCM_VIA_AXIS_PRV_START,     LENGTH = CPU1_BTCM_VIA_AXIS_PRV_LENGTH
     SYSTEM_RAM_MIRROR      : ORIGIN = SYSTEM_RAM_MIRROR_PRV_START,      LENGTH = SYSTEM_RAM_MIRROR_PRV_LENGTH
     xSPI0_CS0_SPACE_MIRROR : ORIGIN = xSPI0_CS0_SPACE_MIRROR_PRV_START, LENGTH = xSPI0_CS0_SPACE_MIRROR_PRV_LENGTH
     xSPI0_CS1_SPACE_MIRROR : ORIGIN = xSPI0_CS1_SPACE_MIRROR_PRV_START, LENGTH = xSPI0_CS1_SPACE_MIRROR_PRV_LENGTH
@@ -175,7 +179,7 @@ SECTIONS
 /*-----------------------------------------------*/
 /*  LOADER PROGRAM                               */
 /*-----------------------------------------------*/
-	/* Place the functions to be used in the loader program (SSBL). */
+    /* Place the functions to be used in the loader program (SSBL). */
     .loader_text LOADER_TEXT_ADDRESS :
     {
         _loader_text_start = .;
@@ -398,6 +402,7 @@ SECTIONS
         *(.data)
 
         *(.rodata*)
+        KEEP(*(.version))
         _erodata = .;
 
         . = ALIGN(8);

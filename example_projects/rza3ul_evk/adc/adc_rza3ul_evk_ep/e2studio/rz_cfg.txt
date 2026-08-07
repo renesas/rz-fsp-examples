@@ -1581,8 +1581,10 @@ FSP Configuration
       General: Counter Clear Source: Disabled
       General: Buffer Operation Support: Enabled
       General: Clock Edge: Rising
-      General: Compare Match: Status: Disabled
-      General: Compare Match: Compare match value: 0
+      General: Compare Match: Compare Match: Status: Disabled
+      General: Compare Match: Compare Match: Compare match value: 0
+      General: Compare Match: Compare Match B: Status: Disabled
+      General: Compare Match: Compare Match B: Compare match value: 0x10000
       Output: Duty Cycle Percent (only applicable in PWM mode): 50
       Output: MTIOCA Output Enabled: False
       Output: MTIOCA Stop Level: Pin Level Low
@@ -1590,11 +1592,17 @@ FSP Configuration
       Output: MTIOCB Output Enabled: False
       Output: MTIOCB Stop Level: Pin Level Low
       Output: Retain Output Level at Count Stop: Disabled
+      Output: MTIOCC Output Enabled: False
+      Output: MTIOCC Stop Level: Pin Level Low
+      Output: MTIOCD Output Enabled: False
+      Output: MTIOCD Stop Level: Pin Level Low
       Input: Phase Count: Bit Mode: 16-bit
       Input: Phase Count: Counting Mode: None
       Input: Phase Count: Clock Pin Select: MTCLKA, MTCLKB
       Input: Input Capture: MTIOCnA Source: No Output
       Input: Input Capture: MTIOCnB Source: No Output
+      Input: Input Capture: MTIOCnC Source: No Output
+      Input: Input Capture: MTIOCnD Source: No Output
       Input: Noise Filter: External Clock: Enable: 
       Input: Noise Filter: External Clock: Clock Select: Clock source divided by 1
       Input: Noise Filter: Input Capture: Enable: 
@@ -1605,8 +1613,10 @@ FSP Configuration
       Custom Waveform: TGRC(The Buffer Value of TGRA): 0x10000
       Custom Waveform: TGRD(The Buffer Value of TGRB): 0x10000
       Custom Waveform: Time Prescaler: Clock source divided by 1  (common ch)
-      Custom Waveform: MTIOCnA Pin Function: No Output
-      Custom Waveform: MTIOCnB Pin Function: No Output
+      Custom Waveform: TGRA I/O Pin Setting: No Output
+      Custom Waveform: TGRB I/O Pin Setting: No Output
+      Custom Waveform: TGRC I/O Pin Setting: No Output
+      Custom Waveform: TGRD I/O Pin Setting: No Output
       Interrupts: Callback: NULL
       Interrupts: Overflow/Crest Interrupt Enable: Disabled
       Interrupts: Overflow/Crest Interrupt Priority: 24
@@ -1614,9 +1624,13 @@ FSP Configuration
       Interrupts: Capture/Compare match A Interrupt Priority: 24
       Interrupts: Capture/Compare match B Interrupt Enable: Disabled
       Interrupts: Capture/Compare match B Interrupt Priority: 24
+      Interrupts: Capture/Compare match C Interrupt Enable: Disabled
+      Interrupts: Capture/Compare match C Interrupt Priority: 24
+      Interrupts: Capture/Compare match D Interrupt Enable: Disabled
+      Interrupts: Capture/Compare match D Interrupt Priority: 24
       Extra Features: Extra Features Enable: Enabled
-      Extra Features: ADC Trigger: Start request cycle A (Start Request Delaying Function): 0
-      Extra Features: ADC Trigger: Start request cycle B (Start Request Delaying Function): 0
+      Extra Features: ADC Trigger: Start request cycle A (Start Request Delaying Function): 1
+      Extra Features: ADC Trigger: Start request cycle B (Start Request Delaying Function): 1
       Extra Features: ADC Trigger: A/D Converter Activation by TGRA Input Capture/Compare Match Enable: Enabled
       Extra Features: Interrupt Skipping: Group A: Mode: Mode 1
       Extra Features: Interrupt Skipping: Group A: TCIV4 Interrupt Skip Count: Not skip

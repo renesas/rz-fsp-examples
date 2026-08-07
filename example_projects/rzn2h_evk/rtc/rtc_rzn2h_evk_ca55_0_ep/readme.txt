@@ -12,8 +12,8 @@
     the current day-of-week is enabled. Any API failure is also displayed on the console.
 
 2. Software Requirements:
-    Renesas Flexible Software Package (FSP): Version 4.1.0
-    e2 studio: Version 2026-04.1
+    Renesas Flexible Software Package (FSP): Version 4.2.0
+    e2 studio: Version 2026-07
     GCC ARM A-Profile (AArch64 bare-metal): Version 13.2 rel1
     Terminal Console Application: Tera Term or a similar application
 

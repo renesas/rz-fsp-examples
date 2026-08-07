@@ -110,7 +110,7 @@ fsp_err_t set_timer_duty_cycle(uint8_t duty_cycle_percent)
          * UINT32_MAX / 100, this calculation could overflow. */
         if (100UL == duty_cycle_percent)
         {
-            duty_cycle_counts = g_current_period_counts + 2UL;
+            duty_cycle_counts = g_current_period_counts - 1U;
         }
         else if (0UL == duty_cycle_percent)
         {

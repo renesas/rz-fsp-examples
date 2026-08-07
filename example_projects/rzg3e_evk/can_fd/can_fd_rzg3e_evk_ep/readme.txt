@@ -14,10 +14,10 @@
     On 4th transmission, channel 1 transmits updated data to channel 4 as ACK. Channel 4 displays the received data.
 
 2. Software Requirements:
-    Renesas Flexible Software Package (FSP): Version 4.1.0
-    e2 studio: Version 2026-04.1
+    Renesas Flexible Software Package (FSP): Version 4.2.0
+    e2 studio: Version 2026-07
     GCC ARM Embedded Toolchain: Version 13.3.1.arm-13-24
-    SEGGER J-Link RTT Viewer: Version 8.60
+    SEGGER J-Link RTT Viewer: Version 9.44
 
 3. Hardware Requirements:
     RZ supported boards: RZ/G3E-EVK.
@@ -63,7 +63,7 @@
 Note:
 1. Segger RTT block address may be needed to download and observe EP operation using a hex file with RTT-Viewer.
    RTT Block address for hex file committed in repository are as follows:
-   a. e2studio: 0x08009528
+   a. e2studio: 0x08009558
 2. If an EP is modified, compiled, and downloaded please find the block address (for the variable in RAM called
    _SEGGER_RTT) in .map file generated in the build configuration folder (Debug/Release).
 3. Board RZ/G Evaluation Board Kit - must have IC41 (to support CAN port) is on the SMARC Carrier Board.

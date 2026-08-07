@@ -22,7 +22,7 @@
     <stringAttribute key="com.renesas.cdt.core.secondGDBExe" value="green_dsp-elf-gdb"/>
     <booleanAttribute key="com.renesas.cdt.core.secondGDBSupport" value="false"/>
     <intAttribute key="com.renesas.cdt.core.secondGdbPortNumber" value="61237"/>
-    <stringAttribute key="com.renesas.cdt.core.serverParam" value="-g SEGGERJLINKARM -t R9A09G077M44_R52_1 -uConnectionTimeout= 30 -uSelect= &quot;USB&quot; -uJLinkSetting= &quot;${workspace_loc:/${ProjName}}/${LaunchConfigName}.jlink&quot; -uJLinkScript= &quot;${workspace_loc:/${ProjName}}/e2studio/script/initialization_TCM.JLinkScript&quot; -uJLinkLog= &quot;${workspace_loc:/${ProjName}}/JLinkLog.log&quot; -uLowPower= 0 -uInteface= &quot;SWD&quot; -uIfSpeed= &quot;4000&quot; -uResetBeginConnection= 1 -uNoReset= 1 -uIdCodeBytes=  &quot;FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF&quot; -uReleaseCM3= 0 -uDisconnectionMode= &quot;2&quot; -uSWOcoreClock= &quot;0&quot; -uresetOnReload= 1 -n &quot;0&quot; -uFlashBp= 1 -uSimulation= 0 -ueraseRomOnDownload= 0 -ueraseDataRomOnDownload= 0 -uOSRestriction= 0 -uAllowCachingFlash= 1 -uResetBehavior= &quot;Reset&quot;"/>
+    <stringAttribute key="com.renesas.cdt.core.serverParam" value="-g SEGGERJLINKARM -t R9A09G077M44_R52_1 -uConnectionTimeout= 30 -uSelect= &quot;USB&quot; -uJLinkSetting= &quot;${workspace_loc:/${ProjName}}/${LaunchConfigName}.jlink&quot; -uJLinkScript= &quot;${workspace_loc:/${ProjName}}/script/initialization_TCM.JLinkScript&quot; -uJLinkLog= &quot;${workspace_loc:/${ProjName}}/JLinkLog.log&quot; -uLowPower= 0 -uInteface= &quot;SWD&quot; -uIfSpeed= &quot;4000&quot; -uResetBeginConnection= 1 -uNoReset= 1 -uIdCodeBytes=  &quot;FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF&quot; -uReleaseCM3= 0 -uDisconnectionMode= &quot;2&quot; -uSWOcoreClock= &quot;0&quot; -uresetOnReload= 1 -n &quot;0&quot; -uFlashBp= 1 -uSimulation= 0 -ueraseRomOnDownload= 0 -ueraseDataRomOnDownload= 0 -uOSRestriction= 0 -uAllowCachingFlash= 1 -uResetBehavior= &quot;Reset&quot;"/>
     <booleanAttribute key="com.renesas.cdt.core.startServer" value="true"/>
     <stringAttribute key="com.renesas.cdt.core.targetDevice" value="R9A09G077M44_CR52_1"/>
     <booleanAttribute key="com.renesas.cdt.core.useRemoteTarget" value="true"/>
@@ -70,7 +70,7 @@
     <stringAttribute key="com.renesas.hardwaredebug.arm.jlink.jlink.ipAddress" value=""/>
     <stringAttribute key="com.renesas.hardwaredebug.arm.jlink.jlink.logFile" value="${workspace_loc:/${ProjName}}/JLinkLog.log"/>
     <stringAttribute key="com.renesas.hardwaredebug.arm.jlink.jlink.lowPowerHandling" value="No"/>
-    <stringAttribute key="com.renesas.hardwaredebug.arm.jlink.jlink.scriptFile" value="${workspace_loc:/${ProjName}}/e2studio/script/initialization_TCM.JLinkScript"/>
+    <stringAttribute key="com.renesas.hardwaredebug.arm.jlink.jlink.scriptFile" value="${workspace_loc:/${ProjName}}/script/initialization_TCM.JLinkScript"/>
     <stringAttribute key="com.renesas.hardwaredebug.arm.jlink.jlink.settingsFile" value="${workspace_loc:/${ProjName}}/${LaunchConfigName}.jlink"/>
     <stringAttribute key="com.renesas.hardwaredebug.arm.jlink.jlink.type" value="USB"/>
     <stringAttribute key="com.renesas.hardwaredebug.arm.jlink.jlink.usbSerial" value=""/>
@@ -104,6 +104,7 @@
     <stringAttribute key="com.renesas.hardwaredebug.arm.jlink.setTZAuthKey" value=""/>
     <stringAttribute key="com.renesas.hardwaredebug.arm.jlink.setTZAuthLevel" value="0"/>
     <booleanAttribute key="com.renesas.hardwaredebug.arm.jlink.setTZBoundaries" value="false"/>
+    <stringAttribute key="com.renesas.hardwaredebug.arm.jlink.setTZComport" value=""/>
     <intAttribute key="com.renesas.hardwaredebug.arm.jlink.supply_voltage_asp" value="0"/>
     <booleanAttribute key="com.renesas.hardwaredebug.arm.jlink.use_multidevice_synchronous_debug" value="false"/>
     <booleanAttribute key="com.renesas.hardwaredebug.timemeasurement" value="false"/>
@@ -145,5 +146,6 @@
     <listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_TYPES">
         <listEntry value="4"/>
     </listAttribute>
+    <stringAttribute key="org.eclipse.dsf.launch.MEMORY_BLOCKS" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?&gt;&lt;memoryBlockExpressionList context=&quot;reserved-for-future-use&quot;/&gt;"/>
     <stringAttribute key="process_factory_id" value="org.eclipse.cdt.dsf.gdb.GdbProcessFactory"/>
 </launchConfiguration>

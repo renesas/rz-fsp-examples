@@ -1,5 +1,5 @@
 /*
-                  Linker File for Renesas RZ/T2 FSP
+                  Linker File for Renesas RZ/N2 FSP
 */
 
 INCLUDE memory_regions.ld
@@ -52,7 +52,7 @@ USER_PROGRAM_LOCATION_PRV = (0 == ASSERT_TCM) ? 2 : USER_PROGRAM_LOCATION_PRV;
 SYSTEM_RAM_ALIGN_START             = ALIGN(SYSTEM_RAM_PRV_START, 0x00020000);
 SYSTEM_RAM_ALIGN_LENGTH            = SYSTEM_RAM_PRV_LENGTH - (SYSTEM_RAM_PRV_LENGTH % 0x00020000);
 
-/* This is the offset of the mirror region of ​​SYSTEM_RAM. It varies depending on the device. */
+/* This is the offset of the mirror region of SYSTEM_RAM. It varies depending on the device. */
 SYSTEM_RAM_MIRROR_OFFSET           = DEFINED(SYSTEM_RAM_START) ?
                                          DEFINED(SYSTEM_RAM_MIRROR_START) ?
                                              0x20000000 :
@@ -118,8 +118,8 @@ SHARED_NONCACHE_BUFFER_LENGTH      = SHARED_NONCACHE_BUFFER_INIT_LENGTH;
 
 /* Calculate the start address of the noncache region used by the LCDC. */
 LCDC_FRAME_BUFFER_START            = (DEFINED(CR52_0) || DEFINED(CR52_1)) ?
-                                         DDR_MIRROR1_PRV_START + DDR_MIRROR1_PRV_LENGTH - LCDC_FRAME_BUFFER_OFFSET :
-                                         DDR_MIRROR0_PRV_START + DDR_MIRROR0_PRV_LENGTH - LCDC_FRAME_BUFFER_OFFSET;
+                                        DDR_MIRROR1_PRV_START + DDR_MIRROR1_PRV_LENGTH - LCDC_FRAME_BUFFER_OFFSET :
+                                        DDR_MIRROR0_PRV_START + DDR_MIRROR0_PRV_LENGTH - LCDC_FRAME_BUFFER_OFFSET;
 LCDC_FRAME_BUFFER_LENGTH           = LCDC_FRAME_BUFFER_OFFSET;
 
 /*============================================================================*/
@@ -131,6 +131,10 @@ MEMORY
     ATCM                   : ORIGIN = ATCM_PRV_START,                   LENGTH = ATCM_PRV_LENGTH
     BTCM                   : ORIGIN = BTCM_PRV_START,                   LENGTH = BTCM_PRV_LENGTH
     SYSTEM_RAM             : ORIGIN = SYSTEM_RAM_ALIGN_START,           LENGTH = SYSTEM_RAM_ALIGN_LENGTH
+    CPU0_ATCM_VIA_AXIS     : ORIGIN = CPU0_ATCM_VIA_AXIS_PRV_START,     LENGTH = CPU0_ATCM_VIA_AXIS_PRV_LENGTH
+    CPU0_BTCM_VIA_AXIS     : ORIGIN = CPU0_BTCM_VIA_AXIS_PRV_START,     LENGTH = CPU0_BTCM_VIA_AXIS_PRV_LENGTH
+    CPU1_ATCM_VIA_AXIS     : ORIGIN = CPU1_ATCM_VIA_AXIS_PRV_START,     LENGTH = CPU1_ATCM_VIA_AXIS_PRV_LENGTH
+    CPU1_BTCM_VIA_AXIS     : ORIGIN = CPU1_BTCM_VIA_AXIS_PRV_START,     LENGTH = CPU1_BTCM_VIA_AXIS_PRV_LENGTH
     SYSTEM_RAM_MIRROR      : ORIGIN = SYSTEM_RAM_MIRROR_PRV_START,      LENGTH = SYSTEM_RAM_MIRROR_PRV_LENGTH
     xSPI0_CS0_SPACE_MIRROR : ORIGIN = xSPI0_CS0_SPACE_MIRROR_PRV_START, LENGTH = xSPI0_CS0_SPACE_MIRROR_PRV_LENGTH
     xSPI0_CS1_SPACE_MIRROR : ORIGIN = xSPI0_CS1_SPACE_MIRROR_PRV_START, LENGTH = xSPI0_CS1_SPACE_MIRROR_PRV_LENGTH
@@ -175,7 +179,7 @@ SECTIONS
 /*-----------------------------------------------*/
 /*  LOADER PROGRAM                               */
 /*-----------------------------------------------*/
-	/* Place the functions to be used in the loader program (SSBL). */
+    /* Place the functions to be used in the loader program (SSBL). */
     .loader_text LOADER_TEXT_ADDRESS :
     {
         _loader_text_start = .;
@@ -398,6 +402,7 @@ SECTIONS
         *(.data)
 
         *(.rodata*)
+        KEEP(*(.version))
         _erodata = .;
 
         . = ALIGN(8);
@@ -433,35 +438,6 @@ SECTIONS
         /* All data end */
         _data_end = .;
     } > RAM_DATA
-
-    /* Place the noncache variables. */
-    .noncache NONCACHE_AREA_START : AT(NONCACHE_AREA_INIT_START)
-    {
-        _noncache_start = .;
-
-        /* Place the noncache variables. */
-        . = ALIGN(8);
-        _data_noncache_start = .;
-        *(.bss._SEGGER_RTT)
-        *(.bss._acDownBuffer)
-        *(.bss._acUpBuffer)
-        KEEP(*(.data_noncache*))
-        _data_noncache_end = .;
-
-        /* Place the noncache variables to be used in DMAC_LINK_MODE. */
-        . = ALIGN(8);
-        _dmac_link_mode_start = .;
-        KEEP(*(.dmac_link_mode*))
-        _dmac_link_mode_end = .;
-
-        /* Place the core non-common noncache variables. */
-        . = ALIGN(32);
-        _ncbuffer_start = .;
-        KEEP(*(.noncache_buffer*))
-        _ncbuffer_end = .;
-
-        _noncache_end = .;
-    } > NONCACHE
 
     /* Place the variables in the user program that do not have initial values. */
     .bss (NOLOAD) :
@@ -516,6 +492,32 @@ SECTIONS
 /*-----------------------------------------------*/
 /*  NONCACHE                                     */
 /*-----------------------------------------------*/
+    /* Place the noncache variables. */
+    .noncache NONCACHE_AREA_START : AT(NONCACHE_AREA_INIT_START)
+    {
+        _noncache_start = .;
+
+        /* Place the noncache variables. */
+        . = ALIGN(8);
+        _data_noncache_start = .;
+        KEEP(*(.data_noncache*))
+        _data_noncache_end = .;
+
+        /* Place the noncache variables to be used in DMAC_LINK_MODE. */
+        . = ALIGN(8);
+        _dmac_link_mode_start = .;
+        KEEP(*(.dmac_link_mode*))
+        _dmac_link_mode_end = .;
+
+        /* Place the core non-common noncache variables. */
+        . = ALIGN(32);
+        _ncbuffer_start = .;
+        KEEP(*(.noncache_buffer*))
+        _ncbuffer_end = .;
+
+        _noncache_end = .;
+    } > NONCACHE
+
     /* Place the core common noncache variables. */
     .shared_noncache_buffer SHARED_NONCACHE_BUFFER_START : AT(SHARED_NONCACHE_BUFFER_INIT_START)
     {

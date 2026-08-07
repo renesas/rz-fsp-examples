@@ -9,7 +9,7 @@
     <option key="#DeviceCommand#" value="R9A07G084M04"/>
     <option key="#RTOS#" value="_none"/>
     <option key="#pinconfiguration#" value="R9A07G084M04GBG.pincfg"/>
-    <option key="#FSPVersion#" value="4.1.0"/>
+    <option key="#FSPVersion#" value="4.2.0"/>
     <option key="#ConfigurationFragments#" value="Renesas##BSP##Board##rzn2l_rsk##ram_execution"/>
     <option key="#SELECTED_TOOLCHAIN#" value="gcc-arm-embedded"/>
     <option key="#ToolchainVersion#" value="13.3.1.arm-13-24"/>
@@ -23,6 +23,7 @@
       <property id="config.bsp.package_style" value="config.bsp.package_style.value"/>
       <property id="config.bsp.package_pins" value="config.bsp.package_pins.value"/>
       <property id="config.bsp.cpu" value="config.bsp.cpu.cpu0"/>
+      <property id="config.bsp.common.semaphore" value="config.bsp.common.semaphore.enabled"/>
     </config>
     <config id="config.bsp.rzn2l.cr520_mpu">
       <property id="config.bsp.fsp.mpu0_read_reg0" value="config.bsp.fsp.mpu0_read_reg0.disabled"/>
@@ -573,6 +574,7 @@
       <property id="config.bsp.common.port_protect" value="config.bsp.common.port_protect.enabled"/>
       <property id="config.bsp.common.early_init" value="config.bsp.common.early_init.disabled"/>
       <property id="config.bsp.common.multiplex_interrupt" value="config.bsp.common.multiplex_interrupt.disabled"/>
+      <property id="config.bsp.common.protect_reg_polling_count" value="0xFFFFFFFF"/>
       <property id="config.bsp.rznfamily" value="config.bsp.rznfamily.true"/>
     </config>
   </raBspConfiguration>
@@ -612,6 +614,18 @@
     <node id="board.clock.sci3asyncclk.sel" option="board.clock.sci3asyncclk.sel.1"/>
     <node id="board.clock.sci4asyncclk.sel" option="board.clock.sci4asyncclk.sel.1"/>
     <node id="board.clock.sci5asyncclk.sel" option="board.clock.sci5asyncclk.sel.1"/>
+    <node id="board.clock.scie0asyncclk.sel" option="board.clock.scie0asyncclk.sel.na"/>
+    <node id="board.clock.scie1asyncclk.sel" option="board.clock.scie1asyncclk.sel.na"/>
+    <node id="board.clock.scie2asyncclk.sel" option="board.clock.scie2asyncclk.sel.na"/>
+    <node id="board.clock.scie3asyncclk.sel" option="board.clock.scie3asyncclk.sel.na"/>
+    <node id="board.clock.scie4asyncclk.sel" option="board.clock.scie4asyncclk.sel.na"/>
+    <node id="board.clock.scie5asyncclk.sel" option="board.clock.scie5asyncclk.sel.na"/>
+    <node id="board.clock.scie6asyncclk.sel" option="board.clock.scie6asyncclk.sel.na"/>
+    <node id="board.clock.scie7asyncclk.sel" option="board.clock.scie7asyncclk.sel.na"/>
+    <node id="board.clock.scie8asyncclk.sel" option="board.clock.scie8asyncclk.sel.na"/>
+    <node id="board.clock.scie9asyncclk.sel" option="board.clock.scie9asyncclk.sel.na"/>
+    <node id="board.clock.scie10asyncclk.sel" option="board.clock.scie10asyncclk.sel.na"/>
+    <node id="board.clock.scie11asyncclk.sel" option="board.clock.scie11asyncclk.sel.na"/>
     <node id="board.clock.spi0asyncclk.sel" option="board.clock.spi0asyncclk.sel.1"/>
     <node id="board.clock.spi1asyncclk.sel" option="board.clock.spi1asyncclk.sel.1"/>
     <node id="board.clock.spi2asyncclk.sel" option="board.clock.spi2asyncclk.sel.1"/>
@@ -629,45 +643,45 @@
     <node id="board.clock.tclk.freq" option="board.clock.tclk.freq.100m"/>
   </raClockConfiguration>
   <raComponentSelection>
-    <component apiversion="" class="Common" condition="" group="all" subgroup="fsp_common" variant="" vendor="Renesas" version="4.1.0">
+    <component apiversion="" class="Common" condition="" group="all" subgroup="fsp_common" variant="" vendor="Renesas" version="4.2.0">
       <description>Board Support Package Common Files</description>
-      <originalPack>Renesas.RZ.4.1.0.pack</originalPack>
+      <originalPack>Renesas.RZ.4.2.0.pack</originalPack>
     </component>
-    <component apiversion="" class="Common" condition="" group="rzn" subgroup="fsp_common" variant="" vendor="Renesas" version="4.1.0">
+    <component apiversion="" class="Common" condition="" group="rzn" subgroup="fsp_common" variant="" vendor="Renesas" version="4.2.0">
       <description>Board Support Package Common Files</description>
-      <originalPack>Renesas.RZN.4.1.0.pack</originalPack>
+      <originalPack>Renesas.RZN.4.2.0.pack</originalPack>
     </component>
-    <component apiversion="" class="BSP" condition="" group="rzn" subgroup="Memory" variant="" vendor="Renesas" version="4.1.0">
+    <component apiversion="" class="BSP" condition="" group="rzn" subgroup="Memory" variant="" vendor="Renesas" version="4.2.0">
       <description>Memory Config Checking</description>
-      <originalPack>Renesas.RZN.4.1.0.pack</originalPack>
+      <originalPack>Renesas.RZN.4.2.0.pack</originalPack>
     </component>
-    <component apiversion="" class="HAL Drivers" condition="" group="rzn" subgroup="r_ioport" variant="" vendor="Renesas" version="4.1.0">
+    <component apiversion="" class="HAL Drivers" condition="" group="rzn" subgroup="r_ioport" variant="" vendor="Renesas" version="4.2.0">
       <description>I/O Port</description>
-      <originalPack>Renesas.RZN.4.1.0.pack</originalPack>
+      <originalPack>Renesas.RZN.4.2.0.pack</originalPack>
     </component>
-    <component apiversion="" class="CMSIS" condition="" group="CMSIS6" subgroup="CoreM" variant="" vendor="Arm" version="6.1.0+fsp.4.1.0">
+    <component apiversion="" class="CMSIS" condition="" group="CMSIS6" subgroup="CoreM" variant="" vendor="Arm" version="6.1.0+fsp.4.2.0">
       <description>Arm CMSIS Version 6 - Core</description>
-      <originalPack>Arm.CMSIS6.6.1.0+fsp.4.1.0.pack</originalPack>
+      <originalPack>Arm.CMSIS6.6.1.0+fsp.4.2.0.pack</originalPack>
     </component>
-    <component apiversion="" class="BSP" condition="" group="Board" subgroup="rzn2l_rsk" variant="ram_execution" vendor="Renesas" version="4.1.0">
+    <component apiversion="" class="BSP" condition="" group="Board" subgroup="rzn2l_rsk" variant="ram_execution" vendor="Renesas" version="4.2.0">
       <description>RSK+RZN2L Board Support Files (RAM execution without flash memory)</description>
-      <originalPack>Renesas.RZN_board_rzn2l_rsk.4.1.0.pack</originalPack>
+      <originalPack>Renesas.RZN_board_rzn2l_rsk.4.2.0.pack</originalPack>
     </component>
-    <component apiversion="" class="BSP" condition="" group="rzn2l" subgroup="device" variant="R9A07G084M04GBG" vendor="Renesas" version="4.1.0">
+    <component apiversion="" class="BSP" condition="" group="rzn2l" subgroup="device" variant="R9A07G084M04GBG" vendor="Renesas" version="4.2.0">
       <description>Board support package for R9A07G084M04GBG</description>
-      <originalPack>Renesas.RZN_mcu_rzn2l.4.1.0.pack</originalPack>
+      <originalPack>Renesas.RZN_mcu_rzn2l.4.2.0.pack</originalPack>
     </component>
-    <component apiversion="" class="BSP" condition="" group="rzn2l" subgroup="device" variant="" vendor="Renesas" version="4.1.0">
+    <component apiversion="" class="BSP" condition="" group="rzn2l" subgroup="device" variant="" vendor="Renesas" version="4.2.0">
       <description>Board support package for RZN2L</description>
-      <originalPack>Renesas.RZN_mcu_rzn2l.4.1.0.pack</originalPack>
+      <originalPack>Renesas.RZN_mcu_rzn2l.4.2.0.pack</originalPack>
     </component>
-    <component apiversion="" class="BSP" condition="" group="rzn2l" subgroup="fsp" variant="" vendor="Renesas" version="4.1.0">
+    <component apiversion="" class="BSP" condition="" group="rzn2l" subgroup="fsp" variant="" vendor="Renesas" version="4.2.0">
       <description>Board support package for RZN2L - FSP Data</description>
-      <originalPack>Renesas.RZN_mcu_rzn2l.4.1.0.pack</originalPack>
+      <originalPack>Renesas.RZN_mcu_rzn2l.4.2.0.pack</originalPack>
     </component>
-    <component apiversion="" class="HAL Drivers" condition="" group="rzn" subgroup="r_mtu3" variant="" vendor="Renesas" version="4.1.0">
+    <component apiversion="" class="HAL Drivers" condition="" group="rzn" subgroup="r_mtu3" variant="" vendor="Renesas" version="4.2.0">
       <description>Multi-Function Timer Pulse Unit 3</description>
-      <originalPack>Renesas.RZN.4.1.0.pack</originalPack>
+      <originalPack>Renesas.RZN.4.2.0.pack</originalPack>
     </component>
   </raComponentSelection>
   <raElcConfiguration/>
@@ -747,13 +761,21 @@
       <property id="module.driver.rzn.timer.mtiocb_output_enabled" value="module.driver.rzn.timer.mtiocb_output_enabled.false"/>
       <property id="module.driver.rzn.timer.mtiocb_stop_level" value="module.driver.rzn.timer.mtiocb_stop_level.pin_level_low"/>
       <property id="module.driver.rzn.timer.mtioc_output_retain" value="module.driver.rzn.timer.mtioc_output_retain.false"/>
-      <property id="module.driver.rzn.timer.compare_match.value" value="0"/>
+      <property id="module.driver.rzn.timer.mtiocc_output_enabled" value="module.driver.rzn.timer.mtiocc_output_enabled.false"/>
+      <property id="module.driver.rzn.timer.mtiocc_stop_level" value="module.driver.rzn.timer.mtiocc_stop_level.pin_level_low"/>
+      <property id="module.driver.rzn.timer.mtiocd_output_enabled" value="module.driver.rzn.timer.mtiocd_output_enabled.false"/>
+      <property id="module.driver.rzn.timer.mtiocd_stop_level" value="module.driver.rzn.timer.mtiocd_stop_level.pin_level_low"/>
       <property id="module.driver.rzn.timer.compare_match.status" value="module.driver.rzn.timer.compare_match.status.disabled"/>
+      <property id="module.driver.rzn.timer.compare_match.value" value="0"/>
+      <property id="module.driver.rzn.timer.compare_match.b.status" value="module.driver.rzn.timer.compare_match.b.status.disabled"/>
+      <property id="module.driver.rzn.timer.compare_match.b.value" value="0x10000"/>
       <property id="module.driver.rzn.timer.unit" value="module.driver.rzn.timer.unit.unit_period_raw_counts"/>
       <property id="module.driver.rzn.timer.clk_edge" value="module.driver.rzn.timer.clk_edge.rising"/>
       <property id="module.driver.rzn.timer.mtu3_clear" value="module.driver.rzn.timer.mtu3_clear.tgra"/>
       <property id="module.driver.rzn.timer.mtioca_capture_source" value="module.driver.rzn.timer.mtioca_capture_source.no_output"/>
       <property id="module.driver.rzn.timer.mtiocb_capture_source" value="module.driver.rzn.timer.mtiocb_capture_source.no_output"/>
+      <property id="module.driver.rzn.timer.mtiocc_capture_source" value="module.driver.rzn.timer.mtiocc_capture_source.no_output"/>
+      <property id="module.driver.rzn.timer.mtiocd_capture_source" value="module.driver.rzn.timer.mtiocd_capture_source.no_output"/>
       <property id="module.driver.rzn.timer.bit_mode" value="module.driver.rzn.timer.bit_mode.16"/>
       <property id="module.driver.rzn.timer.mtu3.counting_mode" value="module.driver.rzn.timer.mtu3.counting_mode.none"/>
       <property id="module.driver.rzn.timer.input_clock_pin" value="module.driver.rzn.timer.input_clock_pin.a_b"/>
@@ -761,22 +783,28 @@
       <property id="module.driver.rzn.timer.external_noise_filter.clock" value="module.driver.rzn.timer.external_noise_filter.clock.div1"/>
       <property id="module.driver.rzn.timer.input_noise_filter.enable" value=""/>
       <property id="module.driver.rzn.timer.input_noise_filter.clock" value="module.driver.rzn.timer.input_noise_filter.clock.div1"/>
-      <property id="module.driver.rzn.timer.mtioc.custom_waveform_enable" value="module.driver.rzn.timer.mtioc.custom_waveform_enable.disabled"/>
+      <property id="module.driver.rzn.timer.mtioc.custom_waveform_enable" value="module.driver.rzn.timer.mtioc.custom_waveform_enable.enabled"/>
       <property id="module.driver.rzn.timer.tgra_val" value="0x7A12"/>
       <property id="module.driver.rzn.timer.tgrb_val" value="0x3D09"/>
       <property id="module.driver.rzn.timer.tgrc_val" value="0x10000"/>
       <property id="module.driver.rzn.timer.tgrd_val" value="0x10000"/>
       <property id="module.driver.rzn.timer.output_pin_level_a" value="module.driver.rzn.timer.output_pin_level_a.low_low"/>
       <property id="module.driver.rzn.timer.output_pin_level_b" value="module.driver.rzn.timer.output_pin_level_b.low_high"/>
+      <property id="module.driver.rzn.timer.output_pin_level_c" value="module.driver.rzn.timer.output_pin_level_c.no_output"/>
+      <property id="module.driver.rzn.timer.output_pin_level_d" value="module.driver.rzn.timer.output_pin_level_d.no_output"/>
       <property id="module.driver.rzn.timer.mtu3_clk_div" value="module.driver.rzn.timer.mtu3_clk_div.div16"/>
       <property id="module.driver.rzn.timer.p_callback" value="NULL"/>
       <property id="module.driver.rzn.timer.ipl" value="_disabled"/>
       <property id="module.driver.rzn.timer.capture_a_ipl" value="board.icu.common.irq.priority11"/>
       <property id="module.driver.rzn.timer.capture_b_ipl" value="board.icu.common.irq.priority11"/>
+      <property id="module.driver.rzn.timer.capture_c_ipl" value="_disabled"/>
+      <property id="module.driver.rzn.timer.capture_d_ipl" value="_disabled"/>
       <property id="module.driver.rzn.timer.gpt_sel.p_callback" value="NULL"/>
       <property id="module.driver.rzn.timer.gpt_sel.overflow_interrupt_source" value=""/>
       <property id="module.driver.rzn.timer.gpt_sel.capture_a_interrupt_source" value=""/>
       <property id="module.driver.rzn.timer.gpt_sel.capture_b_interrupt_source" value=""/>
+      <property id="module.driver.rzn.timer.gpt_sel.capture_c_interrupt_source" value=""/>
+      <property id="module.driver.rzn.timer.gpt_sel.capture_d_interrupt_source" value=""/>
       <property id="module.driver.rzn.timer.gpt_sel.int0_ipl" value="_disabled"/>
       <property id="module.driver.rzn.timer.gpt_sel.int1_ipl" value="_disabled"/>
       <property id="module.driver.rzn.timer.gpt_sel.int2_ipl" value="_disabled"/>

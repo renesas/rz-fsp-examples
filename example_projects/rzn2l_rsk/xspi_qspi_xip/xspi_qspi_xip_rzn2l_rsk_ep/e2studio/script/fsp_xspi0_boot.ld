@@ -167,6 +167,10 @@ MEMORY
     ATCM                   : ORIGIN = ATCM_PRV_START,                   LENGTH = ATCM_PRV_LENGTH
     BTCM                   : ORIGIN = BTCM_PRV_START,                   LENGTH = BTCM_PRV_LENGTH
     SYSTEM_RAM             : ORIGIN = SYSTEM_RAM_ALIGN_START,           LENGTH = SYSTEM_RAM_ALIGN_LENGTH
+    CPU0_ATCM_VIA_AXIS     : ORIGIN = CPU0_ATCM_VIA_AXIS_PRV_START,     LENGTH = CPU0_ATCM_VIA_AXIS_PRV_LENGTH
+    CPU0_BTCM_VIA_AXIS     : ORIGIN = CPU0_BTCM_VIA_AXIS_PRV_START,     LENGTH = CPU0_BTCM_VIA_AXIS_PRV_LENGTH
+    CPU1_ATCM_VIA_AXIS     : ORIGIN = CPU1_ATCM_VIA_AXIS_PRV_START,     LENGTH = CPU1_ATCM_VIA_AXIS_PRV_LENGTH
+    CPU1_BTCM_VIA_AXIS     : ORIGIN = CPU1_BTCM_VIA_AXIS_PRV_START,     LENGTH = CPU1_BTCM_VIA_AXIS_PRV_LENGTH
     SYSTEM_RAM_MIRROR      : ORIGIN = SYSTEM_RAM_MIRROR_PRV_START,      LENGTH = SYSTEM_RAM_MIRROR_PRV_LENGTH
     xSPI0_CS0_SPACE_MIRROR : ORIGIN = xSPI0_CS0_SPACE_MIRROR_PRV_START, LENGTH = xSPI0_CS0_SPACE_MIRROR_PRV_LENGTH
     xSPI0_CS1_SPACE_MIRROR : ORIGIN = xSPI0_CS1_SPACE_MIRROR_PRV_START, LENGTH = xSPI0_CS1_SPACE_MIRROR_PRV_LENGTH
@@ -360,6 +364,15 @@ SECTIONS
         KEEP(*(.software_reset)) /* Do not initialize */
     } > LOADER_DATA_STACK
 
+    /* Place the uninitialized variables. */
+    .noinit (NOLOAD):
+    {
+        . = ALIGN(8);
+        __noinit_start = .;
+        KEEP(*(.noinit*))
+        __noinit_end = .;
+    } > LOADER_DATA_STACK
+
 /*-----------------------------------------------*/
 /*  AArch32 STACK                                */
 /*-----------------------------------------------*/
@@ -531,6 +544,7 @@ SECTIONS
         *(.data)
 
         *(.rodata*)
+        KEEP(*(.version))
         _erodata = .;
 
         . = ALIGN(8);

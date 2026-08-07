@@ -100,6 +100,7 @@ SECTIONS
     .text : ALIGN( 0x8 ) {
         KEEP(* (RESET_HANDLER))     /*asm*/
         . = ALIGN( 0x80 );
+        KEEP(*(.version))
         * (INIT_SECTION)            /*asm*/
         * (.init)
         "*/sections.o"       (.rodata .rodata.*)

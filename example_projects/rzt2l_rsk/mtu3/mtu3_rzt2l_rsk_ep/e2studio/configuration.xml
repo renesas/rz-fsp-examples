@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<raConfiguration version="11">
+<raConfiguration version="12">
   <generalSettings>
     <option key="#Board#" value="board.rzt2lrsk.ram"/>
     <option key="CPU" value="RZT2L"/>
@@ -9,7 +9,7 @@
     <option key="#DeviceCommand#" value="R9A07G074M04"/>
     <option key="#RTOS#" value="_none"/>
     <option key="#pinconfiguration#" value="R9A07G074M04GBG.pincfg"/>
-    <option key="#FSPVersion#" value="4.1.0"/>
+    <option key="#FSPVersion#" value="4.2.0"/>
     <option key="#ConfigurationFragments#" value="Renesas##BSP##Board##rzt2l_rsk##ram_execution"/>
     <option key="#SELECTED_TOOLCHAIN#" value="gcc-arm-embedded"/>
     <option key="#ToolchainVersion#" value="13.3.1.arm-13-24"/>
@@ -23,6 +23,7 @@
       <property id="config.bsp.package_style" value="config.bsp.package_style.value"/>
       <property id="config.bsp.package_pins" value="config.bsp.package_pins.value"/>
       <property id="config.bsp.cpu" value="config.bsp.cpu.cpu0"/>
+      <property id="config.bsp.common.semaphore" value="config.bsp.common.semaphore.enabled"/>
     </config>
     <config id="config.bsp.rzt2l.cr520_mpu">
       <property id="config.bsp.fsp.mpu0_read_reg0" value="config.bsp.fsp.mpu0_read_reg0.disabled"/>
@@ -529,6 +530,10 @@
       <property id="config.bsp.fsp.mcu.sci_uart.max_baud" value="16000000"/>
       <property id="config.bsp.fsp.mcu.sci_spi.max_bitrate" value="37500000"/>
       <property id="config.bsp.fsp.mcu.spi.max_bitrate" value="50000000"/>
+      <property id="config.bsp.fsp.mcu.iic_master.rate.rate_fastplus" value="0"/>
+      <property id="config.bsp.fsp.mcu.iic_master.fastplus_channels" value="0"/>
+      <property id="config.bsp.fsp.mcu.iic_slave.rate.rate_fastplus" value="0"/>
+      <property id="config.bsp.fsp.mcu.iic_slave.fastplus_channels" value="0x0"/>
       <property id="config.bsp.fsp.mcu.adc.sample_and_hold" value="1"/>
       <property id="config.bsp.fsp.mcu.canfd.buffer_ram" value="4864"/>
     </config>
@@ -541,6 +546,7 @@
       <property id="config.bsp.common.port_protect" value="config.bsp.common.port_protect.enabled"/>
       <property id="config.bsp.common.early_init" value="config.bsp.common.early_init.disabled"/>
       <property id="config.bsp.common.multiplex_interrupt" value="config.bsp.common.multiplex_interrupt.disabled"/>
+      <property id="config.bsp.common.protect_reg_polling_count" value="0xFFFFFFFF"/>
       <property id="config.bsp.rztfamily" value="config.bsp.rztfamily.true"/>
     </config>
   </raBspConfiguration>
@@ -576,6 +582,18 @@
     <node id="board.clock.sci3asyncclk.sel" option="board.clock.sci3asyncclk.sel.1"/>
     <node id="board.clock.sci4asyncclk.sel" option="board.clock.sci4asyncclk.sel.1"/>
     <node id="board.clock.sci5asyncclk.sel" option="board.clock.sci5asyncclk.sel.1"/>
+    <node id="board.clock.scie0asyncclk.sel" option="board.clock.scie0asyncclk.sel.na"/>
+    <node id="board.clock.scie1asyncclk.sel" option="board.clock.scie1asyncclk.sel.na"/>
+    <node id="board.clock.scie2asyncclk.sel" option="board.clock.scie2asyncclk.sel.na"/>
+    <node id="board.clock.scie3asyncclk.sel" option="board.clock.scie3asyncclk.sel.na"/>
+    <node id="board.clock.scie4asyncclk.sel" option="board.clock.scie4asyncclk.sel.na"/>
+    <node id="board.clock.scie5asyncclk.sel" option="board.clock.scie5asyncclk.sel.na"/>
+    <node id="board.clock.scie6asyncclk.sel" option="board.clock.scie6asyncclk.sel.na"/>
+    <node id="board.clock.scie7asyncclk.sel" option="board.clock.scie7asyncclk.sel.na"/>
+    <node id="board.clock.scie8asyncclk.sel" option="board.clock.scie8asyncclk.sel.na"/>
+    <node id="board.clock.scie9asyncclk.sel" option="board.clock.scie9asyncclk.sel.na"/>
+    <node id="board.clock.scie10asyncclk.sel" option="board.clock.scie10asyncclk.sel.na"/>
+    <node id="board.clock.scie11asyncclk.sel" option="board.clock.scie11asyncclk.sel.na"/>
     <node id="board.clock.spi0asyncclk.sel" option="board.clock.spi0asyncclk.sel.1"/>
     <node id="board.clock.spi1asyncclk.sel" option="board.clock.spi1asyncclk.sel.1"/>
     <node id="board.clock.spi2asyncclk.sel" option="board.clock.spi2asyncclk.sel.1"/>
@@ -596,45 +614,45 @@
     <node id="board.clock.tclk.freq" option="board.clock.tclk.freq.100m"/>
   </raClockConfiguration>
   <raComponentSelection>
-    <component apiversion="" class="Common" condition="" group="all" subgroup="fsp_common" variant="" vendor="Renesas" version="4.1.0">
+    <component apiversion="" class="Common" condition="" group="all" subgroup="fsp_common" variant="" vendor="Renesas" version="4.2.0">
       <description>Board Support Package Common Files</description>
-      <originalPack>Renesas.RZ.4.1.0.pack</originalPack>
+      <originalPack>Renesas.RZ.4.2.0.pack</originalPack>
     </component>
-    <component apiversion="" class="Common" condition="" group="rzt" subgroup="fsp_common" variant="" vendor="Renesas" version="4.1.0">
+    <component apiversion="" class="Common" condition="" group="rzt" subgroup="fsp_common" variant="" vendor="Renesas" version="4.2.0">
       <description>Board Support Package Common Files</description>
-      <originalPack>Renesas.RZT.4.1.0.pack</originalPack>
+      <originalPack>Renesas.RZT.4.2.0.pack</originalPack>
     </component>
-    <component apiversion="" class="BSP" condition="" group="rzt" subgroup="Memory" variant="" vendor="Renesas" version="4.1.0">
+    <component apiversion="" class="BSP" condition="" group="rzt" subgroup="Memory" variant="" vendor="Renesas" version="4.2.0">
       <description>Memory Config Checking</description>
-      <originalPack>Renesas.RZT.4.1.0.pack</originalPack>
+      <originalPack>Renesas.RZT.4.2.0.pack</originalPack>
     </component>
-    <component apiversion="" class="HAL Drivers" condition="" group="rzt" subgroup="r_ioport" variant="" vendor="Renesas" version="4.1.0">
+    <component apiversion="" class="HAL Drivers" condition="" group="rzt" subgroup="r_ioport" variant="" vendor="Renesas" version="4.2.0">
       <description>I/O Port</description>
-      <originalPack>Renesas.RZT.4.1.0.pack</originalPack>
+      <originalPack>Renesas.RZT.4.2.0.pack</originalPack>
     </component>
-    <component apiversion="" class="CMSIS" condition="" group="CMSIS6" subgroup="CoreM" variant="" vendor="Arm" version="6.1.0+fsp.4.1.0">
+    <component apiversion="" class="CMSIS" condition="" group="CMSIS6" subgroup="CoreM" variant="" vendor="Arm" version="6.1.0+fsp.4.2.0">
       <description>Arm CMSIS Version 6 - Core</description>
-      <originalPack>Arm.CMSIS6.6.1.0+fsp.4.1.0.pack</originalPack>
+      <originalPack>Arm.CMSIS6.6.1.0+fsp.4.2.0.pack</originalPack>
     </component>
-    <component apiversion="" class="BSP" condition="" group="rzt2l" subgroup="device" variant="R9A07G074M04GBG" vendor="Renesas" version="4.1.0">
+    <component apiversion="" class="BSP" condition="" group="rzt2l" subgroup="device" variant="R9A07G074M04GBG" vendor="Renesas" version="4.2.0">
       <description>Board support package for R9A07G074M04GBG</description>
-      <originalPack>Renesas.RZT_mcu_rzt2l.4.1.0.pack</originalPack>
+      <originalPack>Renesas.RZT_mcu_rzt2l.4.2.0.pack</originalPack>
     </component>
-    <component apiversion="" class="BSP" condition="" group="rzt2l" subgroup="device" variant="" vendor="Renesas" version="4.1.0">
+    <component apiversion="" class="BSP" condition="" group="rzt2l" subgroup="device" variant="" vendor="Renesas" version="4.2.0">
       <description>Board support package for RZT2L</description>
-      <originalPack>Renesas.RZT_mcu_rzt2l.4.1.0.pack</originalPack>
+      <originalPack>Renesas.RZT_mcu_rzt2l.4.2.0.pack</originalPack>
     </component>
-    <component apiversion="" class="BSP" condition="" group="rzt2l" subgroup="fsp" variant="" vendor="Renesas" version="4.1.0">
+    <component apiversion="" class="BSP" condition="" group="rzt2l" subgroup="fsp" variant="" vendor="Renesas" version="4.2.0">
       <description>Board support package for RZT2L - FSP Data</description>
-      <originalPack>Renesas.RZT_mcu_rzt2l.4.1.0.pack</originalPack>
+      <originalPack>Renesas.RZT_mcu_rzt2l.4.2.0.pack</originalPack>
     </component>
-    <component apiversion="" class="BSP" condition="" group="Board" subgroup="rzt2l_rsk" variant="ram_execution" vendor="Renesas" version="4.1.0">
+    <component apiversion="" class="BSP" condition="" group="Board" subgroup="rzt2l_rsk" variant="ram_execution" vendor="Renesas" version="4.2.0">
       <description>RSK+RZT2L Board Support Files (RAM execution without flash memory)</description>
-      <originalPack>Renesas.RZT_board_rzt2l_rsk.4.1.0.pack</originalPack>
+      <originalPack>Renesas.RZT_board_rzt2l_rsk.4.2.0.pack</originalPack>
     </component>
-    <component apiversion="" class="HAL Drivers" condition="" group="rzt" subgroup="r_mtu3" variant="" vendor="Renesas" version="4.1.0">
+    <component apiversion="" class="HAL Drivers" condition="" group="rzt" subgroup="r_mtu3" variant="" vendor="Renesas" version="4.2.0">
       <description>Multi-Function Timer Pulse Unit 3</description>
-      <originalPack>Renesas.RZT.4.1.0.pack</originalPack>
+      <originalPack>Renesas.RZT.4.2.0.pack</originalPack>
     </component>
   </raComponentSelection>
   <raElcConfiguration/>
@@ -654,27 +672,27 @@
       <property id="module.driver.rzt.ioport.port_select_input_group1" value=""/>
       <property id="module.driver.rzt.ioport.edge_detect_input_group1" value="Rising edge"/>
       <property id="module.driver.rzt.ioport.buffer_overwrite_input_group1" value="Disabled"/>
-      <property id="module.driver.rzt.ioport.p16_0_initial_value_input_group1" value="module.driver.rzt.ioport.p16_0_initial_value_input_group1.low"/>
-      <property id="module.driver.rzt.ioport.p16_1_initial_value_input_group1" value="module.driver.rzt.ioport.p16_1_initial_value_input_group1.low"/>
-      <property id="module.driver.rzt.ioport.p16_2_initial_value_input_group1" value="module.driver.rzt.ioport.p16_2_initial_value_input_group1.low"/>
-      <property id="module.driver.rzt.ioport.p16_3_initial_value_input_group1" value="module.driver.rzt.ioport.p16_3_initial_value_input_group1.low"/>
-      <property id="module.driver.rzt.ioport.p16_4_initial_value_input_group1" value="module.driver.rzt.ioport.p16_4_initial_value_input_group1.low"/>
-      <property id="module.driver.rzt.ioport.p16_5_initial_value_input_group1" value="module.driver.rzt.ioport.p16_5_initial_value_input_group1.low"/>
-      <property id="module.driver.rzt.ioport.p16_6_initial_value_input_group1" value="module.driver.rzt.ioport.p16_6_initial_value_input_group1.low"/>
-      <property id="module.driver.rzt.ioport.p16_7_initial_value_input_group1" value="module.driver.rzt.ioport.p16_7_initial_value_input_group1.low"/>
+      <property id="module.driver.rzt.ioport.pin0_initial_value_input_group1" value="module.driver.rzt.ioport.pin0_initial_value_input_group1.low"/>
+      <property id="module.driver.rzt.ioport.pin1_initial_value_input_group1" value="module.driver.rzt.ioport.pin1_initial_value_input_group1.low"/>
+      <property id="module.driver.rzt.ioport.pin2_initial_value_input_group1" value="module.driver.rzt.ioport.pin2_initial_value_input_group1.low"/>
+      <property id="module.driver.rzt.ioport.pin3_initial_value_input_group1" value="module.driver.rzt.ioport.pin3_initial_value_input_group1.low"/>
+      <property id="module.driver.rzt.ioport.pin4_initial_value_input_group1" value="module.driver.rzt.ioport.pin4_initial_value_input_group1.low"/>
+      <property id="module.driver.rzt.ioport.pin5_initial_value_input_group1" value="module.driver.rzt.ioport.pin5_initial_value_input_group1.low"/>
+      <property id="module.driver.rzt.ioport.pin6_initial_value_input_group1" value="module.driver.rzt.ioport.pin6_initial_value_input_group1.low"/>
+      <property id="module.driver.rzt.ioport.pin7_initial_value_input_group1" value="module.driver.rzt.ioport.pin7_initial_value_input_group1.low"/>
       <property id="module.driver.rzt.ioport.elc_trigger_input_group2" value="_disabled"/>
       <property id="module.driver.rzt.ioport.event_control_input_group2" value="Disabled"/>
       <property id="module.driver.rzt.ioport.port_select_input_group2" value=""/>
       <property id="module.driver.rzt.ioport.edge_detect_input_group2" value="Rising edge"/>
       <property id="module.driver.rzt.ioport.buffer_overwrite_input_group2" value="Disabled"/>
-      <property id="module.driver.rzt.ioport.p18_0_initial_value_input_group2" value="module.driver.rzt.ioport.p18_0_initial_value_input_group2.low"/>
-      <property id="module.driver.rzt.ioport.p18_1_initial_value_input_group2" value="module.driver.rzt.ioport.p18_1_initial_value_input_group2.low"/>
-      <property id="module.driver.rzt.ioport.p18_2_initial_value_input_group2" value="module.driver.rzt.ioport.p18_2_initial_value_input_group2.low"/>
-      <property id="module.driver.rzt.ioport.p18_3_initial_value_input_group2" value="module.driver.rzt.ioport.p18_3_initial_value_input_group2.low"/>
-      <property id="module.driver.rzt.ioport.p18_4_initial_value_input_group2" value="module.driver.rzt.ioport.p18_4_initial_value_input_group2.low"/>
-      <property id="module.driver.rzt.ioport.p18_5_initial_value_input_group2" value="module.driver.rzt.ioport.p18_5_initial_value_input_group2.low"/>
-      <property id="module.driver.rzt.ioport.p18_6_initial_value_input_group2" value="module.driver.rzt.ioport.p18_6_initial_value_input_group2.low"/>
-      <property id="module.driver.rzt.ioport.p18_7_initial_value_input_group2" value="module.driver.rzt.ioport.p18_7_initial_value_input_group2.low"/>
+      <property id="module.driver.rzt.ioport.pin0_initial_value_input_group2" value="module.driver.rzt.ioport.pin0_initial_value_input_group2.low"/>
+      <property id="module.driver.rzt.ioport.pin1_initial_value_input_group2" value="module.driver.rzt.ioport.pin1_initial_value_input_group2.low"/>
+      <property id="module.driver.rzt.ioport.pin2_initial_value_input_group2" value="module.driver.rzt.ioport.pin2_initial_value_input_group2.low"/>
+      <property id="module.driver.rzt.ioport.pin3_initial_value_input_group2" value="module.driver.rzt.ioport.pin3_initial_value_input_group2.low"/>
+      <property id="module.driver.rzt.ioport.pin4_initial_value_input_group2" value="module.driver.rzt.ioport.pin4_initial_value_input_group2.low"/>
+      <property id="module.driver.rzt.ioport.pin5_initial_value_input_group2" value="module.driver.rzt.ioport.pin5_initial_value_input_group2.low"/>
+      <property id="module.driver.rzt.ioport.pin6_initial_value_input_group2" value="module.driver.rzt.ioport.pin6_initial_value_input_group2.low"/>
+      <property id="module.driver.rzt.ioport.pin7_initial_value_input_group2" value="module.driver.rzt.ioport.pin7_initial_value_input_group2.low"/>
       <property id="module.driver.rzt.ioport.event_control_single_port0" value="Disabled"/>
       <property id="module.driver.rzt.ioport.event_direction_single_port0" value="Output direction"/>
       <property id="module.driver.rzt.ioport.port_number_single_port0" value="module.driver.rzt.ioport.port_number_single_port0.p16_0"/>
@@ -705,11 +723,30 @@
       <property id="module.driver.rzt.timer.name" value="g_timer0"/>
       <property id="module.driver.rzt.timer.channel" value="0"/>
       <property id="module.driver.rzt.timer.mode" value="module.driver.rzt.timer.mode.mode_pwm"/>
-      <property id="module.driver.rzt.timer.tgra_val" value="0x7A12"/>
-      <property id="module.driver.rzt.timer.tgrb_val" value="0x3D09"/>
-      <property id="module.driver.rzt.timer.mtu3_clk_div" value="module.driver.rzt.timer.mtu3_clk_div.div16"/>
+      <property id="module.driver.rzt.timer.buffer_mode" value="module.driver.rzt.timer.buffer_mode.enabled"/>
+      <property id="module.driver.rzt.timer.period" value="0x10000"/>
+      <property id="module.driver.rzt.timer.duty_cycle" value="50"/>
+      <property id="module.driver.rzt.timer.mtioca_output_enabled" value="module.driver.rzt.timer.mtioca_output_enabled.false"/>
+      <property id="module.driver.rzt.timer.mtioca_stop_level" value="module.driver.rzt.timer.mtioca_stop_level.pin_level_low"/>
+      <property id="module.driver.rzt.timer.initial_level" value="module.driver.rzt.timer.initial_level.pin_level_low"/>
+      <property id="module.driver.rzt.timer.mtiocb_output_enabled" value="module.driver.rzt.timer.mtiocb_output_enabled.false"/>
+      <property id="module.driver.rzt.timer.mtiocb_stop_level" value="module.driver.rzt.timer.mtiocb_stop_level.pin_level_low"/>
+      <property id="module.driver.rzt.timer.mtioc_output_retain" value="module.driver.rzt.timer.mtioc_output_retain.false"/>
+      <property id="module.driver.rzt.timer.mtiocc_output_enabled" value="module.driver.rzt.timer.mtiocc_output_enabled.false"/>
+      <property id="module.driver.rzt.timer.mtiocc_stop_level" value="module.driver.rzt.timer.mtiocc_stop_level.pin_level_low"/>
+      <property id="module.driver.rzt.timer.mtiocd_output_enabled" value="module.driver.rzt.timer.mtiocd_output_enabled.false"/>
+      <property id="module.driver.rzt.timer.mtiocd_stop_level" value="module.driver.rzt.timer.mtiocd_stop_level.pin_level_low"/>
+      <property id="module.driver.rzt.timer.compare_match.status" value="module.driver.rzt.timer.compare_match.status.disabled"/>
+      <property id="module.driver.rzt.timer.compare_match.value" value="0x10000"/>
+      <property id="module.driver.rzt.timer.compare_match.b.status" value="module.driver.rzt.timer.compare_match.b.status.disabled"/>
+      <property id="module.driver.rzt.timer.compare_match.b.value" value="0x10000"/>
+      <property id="module.driver.rzt.timer.unit" value="module.driver.rzt.timer.unit.unit_period_raw_counts"/>
       <property id="module.driver.rzt.timer.clk_edge" value="module.driver.rzt.timer.clk_edge.rising"/>
       <property id="module.driver.rzt.timer.mtu3_clear" value="module.driver.rzt.timer.mtu3_clear.tgra"/>
+      <property id="module.driver.rzt.timer.mtioca_capture_source" value="module.driver.rzt.timer.mtioca_capture_source.no_output"/>
+      <property id="module.driver.rzt.timer.mtiocb_capture_source" value="module.driver.rzt.timer.mtiocb_capture_source.no_output"/>
+      <property id="module.driver.rzt.timer.mtiocc_capture_source" value="module.driver.rzt.timer.mtiocc_capture_source.no_output"/>
+      <property id="module.driver.rzt.timer.mtiocd_capture_source" value="module.driver.rzt.timer.mtiocd_capture_source.no_output"/>
       <property id="module.driver.rzt.timer.bit_mode" value="module.driver.rzt.timer.bit_mode.16"/>
       <property id="module.driver.rzt.timer.mtu3.counting_mode" value="module.driver.rzt.timer.mtu3.counting_mode.none"/>
       <property id="module.driver.rzt.timer.input_clock_pin" value="module.driver.rzt.timer.input_clock_pin.a_b"/>
@@ -717,39 +754,34 @@
       <property id="module.driver.rzt.timer.external_noise_filter.clock" value="module.driver.rzt.timer.external_noise_filter.clock.div1"/>
       <property id="module.driver.rzt.timer.input_noise_filter.enable" value=""/>
       <property id="module.driver.rzt.timer.input_noise_filter.clock" value="module.driver.rzt.timer.input_noise_filter.clock.div1"/>
+      <property id="module.driver.rzt.timer.mtioc.custom_waveform_enable" value="module.driver.rzt.timer.mtioc.custom_waveform_enable.enabled"/>
+      <property id="module.driver.rzt.timer.tgra_val" value="0x7A12"/>
+      <property id="module.driver.rzt.timer.tgrb_val" value="0x3D09"/>
+      <property id="module.driver.rzt.timer.tgrc_val" value="0x10000"/>
+      <property id="module.driver.rzt.timer.tgrd_val" value="0x10000"/>
       <property id="module.driver.rzt.timer.output_pin_level_a" value="module.driver.rzt.timer.output_pin_level_a.low_low"/>
       <property id="module.driver.rzt.timer.output_pin_level_b" value="module.driver.rzt.timer.output_pin_level_b.low_high"/>
+      <property id="module.driver.rzt.timer.output_pin_level_c" value="module.driver.rzt.timer.output_pin_level_c.no_output"/>
+      <property id="module.driver.rzt.timer.output_pin_level_d" value="module.driver.rzt.timer.output_pin_level_d.no_output"/>
+      <property id="module.driver.rzt.timer.mtu3_clk_div" value="module.driver.rzt.timer.mtu3_clk_div.div16"/>
       <property id="module.driver.rzt.timer.p_callback" value="NULL"/>
       <property id="module.driver.rzt.timer.ipl" value="_disabled"/>
       <property id="module.driver.rzt.timer.capture_a_ipl" value="board.icu.common.irq.priority11"/>
       <property id="module.driver.rzt.timer.capture_b_ipl" value="board.icu.common.irq.priority11"/>
+      <property id="module.driver.rzt.timer.capture_c_ipl" value="_disabled"/>
+      <property id="module.driver.rzt.timer.capture_d_ipl" value="_disabled"/>
       <property id="module.driver.rzt.timer.gpt_sel.p_callback" value="NULL"/>
       <property id="module.driver.rzt.timer.gpt_sel.overflow_interrupt_source" value=""/>
       <property id="module.driver.rzt.timer.gpt_sel.capture_a_interrupt_source" value=""/>
       <property id="module.driver.rzt.timer.gpt_sel.capture_b_interrupt_source" value=""/>
+      <property id="module.driver.rzt.timer.gpt_sel.capture_c_interrupt_source" value=""/>
+      <property id="module.driver.rzt.timer.gpt_sel.capture_d_interrupt_source" value=""/>
       <property id="module.driver.rzt.timer.gpt_sel.int0_ipl" value="_disabled"/>
       <property id="module.driver.rzt.timer.gpt_sel.int1_ipl" value="_disabled"/>
       <property id="module.driver.rzt.timer.gpt_sel.int2_ipl" value="_disabled"/>
       <property id="module.driver.rzt.timer.gpt_sel.int3_ipl" value="_disabled"/>
       <property id="module.driver.rzt.timer.gpt_sel.int4_ipl" value="_disabled"/>
       <property id="module.driver.rzt.timer.extra" value="module.driver.rzt.timer.extra.enabled"/>
-      <property id="module.driver.rzt.timer.tgru_val" value="0x0000"/>
-      <property id="module.driver.rzt.timer.tgrv_val" value="0x0000"/>
-      <property id="module.driver.rzt.timer.tgrw_val" value="0x0000"/>
-      <property id="module.driver.rzt.timer.mtu3_clk_div_u" value="module.driver.rzt.timer.mtu3_clk_div_u.div1"/>
-      <property id="module.driver.rzt.timer.mtu3_clk_div_v" value="module.driver.rzt.timer.mtu3_clk_div_v.div1"/>
-      <property id="module.driver.rzt.timer.mtu3_clk_div_w" value="module.driver.rzt.timer.mtu3_clk_div_w.div1"/>
-      <property id="module.driver.rzt.timer.output_pin_level_u" value="module.driver.rzt.timer.output_pin_level_u.no_func"/>
-      <property id="module.driver.rzt.timer.output_pin_level_v" value="module.driver.rzt.timer.output_pin_level_v.no_func"/>
-      <property id="module.driver.rzt.timer.output_pin_level_w" value="module.driver.rzt.timer.output_pin_level_w.no_func"/>
-      <property id="module.driver.rzt.timer.capture_u_ipl" value="_disabled"/>
-      <property id="module.driver.rzt.timer.capture_v_ipl" value="_disabled"/>
-      <property id="module.driver.rzt.timer.capture_w_ipl" value="_disabled"/>
-      <property id="module.driver.rzt.timer.gpt_sel.capture_u_interrupt_source" value=""/>
-      <property id="module.driver.rzt.timer.gpt_sel.capture_v_interrupt_source" value=""/>
-      <property id="module.driver.rzt.timer.gpt_sel.capture_w_interrupt_source" value=""/>
-      <property id="module.driver.rzt.timer.noise_filter_mtioc_setting_uvw" value="module.driver.rzt.timer.noise_filter_mtioc_setting_uvw.disabled"/>
-      <property id="module.driver.rzt.timer.noise_filter_mtioc_clk_uvw" value="module.driver.rzt.timer.noise_filter_mtioc_clk_uvw.div1"/>
       <property id="module.driver.rzt.timer.interrupt_skip_mode_a" value="module.driver.rzt.timer.interrupt_skip_mode_a.mode1"/>
       <property id="module.driver.rzt.timer.interrupt_skip_mode_b" value="module.driver.rzt.timer.interrupt_skip_mode_b.mode1"/>
       <property id="module.driver.rzt.timer.adc_a_compare_match" value="0x0000"/>
@@ -779,7 +811,6 @@
     <config id="config.driver.rzt.mtu3">
       <property id="config.driver.rzt.mtu3.param_checking_enable" value="config.driver.rzt.mtu3.param_checking_enable.bsp"/>
       <property id="config.driver.rzt.mtu3.output_support_enable" value="config.driver.rzt.mtu3.output_support_enable.enabled_extra"/>
-      <property id="config.driver.rzt.mtu3.uvw_support_enable" value="config.driver.rzt.mtu3.uvw_support_enable.disabled"/>
       <property id="config.driver.rzt.mtu3.multiplex_interrupt" value="config.driver.rzt.mtu3.multiplex_interrupt.disabled"/>
     </config>
     <config id="config.bsp.rzt.memory_config">

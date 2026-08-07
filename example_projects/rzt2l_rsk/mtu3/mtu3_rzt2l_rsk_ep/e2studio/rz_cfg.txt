@@ -8,6 +8,7 @@ FSP Configuration
     package_style: FBGA
     package_pins: 196
     Cortex-R52 CPU core: CPU0
+    Semaphore: Enabled
     
   RZT2L Memory Config
     Master MPU: MPU0 : DMAC Unit0: Enable or disable read control for Region 0: Disabled
@@ -512,15 +513,15 @@ FSP Configuration
   RZT2L Family
     
   RZT Common
-    MCU Vcc (mV): 3300
+    MPU Vcc (mV): 3300
     Parameter checking: Enabled
     Assert Failures: Return FSP_ERR_ASSERTION
     Error Log: No Error Log
     Soft Reset: Disabled
     Port Protect: Enabled
     Early BSP Initialization : Disabled
-    Multiplex Interrupt: Disabled
-    Device Family RZT: RZT
+    Nested Interrupt (Multiplex Interrupt): Disabled
+    Register Protect Polling Count: 0xFFFFFFFF
     
   RZ all Common
   Clocks
@@ -968,11 +969,10 @@ FSP Configuration
   Module "Memory config check"
     MPU/MMU Type: MPU
     
-  Module "Timer , Multi-Function Timer Pulse Unit 3 (r_mtu3)"
+  Module "Timer, Multi-Function (r_mtu3)"
     Parameter Checking: Default (BSP)
     Pin Output Support: Enabled with Extra Features
-    UVW Support: Disabled
-    Multiplex Interrupt: Disabled
+    Nested Interrupt (Multiplex Interrupt): Disabled
     
   HAL
     Instance "g_ioport I/O Port (r_ioport)"
@@ -1035,15 +1035,34 @@ FSP Configuration
       ELC Single Port 3: Input Direction Setting: Edge Detection: Rising edge
       
     Instance "Memory config check"
-    Instance "g_timer0 Timer , Multi-Function Timer Pulse Unit 3 (r_mtu3)"
+    Instance "g_timer0 Timer, Multi-Function (r_mtu3)"
       General: Name: g_timer0
       General: Channel: 0
       General: Mode: PWM
-      General: TGRA(Output Compare or Input Capture Value): 0x7A12
-      General: TGRB(Output Compare or Input Capture Value): 0x3D09
-      General: Time Prescaler: PCLKH divided by 16 (common ch)
+      General: Buffer Operation Support: Enabled
+      General: Period: 0x10000
+      Output: Duty Cycle Percent (only applicable in PWM mode): 50
+      Output: MTIOCA Output Enabled: False
+      Output: MTIOCA Stop Level: Pin Level Low
+      Output: Initial Output Level (only applicable in PWM mode): Pin Level Low
+      Output: MTIOCB Output Enabled: False
+      Output: MTIOCB Stop Level: Pin Level Low
+      Output: Retain Output Level at Count Stop: Disabled
+      Output: MTIOCC Output Enabled: False
+      Output: MTIOCC Stop Level: Pin Level Low
+      Output: MTIOCD Output Enabled: False
+      Output: MTIOCD Stop Level: Pin Level Low
+      General: Compare Match: Compare Match: Status: Disabled
+      General: Compare Match: Compare Match: Compare match value: 0x10000
+      General: Compare Match: Compare Match B: Status: Disabled
+      General: Compare Match: Compare Match B: Compare match value: 0x10000
+      General: Period Unit: Raw Counts
       General: Clock Edge: Rising
       General: Counter Clear Source: TGRA
+      Input: Input Capture: MTIOCnA Source: No Output
+      Input: Input Capture: MTIOCnB Source: No Output
+      Input: Input Capture: MTIOCnC Source: No Output
+      Input: Input Capture: MTIOCnD Source: No Output
       Input: Phase Count: Bit Mode: 16-bit
       Input: Phase Count: Counting Mode: None
       Input: Phase Count: Clock Pin Select: MTCLKA, MTCLKB
@@ -1051,39 +1070,34 @@ FSP Configuration
       Noise Filter: External Clock: Clock Select: PCLK divided by 1
       Noise Filter: Input Capture: Enable: 
       Noise Filter: Input Capture: Clock Select: PCLK divided by 1
-      Output: Initial Output A: Low Output at Low compare match
-      Output: Initial Output B: Low Output at High compare match
+      Custom Waveform: Custom Waveform Enable: Enabled
+      Custom Waveform: TGRA(Output Compare or Input Capture Value): 0x7A12
+      Custom Waveform: TGRB(Output Compare or Input Capture Value): 0x3D09
+      Custom Waveform: TGRC(The Buffer Value of TGRA): 0x10000
+      Custom Waveform: TGRD(The Buffer Value of TGRB): 0x10000
+      Custom Waveform: TGRA I/O Pin Setting: Low Output at Low compare match
+      Custom Waveform: TGRB I/O Pin Setting: Low Output at High compare match
+      Custom Waveform: TGRC I/O Pin Setting: No Output
+      Custom Waveform: TGRD I/O Pin Setting: No Output
+      Custom Waveform: Time Prescaler: PCLKH divided by 16 (common ch)
       Interrupts: Callback: NULL
       Interrupts: Overflow/Crest Interrupt Priority: Disabled
-      Interrupts: Capture A Interrupt Priority: Priority 11
-      Interrupts: Capture B Interrupt Priority: Priority 11
+      Interrupts: Capture/Compare A Interrupt Priority: Priority 11
+      Interrupts: Capture/Compare B Interrupt Priority: Priority 11
+      Interrupts: Capture/Compare C Interrupt Priority: Disabled
+      Interrupts: Capture/Compare D Interrupt Priority: Disabled
       Interrupts (GPT_SEL): Callback: NULL
       Interrupts (GPT_SEL): Overflow/Crest Interrupt Source: 
-      Interrupts (GPT_SEL): Capture A Interrupt Source: 
-      Interrupts (GPT_SEL): Capture B Interrupt Source: 
+      Interrupts (GPT_SEL): Capture/Compare A Interrupt Source: 
+      Interrupts (GPT_SEL): Capture/Compare B Interrupt Source: 
+      Interrupts (GPT_SEL): Capture/Compare C Interrupt Source: 
+      Interrupts (GPT_SEL): Capture/Compare D Interrupt Source: 
       Interrupts (GPT_SEL): INT0 Interrupt Priority: Disabled
       Interrupts (GPT_SEL): INT1 Interrupt Priority: Disabled
       Interrupts (GPT_SEL): INT2 Interrupt Priority: Disabled
       Interrupts (GPT_SEL): INT3 Interrupt Priority: Disabled
       Interrupts (GPT_SEL): INT4 Interrupt Priority: Disabled
       Extra Features: Extra Features: Enabled
-      Extra Features: MTU5: U Count: 0x0000
-      Extra Features: MTU5: V Count: 0x0000
-      Extra Features: MTU5: W Count: 0x0000
-      Extra Features: MTU5: U Clock Select: PCLKH divided by 1
-      Extra Features: MTU5: V Clock Select: PCLKH divided by 1
-      Extra Features: MTU5: W Clock Select: PCLKH divided by 1
-      Extra Features: MTU5: U Input Capture: No func
-      Extra Features: MTU5: V Input Capture: No func
-      Extra Features: MTU5: W Input Capture: No func
-      Extra Features: MTU5: Interrupts: Capture U Interrupt Priority: Disabled
-      Extra Features: MTU5: Interrupts: Capture V Interrupt Priority: Disabled
-      Extra Features: MTU5: Interrupts: Capture W Interrupt Priority: Disabled
-      Extra Features: MTU5: Interrupts (GPT_SEL): Capture U Interrupt Source: 
-      Extra Features: MTU5: Interrupts (GPT_SEL): Capture V Interrupt Source: 
-      Extra Features: MTU5: Interrupts (GPT_SEL): Capture W Interrupt Source: 
-      Extra Features: MTU5: UVW Noise Filter Enable: Disabled
-      Extra Features: MTU5: UVW Noise Filter Clock Select: PCLKH divided by 1
       Extra Features: Interrupt Skipping: Skip Mode A: Mode 1
       Extra Features: Interrupt Skipping: Skip Mode B: Mode 1
       Extra Features: ADC Trigger: ADC A Compare Match (Raw Counts): 0x0000

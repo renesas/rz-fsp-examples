@@ -16,6 +16,9 @@ _RZ_ORDINAL = (0 == SECONDARY_PRV) ? 1 : 2;
 /* Check whether TCM is implemented on the core you intend to use. */
 IMPLEMENTED_TCM = ((DEFINED(ATCM_CR52_0_START) || DEFINED(ATCM_CR52_1_START)) && (DEFINED(BTCM_CR52_0_START) || DEFINED(BTCM_CR52_1_START))) ? 1 : 0;
 
+/* Determines whether the loader program can be placed in SYSTEM_RAM based on the presence or absence of the PICEn_MIRROR address space. */
+LOADER_SYSTEM_RAM_ENABLE = (DEFINED(PCIE0_MIRROR_START) && !DEFINED(PCIE1_MIRROR_START)) ? 1 : 0;
+
 /* Change the location region of the loader program and user program.
  * For details, refer to the "Change Program Location" chapter in the FSP documentation (BSP -> MCU Board Support Package). */
 
@@ -36,8 +39,10 @@ USER_PROGRAM_LOCATION_PRV   = DEFINED(USER_PROGRAM_LOCATION) ?
                                       0 :
                                       2;
 
-/* In the primary project, setting a loader program other than BTCM will cause a build error. */
-ASSERT_LOADER_PROGRAM_LOCATION = ((1 == _RZ_ORDINAL) && (1 == IMPLEMENTED_TCM) && (1 != LOADER_PROGRAM_LOCATION_PRV)) ? 0 : 1;
+/* In the primary project, selecting any loader program location other than BTCM will cause a build error.
+ * SYSTEM_RAM is available as a loader program location only for RZ/T2N. */
+ASSERT_LOADER_PROGRAM_LOCATION = ((1 == _RZ_ORDINAL) && (1 == IMPLEMENTED_TCM) && 
+                                  ((0 == LOADER_PROGRAM_LOCATION_PRV) || ((2 == LOADER_PROGRAM_LOCATION_PRV) && (0 == LOADER_SYSTEM_RAM_ENABLE)))) ? 0 : 1;
 ASSERT(ASSERT_LOADER_PROGRAM_LOCATION, "ERROR: In the primary project, the location of the loader program cannot be changed.");
 
 /* In cores without TCM, setting TCM for the loader program and user program will cause a build error. */
@@ -52,7 +57,7 @@ USER_PROGRAM_LOCATION_PRV = (0 == ASSERT_TCM) ? 2 : USER_PROGRAM_LOCATION_PRV;
 SYSTEM_RAM_ALIGN_START             = ALIGN(SYSTEM_RAM_PRV_START, 0x00020000);
 SYSTEM_RAM_ALIGN_LENGTH            = SYSTEM_RAM_PRV_LENGTH - (SYSTEM_RAM_PRV_LENGTH % 0x00020000);
 
-/* This is the offset of the mirror region of ​​SYSTEM_RAM. It varies depending on the device. */
+/* This is the offset of the mirror region of SYSTEM_RAM. It varies depending on the device. */
 SYSTEM_RAM_MIRROR_OFFSET           = DEFINED(SYSTEM_RAM_START) ?
                                          DEFINED(SYSTEM_RAM_MIRROR_START) ?
                                              0x20000000 :
@@ -131,6 +136,10 @@ MEMORY
     ATCM                   : ORIGIN = ATCM_PRV_START,                   LENGTH = ATCM_PRV_LENGTH
     BTCM                   : ORIGIN = BTCM_PRV_START,                   LENGTH = BTCM_PRV_LENGTH
     SYSTEM_RAM             : ORIGIN = SYSTEM_RAM_ALIGN_START,           LENGTH = SYSTEM_RAM_ALIGN_LENGTH
+    CPU0_ATCM_VIA_AXIS     : ORIGIN = CPU0_ATCM_VIA_AXIS_PRV_START,     LENGTH = CPU0_ATCM_VIA_AXIS_PRV_LENGTH
+    CPU0_BTCM_VIA_AXIS     : ORIGIN = CPU0_BTCM_VIA_AXIS_PRV_START,     LENGTH = CPU0_BTCM_VIA_AXIS_PRV_LENGTH
+    CPU1_ATCM_VIA_AXIS     : ORIGIN = CPU1_ATCM_VIA_AXIS_PRV_START,     LENGTH = CPU1_ATCM_VIA_AXIS_PRV_LENGTH
+    CPU1_BTCM_VIA_AXIS     : ORIGIN = CPU1_BTCM_VIA_AXIS_PRV_START,     LENGTH = CPU1_BTCM_VIA_AXIS_PRV_LENGTH
     SYSTEM_RAM_MIRROR      : ORIGIN = SYSTEM_RAM_MIRROR_PRV_START,      LENGTH = SYSTEM_RAM_MIRROR_PRV_LENGTH
     xSPI0_CS0_SPACE_MIRROR : ORIGIN = xSPI0_CS0_SPACE_MIRROR_PRV_START, LENGTH = xSPI0_CS0_SPACE_MIRROR_PRV_LENGTH
     xSPI0_CS1_SPACE_MIRROR : ORIGIN = xSPI0_CS1_SPACE_MIRROR_PRV_START, LENGTH = xSPI0_CS1_SPACE_MIRROR_PRV_LENGTH
@@ -234,6 +243,15 @@ SECTIONS
         __loader_bss_end = . ;
 
         KEEP(*(.software_reset)) /* Do not initialize */
+    } > LOADER_DATA_STACK
+
+    /* Place the uninitialized variables. */
+    .noinit (NOLOAD):
+    {
+        . = ALIGN(8);
+        __noinit_start = .;
+        KEEP(*(.noinit*))
+        __noinit_end = .;
     } > LOADER_DATA_STACK
 
 /*-----------------------------------------------*/
@@ -389,6 +407,7 @@ SECTIONS
         *(.data)
 
         *(.rodata*)
+        KEEP(*(.version))
         _erodata = .;
 
         . = ALIGN(8);
@@ -463,7 +482,7 @@ SECTIONS
       . = ALIGN(8);
       _bss_noncache_end = .;
     } > NONCACHE
-    
+
     /* Place the variables in the user program that do not have initial values. */
     .bss (NOLOAD) :
     {

@@ -14,8 +14,8 @@
     and notifies the user to act accordingly. Result and ADC status is displayed on the Tera Term.
 
 2. Software Requirements:
-    Renesas Flexible Software Package (FSP): Version 4.1.0
-    e2 studio: Version 2026-04.1
+    Renesas Flexible Software Package (FSP): Version 4.2.0
+    e2 studio: Version 2026-07
     GCC ARM A-Profile (AArch64 bare-metal): Version 13.2 rel1
     Terminal Console Application: Tera Term or a similar application
 

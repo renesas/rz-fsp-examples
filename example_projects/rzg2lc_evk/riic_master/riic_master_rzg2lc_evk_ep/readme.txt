@@ -10,10 +10,10 @@
     failure will be displayed on J-Link RTT Viewer.
 
 2. Software Requirements:
-    Renesas Flexible Software Package (FSP): Version 4.1.0
-    e2 studio: Version 2026-04.1
+    Renesas Flexible Software Package (FSP): Version 4.2.0
+    e2 studio: Version 2026-07
     GCC ARM Embedded Toolchain: Version 13.3.1.arm-13-24
-    SEGGER J-Link RTT Viewer: Version 8.60
+    SEGGER J-Link RTT Viewer: Version 9.44
 
 3. Hardware Requirements:
     RZ supported boards: RZ/G2LC-EVK.
