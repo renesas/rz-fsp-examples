@@ -1,0 +1,474 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<raConfiguration version="12">
+  <generalSettings>
+    <option key="#Board#" value="board.rzg3l_evk"/>
+    <option key="CPU" value="RZG3L"/>
+    <option key="Core" value="CM33"/>
+    <option key="#TargetName#" value="R9A08G046L46GBG"/>
+    <option key="#TargetARCHITECTURE#" value="cortex-m33"/>
+    <option key="#DeviceCommand#" value="R9A08G046L46GBG_CM33_0"/>
+    <option key="#RTOS#" value="_none"/>
+    <option key="#pinconfiguration#" value="R9A08G046L46GBG.pincfg"/>
+    <option key="#FSPVersion#" value="4.2.0"/>
+    <option key="#ConfigurationFragments#" value="Renesas##BSP##Board##rzg3l_evk##"/>
+    <option key="#SELECTED_TOOLCHAIN#" value="gcc-arm-embedded"/>
+    <option key="#ToolchainVersion#" value="13.3.1.arm-13-24"/>
+  </generalSettings>
+  <raBspConfiguration>
+    <config id="config.bsp.rzg3l.R9A08G046L46GBG">
+      <property id="config.bsp.part_number" value="config.bsp.part_number.value"/>
+      <property id="config.bsp.rom_size_bytes" value="config.bsp.rom_size_bytes.value"/>
+      <property id="config.bsp.ram_size_bytes" value="config.bsp.ram_size_bytes.value"/>
+      <property id="config.bsp.package_style" value="config.bsp.package_style.value"/>
+      <property id="config.bsp.package_pins" value="config.bsp.package_pins.value"/>
+    </config>
+    <config id="config.bsp.rzg3l">
+      <property id="config.bsp.launch_ca55" value="config.bsp.launch_ca55.disabled"/>
+      <property id="config.bsp.clock_init" value="config.bsp.clock_init.disabled"/>
+    </config>
+    <config id="config.bsp.rzg3l.fsp">
+      <property id="config.bsp.fsp.inline_irq_functions" value="config.bsp.common.inline_irq_functions.enabled"/>
+      <property id="config.bsp.fsp.mcu.adc_c.min_adc.sampling_time" value="71"/>
+      <property id="config.bsp.fsp.mcu.adc_c.max_adc.sampling_time" value="255"/>
+      <property id="config.bsp.fsp.mcu.canfd.max_data_rate_hz" value="8"/>
+      <property id="config.bsp.fsp.mcu.canfd.min_nominal_timeseg1" value="2"/>
+      <property id="config.bsp.fsp.mcu.canfd.max_nominal_timeseg1" value="256"/>
+      <property id="config.bsp.fsp.mcu.canfd.max_nominal_timeseg2" value="128"/>
+      <property id="config.bsp.fsp.mcu.canfd.min_nominal_sync_jump_width" value="2"/>
+      <property id="config.bsp.fsp.mcu.canfd.max_nominal_sync_jump_width" value="128"/>
+      <property id="config.bsp.fsp.mcu.canfd.max_data_prescaler" value="256"/>
+      <property id="config.bsp.fsp.mcu.canfd.max_data_timeseg1" value="32"/>
+      <property id="config.bsp.fsp.mcu.canfd.max_data_timeseg2" value="16"/>
+      <property id="config.bsp.fsp.mcu.canfd.max_data_sync_jump_width" value="16"/>
+      <property id="config.bsp.fsp.mcu.canfd.max_rxmb_number" value="48"/>
+      <property id="config.bsp.fsp.mcu.canfd.afl_rules" value="384"/>
+      <property id="config.bsp.fsp.mcu.canfd.afl_rules_each_chnl" value="256"/>
+      <property id="config.bsp.fsp.mcu.sci_b_uart.max_baud" value="16666667"/>
+      <property id="config.bsp.fsp.mcu.canfd.buffer_ram" value="14592"/>
+      <property id="config.bsp.fsp.mcu.spi.max_bitrate" value="50000000"/>
+      <property id="config.bsp.fsp.mcu.sci_b_spi.max_bitrate" value="25000000"/>
+    </config>
+    <config id="config.bsp.rzg">
+      <property id="config.bsp.common.secure_stack" value="0x1000"/>
+      <property id="config.bsp.common.main" value="0x1000"/>
+      <property id="config.bsp.common.heap" value="0x4000"/>
+      <property id="config.bsp.common.vcc" value="3300"/>
+      <property id="config.bsp.common.checking" value="config.bsp.common.checking.enabled"/>
+      <property id="config.bsp.common.assert" value="config.bsp.common.assert.none"/>
+      <property id="config.bsp.common.pfs_protect" value="config.bsp.common.pfs_protect.enabled"/>
+      <property id="config.bsp.common.c_runtime_init" value="config.bsp.common.c_runtime_init.enabled"/>
+      <property id="config.bsp.common.early_init" value="config.bsp.common.early_init.disabled"/>
+      <property id="config.bsp.rzgfamily" value="config.bsp.rzgfamily.true"/>
+    </config>
+  </raBspConfiguration>
+  <raClockConfiguration>
+    <node id="board.clock.osc.freq" option="board.clock.osc.freq.value"/>
+    <node id="board.clock.pll1" mul="1200000000" option="_edit"/>
+    <node id="board.clock.dummy1" option="board.clock.dummy1.freq"/>
+    <node id="board.clock.iclk.div" option="board.clock.iclk.div.1"/>
+    <node id="board.clock.iclk.display" option="board.clock.iclk.display.value"/>
+    <node id="board.clock.oscclk2.div" option="board.clock.oscclk2.div.3"/>
+    <node id="board.clock.osc2.freq" option="board.clock.osc2.freq.value"/>
+    <node id="board.clock.ic0clk.div" option="board.clock.ic0clk.div.1"/>
+    <node id="board.clock.ic0clk.display" option="board.clock.ic0clk.display.value"/>
+    <node id="board.clock.ic1clk.div" option="board.clock.ic1clk.div.1"/>
+    <node id="board.clock.ic1clk.display" option="board.clock.ic1clk.display.value"/>
+    <node id="board.clock.ic2clk.div" option="board.clock.ic2clk.div.1"/>
+    <node id="board.clock.ic2clk.display" option="board.clock.ic2clk.display.value"/>
+    <node id="board.clock.ic3clk.div" option="board.clock.ic3clk.div.1"/>
+    <node id="board.clock.ic3clk.display" option="board.clock.ic3clk.display.value"/>
+    <node id="board.clock.pll1.div1" option="board.clock.pll1.div1.2"/>
+    <node id="board.clock.pll2" mul="1600000000" option="_edit"/>
+    <node id="board.clock.dummy2" option="board.clock.dummy2.freq"/>
+    <node id="board.clock.pll2.div1" option="board.clock.pll2.div1.2"/>
+    <node id="board.clock.pll2.div2" option="board.clock.pll2.div2.5"/>
+    <node id="board.clock.p4clk.display" option="board.clock.p4clk.display.value"/>
+    <node id="board.clock.pll2.div3" option="board.clock.pll2.div3.2"/>
+    <node id="board.clock.p6clk.display" option="board.clock.p6clk.display.value"/>
+    <node id="board.clock.p3clk.div" option="board.clock.p3clk.div.4"/>
+    <node id="board.clock.p3clk.display" option="board.clock.p3clk.display.value"/>
+    <node id="board.clock.pll2.div4" option="board.clock.pll2.div4.4"/>
+    <node id="board.clock.p5clk.display" option="board.clock.p5clk.display.value"/>
+    <node id="board.clock.p0clk.div" option="board.clock.p3clk.div.8"/>
+    <node id="board.clock.p0clk.display" option="board.clock.p0clk.display.value"/>
+    <node id="board.clock.pll2.div5" option="board.clock.pll2.div5.8"/>
+    <node id="board.clock.p20clk.display" option="board.clock.p20clk.display.value"/>
+    <node id="board.clock.p7clk.div" option="board.clock.p7clk.div.4"/>
+    <node id="board.clock.p7clk.display" option="board.clock.p7clk.display.value"/>
+    <node id="board.clock.pll2.div6" option="board.clock.pll2.div6.6"/>
+    <node id="board.clock.m1clk.div" option="board.clock.m1clk.div.16"/>
+    <node id="board.clock.m1clk.display" option="board.clock.m1clk.display.value"/>
+    <node id="board.clock.pll2.div7" option="board.clock.pll2.div7.2"/>
+    <node id="board.clock.pll2.div8" option="board.clock.pll2.div8.3"/>
+    <node id="board.clock.pll2.div9" option="board.clock.pll2.div9.5"/>
+    <node id="board.clock.pll2.div10" option="board.clock.pll2.div10.7"/>
+    <node id="board.clock.pll3" mul="1600000000" option="_edit"/>
+    <node id="board.clock.dummy3" option="board.clock.dummy3.freq"/>
+    <node id="board.clock.pll3.div1" option="board.clock.pll3.div1.2"/>
+    <node id="board.clock.pll3.div2" option="board.clock.pll3.div2.2"/>
+    <node id="board.clock.atclk.display" option="board.clock.atclk.display.value"/>
+    <node id="board.clock.p1clk.div" option="board.clock.p1clk.div.4"/>
+    <node id="board.clock.p1clk.display" option="board.clock.p1clk.display.value"/>
+    <node id="board.clock.pll3.div3" option="board.clock.pll3.div3.2"/>
+    <node id="board.clock.m6clk.display" option="board.clock.m6clk.display.value"/>
+    <node id="board.clock.pll3.div4" option="board.clock.pll3.div4.4"/>
+    <node id="board.clock.m0clk.display" option="board.clock.m0clk.display.value"/>
+    <node id="board.clock.p2clk.div" option="board.clock.p2clk.div.8"/>
+    <node id="board.clock.p2clk.display" option="board.clock.p2clk.display.value"/>
+    <node id="board.clock.pll3.div5" option="board.clock.pll3.div5.8"/>
+    <node id="board.clock.p8clk.display" option="board.clock.p8clk.display.value"/>
+    <node id="board.clock.pll3.div6" option="board.clock.pll3.div6.6"/>
+    <node id="board.clock.p9clk.display" option="board.clock.p9clk.display.value"/>
+    <node id="board.clock.pll3.div7" option="board.clock.pll3.div7.2"/>
+    <node id="board.clock.p10clk.display" option="board.clock.p10clk.display.value"/>
+    <node id="board.clock.pll3.div8" option="board.clock.pll3.div8.2"/>
+    <node id="board.clock.m5clk.display" option="board.clock.m5clk.display.value"/>
+    <node id="board.clock.pll3.div9" option="board.clock.pll3.div9.3"/>
+    <node id="board.clock.pll3.div10" option="board.clock.pll3.div10.5"/>
+    <node id="board.clock.pll3.div11" option="board.clock.pll3.div11.7"/>
+    <node id="board.clock.osc.div1" option="board.clock.osc.div1.1000"/>
+    <node id="board.clock.pll4" mul="1067000000" option="_edit"/>
+    <node id="board.clock.dummy4" option="board.clock.dummy4.freq"/>
+    <node id="board.clock.sel_pll4.sel" option="board.clock.sel_pll4.sel.0024"/>
+    <node id="board.clock.s0clk.div1" option="board.clock.s0clk.div1.2"/>
+    <node id="board.clock.s0clk.display" option="board.clock.s0clk.display.value"/>
+    <node id="board.clock.pll6" mul="500000000" option="_edit"/>
+    <node id="board.clock.dummy6" option="board.clock.dummy6.freq"/>
+    <node id="board.clock.pll6.div1" option="board.clock.pll6.div1.10"/>
+    <node id="board.clock.hpclk.display" option="board.clock.hpclk.display.value"/>
+    <node id="board.clock.pll6.div2" option="board.clock.pll6.div2.4"/>
+    <node id="board.clock.sel_eth0_tx.sel" option="board.clock.sel_eth0_tx.sel.pll6.div2"/>
+    <node id="board.clock.sel_eth0_clk_tx_i.sel" option="board.clock.sel_eth0_clk_tx_i.sel.sel_eth0_tx"/>
+    <node id="board.clock.ethtx01clk.display" option="board.clock.ethtx01clk.display.value"/>
+    <node id="board.clock.ethtx02clk.display" option="board.clock.ethtx02clk.display.value"/>
+    <node id="board.clock.eth0_txc_tx_clk_in" mul="0" option="_edit"/>
+    <node id="board.clock.sel_eth0_rx.sel" option="board.clock.sel_eth0_rx.sel.pll6.div2"/>
+    <node id="board.clock.sel_eth0_clk_rx_i.sel" option="board.clock.sel_eth0_clk_rx_i.sel.pll6.div2"/>
+    <node id="board.clock.ethrx01clk.display" option="board.clock.ethrx01clk.display.value"/>
+    <node id="board.clock.ethrx02clk.display" option="board.clock.ethrx02clk.display.value"/>
+    <node id="board.clock.eth0_rxc_rx_clk_in" mul="0" option="_edit"/>
+    <node id="board.clock.sel_eth0_rm.sel" option="board.clock.sel_eth0_rx.sel.pll6.div1"/>
+    <node id="board.clock.sel_eth0_rm.div" option="board.clock.sel_eth0_rm.div.2"/>
+    <node id="board.clock.ethrm0clk.display" option="board.clock.ethrm0clk.display.value"/>
+    <node id="board.clock.pll6.div3" option="board.clock.pll6.div3.4"/>
+    <node id="board.clock.sel_eth1_tx.sel" option="board.clock.sel_eth1_tx.sel.pll6.div3"/>
+    <node id="board.clock.sel_eth1_clk_tx_i.sel" option="board.clock.sel_eth1_clk_tx_i.sel.sel_eth1_tx"/>
+    <node id="board.clock.ethtx11clk.display" option="board.clock.ethtx11clk.display.value"/>
+    <node id="board.clock.ethtx12clk.display" option="board.clock.ethtx12clk.display.value"/>
+    <node id="board.clock.sel_eth1_rx.sel" option="board.clock.sel_eth1_rx.sel.pll6.div3"/>
+    <node id="board.clock.sel_eth1_clk_rx_i.sel" option="board.clock.sel_eth1_clk_rx_i.sel.pll6.div3"/>
+    <node id="board.clock.ethrx11clk.display" option="board.clock.ethrx11clk.display.value"/>
+    <node id="board.clock.ethrx12clk.display" option="board.clock.ethrx12clk.display.value"/>
+    <node id="board.clock.sel_eth1_rm.sel" option="board.clock.sel_eth1_rx.sel.pll6.div1"/>
+    <node id="board.clock.sel_eth1_rm.div" option="board.clock.sel_eth1_rm.div.2"/>
+    <node id="board.clock.ethrm1clk.display" option="board.clock.ethrm1clk.display.value"/>
+    <node id="board.clock.pll7" mul="3000000000" option="_edit"/>
+    <node id="board.clock.dummy7" option="board.clock.dummy7.freq"/>
+    <node id="board.clock.m4clk.display" option="board.clock.m4clk.display.value"/>
+    <node id="board.clock.pll7.div1" option="board.clock.pll7.div1.1"/>
+    <node id="board.clock.m2clk.display" option="board.clock.m2clk.display.value"/>
+    <node id="board.clock.pll7.div2" option="board.clock.pll7.div2.7"/>
+    <node id="board.clock.pll7.div3" option="board.clock.pll7.div3.1"/>
+    <node id="board.clock.pll7.div4" option="board.clock.pll7.div4.1"/>
+    <node id="board.clock.sel_dsi.sel" option="board.clock.sel_dsi.sel.pll7.div2"/>
+    <node id="board.clock.m3clk.display" option="board.clock.m3clk.display.value"/>
+    <node id="board.clock.sel_sdhi0.sel" option="board.clock.sel_sdhi0.sel.266"/>
+    <node id="board.clock.sd0.div" option="board.clock.sd0.div.4"/>
+    <node id="board.clock.sd0clk.display" option="board.clock.sd0clk.display.value"/>
+    <node id="board.clock.sel_sdhi1.sel" option="board.clock.sel_sdhi1.sel.266"/>
+    <node id="board.clock.sd1.div" option="board.clock.sd1.div.4"/>
+    <node id="board.clock.sd1clk.display" option="board.clock.sd1clk.display.value"/>
+    <node id="board.clock.sel_sdhi2.sel" option="board.clock.sel_sdhi2.sel.266"/>
+    <node id="board.clock.sd2.div" option="board.clock.sd2.div.4"/>
+    <node id="board.clock.sd2clk.display" option="board.clock.sd2clk.display.value"/>
+    <node id="board.clock.sel_xspi.sel" option="board.clock.sel_xspi.sel.522"/>
+    <node id="board.clock.spi0.div" option="board.clock.spi0.div.2"/>
+    <node id="board.clock.spi0clk.display" option="board.clock.spi0clk.display.value"/>
+    <node id="board.clock.spi1.div" option="board.clock.spi1.div.2"/>
+    <node id="board.clock.spi1clk.display" option="board.clock.spi1clk.display.value"/>
+    <node id="board.clock.sel_rsci0.sel" option="board.clock.sel_rsci0.sel.200"/>
+    <node id="board.clock.p13.div" option="board.clock.p13.div.2"/>
+    <node id="board.clock.p13clk.display" option="board.clock.p13clk.display.value"/>
+    <node id="board.clock.sel_rsci1.sel" option="board.clock.sel_rsci1.sel.200"/>
+    <node id="board.clock.p14.div" option="board.clock.p14.div.2"/>
+    <node id="board.clock.p14clk.display" option="board.clock.p14clk.display.value"/>
+    <node id="board.clock.sel_rsci2.sel" option="board.clock.sel_rsci2.sel.200"/>
+    <node id="board.clock.p15.div" option="board.clock.p15.div.2"/>
+    <node id="board.clock.p15clk.display" option="board.clock.p15clk.display.value"/>
+    <node id="board.clock.sel_rsci3.sel" option="board.clock.sel_rsci3.sel.200"/>
+    <node id="board.clock.p16.div" option="board.clock.p16.div.2"/>
+    <node id="board.clock.p16clk.display" option="board.clock.p16clk.display.value"/>
+    <node id="board.clock.sel_rspi0.sel" option="board.clock.sel_rspi0.sel.200"/>
+    <node id="board.clock.p17.div" option="board.clock.p17.div.1"/>
+    <node id="board.clock.p17clk.display" option="board.clock.p17clk.display.value"/>
+    <node id="board.clock.sel_rspi1.sel" option="board.clock.sel_rspi1.sel.200"/>
+    <node id="board.clock.p18.div" option="board.clock.p18.div.1"/>
+    <node id="board.clock.p18clk.display" option="board.clock.p18clk.display.value"/>
+    <node id="board.clock.sel_rspi2.sel" option="board.clock.sel_rspi2.sel.200"/>
+    <node id="board.clock.p19.div" option="board.clock.p19.div.1"/>
+    <node id="board.clock.p19clk.display" option="board.clock.p19clk.display.value"/>
+    <node id="board.clock.sel_ge3d.sel" option="board.clock.sel_ge3d.sel.600"/>
+    <node id="board.clock.g.div" option="board.clock.g.div.1"/>
+    <node id="board.clock.gclk.display" option="board.clock.gclk.display.value"/>
+    <node id="board.clock.sel_bsc.sel" option="board.clock.sel_bsc.sel.266"/>
+    <node id="board.clock.b.div" option="board.clock.b.div.2"/>
+    <node id="board.clock.bclk.display" option="board.clock.bclk.display.value"/>
+  </raClockConfiguration>
+  <raComponentSelection>
+    <component apiversion="" class="Common" condition="" group="all" subgroup="fsp_common" variant="" vendor="Renesas" version="4.2.0">
+      <description>Board Support Package Common Files</description>
+      <originalPack>Renesas.RZ.4.2.0.pack</originalPack>
+    </component>
+    <component apiversion="" class="HAL Drivers" condition="" group="rzg" subgroup="r_ioport" variant="" vendor="Renesas" version="4.2.0">
+      <description>I/O Port</description>
+      <originalPack>Renesas.RZG.4.2.0.pack</originalPack>
+    </component>
+    <component apiversion="" class="CMSIS" condition="" group="CMSIS6" subgroup="CoreM" variant="" vendor="Arm" version="6.1.0+fsp.4.2.0">
+      <description>Arm CMSIS Version 6 - Core</description>
+      <originalPack>Arm.CMSIS6.6.1.0+fsp.4.2.0.pack</originalPack>
+    </component>
+    <component apiversion="" class="Common" condition="" group="rzg" subgroup="fsp_common" variant="" vendor="Renesas" version="4.2.0">
+      <description>Board Support Package Common Files</description>
+      <originalPack>Renesas.RZG.4.2.0.pack</originalPack>
+    </component>
+    <component apiversion="" class="BSP" condition="" group="rzg3l" subgroup="device" variant="R9A08G046L46GBG" vendor="Renesas" version="4.2.0">
+      <description>Board support package for R9A08G046L46GBG</description>
+      <originalPack>Renesas.RZG_mcu_rzg3l.4.2.0.pack</originalPack>
+    </component>
+    <component apiversion="" class="BSP" condition="" group="rzg3l" subgroup="device" variant="" vendor="Renesas" version="4.2.0">
+      <description>Board support package for RZG3L</description>
+      <originalPack>Renesas.RZG_mcu_rzg3l.4.2.0.pack</originalPack>
+    </component>
+    <component apiversion="" class="BSP" condition="" group="rzg3l" subgroup="fsp" variant="" vendor="Renesas" version="4.2.0">
+      <description>Board support package for RZ/G3L - FSP Data</description>
+      <originalPack>Renesas.RZG_mcu_rzg3l.4.2.0.pack</originalPack>
+    </component>
+    <component apiversion="" class="BSP" condition="" group="Board" subgroup="rzg3l_evk" variant="" vendor="Renesas" version="4.2.0">
+      <description>RZ/G3L SMARC Evaluation Board Kit Support Files (RZ/G3L)</description>
+      <originalPack>Renesas.RZG_board_rzg3l_evk.4.2.0.pack</originalPack>
+    </component>
+    <component apiversion="" class="HAL Drivers" condition="" group="rzg" subgroup="r_dmac_b" variant="" vendor="Renesas" version="4.2.0">
+      <description>Direct Memory Access Controller</description>
+      <originalPack>Renesas.RZG.4.2.0.pack</originalPack>
+    </component>
+    <component apiversion="" class="HAL Drivers" condition="" group="rzg" subgroup="r_spi_b" variant="" vendor="Renesas" version="4.2.0">
+      <description>Serial Peripheral Interface</description>
+      <originalPack>Renesas.RZG.4.2.0.pack</originalPack>
+    </component>
+  </raComponentSelection>
+  <raElcConfiguration/>
+  <raIcuConfiguration/>
+  <raLinkMapConfiguration/>
+  <raModuleConfiguration>
+    <module id="module.driver.rzg.ioport_on_ioport.0">
+      <property id="module.driver.rzg.ioport.name" value="g_ioport"/>
+      <property id="module.driver.rzg.ioport.pincfg" value="g_bsp_pin_cfg"/>
+      <property id="module.driver.rzg.ioport.elc_trigger_output_group1" value="_disabled"/>
+      <property id="module.driver.rzg.ioport.port_select_output_group1" value=""/>
+      <property id="module.driver.rzg.ioport.operation_output_group1" value="module.driver.rzg.ioport.operation_output_group.disable"/>
+      <property id="module.driver.rzg.ioport.elc_trigger_output_group2" value="_disabled"/>
+      <property id="module.driver.rzg.ioport.port_select_output_group2" value=""/>
+      <property id="module.driver.rzg.ioport.operation_output_group2" value="module.driver.rzg.ioport.operation_output_group.disable"/>
+      <property id="module.driver.rzg.ioport.elc_trigger_input_group1" value="_disabled"/>
+      <property id="module.driver.rzg.ioport.event_control_input_group1" value="enum.driver.ioport.event_control_input_group.disable"/>
+      <property id="module.driver.rzg.ioport.port_select_input_group1" value=""/>
+      <property id="module.driver.rzg.ioport.edge_detect_input_group1" value="enum.driver.ioport.edge_detect_input_group.disable"/>
+      <property id="module.driver.rzg.ioport.buffer_overwrite_input_group1" value="enum.driver.ioport.buffer_overwrite_input_group.disable"/>
+      <property id="module.driver.rzg.ioport.p60_initial_value_input_group1" value="enum.driver.ioport.initial_value_input_group.disable"/>
+      <property id="module.driver.rzg.ioport.p61_initial_value_input_group1" value="enum.driver.ioport.initial_value_input_group.disable"/>
+      <property id="module.driver.rzg.ioport.p62_initial_value_input_group1" value="enum.driver.ioport.initial_value_input_group.disable"/>
+      <property id="module.driver.rzg.ioport.p63_initial_value_input_group1" value="enum.driver.ioport.initial_value_input_group.disable"/>
+      <property id="module.driver.rzg.ioport.p64_initial_value_input_group1" value="enum.driver.ioport.initial_value_input_group.disable"/>
+      <property id="module.driver.rzg.ioport.p65_initial_value_input_group1" value="enum.driver.ioport.initial_value_input_group.disable"/>
+      <property id="module.driver.rzg.ioport.p66_initial_value_input_group1" value="enum.driver.ioport.initial_value_input_group.disable"/>
+      <property id="module.driver.rzg.ioport.p67_initial_value_input_group1" value="enum.driver.ioport.initial_value_input_group.disable"/>
+      <property id="module.driver.rzg.ioport.elc_trigger_input_group2" value="_disabled"/>
+      <property id="module.driver.rzg.ioport.event_control_input_group2" value="enum.driver.ioport.event_control_input_group.disable"/>
+      <property id="module.driver.rzg.ioport.port_select_input_group2" value=""/>
+      <property id="module.driver.rzg.ioport.edge_detect_input_group2" value="enum.driver.ioport.edge_detect_input_group.disable"/>
+      <property id="module.driver.rzg.ioport.buffer_overwrite_input_group2" value="enum.driver.ioport.buffer_overwrite_input_group.disable"/>
+      <property id="module.driver.rzg.ioport.p80_initial_value_input_group2" value="enum.driver.ioport.initial_value_input_group.disable"/>
+      <property id="module.driver.rzg.ioport.p81_initial_value_input_group2" value="enum.driver.ioport.initial_value_input_group.disable"/>
+      <property id="module.driver.rzg.ioport.p82_initial_value_input_group2" value="enum.driver.ioport.initial_value_input_group.disable"/>
+      <property id="module.driver.rzg.ioport.p83_initial_value_input_group2" value="enum.driver.ioport.initial_value_input_group.disable"/>
+      <property id="module.driver.rzg.ioport.p84_initial_value_input_group2" value="enum.driver.ioport.initial_value_input_group.disable"/>
+      <property id="module.driver.rzg.ioport.p85_initial_value_input_group2" value="enum.driver.ioport.initial_value_input_group.disable"/>
+      <property id="module.driver.rzg.ioport.p86_initial_value_input_group2" value="enum.driver.ioport.initial_value_input_group.disable"/>
+      <property id="module.driver.rzg.ioport.p87_initial_value_input_group2" value="enum.driver.ioport.initial_value_input_group.disable"/>
+      <property id="module.driver.rzg.ioport.event_control_single_port0" value="enum.driver.ioport.event_control_single_port.disable"/>
+      <property id="module.driver.rzg.ioport.event_direction_single_port0" value="enum.driver.ioport.event_direction_single_port.disable"/>
+      <property id="module.driver.rzg.ioport.port_number_single_port0" value="enum.driver.ioport.port_number_single_port.disable"/>
+      <property id="module.driver.rzg.ioport.elc_trigger_single_output_port0" value="_disabled"/>
+      <property id="module.driver.rzg.ioport.operation_single_output_port0" value="enum.driver.ioport.operation_single_output_port.disable"/>
+      <property id="module.driver.rzg.ioport.edge_detect_single_input_port0" value="enum.driver.ioport.edge_detect_single_input_port.disable"/>
+      <property id="module.driver.rzg.ioport.event_control_single_port1" value="enum.driver.ioport.event_control_single_port.disable"/>
+      <property id="module.driver.rzg.ioport.event_direction_single_port1" value="enum.driver.ioport.event_direction_single_port.disable"/>
+      <property id="module.driver.rzg.ioport.port_number_single_port1" value="enum.driver.ioport.port_number_single_port.disable"/>
+      <property id="module.driver.rzg.ioport.elc_trigger_single_output_port1" value="_disabled"/>
+      <property id="module.driver.rzg.ioport.operation_single_output_port1" value="enum.driver.ioport.operation_single_output_port.disable"/>
+      <property id="module.driver.rzg.ioport.edge_detect_single_input_port1" value="enum.driver.ioport.edge_detect_single_input_port.disable"/>
+      <property id="module.driver.rzg.ioport.event_control_single_port2" value="enum.driver.ioport.event_control_single_port.disable"/>
+      <property id="module.driver.rzg.ioport.event_direction_single_port2" value="enum.driver.ioport.event_direction_single_port.disable"/>
+      <property id="module.driver.rzg.ioport.port_number_single_port2" value="enum.driver.ioport.port_number_single_port.disable"/>
+      <property id="module.driver.rzg.ioport.elc_trigger_single_output_port2" value="_disabled"/>
+      <property id="module.driver.rzg.ioport.operation_single_output_port2" value="enum.driver.ioport.operation_single_output_port.disable"/>
+      <property id="module.driver.rzg.ioport.edge_detect_single_input_port2" value="enum.driver.ioport.edge_detect_single_input_port.disable"/>
+      <property id="module.driver.rzg.ioport.event_control_single_port3" value="enum.driver.ioport.event_control_single_port.disable"/>
+      <property id="module.driver.rzg.ioport.event_direction_single_port3" value="enum.driver.ioport.event_direction_single_port.disable"/>
+      <property id="module.driver.rzg.ioport.port_number_single_port3" value="enum.driver.ioport.port_number_single_port.disable"/>
+      <property id="module.driver.rzg.ioport.elc_trigger_single_output_port3" value="_disabled"/>
+      <property id="module.driver.rzg.ioport.operation_single_output_port3" value="enum.driver.ioport.operation_single_output_port.disable"/>
+      <property id="module.driver.rzg.ioport.edge_detect_single_input_port3" value="enum.driver.ioport.edge_detect_single_input_port.disable"/>
+    </module>
+    <module id="module.driver.rzg.spi_on_spi_b.1510777554">
+      <property id="module.driver.rzg.spi_b.name" value="g_spi_master"/>
+      <property id="module.driver.rzg.spi_b.channel" value="2"/>
+      <property id="module.driver.rzg.spi_b.rxi_ipl" value="12"/>
+      <property id="module.driver.rzg.spi_b.txi_ipl" value="12"/>
+      <property id="module.driver.rzg.spi_b.tei_ipl" value="12"/>
+      <property id="module.driver.rzg.spi_b.eri_ipl" value="12"/>
+      <property id="module.driver.rzg.spi_b.operating_mode" value="module.driver.rzg.spi_b.operating_mode.mode_master"/>
+      <property id="module.driver.rzg.spi_b.clk_phase" value="module.driver.rzg.spi_b.clk_phase.clk_phase_edge_odd"/>
+      <property id="module.driver.rzg.spi_b.clk_polarity" value="module.driver.rzg.spi_b.clk_polarity.clk_polarity_low"/>
+      <property id="module.driver.rzg.spi_b.mode_fault" value="module.driver.rzg.spi_b.mode_fault.mode_fault_error_disable"/>
+      <property id="module.driver.rzg.spi_b.bit_order" value="module.driver.rzg.spi_b.bit_order.bit_order_msb_first"/>
+      <property id="module.driver.rzg.spi_b.p_callback" value="spi_master_callback"/>
+      <property id="module.driver.rzg.spi_b.spi_clksyn" value="module.driver.rzg.spi_b.spi_clksyn.spi_clksyn"/>
+      <property id="module.driver.rzg.spi_b.spi_comm" value="module.driver.rzg.spi_b.spi_comm.full_duplex"/>
+      <property id="module.driver.rzg.spi_b.ssl_polarity" value="module.driver.rzg.spi_b.ssl_polarity.low"/>
+      <property id="module.driver.rzg.spi_b.ssl_select" value="module.driver.rzg.spi_b.ssl_select.zero"/>
+      <property id="module.driver.rzg.spi_b.mosi_idle_value_fixing" value="module.driver.rzg.spi_b.mosi_idle_value_fixing.disable"/>
+      <property id="module.driver.rzg.spi_b.parity" value="module.driver.rzg.spi_b.parity_mode.disable"/>
+      <property id="module.driver.rzg.spi_b.byte_swap" value="module.driver.rzg.spi_b.byte_swap.disable"/>
+      <property id="module.driver.rzg.spi_b.clock_source" value="module.driver.rzg.spi_b.clock_source.pclk"/>
+      <property id="module.driver.rzg.spi_b.bitrate" value="1000000"/>
+      <property id="module.driver.rzg.spi_b.spck_delay" value="module.driver.rzg.spi_b.spck_delay.one"/>
+      <property id="module.driver.rzg.spi_b.ssl_negation_delay" value="module.driver.rzg.spi_b.ssl_negation_delay.one"/>
+      <property id="module.driver.rzg.spi_b.next_access_delay" value="module.driver.rzg.spi_b.next_access_delay.one"/>
+      <property id="module.driver.rzg.spi_b.ssl_level_keep" value="module.driver.rzg.spi_b.ssl_level_keep.disable"/>
+      <property id="module.driver.rzg.spi_b.transmit_fifo_threshold" value="0"/>
+      <property id="module.driver.rzg.spi_b.receive_fifo_threshold" value="0"/>
+      <property id="module.driver.rzg.spi_b.receive_data_ready_detect_adjustment" value="0"/>
+    </module>
+    <module id="module.driver.rzg.transfer_on_dmac_b.793911130">
+      <property id="module.driver.rzg.transfer_on_dmac_b.name" value="g_transfer0"/>
+      <property id="module.driver.rzg.transfer_on_dmac_b.unit" value="module.driver.rzg.transfer.unit.0"/>
+      <property id="module.driver.rzg.transfer_on_dmac_b.channel" value="0"/>
+      <property id="module.driver.rzg.transfer_on_dmac_b.mode" value="module.driver.rzg.transfer_on_dmac_b.mode.mode_normal"/>
+      <property id="module.driver.rzg.transfer_on_dmac_b.src_size" value="module.driver.rzg.transfer_on_dmac_b.src_size.size_2_byte"/>
+      <property id="module.driver.rzg.transfer_on_dmac_b.dest_size" value="module.driver.rzg.transfer_on_dmac_b.dest_size.size_2_byte"/>
+      <property id="module.driver.rzg.transfer_on_dmac_b.dest_addr_mode" value="module.driver.rzg.transfer_on_dmac_b.dest_addr_mode.addr_mode_incremented"/>
+      <property id="module.driver.rzg.transfer_on_dmac_b.src_addr_mode" value="module.driver.rzg.transfer_on_dmac_b.src_addr_mode.addr_mode_incremented"/>
+      <property id="module.driver.rzg.transfer_on_dmac_b.activation_source" value="module.driver.rzg.transfer_on_dmac_b.activation_source.software_trigger"/>
+      <property id="module.driver.rzg.transfer_on_dmac_b.request_source" value="module.driver.rzg.transfer_on_dmac_b.request_source.source"/>
+      <property id="module.driver.rzg.transfer_on_dmac_b.ack_mode" value="module.driver.rzg.transfer_on_dmac_b.ack_mode.mask_mode"/>
+      <property id="module.driver.rzg.transfer_on_dmac_b.dreq_input_pin" value="module.driver.rzg.transfer_on_dmac_b.dreq_input_pin.not_use_external_input_pin"/>
+      <property id="module.driver.rzg.transfer_on_dmac_b.ack_output_pin" value="module.driver.rzg.transfer_on_dmac_b.ack_output_pin.output"/>
+      <property id="module.driver.rzg.transfer_on_dmac_b.tend_output_pin" value="module.driver.rzg.transfer_on_dmac_b.tend_output_pin.output"/>
+      <property id="module.driver.rzg.transfer_on_dmac_b.external_dreq_detection_mode" value="module.driver.rzg.transfer_on_dmac_b.external_dreq_detection_mode.low_level"/>
+      <property id="module.driver.rzg.transfer_on_dmac_b.dmac_mode" value="module.driver.rzg.transfer_on_dmac_b.dmac_mode.register_mode"/>
+      <property id="module.driver.rzg.transfer_on_dmac_b.descriptor" value="NULL"/>
+      <property id="module.driver.rzg.transfer_on_dmac_b.p_callback" value="NULL"/>
+      <property id="module.driver.rzg.transfer_on_dmac_b.p_context" value="NULL"/>
+      <property id="module.driver.rzg.transfer_on_dmac_b.int_enable" value="_disabled"/>
+      <property id="module.driver.rzg.transfer_on_dmac_b.int_ipl" value="12"/>
+      <property id="module.driver.rzg.transfer_on_dmac_b.transfer_interval" value="0"/>
+      <property id="module.driver.rzg.transfer_on_dmac_b.channel_priority" value="module.driver.rzg.transfer_on_dmac_b.channel_priotiry.fixed"/>
+      <property id="module.driver.rzg.transfer_on_dmac_b.transfer_continuation" value="module.driver.rzg.transfer_on_dmac_b.transfer_continuation.once"/>
+      <property id="module.driver.rzg.transfer_on_dmac_b.p_dest" value="NULL"/>
+      <property id="module.driver.rzg.transfer_on_dmac_b.p_src" value="NULL"/>
+      <property id="module.driver.rzg.transfer_on_dmac_b.length" value="1"/>
+      <property id="module.driver.rzg.transfer_on_dmac_b.p_dest_next1" value="NULL"/>
+      <property id="module.driver.rzg.transfer_on_dmac_b.p_src_next1" value="NULL"/>
+      <property id="module.driver.rzg.transfer_on_dmac_b.length_next1" value="1"/>
+    </module>
+    <module id="module.driver.rzg.transfer_on_dmac_b.331088164">
+      <property id="module.driver.rzg.transfer_on_dmac_b.name" value="g_transfer1"/>
+      <property id="module.driver.rzg.transfer_on_dmac_b.unit" value="module.driver.rzg.transfer.unit.0"/>
+      <property id="module.driver.rzg.transfer_on_dmac_b.channel" value="1"/>
+      <property id="module.driver.rzg.transfer_on_dmac_b.mode" value="module.driver.rzg.transfer_on_dmac_b.mode.mode_normal"/>
+      <property id="module.driver.rzg.transfer_on_dmac_b.src_size" value="module.driver.rzg.transfer_on_dmac_b.src_size.size_2_byte"/>
+      <property id="module.driver.rzg.transfer_on_dmac_b.dest_size" value="module.driver.rzg.transfer_on_dmac_b.dest_size.size_2_byte"/>
+      <property id="module.driver.rzg.transfer_on_dmac_b.dest_addr_mode" value="module.driver.rzg.transfer_on_dmac_b.dest_addr_mode.addr_mode_incremented"/>
+      <property id="module.driver.rzg.transfer_on_dmac_b.src_addr_mode" value="module.driver.rzg.transfer_on_dmac_b.src_addr_mode.addr_mode_incremented"/>
+      <property id="module.driver.rzg.transfer_on_dmac_b.activation_source" value="module.driver.rzg.transfer_on_dmac_b.activation_source.software_trigger"/>
+      <property id="module.driver.rzg.transfer_on_dmac_b.request_source" value="module.driver.rzg.transfer_on_dmac_b.request_source.source"/>
+      <property id="module.driver.rzg.transfer_on_dmac_b.ack_mode" value="module.driver.rzg.transfer_on_dmac_b.ack_mode.mask_mode"/>
+      <property id="module.driver.rzg.transfer_on_dmac_b.dreq_input_pin" value="module.driver.rzg.transfer_on_dmac_b.dreq_input_pin.not_use_external_input_pin"/>
+      <property id="module.driver.rzg.transfer_on_dmac_b.ack_output_pin" value="module.driver.rzg.transfer_on_dmac_b.ack_output_pin.output"/>
+      <property id="module.driver.rzg.transfer_on_dmac_b.tend_output_pin" value="module.driver.rzg.transfer_on_dmac_b.tend_output_pin.output"/>
+      <property id="module.driver.rzg.transfer_on_dmac_b.external_dreq_detection_mode" value="module.driver.rzg.transfer_on_dmac_b.external_dreq_detection_mode.low_level"/>
+      <property id="module.driver.rzg.transfer_on_dmac_b.dmac_mode" value="module.driver.rzg.transfer_on_dmac_b.dmac_mode.register_mode"/>
+      <property id="module.driver.rzg.transfer_on_dmac_b.descriptor" value="NULL"/>
+      <property id="module.driver.rzg.transfer_on_dmac_b.p_callback" value="NULL"/>
+      <property id="module.driver.rzg.transfer_on_dmac_b.p_context" value="NULL"/>
+      <property id="module.driver.rzg.transfer_on_dmac_b.int_enable" value="_disabled"/>
+      <property id="module.driver.rzg.transfer_on_dmac_b.int_ipl" value="12"/>
+      <property id="module.driver.rzg.transfer_on_dmac_b.transfer_interval" value="0"/>
+      <property id="module.driver.rzg.transfer_on_dmac_b.channel_priority" value="module.driver.rzg.transfer_on_dmac_b.channel_priotiry.fixed"/>
+      <property id="module.driver.rzg.transfer_on_dmac_b.transfer_continuation" value="module.driver.rzg.transfer_on_dmac_b.transfer_continuation.once"/>
+      <property id="module.driver.rzg.transfer_on_dmac_b.p_dest" value="NULL"/>
+      <property id="module.driver.rzg.transfer_on_dmac_b.p_src" value="NULL"/>
+      <property id="module.driver.rzg.transfer_on_dmac_b.length" value="1"/>
+      <property id="module.driver.rzg.transfer_on_dmac_b.p_dest_next1" value="NULL"/>
+      <property id="module.driver.rzg.transfer_on_dmac_b.p_src_next1" value="NULL"/>
+      <property id="module.driver.rzg.transfer_on_dmac_b.length_next1" value="1"/>
+    </module>
+    <context id="_hal.0">
+      <stack module="module.driver.rzg.ioport_on_ioport.0"/>
+      <stack module="module.driver.rzg.spi_on_spi_b.1510777554">
+        <stack module="module.driver.rzg.transfer_on_dmac_b.793911130" requires="module.driver.rzg.spi_on_spi_b.requires.transfer_tx"/>
+        <stack module="module.driver.rzg.transfer_on_dmac_b.331088164" requires="module.driver.rzg.spi_on_spi_b.requires.transfer_rx"/>
+      </stack>
+    </context>
+    <config id="config.driver.rzg.dmac_b">
+      <property id="config.driver.rzg.dmac_b.param_checking_enable" value="config.driver.rzg.dmac_b.param_checking_enable.bsp"/>
+      <property id="config.driver.rzg.dmac_b.dack0_active_level" value="config.driver.rzg.dmac_b.external_output_signal_active_level.high_active"/>
+      <property id="config.driver.rzg.dmac_b.dack1_active_level" value="config.driver.rzg.dmac_b.external_output_signal_active_level.high_active"/>
+      <property id="config.driver.rzg.dmac_b.dack2_active_level" value="config.driver.rzg.dmac_b.external_output_signal_active_level.high_active"/>
+      <property id="config.driver.rzg.dmac_b.dack3_active_level" value="config.driver.rzg.dmac_b.external_output_signal_active_level.high_active"/>
+      <property id="config.driver.rzg.dmac_b.dack4_active_level" value="config.driver.rzg.dmac_b.external_output_signal_active_level.high_active"/>
+      <property id="config.driver.rzg.dmac_b.tend0_active_level" value="config.driver.rzg.dmac_b.external_output_signal_active_level.high_active"/>
+      <property id="config.driver.rzg.dmac_b.tend1_active_level" value="config.driver.rzg.dmac_b.external_output_signal_active_level.high_active"/>
+      <property id="config.driver.rzg.dmac_b.tend2_active_level" value="config.driver.rzg.dmac_b.external_output_signal_active_level.high_active"/>
+      <property id="config.driver.rzg.dmac_b.tend3_active_level" value="config.driver.rzg.dmac_b.external_output_signal_active_level.high_active"/>
+      <property id="config.driver.rzg.dmac_b.tend4_active_level" value="config.driver.rzg.dmac_b.external_output_signal_active_level.high_active"/>
+    </config>
+    <config id="config.driver.rzg.spi_b">
+      <property id="config.driver.rzg.spi_b.param_checking_enable" value="config.driver.rzg.spi_b.param_checking_enable.bsp"/>
+      <property id="config.driver.rzg.spi_b.dmac_enable" value="config.driver.rzg.spi_b.dmac_enable.enabled"/>
+      <property id="config.driver.rzg.spi_b.rxi_transmit" value="config.driver.rzg.spi_b.rxi_transmit.disabled"/>
+    </config>
+    <config id="config.driver.rzg.ioport">
+      <property id="config.driver.rzg.ioport.checking" value="config.driver.rzg.ioport.checking.system"/>
+    </config>
+  </raModuleConfiguration>
+  <raPinConfiguration>
+    <pincfg active="true" name="RZG3L-EVK.pincfg" selected="true" symbol="g_bsp_pin_cfg">
+      <configSetting altId="p60.rspi2c.rspi2_miso" configurationId="p60"/>
+      <configSetting altId="p60.gpio_mode.gpio_mode_peripheral" configurationId="p60.gpio_mode"/>
+      <configSetting altId="p61.rspi2c.rspi2_mosi" configurationId="p61"/>
+      <configSetting altId="p61.gpio_mode.gpio_mode_peripheral" configurationId="p61.gpio_mode"/>
+      <configSetting altId="p62.rspi2c.rspi2_sck" configurationId="p62"/>
+      <configSetting altId="p62.gpio_mode.gpio_mode_peripheral" configurationId="p62.gpio_mode"/>
+      <configSetting altId="p63.output.high" configurationId="p63"/>
+      <configSetting altId="p63.gpio_speed.gpio_speed_hh" configurationId="p63.gpio_drivecapacity"/>
+      <configSetting altId="p63.gpio_mode.gpio_mode_out.high" configurationId="p63.gpio_mode"/>
+      <configSetting altId="p66.output.toinput.low" configurationId="p66"/>
+      <configSetting altId="p66.gpio_mode.gpio_mode_out.toinput.low" configurationId="p66.gpio_mode"/>
+      <configSetting altId="p75.output.toinput.low" configurationId="p75"/>
+      <configSetting altId="p75.gpio_mode.gpio_mode_out.toinput.low" configurationId="p75.gpio_mode"/>
+      <configSetting altId="p84.output.toinput.low" configurationId="p84"/>
+      <configSetting altId="p84.gpio_mode.gpio_mode_out.toinput.low" configurationId="p84.gpio_mode"/>
+      <configSetting altId="p85.output.toinput.low" configurationId="p85"/>
+      <configSetting altId="p85.gpio_mode.gpio_mode_out.toinput.low" configurationId="p85.gpio_mode"/>
+      <configSetting altId="rspi1c.mode.custom.free" configurationId="rspi1c.mode"/>
+      <configSetting altId="rspi2.mode.custom.free" configurationId="rspi2.mode"/>
+      <configSetting altId="rspi2c.mode.custom.free" configurationId="rspi2c.mode"/>
+      <configSetting altId="rspi2c.rspi2_miso.p60" configurationId="rspi2c.rspi2_miso"/>
+      <configSetting altId="rspi2c.rspi2_mosi.p61" configurationId="rspi2c.rspi2_mosi"/>
+      <configSetting altId="rspi2c.rspi2_sck.p62" configurationId="rspi2c.rspi2_sck"/>
+    </pincfg>
+    <pincfg active="false" name="R9A08G046L46GBG.pincfg" selected="false" symbol=""/>
+  </raPinConfiguration>
+</raConfiguration>
