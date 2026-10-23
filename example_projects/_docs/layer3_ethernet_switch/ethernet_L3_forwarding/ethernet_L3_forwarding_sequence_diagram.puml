@@ -1,0 +1,160 @@
+@startuml ethernet_L3_forwarding_Sequence_Diagram
+
+skinparam sequenceArrowThickness 2
+skinparam backgroundColor #FAFAFA
+
+title Ethernet L3 Forwarding Example Project
+
+actor "Application\n(hal_entry)" as APP
+participant "L3 Forwarding EP\n(l3_forwarding_main)" as EP
+participant "RMAC Driver\n(r_rmac)" as RMAC
+participant "Layer3 Switch\n(r_layer3_switch)" as L3SW
+participant "GWCA\n(transmit_one_frame)" as GWCA
+participant "ESWM HW\n(Forwarding Table)" as ESWM
+participant "PC NICs\n(NIC1 / NIC2)" as NIC
+
+legend top left
+**loop**  : Repeated per mode selection
+**alt**   : Mode-specific branch
+**opt**   : Optional / conditional
+**note**  : Key design explanation
+endlegend
+
+== System Initialization ==
+
+APP -> EP: l3_forwarding_main()
+
+EP -> RMAC: R_RMAC_Open(g_rmac0)\nR_RMAC_Open(g_rmac1)
+EP -> RMAC: R_RMAC_CallbackSet(rmac_callback)
+note over RMAC #FFF9C4
+rmac_callback sets g_port[i].link_up
+on ETHER_EVENT_LINK_ON / OFF
+end note
+
+== Link Wait ==
+
+EP -> EP: l3_forwarding_wait_links()
+
+loop Until both ETH0 and ETH1 UP
+    EP -> RMAC: R_RMAC_LinkProcess(ETH0)\nR_RMAC_LinkProcess(ETH1)
+    RMAC --> EP: link_changed callback fires
+    EP -> EP: l3_forwarding_check_link()\n[ETH0] Link UP / [ETH1] Link UP
+    EP -> EP: R_BSP_SoftwareDelay(10 ms)
+end loop
+
+EP -> APP: console: "Both ETH0+ETH1 UP -- ESWM forwarding ACTIVE"
+
+== Mode Selection Loop ==
+
+loop Repeat until power-off
+
+    EP -> APP: l3_forwarding_print_menu()\n"Main menu ... Select option: "
+    APP -> EP: user input (single digit: 1=MAC / 2=VLAN / 3=L3)
+
+    == Table Configuration ==
+
+    EP -> L3SW: R_LAYER3_SWITCH_ConfigureTable()\n(p_table=NULL, mode-specific vlan_mode)
+    L3SW --> ESWM: Initialize forwarding table
+    L3SW --> EP: FSP_SUCCESS
+
+    == Entry Installation (with inline verify) ==
+
+    alt MAC mode ('0')
+        EP -> L3SW: AddTableEntry(NIC2_MAC -> PORT1)
+        EP -> L3SW: SearchTableEntry -> [verify] dst_ports=0x2
+        EP -> L3SW: AddTableEntry(NIC1_MAC -> PORT0)
+        EP -> L3SW: SearchTableEntry -> [verify] dst_ports=0x1
+    else VLAN mode ('1')
+        EP -> L3SW: AddTableEntry(VID=10 -> PORT0)
+        EP -> L3SW: SearchTableEntry -> [verify] dst_ports=0x1
+        EP -> L3SW: AddTableEntry(VID=20 -> PORT1)
+        EP -> L3SW: SearchTableEntry -> [verify] dst_ports=0x2
+        EP -> APP: console: [VLAN-UNICAST] unicast dst MAC -- no broadcast flooding
+    else L3 mode ('2')
+        EP -> L3SW: AddTableEntry(VID=10 -> all ports) [prerequisite]
+        EP -> L3SW: AddTableEntry(VID=20 -> all ports) [prerequisite]
+        EP -> L3SW: AddTableEntry(Route A: NIC1->NIC2 -> PORT1, TTL--, MAC_DST=NIC2)
+        EP -> L3SW: SearchTableEntry -> [verify] dst_ports=0x2
+        EP -> L3SW: AddTableEntry(Route B: NIC2->NIC1 -> PORT0, TTL--, MAC_DST=NIC1)
+        EP -> L3SW: SearchTableEntry -> [verify] dst_ports=0x1
+    end alt
+
+    note over EP, L3SW #D4E6F1
+    All modes: REJECT + DUAL-PORT verify entries
+    added after main entries
+    end note
+
+    EP -> L3SW: AddTableEntry(REJECT entry, dst_ports=0)
+    EP -> GWCA: transmit_one_frame(reject test frame)
+    GWCA --> EP: dt=0x04 (FEMPTY): frame consumed
+    EP -> APP: console: "[REJECT] Frame dropped successfully"\n(no packet on any port)
+
+    EP -> L3SW: AddTableEntry(DUAL-PORT entry, dst_ports=PORT0|PORT1)
+    EP -> GWCA: transmit_one_frame(dual-port test frame)
+    GWCA --> NIC: frame egresses on BOTH ETH0 and ETH1
+    GWCA --> EP: dt=0x04 (FEMPTY): frame consumed
+    EP -> APP: console: "[DUAL-PORT] Frame forwarded to ETH0 and ETH1 successfully"
+
+    EP -> APP: console: [FWD-VS-DROP] summary
+
+    opt L3 mode only
+        EP -> L3SW: R_LAYER3_SWITCH_GetTable() -> entries=3/8
+        EP -> APP: console: [GetTable] entries=3/8 OK
+    end opt
+
+    == Frame Inject (GWCA One-Shot Pattern) ==
+
+    note over GWCA, ESWM #FFF9C4
+    One-shot pattern per inject:
+    CreateDescriptorQueue -> SetDescriptor(FSINGLE)
+    -> LEMPTY terminator at slot[1]
+    -> StartDescriptorQueue -> delay 50ms
+    -> check dt=0x04 (FEMPTY=consumed)
+    -> GetDescriptor (discard err 0x21)
+    end note
+
+    EP -> GWCA: l3_forwarding_transmit_one_frame(Frame A)
+    GWCA -> ESWM: GWCA DMA: CPU_INJECT -> forward by table
+    ESWM -> NIC: egress frame on ETH0 or ETH1
+    GWCA --> EP: s_tx_desc[0].dt == 0x04 (consumed)
+    EP -> APP: console: "Frame ... forwarded to ETHx successfully"\n+ Wireshark filter to verify
+
+    EP -> GWCA: l3_forwarding_transmit_one_frame(Frame B)
+    GWCA -> ESWM: GWCA DMA: CPU_INJECT -> forward by table
+    ESWM -> NIC: egress frame on opposite port
+    GWCA --> EP: s_tx_desc[0].dt == 0x04 (consumed)
+    EP -> APP: console: "Frame ... forwarded to ETHx successfully"\n+ Wireshark filter to verify
+
+    == Mode Run Loop ==
+
+    alt MAC / VLAN mode
+        loop Poll link until any key is pressed
+            EP -> RMAC: R_RMAC_LinkProcess(ETH0 + ETH1)
+            EP -> EP: l3_forwarding_check_link() (log if changed)
+            EP -> EP: R_BSP_SoftwareDelay(10 ms)
+            EP -> APP: console: uptime~Xs ETH0=UP ETH1=UP (every ~10s)
+        end loop
+    else L3 mode
+        loop Poll ARP + link until any key is pressed
+            EP -> RMAC: R_RMAC_LinkProcess(ETH0 + ETH1)
+            EP -> RMAC: R_RMAC_Read(ETH0, g_rx_buf0)\nR_RMAC_Read(ETH1, g_rx_buf1)
+            opt ARP request received
+                EP -> EP: l3_forwarding_rx_arp()\nl3_forwarding_arp_reply()
+                EP -> RMAC: R_RMAC_Write(ARP reply)
+                RMAC -> NIC: ARP reply via ETH0 or ETH1
+            end opt
+            EP -> EP: R_BSP_SoftwareDelay(10 ms)
+            EP -> APP: console: uptime ARP ETH0 rx=N tx=N | ETH1 rx=N tx=N
+        end loop
+    end alt
+
+    == Table Clear (before next mode) ==
+
+    EP -> L3SW: R_LAYER3_SWITCH_ConfigureTable(clear: NO_VLAN, p_table=NULL)
+    L3SW --> ESWM: Flush all table entries
+    EP -> EP: Reset ARP counters
+    EP -> APP: console: "[INIT] Table cleared -- ready for next mode."
+
+end loop
+
+@enduml

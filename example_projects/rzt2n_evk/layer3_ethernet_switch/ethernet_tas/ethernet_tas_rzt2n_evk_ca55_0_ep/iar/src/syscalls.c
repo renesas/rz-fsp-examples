@@ -1,0 +1,67 @@
+/***********************************************************************************************************************
+* File Name    : syscalls.c
+* Description  : Contains data structures and functions used in the EP.
+***********************************************************************************************************************/
+/***********************************************************************************************************************
+* Copyright (c) 2026 Renesas Electronics Corporation and/or its affiliates
+*
+* SPDX-License-Identifier: BSD-3-Clause
+***********************************************************************************************************************/
+
+#include <stdint.h>
+#include "sio_char.h"
+
+#ifdef __ICCARM__
+  #include <yfuns.h>
+#if __VER__ < 8000000
+  _STD_BEGIN
+#endif
+  #pragma module_name = "?__write"
+#endif
+
+/*******************************************************************************
+* Function Name: __write
+* Description  : IAR DLIB low-level write hook. Writes stdout to the console UART one
+*              : character at a time via IoPutchar() (siochar.c). A bare '\n' not already
+*              : preceded by '\r' in the same write is expanded to "\r\n" -- this EP's own
+*              : APP_PRINT strings already embed "\r\n" literally, so this only matters for
+*              : anything printed without it (e.g. a bare '\n' from a library call).
+* Arguments    : handle -- IAR file handle (_LLIO_STDOUT / _LLIO_STDERR / ...)
+*              : buffer -- data to write
+*              : size   -- number of bytes to write
+* Return Value : Number of bytes written, or _LLIO_ERROR.
+*******************************************************************************/
+size_t __write (int handle, const unsigned char * buffer, size_t size)
+{
+    size_t offset;
+
+    if ((_LLIO_STDOUT == handle) && (_LLIO_STDERR != handle))
+    {
+        for (offset = 0; offset < size; offset++)
+        {
+            if ('\n' == (char) buffer[offset])
+            {
+                if ((0 == offset) || ('\r' != (char) buffer[offset - 1U]))
+                {
+                    IoPutchar('\r');
+                }
+                IoPutchar('\n');
+            }
+            else
+            {
+                IoPutchar(buffer[offset]);
+            }
+        }
+        return offset;
+    }
+
+    return _LLIO_ERROR;
+}
+
+#ifdef __ICCARM__
+#if __VER__ < 8000000
+  _STD_END
+#endif
+#endif
+
+/* End of File */

@@ -1,0 +1,163 @@
+@startuml ethernet_tas_Sequence_Diagram
+
+skinparam sequenceArrowThickness 2
+skinparam backgroundColor #FAFAFA
+
+title Ethernet TAS (IEEE 802.1Qbv Time-Aware Shaper) Example Project
+
+actor "Application\n(hal_entry)" as APP
+participant "TAS Example EP\n(tas_example_run)" as EP
+participant "Layer3 Switch\n(r_layer3_switch)" as L3SW
+participant "gPTP Timer\n(r_gptp)" as GPTP
+participant "GWCA TX\n(tas_send_frames_staggered)" as GWCA
+participant "ESWM HW\n(TAS Gate + MAC Table)" as ESWM
+participant "PC Script\n(tas_send_test_frames.py)" as PC
+
+legend top left
+**loop**  : Repeated per use-case selection
+**alt**   : Use-case-specific branch
+**opt**   : Optional / conditional
+**note**  : Key design explanation
+endlegend
+
+== System Initialization ==
+
+APP -> EP: tas_example_run()
+
+EP -> L3SW: tas_open()\n-> R_LAYER3_SWITCH_Open(g_layer3_switch0)
+L3SW --> EP: FSP_SUCCESS
+note over L3SW #FFF9C4
+R_LAYER3_SWITCH_Open() only sets MPIC,
+never MRAFC -- tas_open() writes
+R_RMAC0/1->MRAFC = 0x03C703C7 directly
+(promiscuous mode), required for
+externally-received frames to ever
+reach MAC-table classification
+end note
+
+== Link Wait ==
+
+loop Until both ETH0 and ETH1 UP (timeout 5 s)
+    EP -> EP: g_ether_phy0/1.p_api->linkStatusGet()
+    EP -> EP: R_BSP_SoftwareDelay(100 ms)
+end loop
+
+EP -> APP: console: "[TAS] ETH0 link: UP  ETH1 link: UP (after N ms)"
+
+== Timer Start (once) ==
+
+EP -> GPTP: tas_timer_start()\n-> R_GPTP_TimerCfg(clock_period=TAS_GPTP_CLOCK_PERIOD) + R_GPTP_Start(TAS_GPTP_TIMER)
+GPTP --> EP: FSP_SUCCESS
+note over GPTP #FFF9C4
+Standalone mode: ESWM local free-running timer,
+no gPTP protocol sync (TAS_GPTP_TIMER=0).
+clock_period is the ns/tick written to PTPTIVC0.TIV
+-- must equal the ESWM timer's real clock period
+(5 on this board; 4 was 5/4 too slow -> 31.25 ms cycle)
+end note
+
+== First Use-Case Selection (blocking, only once) ==
+
+EP -> APP: tas_example_print_menu()\n"Enter 1-3: "
+APP -> EP: user input (1=Port-to-port / 2=CPU-generated / 3=Combined)
+
+loop Repeat forever -- no separate "stop" step to leave this loop
+
+    == Apply Schedule for Selected Use Case ==
+
+    EP -> L3SW: tas_clear_mac_table()\n-> R_LAYER3_SWITCH_ConfigureTable() (reset)
+    L3SW --> ESWM: Drop entries left over from previous use case
+    L3SW --> EP: FSP_SUCCESS
+
+    EP -> L3SW: tas_configure_schedule(p_rows)\n-> tas_build_gate() x8 -> R_LAYER3_SWITCH_ConfigureTAS(port)
+    L3SW --> ESWM: Program 25 ms cycle, Q0-Q3 5 ms windows, Q4-Q7 closed
+    L3SW --> EP: FSP_SUCCESS
+
+    EP -> L3SW: tas_configure_mac_table(p_rows)\n-> ConfigureTable() + AddTableEntry() x4
+    note over EP, L3SW #D4E6F1
+    Each entry: dst MAC 44:44:44:00:00:0A..0D -> queue 0..3,
+    source_ports = row's source_port_mask
+    (UC1: Port1 only, UC2: CPU port only, UC3: both ORed)
+    end note
+    L3SW --> EP: FSP_SUCCESS
+
+    EP -> L3SW: tas_enable()\n-> R_LAYER3_SWITCH_EnableTAS(port)
+    L3SW --> EP: FSP_SUCCESS
+
+    EP -> APP: tas_example_print_schedule()\ncycle_time / gate entry counts / MAC table entries
+
+    alt UC2 CPU-generated or UC3 Combined
+        EP -> GWCA: tas_tx_queue_create(p_rows)\n-> R_LAYER3_SWITCH_CreateDescriptorQueue() once per CPU-fed queue
+        note over EP, GWCA #D4E6F1
+        One independent descriptor queue per TAS queue
+        (s_tx_desc[q][2], s_tx_frame_buf[q]), not one shared queue.
+        CreateDescriptorQueue() keeps the address of s_tx_queue_cfg[q],
+        so that cfg struct is static, not a stack temporary.
+        Idempotent per queue (s_tx_queue_created[q]) -- safe on a use-case switch.
+        end note
+        GWCA --> EP: FSP_SUCCESS
+        EP -> APP: console: "[TAS] Injecting one frame per open queue every cycle."
+    else UC1 Port-to-port
+        EP -> APP: console: "[TAS] Waiting for external traffic on Port 1."
+    end alt
+
+    EP -> APP: console: "Type a different use case number (1-3) any time to switch..."
+    EP -> APP: tas_example_print_menu()
+
+    == Run Loop (until a different use case is selected) ==
+
+    loop Every cycle (~25 ms), until next_uc != uc
+
+        alt UC2 / UC3 -- cpu_tx
+            EP -> GWCA: tas_send_frames_staggered(p_rows, &elapsed_ns)
+            loop For each row with CPU_PORT in source_port_mask (ascending window offset)
+                GWCA -> GWCA: R_BSP_SoftwareDelay() up to this row's\nwindows[0].offset_ns (static table value, no timer read)
+                GWCA -> ESWM: tas_send_one_row()\n-> SetDescriptor(FSINGLE) + StartDescriptorQueue()\non s_tx_queue_index[row.queue]
+                ESWM --> ESWM: Frame buffered in that queue until\nits gate opens
+                note right of GWCA #D4E6F1
+                FSP_ERR_IN_USE / FSP_ERR_OVERFLOW (previous frame on
+                this queue still pending because its gate hasn't opened)
+                -> retry StartDescriptorQueue, treat as a skip, non-fatal
+                end note
+            end loop
+            GWCA --> EP: elapsed_ns = last submitted row's offset_ns
+            EP -> EP: tas_example_wait_for_next_cycle(elapsed_ns)\n-> R_BSP_SoftwareDelay(TAS_CYCLE_TIME_NS - elapsed_ns)\nso each cycle totals 25 ms
+        else UC1 -- port-to-port only
+            EP -> EP: R_BSP_SoftwareDelay(1 ms)
+        end alt
+
+        opt UC1 / UC3 -- external traffic present
+            PC -> ESWM: Raw Ethernet frame, dst = 44:44:44:00:00:0A..0D\n(eth.type=0x88b5, via ETH1)
+            ESWM --> ESWM: MAC-table lookup -> classify into queue\nBuffered until that queue's gate opens
+        end opt
+
+        ESWM -> APP: Gated egress on ETH0 -- 1 frame per open queue\nper cycle, clustered inside its 5 ms window
+        note over ESWM #FFF9C4
+        TAS buffers a frame that arrives before its gate opens
+        -- it does not drop it. A single frame only proves
+        MAC-table steering; the continuous per-cycle pattern
+        proves gating. Two independent verifications:
+        (A) packet capture on ETH0 (I/O Graph + per-queue window
+        table); (B) oscilloscope on the ESWM_TASGATE0_x pins
+        (25 ms cycle / 5 ms window, all 4 queues). In modes 1/3
+        the capture shows a run-to-run beat between the PC
+        script's clock and the board's -- not a gate defect.
+        end note
+
+        EP -> EP: tas_example_try_read_choice(uc, &next_uc)\n(non-blocking poll)
+
+        opt A different valid digit (1-3) was typed
+            EP --> EP: next_uc = requested\n(loop ends, re-enter "Apply Schedule" above\n-- no stop step, no menu-reprint-and-wait)
+        end opt
+
+        opt The same digit was retyped
+            EP -> APP: console: "[TAS] Use case N is already active."
+        end opt
+
+    end loop
+
+    EP -> EP: uc = next_uc
+
+end loop
+
+@enduml

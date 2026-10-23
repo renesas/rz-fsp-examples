@@ -1,0 +1,604 @@
+[
+  {
+    "ID": "c:hal_entry.c@982@macro@I2C_BUFFER_SIZE_BYTES",
+    "What": "MacroDef",
+    "defdec": "Def",
+    "display": "I2C_BUFFER_SIZE_BYTES",
+    "location": {
+      "column": "9",
+      "line": "20",
+      "path": "C:\\Workspace\\Projects\\EP_AP\\RZ_EPAP\\Task\\Porting_EP\\Output\\RZ_EP_fspv4.2.0\\EP_RZT2N\\20261007_Release\\rzt2n_evk\\iic_master\\iic_master_rzt2n_evk_ca55_0_ep\\iar\\src\\hal_entry.c"
+    },
+    "name": "I2C_BUFFER_SIZE_BYTES",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:hal_entry.c@1023@macro@I2C_TRANSACTION_BUSY_DELAY",
+    "What": "MacroDef",
+    "defdec": "Def",
+    "display": "I2C_TRANSACTION_BUSY_DELAY",
+    "location": {
+      "column": "9",
+      "line": "21",
+      "path": "C:\\Workspace\\Projects\\EP_AP\\RZ_EPAP\\Task\\Porting_EP\\Output\\RZ_EP_fspv4.2.0\\EP_RZT2N\\20261007_Release\\rzt2n_evk\\iic_master\\iic_master_rzt2n_evk_ca55_0_ep\\iar\\src\\hal_entry.c"
+    },
+    "name": "I2C_TRANSACTION_BUSY_DELAY",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:@F@handle_error",
+    "What": "Function",
+    "defdec": "Dec",
+    "display": "int handle_error(int)",
+    "location": {
+      "column": "6",
+      "line": "23",
+      "path": "C:\\Workspace\\Projects\\EP_AP\\RZ_EPAP\\Task\\Porting_EP\\Output\\RZ_EP_fspv4.2.0\\EP_RZT2N\\20261007_Release\\rzt2n_evk\\iic_master\\iic_master_rzt2n_evk_ca55_0_ep\\iar\\src\\hal_entry.c"
+    },
+    "name": "handle_error",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:@F@i2c_master_callback",
+    "What": "Function",
+    "defdec": "Dec",
+    "display": "void i2c_master_callback(int *)",
+    "location": {
+      "column": "6",
+      "line": "24",
+      "path": "C:\\Workspace\\Projects\\EP_AP\\RZ_EPAP\\Task\\Porting_EP\\Output\\RZ_EP_fspv4.2.0\\EP_RZT2N\\20261007_Release\\rzt2n_evk\\iic_master\\iic_master_rzt2n_evk_ca55_0_ep\\iar\\src\\hal_entry.c"
+    },
+    "name": "i2c_master_callback",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:@g_i2c_tx_buffer",
+    "What": "Variable",
+    "defdec": "Dec",
+    "display": "g_i2c_tx_buffer",
+    "location": {
+      "column": "20",
+      "line": "26",
+      "path": "C:\\Workspace\\Projects\\EP_AP\\RZ_EPAP\\Task\\Porting_EP\\Output\\RZ_EP_fspv4.2.0\\EP_RZT2N\\20261007_Release\\rzt2n_evk\\iic_master\\iic_master_rzt2n_evk_ca55_0_ep\\iar\\src\\hal_entry.c"
+    },
+    "name": "g_i2c_tx_buffer",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:@g_i2c_rx_buffer",
+    "What": "Variable",
+    "defdec": "Dec",
+    "display": "g_i2c_rx_buffer",
+    "location": {
+      "column": "20",
+      "line": "27",
+      "path": "C:\\Workspace\\Projects\\EP_AP\\RZ_EPAP\\Task\\Porting_EP\\Output\\RZ_EP_fspv4.2.0\\EP_RZT2N\\20261007_Release\\rzt2n_evk\\iic_master\\iic_master_rzt2n_evk_ca55_0_ep\\iar\\src\\hal_entry.c"
+    },
+    "name": "g_i2c_rx_buffer",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:@g_i2c_callback_event",
+    "What": "Variable",
+    "defdec": "Dec",
+    "display": "g_i2c_callback_event",
+    "location": {
+      "column": "20",
+      "line": "28",
+      "path": "C:\\Workspace\\Projects\\EP_AP\\RZ_EPAP\\Task\\Porting_EP\\Output\\RZ_EP_fspv4.2.0\\EP_RZT2N\\20261007_Release\\rzt2n_evk\\iic_master\\iic_master_rzt2n_evk_ca55_0_ep\\iar\\src\\hal_entry.c"
+    },
+    "name": "g_i2c_callback_event",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:@err",
+    "What": "Variable",
+    "defdec": "Dec",
+    "display": "err",
+    "location": {
+      "column": "20",
+      "line": "29",
+      "path": "C:\\Workspace\\Projects\\EP_AP\\RZ_EPAP\\Task\\Porting_EP\\Output\\RZ_EP_fspv4.2.0\\EP_RZT2N\\20261007_Release\\rzt2n_evk\\iic_master\\iic_master_rzt2n_evk_ca55_0_ep\\iar\\src\\hal_entry.c"
+    },
+    "name": "err",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:@F@hal_entry",
+    "What": "Function",
+    "defdec": "Def",
+    "display": "void hal_entry(void)",
+    "location": {
+      "column": "6",
+      "line": "35",
+      "path": "C:\\Workspace\\Projects\\EP_AP\\RZ_EPAP\\Task\\Porting_EP\\Output\\RZ_EP_fspv4.2.0\\EP_RZT2N\\20261007_Release\\rzt2n_evk\\iic_master\\iic_master_rzt2n_evk_ca55_0_ep\\iar\\src\\hal_entry.c"
+    },
+    "name": "hal_entry",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:@F@handle_error",
+    "What": "Function",
+    "defdec": "Def",
+    "display": "void handle_error(int)",
+    "location": {
+      "column": "6",
+      "line": "146",
+      "path": "C:\\Workspace\\Projects\\EP_AP\\RZ_EPAP\\Task\\Porting_EP\\Output\\RZ_EP_fspv4.2.0\\EP_RZT2N\\20261007_Release\\rzt2n_evk\\iic_master\\iic_master_rzt2n_evk_ca55_0_ep\\iar\\src\\hal_entry.c"
+    },
+    "name": "handle_error",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:@F@i2c_master_callback",
+    "What": "Function",
+    "defdec": "Def",
+    "display": "void i2c_master_callback(int *)",
+    "location": {
+      "column": "6",
+      "line": "170",
+      "path": "C:\\Workspace\\Projects\\EP_AP\\RZ_EPAP\\Task\\Porting_EP\\Output\\RZ_EP_fspv4.2.0\\EP_RZT2N\\20261007_Release\\rzt2n_evk\\iic_master\\iic_master_rzt2n_evk_ca55_0_ep\\iar\\src\\hal_entry.c"
+    },
+    "name": "i2c_master_callback",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:@F@R_BSP_WarmStart",
+    "What": "Function",
+    "defdec": "Def",
+    "display": "void R_BSP_WarmStart(int)",
+    "location": {
+      "column": "6",
+      "line": "185",
+      "path": "C:\\Workspace\\Projects\\EP_AP\\RZ_EPAP\\Task\\Porting_EP\\Output\\RZ_EP_fspv4.2.0\\EP_RZT2N\\20261007_Release\\rzt2n_evk\\iic_master\\iic_master_rzt2n_evk_ca55_0_ep\\iar\\src\\hal_entry.c"
+    },
+    "name": "R_BSP_WarmStart",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:@F@R_BSP_WarmStart_StackLess",
+    "What": "Function",
+    "defdec": "Def",
+    "display": "int R_BSP_WarmStart_StackLess(void)",
+    "location": {
+      "column": "30",
+      "line": "217",
+      "path": "C:\\Workspace\\Projects\\EP_AP\\RZ_EPAP\\Task\\Porting_EP\\Output\\RZ_EP_fspv4.2.0\\EP_RZT2N\\20261007_Release\\rzt2n_evk\\iic_master\\iic_master_rzt2n_evk_ca55_0_ep\\iar\\src\\hal_entry.c"
+    },
+    "name": "R_BSP_WarmStart_StackLess",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:common_utils.h@773@macro@COMMON_UTILS_H_",
+    "What": "MacroDef",
+    "defdec": "Def",
+    "display": "COMMON_UTILS_H_",
+    "location": {
+      "column": "9",
+      "line": "12",
+      "path": "C:\\Workspace\\Projects\\EP_AP\\RZ_EPAP\\Task\\Porting_EP\\Output\\RZ_EP_fspv4.2.0\\EP_RZT2N\\20261007_Release\\rzt2n_evk\\iic_master\\iic_master_rzt2n_evk_ca55_0_ep\\iar\\src\\common_utils.h"
+    },
+    "name": "COMMON_UTILS_H_",
+    "origin": "user_include",
+    "scope": null
+  },
+  {
+    "ID": "c:common_utils.h@925@macro@LVL_ERR",
+    "What": "MacroDef",
+    "defdec": "Def",
+    "display": "LVL_ERR",
+    "location": {
+      "column": "9",
+      "line": "22",
+      "path": "C:\\Workspace\\Projects\\EP_AP\\RZ_EPAP\\Task\\Porting_EP\\Output\\RZ_EP_fspv4.2.0\\EP_RZT2N\\20261007_Release\\rzt2n_evk\\iic_master\\iic_master_rzt2n_evk_ca55_0_ep\\iar\\src\\common_utils.h"
+    },
+    "name": "LVL_ERR",
+    "origin": "user_include",
+    "scope": null
+  },
+  {
+    "ID": "c:common_utils.h@951@macro@RESET_VALUE",
+    "What": "MacroDef",
+    "defdec": "Def",
+    "display": "RESET_VALUE",
+    "location": {
+      "column": "9",
+      "line": "23",
+      "path": "C:\\Workspace\\Projects\\EP_AP\\RZ_EPAP\\Task\\Porting_EP\\Output\\RZ_EP_fspv4.2.0\\EP_RZT2N\\20261007_Release\\rzt2n_evk\\iic_master\\iic_master_rzt2n_evk_ca55_0_ep\\iar\\src\\common_utils.h"
+    },
+    "name": "RESET_VALUE",
+    "origin": "user_include",
+    "scope": null
+  },
+  {
+    "ID": "c:common_utils.h@980@macro@EP_VERSION",
+    "What": "MacroDef",
+    "defdec": "Def",
+    "display": "EP_VERSION",
+    "location": {
+      "column": "9",
+      "line": "25",
+      "path": "C:\\Workspace\\Projects\\EP_AP\\RZ_EPAP\\Task\\Porting_EP\\Output\\RZ_EP_fspv4.2.0\\EP_RZT2N\\20261007_Release\\rzt2n_evk\\iic_master\\iic_master_rzt2n_evk_ca55_0_ep\\iar\\src\\common_utils.h"
+    },
+    "name": "EP_VERSION",
+    "origin": "user_include",
+    "scope": null
+  },
+  {
+    "ID": "c:common_utils.h@1010@macro@MODULE_NAME",
+    "What": "MacroDef",
+    "defdec": "Def",
+    "display": "MODULE_NAME",
+    "location": {
+      "column": "9",
+      "line": "27",
+      "path": "C:\\Workspace\\Projects\\EP_AP\\RZ_EPAP\\Task\\Porting_EP\\Output\\RZ_EP_fspv4.2.0\\EP_RZT2N\\20261007_Release\\rzt2n_evk\\iic_master\\iic_master_rzt2n_evk_ca55_0_ep\\iar\\src\\common_utils.h"
+    },
+    "name": "MODULE_NAME",
+    "origin": "user_include",
+    "scope": null
+  },
+  {
+    "ID": "c:common_utils.h@1047@macro@BANNER_INFO",
+    "What": "MacroDef",
+    "defdec": "Def",
+    "display": "BANNER_INFO",
+    "location": {
+      "column": "9",
+      "line": "29",
+      "path": "C:\\Workspace\\Projects\\EP_AP\\RZ_EPAP\\Task\\Porting_EP\\Output\\RZ_EP_fspv4.2.0\\EP_RZT2N\\20261007_Release\\rzt2n_evk\\iic_master\\iic_master_rzt2n_evk_ca55_0_ep\\iar\\src\\common_utils.h"
+    },
+    "name": "BANNER_INFO",
+    "origin": "user_include",
+    "scope": null
+  },
+  {
+    "ID": "c:common_utils.h@1754@macro@APP_PRINT",
+    "What": "MacroDef",
+    "defdec": "Def",
+    "display": "APP_PRINT",
+    "location": {
+      "column": "9",
+      "line": "37",
+      "path": "C:\\Workspace\\Projects\\EP_AP\\RZ_EPAP\\Task\\Porting_EP\\Output\\RZ_EP_fspv4.2.0\\EP_RZT2N\\20261007_Release\\rzt2n_evk\\iic_master\\iic_master_rzt2n_evk_ca55_0_ep\\iar\\src\\common_utils.h"
+    },
+    "name": "APP_PRINT",
+    "origin": "user_include",
+    "scope": null
+  },
+  {
+    "ID": "c:common_utils.h@1819@macro@APP_ERR_PRINT",
+    "What": "MacroDef",
+    "defdec": "Def",
+    "display": "APP_ERR_PRINT",
+    "location": {
+      "column": "9",
+      "line": "39",
+      "path": "C:\\Workspace\\Projects\\EP_AP\\RZ_EPAP\\Task\\Porting_EP\\Output\\RZ_EP_fspv4.2.0\\EP_RZT2N\\20261007_Release\\rzt2n_evk\\iic_master\\iic_master_rzt2n_evk_ca55_0_ep\\iar\\src\\common_utils.h"
+    },
+    "name": "APP_ERR_PRINT",
+    "origin": "user_include",
+    "scope": null
+  },
+  {
+    "ID": "c:common_utils.h@2034@macro@APP_ERR_TRAP",
+    "What": "MacroDef",
+    "defdec": "Def",
+    "display": "APP_ERR_TRAP",
+    "location": {
+      "column": "9",
+      "line": "44",
+      "path": "C:\\Workspace\\Projects\\EP_AP\\RZ_EPAP\\Task\\Porting_EP\\Output\\RZ_EP_fspv4.2.0\\EP_RZT2N\\20261007_Release\\rzt2n_evk\\iic_master\\iic_master_rzt2n_evk_ca55_0_ep\\iar\\src\\common_utils.h"
+    },
+    "name": "APP_ERR_TRAP",
+    "origin": "user_include",
+    "scope": null
+  },
+  {
+    "ID": "c:@F@stdio_open",
+    "What": "Function",
+    "defdec": "Dec",
+    "display": "int stdio_open(void)",
+    "location": {
+      "column": "5",
+      "line": "37",
+      "path": "C:\\Workspace\\Projects\\EP_AP\\RZ_EPAP\\Task\\Porting_EP\\Output\\RZ_EP_fspv4.2.0\\EP_RZT2N\\20261007_Release\\rzt2n_evk\\iic_master\\iic_master_rzt2n_evk_ca55_0_ep\\iar\\src\\stdio_uart0.c"
+    },
+    "name": "stdio_open",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:@F@stdio_close",
+    "What": "Function",
+    "defdec": "Dec",
+    "display": "void stdio_close(void)",
+    "location": {
+      "column": "6",
+      "line": "38",
+      "path": "C:\\Workspace\\Projects\\EP_AP\\RZ_EPAP\\Task\\Porting_EP\\Output\\RZ_EP_fspv4.2.0\\EP_RZT2N\\20261007_Release\\rzt2n_evk\\iic_master\\iic_master_rzt2n_evk_ca55_0_ep\\iar\\src\\stdio_uart0.c"
+    },
+    "name": "stdio_close",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:@F@stdio_read",
+    "What": "Function",
+    "defdec": "Dec",
+    "display": "int stdio_read(int *, int)",
+    "location": {
+      "column": "5",
+      "line": "39",
+      "path": "C:\\Workspace\\Projects\\EP_AP\\RZ_EPAP\\Task\\Porting_EP\\Output\\RZ_EP_fspv4.2.0\\EP_RZT2N\\20261007_Release\\rzt2n_evk\\iic_master\\iic_master_rzt2n_evk_ca55_0_ep\\iar\\src\\stdio_uart0.c"
+    },
+    "name": "stdio_read",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:@F@stdio_write",
+    "What": "Function",
+    "defdec": "Dec",
+    "display": "int stdio_write(const int *, int)",
+    "location": {
+      "column": "5",
+      "line": "40",
+      "path": "C:\\Workspace\\Projects\\EP_AP\\RZ_EPAP\\Task\\Porting_EP\\Output\\RZ_EP_fspv4.2.0\\EP_RZT2N\\20261007_Release\\rzt2n_evk\\iic_master\\iic_master_rzt2n_evk_ca55_0_ep\\iar\\src\\stdio_uart0.c"
+    },
+    "name": "stdio_write",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:@F@app_read",
+    "What": "Function",
+    "defdec": "Dec",
+    "display": "void app_read(unsigned char *)",
+    "location": {
+      "column": "6",
+      "line": "42",
+      "path": "C:\\Workspace\\Projects\\EP_AP\\RZ_EPAP\\Task\\Porting_EP\\Output\\RZ_EP_fspv4.2.0\\EP_RZT2N\\20261007_Release\\rzt2n_evk\\iic_master\\iic_master_rzt2n_evk_ca55_0_ep\\iar\\src\\stdio_uart0.c"
+    },
+    "name": "app_read",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:@F@app_check_data",
+    "What": "Function",
+    "defdec": "Dec",
+    "display": "int app_check_data(void)",
+    "location": {
+      "column": "5",
+      "line": "43",
+      "path": "C:\\Workspace\\Projects\\EP_AP\\RZ_EPAP\\Task\\Porting_EP\\Output\\RZ_EP_fspv4.2.0\\EP_RZT2N\\20261007_Release\\rzt2n_evk\\iic_master\\iic_master_rzt2n_evk_ca55_0_ep\\iar\\src\\stdio_uart0.c"
+    },
+    "name": "app_check_data",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:stdio_uart0.c@stdio_initialized",
+    "What": "Variable",
+    "defdec": "Dec",
+    "display": "stdio_initialized",
+    "location": {
+      "column": "17",
+      "line": "47",
+      "path": "C:\\Workspace\\Projects\\EP_AP\\RZ_EPAP\\Task\\Porting_EP\\Output\\RZ_EP_fspv4.2.0\\EP_RZT2N\\20261007_Release\\rzt2n_evk\\iic_master\\iic_master_rzt2n_evk_ca55_0_ep\\iar\\src\\stdio_uart0.c"
+    },
+    "name": "stdio_initialized",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:stdio_uart0.c@wait_tx",
+    "What": "Variable",
+    "defdec": "Def",
+    "display": "wait_tx",
+    "location": {
+      "column": "21",
+      "line": "52",
+      "path": "C:\\Workspace\\Projects\\EP_AP\\RZ_EPAP\\Task\\Porting_EP\\Output\\RZ_EP_fspv4.2.0\\EP_RZT2N\\20261007_Release\\rzt2n_evk\\iic_master\\iic_master_rzt2n_evk_ca55_0_ep\\iar\\src\\stdio_uart0.c"
+    },
+    "name": "wait_tx",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:stdio_uart0.c@scan_write",
+    "What": "Variable",
+    "defdec": "Dec",
+    "display": "scan_write",
+    "location": {
+      "column": "26",
+      "line": "54",
+      "path": "C:\\Workspace\\Projects\\EP_AP\\RZ_EPAP\\Task\\Porting_EP\\Output\\RZ_EP_fspv4.2.0\\EP_RZT2N\\20261007_Release\\rzt2n_evk\\iic_master\\iic_master_rzt2n_evk_ca55_0_ep\\iar\\src\\stdio_uart0.c"
+    },
+    "name": "scan_write",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:stdio_uart0.c@scan_read",
+    "What": "Variable",
+    "defdec": "Dec",
+    "display": "scan_read",
+    "location": {
+      "column": "17",
+      "line": "55",
+      "path": "C:\\Workspace\\Projects\\EP_AP\\RZ_EPAP\\Task\\Porting_EP\\Output\\RZ_EP_fspv4.2.0\\EP_RZT2N\\20261007_Release\\rzt2n_evk\\iic_master\\iic_master_rzt2n_evk_ca55_0_ep\\iar\\src\\stdio_uart0.c"
+    },
+    "name": "scan_read",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:stdio_uart0.c@scan_buffer",
+    "What": "Variable",
+    "defdec": "Dec",
+    "display": "scan_buffer",
+    "location": {
+      "column": "16",
+      "line": "56",
+      "path": "C:\\Workspace\\Projects\\EP_AP\\RZ_EPAP\\Task\\Porting_EP\\Output\\RZ_EP_fspv4.2.0\\EP_RZT2N\\20261007_Release\\rzt2n_evk\\iic_master\\iic_master_rzt2n_evk_ca55_0_ep\\iar\\src\\stdio_uart0.c"
+    },
+    "name": "scan_buffer",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:@g_buff",
+    "What": "Variable",
+    "defdec": "Dec",
+    "display": "g_buff",
+    "location": {
+      "column": "6",
+      "line": "58",
+      "path": "C:\\Workspace\\Projects\\EP_AP\\RZ_EPAP\\Task\\Porting_EP\\Output\\RZ_EP_fspv4.2.0\\EP_RZT2N\\20261007_Release\\rzt2n_evk\\iic_master\\iic_master_rzt2n_evk_ca55_0_ep\\iar\\src\\stdio_uart0.c"
+    },
+    "name": "g_buff",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:@F@stdio_open",
+    "What": "Function",
+    "defdec": "Def",
+    "display": "int stdio_open(void)",
+    "location": {
+      "column": "5",
+      "line": "66",
+      "path": "C:\\Workspace\\Projects\\EP_AP\\RZ_EPAP\\Task\\Porting_EP\\Output\\RZ_EP_fspv4.2.0\\EP_RZT2N\\20261007_Release\\rzt2n_evk\\iic_master\\iic_master_rzt2n_evk_ca55_0_ep\\iar\\src\\stdio_uart0.c"
+    },
+    "name": "stdio_open",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:stdio_uart0.c@2755@F@stdio_open@ret",
+    "What": "Variable",
+    "defdec": "Def",
+    "display": "ret",
+    "location": {
+      "column": "9",
+      "line": "68",
+      "path": "C:\\Workspace\\Projects\\EP_AP\\RZ_EPAP\\Task\\Porting_EP\\Output\\RZ_EP_fspv4.2.0\\EP_RZT2N\\20261007_Release\\rzt2n_evk\\iic_master\\iic_master_rzt2n_evk_ca55_0_ep\\iar\\src\\stdio_uart0.c"
+    },
+    "name": "ret",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:@F@stdio_close",
+    "What": "Function",
+    "defdec": "Def",
+    "display": "void stdio_close(void)",
+    "location": {
+      "column": "6",
+      "line": "86",
+      "path": "C:\\Workspace\\Projects\\EP_AP\\RZ_EPAP\\Task\\Porting_EP\\Output\\RZ_EP_fspv4.2.0\\EP_RZT2N\\20261007_Release\\rzt2n_evk\\iic_master\\iic_master_rzt2n_evk_ca55_0_ep\\iar\\src\\stdio_uart0.c"
+    },
+    "name": "stdio_close",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:@F@stdio_read",
+    "What": "Function",
+    "defdec": "Def",
+    "display": "int stdio_read(int *, int)",
+    "location": {
+      "column": "5",
+      "line": "91",
+      "path": "C:\\Workspace\\Projects\\EP_AP\\RZ_EPAP\\Task\\Porting_EP\\Output\\RZ_EP_fspv4.2.0\\EP_RZT2N\\20261007_Release\\rzt2n_evk\\iic_master\\iic_master_rzt2n_evk_ca55_0_ep\\iar\\src\\stdio_uart0.c"
+    },
+    "name": "stdio_read",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:@F@stdio_write",
+    "What": "Function",
+    "defdec": "Def",
+    "display": "int stdio_write(const int *, int)",
+    "location": {
+      "column": "5",
+      "line": "179",
+      "path": "C:\\Workspace\\Projects\\EP_AP\\RZ_EPAP\\Task\\Porting_EP\\Output\\RZ_EP_fspv4.2.0\\EP_RZT2N\\20261007_Release\\rzt2n_evk\\iic_master\\iic_master_rzt2n_evk_ca55_0_ep\\iar\\src\\stdio_uart0.c"
+    },
+    "name": "stdio_write",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:stdio_uart0.c@5079@F@stdio_write@ret",
+    "What": "Variable",
+    "defdec": "Def",
+    "display": "ret",
+    "location": {
+      "column": "9",
+      "line": "181",
+      "path": "C:\\Workspace\\Projects\\EP_AP\\RZ_EPAP\\Task\\Porting_EP\\Output\\RZ_EP_fspv4.2.0\\EP_RZT2N\\20261007_Release\\rzt2n_evk\\iic_master\\iic_master_rzt2n_evk_ca55_0_ep\\iar\\src\\stdio_uart0.c"
+    },
+    "name": "ret",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:@F@uart0_cb_stdio",
+    "What": "Function",
+    "defdec": "Def",
+    "display": "void uart0_cb_stdio(int *)",
+    "location": {
+      "column": "6",
+      "line": "202",
+      "path": "C:\\Workspace\\Projects\\EP_AP\\RZ_EPAP\\Task\\Porting_EP\\Output\\RZ_EP_fspv4.2.0\\EP_RZT2N\\20261007_Release\\rzt2n_evk\\iic_master\\iic_master_rzt2n_evk_ca55_0_ep\\iar\\src\\stdio_uart0.c"
+    },
+    "name": "uart0_cb_stdio",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:@F@app_read",
+    "What": "Function",
+    "defdec": "Def",
+    "display": "void app_read(unsigned char *)",
+    "location": {
+      "column": "6",
+      "line": "254",
+      "path": "C:\\Workspace\\Projects\\EP_AP\\RZ_EPAP\\Task\\Porting_EP\\Output\\RZ_EP_fspv4.2.0\\EP_RZT2N\\20261007_Release\\rzt2n_evk\\iic_master\\iic_master_rzt2n_evk_ca55_0_ep\\iar\\src\\stdio_uart0.c"
+    },
+    "name": "app_read",
+    "origin": "project_file",
+    "scope": null
+  },
+  {
+    "ID": "c:@F@app_check_data",
+    "What": "Function",
+    "defdec": "Def",
+    "display": "int app_check_data(void)",
+    "location": {
+      "column": "5",
+      "line": "265",
+      "path": "C:\\Workspace\\Projects\\EP_AP\\RZ_EPAP\\Task\\Porting_EP\\Output\\RZ_EP_fspv4.2.0\\EP_RZT2N\\20261007_Release\\rzt2n_evk\\iic_master\\iic_master_rzt2n_evk_ca55_0_ep\\iar\\src\\stdio_uart0.c"
+    },
+    "name": "app_check_data",
+    "origin": "project_file",
+    "scope": null
+  }
+]

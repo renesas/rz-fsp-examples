@@ -1,0 +1,735 @@
+T1D80 000:005.989   SEGGER J-Link V9.44 Log File
+T1D80 000:006.161   DLL Compiled: May 20 2026 16:05:20
+T1D80 000:006.168   Logging started @ 2026-08-03 10:40
+T1D80 000:006.174   Process: C:\Users\S1C1\.eclipse\com.renesas.platform_665614710\DebugComp\RZ\e2-server-gdb.exe
+T1D80 000:006.187 - 6.181ms 
+T1D80 000:006.206 JLINK_GetDLLVersion()
+T1D80 000:006.212 - 0.007ms returns 94400
+T1D80 000:012.419 JLINK_OpenEx(...)
+T1D80 000:022.934   Firmware: J-Link OB-S124 compiled May  6 2026 14:59:45
+T1D80 000:024.009   Firmware: J-Link OB-S124 compiled May  6 2026 14:59:45
+T1D80 000:049.849   Hardware: V1.00
+T1D80 000:049.887   S/N: 839007682
+T1D80 000:049.894   OEM: SEGGER
+T1D80 000:049.904   Feature(s): None
+T1D80 000:051.652   Bootloader: 2023 Apr 11
+T1D80 000:052.657   USB speed mode: Full speed (12 MBit/s)
+T1D80 000:053.390   TELNET listener socket opened on port 19021
+T1D80 000:053.597   WEBSRV WEBSRV_Init(): Starting webserver thread(s)
+T1D80 000:053.831   WEBSRV Webserver running on local port 19080
+T1D80 000:053.958   Looking for J-Link GUI Server exe at: C:\Users\S1C1\.eclipse\com.renesas.platform_665614710\DebugComp\RZ\ARM\Segger_v9.44.0\JLinkGUIServer.exe
+T1D80 000:054.364   Looking for J-Link GUI Server exe at: C:\Program Files\SEGGER\JLink_V874\JLinkGUIServer.exe
+T1D80 000:358.200   Failed to connect to J-Link GUI Server.
+T1D80 000:358.285 - 345.847ms returns "O.K."
+T1D80 000:358.985 JLINK_ExecCommand("ProjectFile= ", ...). 
+T1D80 000:381.365 - 22.381ms returns 0x00
+T1D80 000:381.626 JLINK_ExecCommand("device=R9A07G076M48_A55_0", ...). 
+T1D80 000:397.575   Flash bank @ 0x40000000: SFL: Parsing sectorization info from ELF file
+T1D80 000:397.599     FlashDevice.SectorInfo[0]: .SectorSize = 0x00010000, .SectorStartAddr = 0x00000000
+T1D80 000:406.196   Flash bank @ 0x50000000: SFL: Parsing sectorization info from ELF file
+T1D80 000:406.223     FlashDevice.SectorInfo[0]: .SectorSize = 0x00010000, .SectorStartAddr = 0x00000000
+T1D80 000:414.470   Device "R9A07G076M48_A55_0" selected.
+T1D80 000:423.066 - 41.438ms returns 0x00
+T1D80 000:423.585 JLINK_ExecCommand("SetCPUConnectIDCODE = FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF", ...). 
+T1D80 000:423.609 - 0.024ms returns 0x00
+T1D80 000:423.635 JLINK_TIF_GetAvailable(...)
+T1D80 000:423.899 - 0.263ms 
+T1D80 000:423.911 JLINK_TIF_Select(JLINKARM_TIF_JTAG)
+T1D80 000:424.189   
+  ***** Error: 
+T1D80 000:424.242   Debugger tries to select target interface JTAG.
+This interface is not supported by the connected emulator.
+Selection will be ignored by the DLL.
+T1D80 000:424.271 - 0.361ms returns 0x01
+T1D80 000:424.321 JLINK_SetSpeed(4000)
+T1D80 000:424.329 - 0.010ms 
+T1D80 000:424.336 JLINK_SetEndian(ARM_ENDIAN_LITTLE)
+T1D80 000:424.341 - 0.004ms returns 0
+T1D80 000:424.346 JLINK_SetInitRegsOnReset(OFF)
+T1D80 000:424.353 - 0.006ms returns 1
+T1D80 000:424.359 JLINK_SetResetType(JLINKARM_RESET_TYPE_NORMAL)
+T1D80 000:424.365 - 0.006ms returns JLINKARM_RESET_TYPE_NORMAL
+T1D80 000:424.371 JLINK_ExecCommand("EnableFlashBPs", ...). 
+T1D80 000:424.378 - 0.007ms returns 0x00
+T1D80 000:424.385 JLINK_ExecCommand("SetAllowFlashCache = 0", ...). 
+T1D80 000:424.390 - 0.005ms returns 0x01
+T1D80 000:424.397 JLINK_ExecCommand("SetRestartOnClose = 0", ...). 
+T1D80 000:424.403 - 0.006ms returns 0x01
+T1D80 000:424.409 JLINK_ExecCommand("SetAllowSimulation = 0", ...). 
+T1D80 000:424.415 - 0.005ms returns 0x01
+T1D80 000:424.422 JLINK_EnableSoftBPs(ON)
+T1D80 000:424.429 - 0.008ms 
+T1D80 000:424.436 JLINK_Connect()
+T1D80 000:425.007   ConfigTargetSettings() start
+T1D80 000:425.019    J-Link Script File: Executing ConfigTargetSettings()
+T1D80 000:425.042   ConfigTargetSettings() end - Took 23us
+T1D80 000:426.120   InitTarget() start
+T1D80 000:426.128    J-Link Script File: Executing InitTarget()
+T1D80 000:430.458   Authenticated device detected. Skipping authentication process.
+T1D80 000:430.467     OCDREG_STATUS: 0x00000001
+T1D80 000:432.597   Releasing CA55_0 from reset
+T1D80 000:435.258   Starting PLL0
+T1D80 000:448.418   InitTarget() end - Took 22.2ms
+T1D80 000:449.451   Found SW-DP with ID 0x6BA02477
+T1D80 000:452.962   DPIDR: 0x6BA02477
+T1D80 000:452.989   CoreSight SoC-400 or earlier
+T1D80 000:452.996   AP map detection skipped. Manually configured AP map found.
+T1D80 000:453.006   AP[0]: APB-AP (IDR: Not set, ADDR: 0x00000000)
+T1D80 000:453.012   AP[1]: APB-AP (IDR: Not set, ADDR: 0x00000000)
+T1D80 000:453.018   AP[2]: AXI-AP (IDR: Not set, ADDR: 0x00000000)
+T1D80 000:453.025   Using preconfigured AP[1] as APB-AP
+T1D80 000:453.031   AP[1]: APB-AP found
+T1D80 000:453.038   DebugRegs + CTI manually specified. ROM table scan skipped.
+T1D80 000:454.847   Cortex-A55 @ 0x80C10000 (configured)
+T1D80 000:454.865   CoreCTI @ 0x80C20000 (configured)
+T1D80 000:457.160   Debug architecture: ARMv8.2
+T1D80 000:457.176   6 code breakpoints, 4 data breakpoints
+T1D80 000:458.830   Processor features:
+T1D80 000:458.857     EL0 support: AArch64 + AArch32
+T1D80 000:458.864     EL1 support: AArch64 + AArch32
+T1D80 000:458.870     EL2 support: AArch64 + AArch32
+T1D80 000:458.877     EL3 support: AArch64 + AArch32
+T1D80 000:458.883     FPU support: Single + Double + Conversion + single arithmetic
+T1D80 000:459.495   -- Max. mem block: 0x00001B50
+T1D80 000:460.688   ARMv8-A/R: The connected J-Link (S/N 839007682) uses an old firmware module V14 with known problems / limitations.
+T1D80 000:478.491   Current exception level: EL3
+T1D80 000:478.524   Exception level AArch usage:
+T1D80 000:478.534     EL0: AArch32
+T1D80 000:478.543     EL1: AArch32
+T1D80 000:478.553     EL2: AArch32
+T1D80 000:478.562     EL3: AArch64
+T1D80 000:478.572   Non-secure status: Secure
+T1D80 000:479.539   Cache info:
+T1D80 000:479.569     Inner cache boundary: L3
+T1D80 000:479.579     LoU Uniprocessor: 0
+T1D80 000:479.588     LoC: 3
+T1D80 000:479.598     LoU Inner Shareable: 0
+T1D80 000:484.155   I-Cache L1: 32 KB, 128 Sets, 64 Bytes/Line, 4-Way
+T1D80 000:484.184   D-Cache L1: 32 KB, 128 Sets, 64 Bytes/Line, 4-Way
+T1D80 000:484.195   Unified-Cache L2: 128 KB, 512 Sets, 64 Bytes/Line, 4-Way
+T1D80 000:484.206   Unified-Cache L3: 256 KB, 256 Sets, 64 Bytes/Line, 16-Way
+T1D80 000:485.388   VMSAv8-64: Supports 48-bit VAs
+T1D80 000:485.449 - 61.012ms returns 0x00
+T1D80 000:486.194 JLINK_Halt()
+T1D80 000:486.214 - 0.019ms returns 0x00
+T1D80 000:486.228 JLINK_IsHalted()
+T1D80 000:486.244 - 0.015ms returns TRUE
+T1D80 000:486.255 JLINK_ResetPullsRESET(ON)
+T1D80 000:486.264 - 0.008ms 
+T1D80 000:486.272 JLINK_Reset()
+T1D80 000:486.287   ResetTarget() start
+T1D80 000:486.296    J-Link Script File: Executing ResetTarget()
+T1D80 000:486.304   Reset: Halt core immediately after reset using reset catch.
+T1D80 000:793.548   Authenticated device detected. Skipping authentication process.
+T1D80 000:793.632     OCDREG_STATUS: 0x00000001
+T1D80 000:795.668   Releasing CA55_0 from reset
+T1D80 000:798.382   Starting PLL0
+T1D80 000:814.591   Disabled core power domain detected.
+T1D80 000:819.073   Enabling debug mode...
+T1D80 000:822.415   ResetTarget() end - Took 336ms
+T1D80 000:822.439   Device specific reset executed.
+T1D80 000:839.903 - 353.630ms 
+T1D80 000:840.370 JLINK_IsHalted()
+T1D80 000:840.394 - 0.022ms returns TRUE
+T1D80 000:840.751 JLINK_IsHalted()
+T1D80 000:840.759 - 0.007ms returns TRUE
+T1D80 000:840.766 JLINK_MeasureCPUSpeed(RAMAddr = 0xFFFFFFFF)
+T1D80 000:840.771 - 0.005ms returns 0
+T1D80 000:841.944 JLINK_ReadRegs_64(NumRegs = 1)
+T1D80 000:842.083     CPSR (41) = 0x3CD             
+T1D80 000:842.089 - 0.144ms returns 0
+T76F8 004:000.174 JLINK_BeginDownload(Flags = 0x00000000)
+T76F8 004:000.232 - 0.057ms 
+T76F8 004:020.828 JLINK_WriteMem(0x10000000, 0x78C Bytes, ...)
+T76F8 004:020.870   Data:  52 04 00 14 C0 03 5F D6 00 00 00 00 00 00 00 00 ...
+T76F8 004:021.990   CPU_WriteMem(1932 bytes @ 0x10000000)
+T76F8 004:041.214 - 20.385ms returns 0x78C
+T76F8 004:042.204 JLINK_WriteMem(0x10001000, 0xBC0 Bytes, ...)
+T76F8 004:042.238   Data:  00 00 00 90 00 20 40 F9 00 00 3F D6 00 00 00 90 ...
+T76F8 004:042.264   CPU_WriteMem(3008 bytes @ 0x10001000)
+T76F8 004:071.630 - 29.424ms returns 0xBC0
+T76F8 004:072.689 JLINK_WriteMem(0x10001BC0, 0xBD0 Bytes, ...)
+T76F8 004:072.738   Data:  A3 FF FF 54 E1 07 40 F9 21 08 40 92 E1 0F 00 F9 ...
+T76F8 004:072.775   CPU_WriteMem(3024 bytes @ 0x10001BC0)
+T76F8 004:102.256 - 29.564ms returns 0xBD0
+T76F8 004:102.858 JLINK_WriteMem(0x10002790, 0xBD0 Bytes, ...)
+T76F8 004:102.870   Data:  E1 E3 00 91 E0 63 01 91 FE FE FF 97 F5 13 40 F9 ...
+T76F8 004:102.893   CPU_WriteMem(3024 bytes @ 0x10002790)
+T76F8 004:131.110 - 28.250ms returns 0xBD0
+T76F8 004:131.638 JLINK_WriteMem(0x10003360, 0xB48 Bytes, ...)
+T76F8 004:131.651   Data:  5F 00 00 6A 41 FF FF 54 02 00 8C D2 22 25 B0 F2 ...
+T76F8 004:131.673   CPU_WriteMem(2888 bytes @ 0x10003360)
+T76F8 004:158.793 - 27.154ms returns 0xB48
+T76F8 004:159.392 JLINK_WriteMem(0x10003EA8, 0x6A0 Bytes, ...)
+T76F8 004:159.436   Data:  01 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 ...
+T76F8 004:159.467   CPU_WriteMem(1696 bytes @ 0x10003EA8)
+T76F8 004:176.769 - 17.376ms returns 0x6A0
+T76F8 004:177.407 JLINK_WriteMem(0x10010000, 0xBD0 Bytes, ...)
+T76F8 004:177.421   Data:  00 00 40 B9 1F 80 00 71 40 00 00 54 C0 03 5F D6 ...
+T76F8 004:177.442   CPU_WriteMem(3024 bytes @ 0x10010000)
+T76F8 004:206.915 - 29.507ms returns 0xBD0
+T76F8 004:207.797 JLINK_WriteMem(0x10010BD0, 0xBB0 Bytes, ...)
+T76F8 004:207.845   Data:  C0 03 5F D6 02 18 40 F9 42 70 40 B9 42 14 45 D3 ...
+T76F8 004:207.893   CPU_WriteMem(2992 bytes @ 0x10010BD0)
+T76F8 004:236.046 - 28.246ms returns 0xBB0
+T76F8 004:236.681 JLINK_WriteMem(0x10011780, 0xBA0 Bytes, ...)
+T76F8 004:236.703   Data:  FD 03 00 91 F3 53 01 A9 F5 13 00 F9 F5 03 00 AA ...
+T76F8 004:236.726   CPU_WriteMem(2976 bytes @ 0x10011780)
+T76F8 004:265.725 - 29.041ms returns 0xBA0
+T76F8 004:266.715 JLINK_WriteMem(0x10012320, 0xBB0 Bytes, ...)
+T76F8 004:266.736   Data:  00 01 00 54 00 1C 40 F9 22 00 40 39 01 04 40 B9 ...
+T76F8 004:266.777   CPU_WriteMem(2992 bytes @ 0x10012320)
+T76F8 004:295.905 - 29.189ms returns 0xBB0
+T76F8 004:296.793 JLINK_WriteMem(0x10012ED0, 0xBC0 Bytes, ...)
+T76F8 004:296.819   Data:  C0 03 5F D6 1F 20 03 D5 08 51 00 10 00 00 00 00 ...
+T76F8 004:296.843   CPU_WriteMem(3008 bytes @ 0x10012ED0)
+T76F8 004:325.162 - 28.366ms returns 0xBC0
+T76F8 004:326.103 JLINK_WriteMem(0x10013A90, 0xBB0 Bytes, ...)
+T76F8 004:326.134   Data:  84 10 86 9A 63 0C C0 DA 84 0C C0 DA 7F 00 04 EB ...
+T76F8 004:326.158   CPU_WriteMem(2992 bytes @ 0x10013A90)
+T76F8 004:355.318 - 29.213ms returns 0xBB0
+T76F8 004:356.493 JLINK_WriteMem(0x10014640, 0xBC0 Bytes, ...)
+T76F8 004:356.528   Data:  32 01 1F 72 42 0B 00 11 E0 D3 40 F9 5A 10 9A 1A ...
+T76F8 004:356.559   CPU_WriteMem(3008 bytes @ 0x10014640)
+T76F8 004:384.721 - 28.226ms returns 0xBC0
+T76F8 004:385.748 JLINK_WriteMem(0x10015200, 0xBB0 Bytes, ...)
+T76F8 004:385.778   Data:  E0 93 40 B9 00 3D F8 37 E0 3F 40 F9 00 2C 00 91 ...
+T76F8 004:385.816   CPU_WriteMem(2992 bytes @ 0x10015200)
+T76F8 004:415.007 - 29.260ms returns 0xBB0
+T76F8 004:415.533 JLINK_WriteMem(0x10015DB0, 0xBC0 Bytes, ...)
+T76F8 004:415.547   Data:  A0 05 80 52 E0 BB 00 B9 E0 A3 05 91 E9 8B 00 B9 ...
+T76F8 004:415.570   CPU_WriteMem(3008 bytes @ 0x10015DB0)
+T76F8 004:444.857 - 29.322ms returns 0xBC0
+T76F8 004:445.387 JLINK_WriteMem(0x10016970, 0xBC0 Bytes, ...)
+T76F8 004:445.399   Data:  41 F0 7D 92 E1 3F 00 F9 6E F9 FF 17 E1 8B 40 B9 ...
+T76F8 004:445.417   CPU_WriteMem(3008 bytes @ 0x10016970)
+T76F8 004:474.771 - 29.383ms returns 0xBC0
+T76F8 004:475.364 JLINK_WriteMem(0x10017530, 0xBD0 Bytes, ...)
+T76F8 004:475.384   Data:  E2 53 40 F9 E0 93 40 B9 E1 93 00 B9 40 C0 20 8B ...
+T76F8 004:475.414   CPU_WriteMem(3024 bytes @ 0x10017530)
+T76F8 004:504.899 - 29.533ms returns 0xBD0
+T76F8 004:506.351 JLINK_WriteMem(0x10018100, 0xBB0 Bytes, ...)
+T76F8 004:506.372   Data:  C6 7C 46 0B 36 7F 40 93 D7 7C 01 13 C0 06 00 91 ...
+T76F8 004:506.394   CPU_WriteMem(2992 bytes @ 0x10018100)
+T76F8 004:534.309 - 27.956ms returns 0xBB0
+T76F8 004:534.886 JLINK_WriteMem(0x10018CB0, 0xBC0 Bytes, ...)
+T76F8 004:534.914   Data:  83 40 43 4B 62 40 42 0B 41 3C 10 33 01 44 00 B8 ...
+T76F8 004:534.986   CPU_WriteMem(3008 bytes @ 0x10018CB0)
+T76F8 004:563.094 - 28.207ms returns 0xBC0
+T76F8 004:564.196 JLINK_WriteMem(0x10019870, 0xBD0 Bytes, ...)
+T76F8 004:564.219   Data:  19 00 80 D2 FC 03 3A 2A F7 03 16 AA D4 FE FF 17 ...
+T76F8 004:564.245   CPU_WriteMem(3024 bytes @ 0x10019870)
+T76F8 004:592.473 - 28.275ms returns 0xBD0
+T76F8 004:593.226 JLINK_WriteMem(0x1001A440, 0xBD0 Bytes, ...)
+T76F8 004:593.245   Data:  21 40 42 0B 2E 7C 10 53 BF 00 04 EB 68 FE FF 54 ...
+T76F8 004:593.275   CPU_WriteMem(3024 bytes @ 0x1001A440)
+T76F8 004:621.464 - 28.237ms returns 0xBD0
+T76F8 004:622.519 JLINK_WriteMem(0x1001B010, 0xBD0 Bytes, ...)
+T76F8 004:622.545   Data:  E3 03 00 AA 41 01 00 B4 5F FC 03 71 88 00 00 54 ...
+T76F8 004:622.617   CPU_WriteMem(3024 bytes @ 0x1001B010)
+T76F8 004:652.155 - 29.635ms returns 0xBD0
+T76F8 004:652.803 JLINK_WriteMem(0x1001BBE0, 0x230 Bytes, ...)
+T76F8 004:652.823   Data:  21 44 3B D5 00 01 10 36 C2 B5 98 52 01 10 B0 12 ...
+T76F8 004:652.843   CPU_WriteMem(560 bytes @ 0x1001BBE0)
+T76F8 004:660.405 - 7.601ms returns 0x230
+T76F8 004:661.033 JLINK_WriteMem(0x1001BE10, 0xBE0 Bytes, ...)
+T76F8 004:661.050   Data:  00 00 00 00 08 00 00 00 00 00 00 00 00 00 00 00 ...
+T76F8 004:661.071   CPU_WriteMem(3040 bytes @ 0x1001BE10)
+T76F8 004:690.590 - 29.556ms returns 0xBE0
+T76F8 004:691.379 JLINK_WriteMem(0x1001C9F0, 0xB60 Bytes, ...)
+T76F8 004:691.417   Data:  2A 2A 2A 2A 2A 2A 2A 2A 2A 2A 2A 2A 2A 2A 2A 2A ...
+T76F8 004:691.443   CPU_WriteMem(2912 bytes @ 0x1001C9F0)
+T76F8 004:718.844 - 27.463ms returns 0xB60
+T76F8 004:719.489 JLINK_WriteMem(0x1001D550, 0xBE0 Bytes, ...)
+T76F8 004:719.512   Data:  00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 ...
+T76F8 004:719.540   CPU_WriteMem(3040 bytes @ 0x1001D550)
+T76F8 004:747.927 - 28.437ms returns 0xBE0
+T76F8 004:748.405 JLINK_WriteMem(0x1001E130, 0xBE0 Bytes, ...)
+T76F8 004:748.417   Data:  00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 ...
+T76F8 004:748.434   CPU_WriteMem(3040 bytes @ 0x1001E130)
+T76F8 004:776.845 - 28.439ms returns 0xBE0
+T76F8 004:777.577 JLINK_WriteMem(0x1001ED10, 0xBE0 Bytes, ...)
+T76F8 004:777.593   Data:  00 00 00 00 00 0C 00 00 00 00 00 00 00 0C 00 00 ...
+T76F8 004:777.612   CPU_WriteMem(3040 bytes @ 0x1001ED10)
+T76F8 004:805.965 - 28.387ms returns 0xBE0
+T76F8 004:806.430 JLINK_WriteMem(0x1001F8F0, 0x10 Bytes, ...)
+T76F8 004:806.447   Data:  34 2E 32 2E 30 00 00 00 00 00 02 04 00 00 00 00
+T76F8 004:806.465   CPU_WriteMem(16 bytes @ 0x1001F8F0)
+T76F8 004:808.262 - 1.831ms returns 0x10
+T76F8 004:808.641 JLINK_WriteMem(0x10180000, 0x800 Bytes, ...)
+T76F8 004:808.651   Data:  00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 ...
+T76F8 004:808.958   CPU_WriteMem(2048 bytes @ 0x10180000)
+T76F8 004:829.131 - 20.489ms returns 0x800
+T76F8 004:852.765 JLINK_EndDownload()
+T76F8 004:852.803 - 0.036ms returns 0 (0x0)
+T76F8 004:853.118 JLINK_WriteRegs_64(NumRegs = 1)
+T76F8 004:853.176     PC (33) = 0x10001000        
+T76F8 004:853.200 - 0.081ms returns 0
+T76F8 004:873.957 JLINK_ReadMem(0x10001000, 0x4 Bytes, ...)
+T76F8 004:874.358   CPU_ReadMem(64 bytes @ 0x10001000)
+T76F8 004:879.023    -- Updating C cache (64 bytes @ 0x10001000)
+T76F8 004:879.038    -- Read from C cache (4 bytes @ 0x10001000)
+T76F8 004:879.047   Data:  00 00 00 90
+T76F8 004:879.054 - 5.097ms returns 0
+T76F8 004:886.728 JLINK_ReadMem(0x10001000, 0x4 Bytes, ...)
+T76F8 004:886.776    -- Read from C cache (4 bytes @ 0x10001000)
+T76F8 004:886.784   Data:  00 00 00 90
+T76F8 004:886.792 - 0.064ms returns 0
+T76F8 005:027.382 JLINK_GetNumBPUnits(Type = 0xFFFFFF00)
+T76F8 005:027.441 - 0.059ms returns 0x06
+T76F8 005:027.453 JLINK_GetNumWPUnits()
+T76F8 005:027.464 - 0.010ms returns 4
+T76F8 005:027.491 JLINK_GetNumBPUnits(Type = 0xFFFFFF00)
+T76F8 005:027.501 - 0.010ms returns 0x06
+T76F8 005:027.511 JLINK_GetNumWPUnits()
+T76F8 005:027.520 - 0.008ms returns 4
+T76F8 005:027.534 JLINK_GetNumBPUnits(Type = 0xFFFFFF00)
+T76F8 005:027.543 - 0.009ms returns 0x06
+T76F8 005:027.553 JLINK_GetNumWPUnits()
+T76F8 005:027.651 - 0.098ms returns 4
+T76F8 005:027.735 JLINK_SetBPEx(Addr = 0x1001073C, Type = 0xFFFFFF00)
+T76F8 005:027.751 - 0.017ms returns 0x00000001
+T76F8 005:027.766 JLINK_ClrBPEx(BPHandle = 0x00000001)
+T76F8 005:028.340 - 0.573ms returns 0x00
+T76F8 005:044.399 JLINK_ReadMem(0x10010744, 0x4 Bytes, ...)
+T76F8 005:044.469   CPU_ReadMem(4 bytes @ 0x10010744)
+T76F8 005:046.281   Data:  3B FE FF 97
+T76F8 005:046.334 - 1.936ms returns 0
+T76F8 005:047.207 JLINK_SetBPEx(Addr = 0x10010744, Type = 0xFFFFFF00)
+T76F8 005:047.256 - 0.049ms returns 0x00000002
+T76F8 005:167.969 JLINK_ReadRegs_64(NumRegs = 49)
+T76F8 005:168.037   
+  R0 (0)        = 0x00                 R1 (1)        = 0x00                 R2 (2)        = 0x00                 R3 (3)        = 0x00              
+  R4 (4)        = 0x00                 R5 (5)        = 0x00                 R6 (6)        = 0x00                 R7 (7)        = 0x00              
+  R8 (8)        = 0x00                 R9 (9)        = 0x00                 R10 (10)      = 0x00                 R11 (11)      = 0x00              
+  R12 (12)      = 0x00                 R13 (13)      = 0x00                 R14 (14)      = 0x00                 R15 (15)      = 0x00              
+  R16 (16)      = 0x00                 R17 (17)      = 0x00                 R18 (18)      = 0x00                 R19 (19)      = 0x00              
+  R20 (20)      = 0x00                 R21 (21)      = 0x00                 R22 (22)      = 0x00                 R23 (23)      = 0x00              
+  R24 (24)      = 0x00                 R25 (25)      = 0x00                 R26 (26)      = 0x00                 R27 (27)      = 0x00              
+  R28 (28)      = 0x00                 R29 (29)      = 0x00                 R30 (30)      = 0x00                 R31 (31)      = 0x00              
+  SP (32)       = 0x00                 PC (33)       = 0x10001000           ELR_EL1 (34)  = 0x00                 ELR_EL2 (35)  = 0x00              
+  ELR_EL3 (36)  = 0x00                 SP_EL0 (37)   = 0x00                 SP_EL1 (38)   = 0x00                 SP_EL2 (39)   = 0x00              
+  SP_EL3 (40)   = 0x00                 CPSR (41)     = 0x3CD                SPSR_abt (42) = 0xFEDDDFEF           SPSR_EL1 (43) = 0xEEDF7FFF        
+  SPSR_EL2 (44) = 0xFEFFFFD7           SPSR_EL3 (45) = 0x1CD                SPSR_fiq (46) = 0xFEDFEBDF           SPSR_irq (47) = 0xF6CFFAFF        
+  SPSR_und (48) = 0xE65FDBFF        
+T76F8 005:168.056 - 0.087ms returns 0
+T76F8 005:169.799 JLINK_ReadMem(0x10001000, 0x4 Bytes, ...)
+T76F8 005:169.915    -- Read from C cache (4 bytes @ 0x10001000)
+T76F8 005:169.935   Data:  00 00 00 90
+T76F8 005:170.017 - 0.217ms returns 0
+T9D10 005:233.009 JLINK_GetNumBPUnits(Type = 0xFFFFFF00)
+T9D10 005:233.059 - 0.050ms returns 0x06
+T9D10 005:233.073 JLINK_GetNumWPUnits()
+T9D10 005:233.084 - 0.010ms returns 4
+T9D10 005:233.686 JLINK_GetNumBPUnits(Type = 0xFFFFFF00)
+T9D10 005:233.721 - 0.034ms returns 0x06
+T9D10 005:233.733 JLINK_GetNumWPUnits()
+T9D10 005:233.743 - 0.010ms returns 4
+T9D10 005:234.249 JLINK_GetNumBPUnits(Type = 0xFFFFFF00)
+T9D10 005:234.279 - 0.030ms returns 0x06
+T9D10 005:234.291 JLINK_GetNumWPUnits()
+T9D10 005:234.302 - 0.010ms returns 4
+T9D10 005:234.713 JLINK_GetNumBPUnits(Type = 0xFFFFFF00)
+T9D10 005:234.737 - 0.024ms returns 0x06
+T9D10 005:234.749 JLINK_GetNumWPUnits()
+T9D10 005:234.759 - 0.010ms returns 4
+T9D10 005:235.213 JLINK_GetNumBPUnits(Type = 0xFFFFFF00)
+T9D10 005:235.242 - 0.029ms returns 0x06
+T9D10 005:235.255 JLINK_GetNumWPUnits()
+T9D10 005:235.265 - 0.010ms returns 4
+T9D10 005:235.680 JLINK_GetNumBPUnits(Type = 0xFFFFFF00)
+T9D10 005:235.713 - 0.032ms returns 0x06
+T9D10 005:235.725 JLINK_GetNumWPUnits()
+T9D10 005:235.736 - 0.010ms returns 4
+T9D10 005:237.282 JLINK_GetNumBPUnits(Type = 0xFFFFFF00)
+T9D10 005:237.320 - 0.037ms returns 0x06
+T9D10 005:237.329 JLINK_GetNumWPUnits()
+T9D10 005:237.337 - 0.007ms returns 4
+T9D10 005:238.481 JLINK_GetNumBPUnits(Type = 0xFFFFFF00)
+T9D10 005:238.513 - 0.032ms returns 0x06
+T9D10 005:238.521 JLINK_GetNumWPUnits()
+T9D10 005:238.539 - 0.016ms returns 4
+T76F8 006:139.423 JLINK_ReadMem(0x10001000, 0x4 Bytes, ...)
+T76F8 006:139.507    -- Read from C cache (4 bytes @ 0x10001000)
+T76F8 006:139.530   Data:  00 00 00 90
+T76F8 006:139.551 - 0.130ms returns 0
+T76F8 014:726.280 JLINK_IsHalted()
+T76F8 014:726.974 - 0.694ms returns TRUE
+T76F8 014:727.046 JLINK_GoEx(MaxEmulInsts = 0, Flags = 0x01)
+T76F8 014:736.829   Memory map 'after startup completion point' is active
+T76F8 014:736.872 - 9.825ms 
+T76F8 014:841.314 JLINK_IsHalted()
+T76F8 014:858.384 - 17.069ms returns TRUE
+T76F8 014:858.856 JLINK_ReadRegs_64(NumRegs = 1)
+T76F8 014:858.869     PC (33) = 0x10010744        
+T76F8 014:858.877 - 0.020ms returns 0
+T76F8 014:858.912 JLINK_ReadRegs_64(NumRegs = 1)
+T76F8 014:858.922     PC (33) = 0x10010744        
+T76F8 014:858.930 - 0.016ms returns 0
+T76F8 014:858.944 JLINK_ReadMem(0x10010744, 0x4 Bytes, ...)
+T76F8 014:858.963   CPU_ReadMem(64 bytes @ 0x10010740)
+T76F8 014:863.574    -- Updating DA cache (64 bytes @ 0x10010740)
+T76F8 014:863.600    -- Read from DA cache (4 bytes @ 0x10010744)
+T76F8 014:863.614   Data:  3B FE FF 97
+T76F8 014:863.626 - 4.681ms returns 0
+T76F8 014:863.642 JLINK_IsHalted()
+T76F8 014:863.651 - 0.010ms returns TRUE
+T76F8 014:863.678 JLINK_ReadRegs_64(NumRegs = 1)
+T76F8 014:863.690     PC (33) = 0x10010744        
+T76F8 014:863.699 - 0.020ms returns 0
+T76F8 014:863.714 JLINK_ReadMem(0x10010744, 0x4 Bytes, ...)
+T76F8 014:863.723    -- Read from DA cache (4 bytes @ 0x10010744)
+T76F8 014:863.734   Data:  3B FE FF 97
+T76F8 014:863.744 - 0.031ms returns 0
+T76F8 014:863.824 JLINK_IsHalted()
+T76F8 014:863.832 - 0.007ms returns TRUE
+T76F8 014:863.840 JLINK_ReadRegs_64(NumRegs = 1)
+T76F8 014:863.848     PC (33) = 0x10010744        
+T76F8 014:863.856 - 0.015ms returns 0
+T76F8 014:863.869 JLINK_ReadRegs_64(NumRegs = 1)
+T76F8 014:863.877     PC (33) = 0x10010744        
+T76F8 014:863.885 - 0.014ms returns 0
+T76F8 014:863.896 JLINK_ReadMem(0x10010744, 0x4 Bytes, ...)
+T76F8 014:863.906    -- Read from DA cache (4 bytes @ 0x10010744)
+T76F8 014:863.915   Data:  3B FE FF 97
+T76F8 014:863.925 - 0.029ms returns 0
+T76F8 014:863.934 JLINK_IsHalted()
+T76F8 014:863.941 - 0.007ms returns TRUE
+T76F8 014:863.954 JLINK_ReadRegs_64(NumRegs = 1)
+T76F8 014:863.960     PC (33) = 0x10010744        
+T76F8 014:863.968 - 0.014ms returns 0
+T76F8 014:863.979 JLINK_ReadMem(0x10010744, 0x4 Bytes, ...)
+T76F8 014:863.987    -- Read from DA cache (4 bytes @ 0x10010744)
+T76F8 014:863.998   Data:  3B FE FF 97
+T76F8 014:864.008 - 0.028ms returns 0
+T76F8 014:864.530 JLINK_ReadRegs_64(NumRegs = 49)
+T76F8 014:864.571   
+  R0 (0)        = 0x10003EA8           R1 (1)        = 0x01                 R2 (2)        = 0x00                 R3 (3)        = 0xFFFFFFFFFFFFFFFF
+  R4 (4)        = 0x06                 R5 (5)        = 0x100044B0           R6 (6)        = 0x30000              R7 (7)        = 0x01              
+  R8 (8)        = 0x00                 R9 (9)        = 0x03                 R10 (10)      = 0xC3000123           R11 (11)      = 0x00              
+  R12 (12)      = 0x00                 R13 (13)      = 0x00                 R14 (14)      = 0x00                 R15 (15)      = 0x00              
+  R16 (16)      = 0x00                 R17 (17)      = 0x00                 R18 (18)      = 0x00                 R19 (19)      = 0x00              
+  R20 (20)      = 0x00                 R21 (21)      = 0x00                 R22 (22)      = 0x00                 R23 (23)      = 0x00              
+  R24 (24)      = 0x00                 R25 (25)      = 0x00                 R26 (26)      = 0x00                 R27 (27)      = 0x00              
+  R28 (28)      = 0x00                 R29 (29)      = 0x10029C70           R30 (30)      = 0x10001730           R31 (31)      = 0x00              
+  SP (32)       = 0x10029C70           PC (33)       = 0x10010744           ELR_EL1 (34)  = 0x00                 ELR_EL2 (35)  = 0x00              
+  ELR_EL3 (36)  = 0x00                 SP_EL0 (37)   = 0x00                 SP_EL1 (38)   = 0x00                 SP_EL2 (39)   = 0x00              
+  SP_EL3 (40)   = 0x10029C70           CPSR (41)     = 0x6000000D           SPSR_abt (42) = 0xFEDDDFEF           SPSR_EL1 (43) = 0xEEDF7FFF        
+  SPSR_EL2 (44) = 0xFEFFFFD7           SPSR_EL3 (45) = 0x1CD                SPSR_fiq (46) = 0xFEDFEBDF           SPSR_irq (47) = 0xF6CFFAFF        
+  SPSR_und (48) = 0xE65FDBFF        
+T76F8 014:864.586 - 0.056ms returns 0
+T76F8 014:865.758 JLINK_ReadMem(0x10010744, 0x4 Bytes, ...)
+T76F8 014:865.786    -- Read from DA cache (4 bytes @ 0x10010744)
+T76F8 014:865.795   Data:  3B FE FF 97
+T76F8 014:865.803 - 0.044ms returns 0
+T76F8 014:869.546 JLINK_ClrBPEx(BPHandle = 0x00000002)
+T76F8 014:869.571 - 0.025ms returns 0x00
+T76F8 014:882.762 JLINK_ReadMem(0x10010744, 0x4 Bytes, ...)
+T76F8 014:882.808    -- Read from DA cache (4 bytes @ 0x10010744)
+T76F8 014:882.816   Data:  3B FE FF 97
+T76F8 014:882.822 - 0.062ms returns 0
+T76F8 015:652.440 JLINK_IsHalted()
+T76F8 015:653.102 - 0.662ms returns TRUE
+T76F8 015:653.150 JLINK_GoEx(MaxEmulInsts = 0, Flags = 0x01)
+T76F8 015:660.762 - 7.609ms 
+T76F8 015:763.986 JLINK_IsHalted()
+T76F8 015:764.618 - 0.630ms returns FALSE
+T76F8 015:764.638 JLINK_IsHalted()
+T76F8 015:765.208 - 0.567ms returns FALSE
+T76F8 015:872.603 JLINK_IsHalted()
+T76F8 015:873.194 - 0.588ms returns FALSE
+T76F8 015:873.234 JLINK_IsHalted()
+T76F8 015:873.733 - 0.498ms returns FALSE
+T76F8 015:981.846 JLINK_IsHalted()
+T76F8 015:982.443 - 0.596ms returns FALSE
+T76F8 015:982.485 JLINK_IsHalted()
+T76F8 015:983.045 - 0.558ms returns FALSE
+T76F8 016:091.822 JLINK_IsHalted()
+T76F8 016:092.435 - 0.612ms returns FALSE
+T76F8 016:092.459 JLINK_IsHalted()
+T76F8 016:092.950 - 0.491ms returns FALSE
+T76F8 016:200.910 JLINK_IsHalted()
+T76F8 016:201.478 - 0.567ms returns FALSE
+T76F8 016:201.488 JLINK_IsHalted()
+T76F8 016:202.160 - 0.671ms returns FALSE
+T76F8 016:310.693 JLINK_IsHalted()
+T76F8 016:311.291 - 0.596ms returns FALSE
+T76F8 016:311.309 JLINK_IsHalted()
+T76F8 016:311.787 - 0.478ms returns FALSE
+T76F8 016:420.290 JLINK_IsHalted()
+T76F8 016:420.898 - 0.606ms returns FALSE
+T76F8 016:420.934 JLINK_IsHalted()
+T76F8 016:421.446 - 0.511ms returns FALSE
+T76F8 016:529.400 JLINK_IsHalted()
+T76F8 016:529.958 - 0.558ms returns FALSE
+T76F8 016:529.981 JLINK_IsHalted()
+T76F8 016:530.442 - 0.461ms returns FALSE
+T76F8 016:639.043 JLINK_IsHalted()
+T76F8 016:639.702 - 0.656ms returns FALSE
+T76F8 016:639.731 JLINK_IsHalted()
+T76F8 016:640.291 - 0.558ms returns FALSE
+T9D10 016:656.840 JLINK_IsHalted()
+T9D10 016:657.413 - 0.572ms returns FALSE
+T9D10 016:657.435 JLINK_IsHalted()
+T9D10 016:657.922 - 0.484ms returns FALSE
+T76F8 016:748.416 JLINK_IsHalted()
+T76F8 016:748.947 - 0.529ms returns FALSE
+T76F8 016:748.966 JLINK_IsHalted()
+T76F8 016:749.440 - 0.472ms returns FALSE
+T76F8 016:857.448 JLINK_IsHalted()
+T76F8 016:858.048 - 0.596ms returns FALSE
+T76F8 016:858.076 JLINK_IsHalted()
+T76F8 016:858.524 - 0.446ms returns FALSE
+T76F8 016:966.994 JLINK_IsHalted()
+T76F8 016:967.548 - 0.554ms returns FALSE
+T76F8 016:967.572 JLINK_IsHalted()
+T76F8 016:968.060 - 0.486ms returns FALSE
+T76F8 017:076.228 JLINK_IsHalted()
+T76F8 017:076.780 - 0.551ms returns FALSE
+T76F8 017:076.800 JLINK_IsHalted()
+T76F8 017:077.252 - 0.450ms returns FALSE
+T76F8 017:185.702 JLINK_IsHalted()
+T76F8 017:186.262 - 0.558ms returns FALSE
+T76F8 017:186.292 JLINK_IsHalted()
+T76F8 017:186.798 - 0.502ms returns FALSE
+T76F8 017:294.636 JLINK_IsHalted()
+T76F8 017:295.204 - 0.567ms returns FALSE
+T76F8 017:295.228 JLINK_IsHalted()
+T76F8 017:295.796 - 0.566ms returns FALSE
+T76F8 017:404.436 JLINK_IsHalted()
+T76F8 017:405.054 - 0.616ms returns FALSE
+T76F8 017:405.076 JLINK_IsHalted()
+T76F8 017:405.594 - 0.518ms returns FALSE
+T76F8 017:514.306 JLINK_IsHalted()
+T76F8 017:514.870 - 0.564ms returns FALSE
+T76F8 017:514.902 JLINK_IsHalted()
+T76F8 017:515.398 - 0.494ms returns FALSE
+T76F8 017:623.508 JLINK_IsHalted()
+T76F8 017:624.064 - 0.557ms returns FALSE
+T76F8 017:624.080 JLINK_IsHalted()
+T76F8 017:624.668 - 0.585ms returns FALSE
+T9D10 017:658.316 JLINK_IsHalted()
+T9D10 017:658.892 - 0.574ms returns FALSE
+T9D10 017:658.936 JLINK_IsHalted()
+T9D10 017:659.420 - 0.483ms returns FALSE
+T76F8 017:732.394 JLINK_IsHalted()
+T76F8 017:732.964 - 0.569ms returns FALSE
+T76F8 017:732.988 JLINK_IsHalted()
+T76F8 017:733.470 - 0.482ms returns FALSE
+T76F8 017:842.036 JLINK_IsHalted()
+T76F8 017:842.604 - 0.567ms returns FALSE
+T76F8 017:842.612 JLINK_IsHalted()
+T76F8 017:843.110 - 0.497ms returns FALSE
+T76F8 017:951.002 JLINK_IsHalted()
+T76F8 017:951.626 - 0.623ms returns FALSE
+T76F8 017:951.636 JLINK_IsHalted()
+T76F8 017:952.186 - 0.548ms returns FALSE
+T76F8 018:060.460 JLINK_IsHalted()
+T76F8 018:061.040 - 0.579ms returns FALSE
+T76F8 018:061.066 JLINK_IsHalted()
+T76F8 018:061.594 - 0.528ms returns FALSE
+T76F8 018:169.356 JLINK_IsHalted()
+T76F8 018:169.956 - 0.597ms returns FALSE
+T76F8 018:169.988 JLINK_IsHalted()
+T76F8 018:170.528 - 0.539ms returns FALSE
+T76F8 018:279.088 JLINK_IsHalted()
+T76F8 018:279.672 - 0.583ms returns FALSE
+T76F8 018:279.684 JLINK_IsHalted()
+T76F8 018:280.182 - 0.498ms returns FALSE
+T76F8 018:389.284 JLINK_IsHalted()
+T76F8 018:389.858 - 0.573ms returns FALSE
+T76F8 018:389.880 JLINK_IsHalted()
+T76F8 018:390.344 - 0.464ms returns FALSE
+T76F8 018:498.032 JLINK_IsHalted()
+T76F8 018:498.678 - 0.646ms returns FALSE
+T76F8 018:498.700 JLINK_IsHalted()
+T76F8 018:499.186 - 0.484ms returns FALSE
+T76F8 018:607.246 JLINK_IsHalted()
+T76F8 018:607.830 - 0.582ms returns FALSE
+T76F8 018:607.892 JLINK_IsHalted()
+T76F8 018:608.412 - 0.522ms returns FALSE
+T9D10 018:659.826 JLINK_IsHalted()
+T9D10 018:660.384 - 0.558ms returns FALSE
+T9D10 018:660.412 JLINK_IsHalted()
+T9D10 018:660.990 - 0.575ms returns FALSE
+T76F8 018:716.732 JLINK_IsHalted()
+T76F8 018:717.296 - 0.564ms returns FALSE
+T76F8 018:717.332 JLINK_IsHalted()
+T76F8 018:717.830 - 0.498ms returns FALSE
+T76F8 018:825.992 JLINK_IsHalted()
+T76F8 018:826.548 - 0.556ms returns FALSE
+T76F8 018:826.568 JLINK_IsHalted()
+T76F8 018:827.160 - 0.591ms returns FALSE
+T76F8 018:935.746 JLINK_IsHalted()
+T76F8 018:936.310 - 0.566ms returns FALSE
+T76F8 018:936.322 JLINK_IsHalted()
+T76F8 018:936.820 - 0.498ms returns FALSE
+T76F8 019:044.788 JLINK_IsHalted()
+T76F8 019:045.366 - 0.573ms returns FALSE
+T76F8 019:045.378 JLINK_IsHalted()
+T76F8 019:045.880 - 0.500ms returns FALSE
+T76F8 019:154.230 JLINK_IsHalted()
+T76F8 019:154.838 - 0.607ms returns FALSE
+T76F8 019:154.860 JLINK_IsHalted()
+T76F8 019:155.402 - 0.542ms returns FALSE
+T76F8 019:263.076 JLINK_IsHalted()
+T76F8 019:263.708 - 0.631ms returns FALSE
+T76F8 019:263.730 JLINK_IsHalted()
+T76F8 019:264.220 - 0.489ms returns FALSE
+T76F8 019:373.274 JLINK_IsHalted()
+T76F8 019:373.870 - 0.595ms returns FALSE
+T76F8 019:373.890 JLINK_IsHalted()
+T76F8 019:374.462 - 0.571ms returns FALSE
+T76F8 019:482.628 JLINK_IsHalted()
+T76F8 019:483.172 - 0.544ms returns FALSE
+T76F8 019:483.208 JLINK_IsHalted()
+T76F8 019:483.720 - 0.511ms returns FALSE
+T76F8 019:592.172 JLINK_IsHalted()
+T76F8 019:592.756 - 0.583ms returns FALSE
+T76F8 019:592.788 JLINK_IsHalted()
+T76F8 019:593.332 - 0.543ms returns FALSE
+T9D10 019:661.540 JLINK_IsHalted()
+T9D10 019:662.114 - 0.574ms returns FALSE
+T9D10 019:662.136 JLINK_IsHalted()
+T9D10 019:662.686 - 0.551ms returns FALSE
+T76F8 019:700.800 JLINK_IsHalted()
+T76F8 019:701.418 - 0.617ms returns FALSE
+T76F8 019:701.436 JLINK_IsHalted()
+T76F8 019:701.986 - 0.549ms returns FALSE
+T76F8 019:810.404 JLINK_IsHalted()
+T76F8 019:810.974 - 0.569ms returns FALSE
+T76F8 019:811.006 JLINK_IsHalted()
+T76F8 019:811.494 - 0.487ms returns FALSE
+T76F8 019:919.612 JLINK_IsHalted()
+T76F8 019:920.114 - 0.502ms returns FALSE
+T76F8 019:920.152 JLINK_IsHalted()
+T76F8 019:920.772 - 0.617ms returns FALSE
+T76F8 020:029.256 JLINK_IsHalted()
+T76F8 020:029.812 - 0.556ms returns FALSE
+T76F8 020:029.834 JLINK_IsHalted()
+T76F8 020:030.280 - 0.446ms returns FALSE
+T76F8 020:140.006 JLINK_IsHalted()
+T76F8 020:140.506 - 0.499ms returns FALSE
+T76F8 020:140.516 JLINK_IsHalted()
+T76F8 020:141.282 - 0.761ms returns FALSE
+T76F8 020:247.582 JLINK_IsHalted()
+T76F8 020:248.144 - 0.560ms returns FALSE
+T76F8 020:248.152 JLINK_IsHalted()
+T76F8 020:248.728 - 0.575ms returns FALSE
+T76F8 020:357.330 JLINK_IsHalted()
+T76F8 020:357.892 - 0.561ms returns FALSE
+T76F8 020:357.900 JLINK_IsHalted()
+T76F8 020:358.426 - 0.522ms returns FALSE
+T76F8 020:466.938 JLINK_IsHalted()
+T76F8 020:467.552 - 0.612ms returns FALSE
+T76F8 020:467.580 JLINK_IsHalted()
+T76F8 020:468.140 - 0.559ms returns FALSE
+T76F8 020:576.334 JLINK_IsHalted()
+T76F8 020:576.912 - 0.576ms returns FALSE
+T76F8 020:576.932 JLINK_IsHalted()
+T76F8 020:577.516 - 0.584ms returns FALSE
+T9D10 020:663.576 JLINK_IsHalted()
+T9D10 020:664.154 - 0.576ms returns FALSE
+T9D10 020:664.174 JLINK_IsHalted()
+T9D10 020:664.764 - 0.590ms returns FALSE
+T76F8 020:685.810 JLINK_IsHalted()
+T76F8 020:686.414 - 0.603ms returns FALSE
+T76F8 020:686.436 JLINK_IsHalted()
+T76F8 020:686.980 - 0.541ms returns FALSE
+T76F8 020:754.144 JLINK_IsHalted()
+T76F8 020:754.704 - 0.558ms returns FALSE
+T76F8 020:754.730 JLINK_IsHalted()
+T76F8 020:755.284 - 0.553ms returns FALSE
+T76F8 020:755.326 JLINK_IsHalted()
+T76F8 020:755.778 - 0.450ms returns FALSE
+T76F8 020:755.788 JLINK_IsHalted()
+T76F8 020:756.418 - 0.629ms returns FALSE
+T76F8 020:756.452 JLINK_Halt()
+T76F8 020:774.276 - 17.823ms returns 0x00
+T76F8 020:774.340 JLINK_IsHalted()
+T76F8 020:774.344 - 0.005ms returns TRUE
+T76F8 020:774.352 JLINK_ReadRegs_64(NumRegs = 1)
+T76F8 020:774.358     PC (33) = 0x100102BC        
+T76F8 020:774.362 - 0.011ms returns 0
+T76F8 020:774.386 JLINK_ReadRegs_64(NumRegs = 1)
+T76F8 020:774.390     PC (33) = 0x100102BC        
+T76F8 020:774.396 - 0.009ms returns 0
+T76F8 020:774.404 JLINK_ReadMem(0x100102BC, 0x4 Bytes, ...)
+T76F8 020:774.418   CPU_ReadMem(64 bytes @ 0x10010280)
+T76F8 020:778.490    -- Updating DA cache (64 bytes @ 0x10010280)
+T76F8 020:778.506    -- Read from DA cache (4 bytes @ 0x100102BC)
+T76F8 020:778.514   Data:  00 00 00 14
+T76F8 020:778.520 - 4.116ms returns 0
+T76F8 020:778.538 JLINK_IsHalted()
+T76F8 020:778.542 - 0.005ms returns TRUE
+T76F8 020:778.978 JLINK_ReadRegs_64(NumRegs = 1)
+T76F8 020:778.996     PC (33) = 0x100102BC        
+T76F8 020:779.002 - 0.024ms returns 0
+T76F8 020:779.018 JLINK_ReadMem(0x100102BC, 0x4 Bytes, ...)
+T76F8 020:779.024    -- Read from DA cache (4 bytes @ 0x100102BC)
+T76F8 020:779.030   Data:  00 00 00 14
+T76F8 020:779.036 - 0.020ms returns 0
+T76F8 020:779.060 JLINK_IsHalted()
+T76F8 020:779.064 - 0.004ms returns TRUE
+T76F8 020:779.116 JLINK_ReadRegs_64(NumRegs = 1)
+T76F8 020:779.128     PC (33) = 0x100102BC        
+T76F8 020:779.136 - 0.019ms returns 0
+T76F8 020:779.154 JLINK_ReadRegs_64(NumRegs = 1)
+T76F8 020:779.188     PC (33) = 0x100102BC        
+T76F8 020:779.192 - 0.038ms returns 0
+T76F8 020:779.208 JLINK_ReadMem(0x100102BC, 0x4 Bytes, ...)
+T76F8 020:779.214    -- Read from DA cache (4 bytes @ 0x100102BC)
+T76F8 020:779.222   Data:  00 00 00 14
+T76F8 020:779.228 - 0.020ms returns 0
+T76F8 020:779.234 JLINK_IsHalted()
+T76F8 020:779.236 - 0.004ms returns TRUE
+T76F8 020:779.244 JLINK_ReadRegs_64(NumRegs = 1)
+T76F8 020:779.250     PC (33) = 0x100102BC        
+T76F8 020:779.254 - 0.009ms returns 0
+T76F8 020:779.260 JLINK_ReadMem(0x100102BC, 0x4 Bytes, ...)
+T76F8 020:779.266    -- Read from DA cache (4 bytes @ 0x100102BC)
+T76F8 020:779.272   Data:  00 00 00 14
+T76F8 020:779.278 - 0.017ms returns 0
+T76F8 020:779.998 JLINK_ReadRegs_64(NumRegs = 49)
+T76F8 020:780.022   
+  R0 (0)        = 0x0A                 R1 (1)        = 0x00                 R2 (2)        = 0x0A                 R3 (3)        = 0x80005400        
+  R4 (4)        = 0x80005400           R5 (5)        = 0x1001FCDA           R6 (6)        = 0x0A                 R7 (7)        = 0x646E612065746972
+  R8 (8)        = 0x0A                 R9 (9)        = 0x08                 R10 (10)      = 0x0A                 R11 (11)      = 0x65706F2064616572
+  R12 (12)      = 0x73206E6F69746172   R13 (13)      = 0x0D2E737365636375   R14 (14)      = 0x00                 R15 (15)      = 0x617845206E6F2073
+  R16 (16)      = 0x6F725020656C706D   R17 (17)      = 0x646E61207463656A   R18 (18)      = 0x00                 R19 (19)      = 0x200             
+  R20 (20)      = 0x00                 R21 (21)      = 0x00                 R22 (22)      = 0x00                 R23 (23)      = 0x00              
+  R24 (24)      = 0x00                 R25 (25)      = 0x00                 R26 (26)      = 0x00                 R27 (27)      = 0x00              
+  R28 (28)      = 0x00                 R29 (29)      = 0x10029C40           R30 (30)      = 0x100102BC           R31 (31)      = 0x00              
+  SP (32)       = 0x10029C40           PC (33)       = 0x100102BC           ELR_EL1 (34)  = 0x00                 ELR_EL2 (35)  = 0x00              
+  ELR_EL3 (36)  = 0x100104B8           SP_EL0 (37)   = 0x00                 SP_EL1 (38)   = 0x00                 SP_EL2 (39)   = 0x00              
+  SP_EL3 (40)   = 0x10029C40           CPSR (41)     = 0x6000000D           SPSR_abt (42) = 0xFEDDDFEF           SPSR_EL1 (43) = 0xEEDF7FFF        
+  SPSR_EL2 (44) = 0xFEFFFFD7           SPSR_EL3 (45) = 0x8000000D           SPSR_fiq (46) = 0xFEDFEBDF           SPSR_irq (47) = 0xF6CFFAFF        
+  SPSR_und (48) = 0xE65FDBFF        
+T76F8 020:780.086 - 0.088ms returns 0
+T76F8 020:782.872 JLINK_ReadMem(0x100102BC, 0x4 Bytes, ...)
+T76F8 020:782.900    -- Read from DA cache (4 bytes @ 0x100102BC)
+T76F8 020:782.908   Data:  00 00 00 14
+T76F8 020:782.916 - 0.042ms returns 0
+T76F8 020:800.770 JLINK_ReadMem(0x100102BC, 0x4 Bytes, ...)
+T76F8 020:800.808    -- Read from DA cache (4 bytes @ 0x100102BC)
+T76F8 020:800.814   Data:  00 00 00 14
+T76F8 020:800.822 - 0.052ms returns 0
+T76F8 020:801.126 JLINK_ReadMem(0x10029C40, 0x40 Bytes, ...)
+T76F8 020:801.154   CPU_ReadMem(64 bytes @ 0x10029C40)
+T76F8 020:805.284   Data:  70 9C 02 10 00 00 00 00 48 07 01 10 00 00 00 00 ...
+T76F8 020:805.308 - 4.183ms returns 0
+T76F8 020:805.820 JLINK_ReadMem(0x10010748, 0x4 Bytes, ...)
+T76F8 020:805.854   CPU_ReadMem(64 bytes @ 0x10010740)
+T76F8 020:810.022    -- Updating DA cache (64 bytes @ 0x10010740)
+T76F8 020:810.054    -- Read from DA cache (4 bytes @ 0x10010748)
+T76F8 020:810.060   Data:  00 00 80 52
+T76F8 020:810.068 - 4.249ms returns 0
+T1D80 021:824.232 JLINK_Halt()
+T1D80 021:824.868 - 0.636ms returns 0x00
+T1D80 021:824.916 JLINK_ReadRegs_64(NumRegs = 1)
+T1D80 021:824.936     CPSR (41) = 0x6000000D        
+T1D80 021:824.948 - 0.032ms returns 0
+T1D80 021:834.430 JLINK_Close()
+T1D80 021:863.482 - 29.051ms
+T1D80 021:863.858   
+T1D80 021:863.892   Closed

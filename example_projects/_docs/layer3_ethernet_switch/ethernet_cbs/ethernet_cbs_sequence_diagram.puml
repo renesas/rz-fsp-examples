@@ -1,0 +1,123 @@
+@startuml ethernet_cbs_Sequence_Diagram
+
+skinparam sequenceArrowThickness 2
+skinparam backgroundColor #FAFAFA
+
+title Ethernet CBS (IEEE 802.1Qav Credit-Based Shaper) Example Project
+
+actor "Application\n(hal_entry)" as APP
+participant "CBS Example EP\n(cbs_example_run)" as EP
+participant "Layer3 Switch\n(r_layer3_switch)" as L3SW
+participant "GWCA TX\n(cbs_send_frames_burst)" as GWCA
+participant "Host PC\n(RTT Viewer + Wireshark)" as PC
+participant "Traffic Source\n(PC / Linux host script)" as GEN
+
+legend top left
+**loop**  : Repeated every cycle/interval
+**alt**   : Branch on condition
+**opt**   : Optional / conditional
+**note**  : Key design explanation
+endlegend
+
+== System Initialization (once per boot) ==
+
+APP -> EP: cbs_example_run()
+EP -> L3SW: cbs_open()\n-> R_LAYER3_SWITCH_Open(g_layer3_switch0)
+L3SW --> EP: FSP_SUCCESS
+EP -> L3SW: R_RMAC0/1->MRAFC = 0x03C703C7UL
+note over EP, L3SW #FFF9C4
+RMAC's receive filter defaults to non-promiscuous and
+is not touched by Open(). Without this write, externally
+received frames addressed to the synthetic test MACs
+(44:44:44:00:00:0A/0B) are dropped before they ever
+reach MAC-table classification (port-to-port modes only;
+CPU-injected traffic bypasses this filter).
+end note
+
+EP -> EP: wait for ETH0 + ETH1 link UP (5 s timeout)
+EP -> PC: console: "[CBS] ETH0 link: UP   ETH1 link: UP"
+
+== First Mode Selection (the only blocking prompt) ==
+
+EP -> PC: print menu ([1]..[6])
+PC -> EP: type a mode number, 1-6
+note right of PC #D4E6F1
+[1]-[3] port-to-port : disabled / Q0 only / Q1 only
+[4]-[6] CPU-generated: disabled / Q0 only / Q1 only
+end note
+
+== Mode Loop (repeats on every mode change -- no stop step) ==
+
+loop forever
+    EP -> L3SW: cbs_clear_mac_table()\n-> R_LAYER3_SWITCH_ConfigureTable() (reset)
+    EP -> EP: build the row table for the selected mode
+    note over EP #FFF9C4
+    Isolated modes ([2]/[3]/[5]/[6]) copy the use-case
+    table and zero the OTHER queue's MAC, so only one
+    queue is classified and shaped at a time.
+    end note
+    EP -> L3SW: cbs_configure_mac_table()\n-> ConfigureTable() + AddTableEntry() x1-2
+    note over EP, L3SW #D4E6F1
+    dest MAC -> IPV queue (internal_priority_update_value),
+    steered from the mode's source port:
+    Port1 (external) or Port2 (CPU inject).
+    end note
+    L3SW --> EP: FSP_SUCCESS
+    EP -> L3SW: cbs_configure_bandwidth()\n-> R_LAYER3_SWITCH_ConfigurePort(Port0, cbs_cfg)
+    note over EP, L3SW #D4E6F1
+    CBS enabled : Q0 = 10 %, Q1 = 30 % of the link speed
+    CBS disabled: all-zero config (shaping off)
+    Queues being switched off are committed explicitly
+    (the driver commits only the queues it enables).
+    Port0 is the CBS-shaped egress port in every mode.
+    end note
+    L3SW --> EP: FSP_SUCCESS
+    EP -> PC: console: "CBS: ENABLED/disabled", "Qn: N% bandwidth",\n"MAC table entries: N", "CBS active in hardware (queue mask)"
+
+    alt CPU-generated modes [4]-[6]
+        EP -> L3SW: cbs_tx_queue_create()\n-> R_LAYER3_SWITCH_CreateDescriptorQueue()
+        EP -> EP: cbs_tx_burst_prepare(dst MAC, queue)
+        note over EP, L3SW #FFF9C4
+        One fixed frame/descriptor is built once. The queue
+        index is written into the descriptor's own ipv field --
+        it is NOT inferred from the destination MAC.
+        end note
+        loop every cycle, until a different mode number is typed
+            EP -> GWCA: cbs_send_frames_burst()
+            GWCA -> L3SW: SetDescriptor() until the ring is full\n(CBS_TX_DESC_NUM = 4)
+            GWCA -> L3SW: one StartDescriptorQueue() for the whole batch
+            note right of GWCA #FFF9C4
+            Batched submission lets GWCA auto-chain through
+            the queued descriptors. 4 slots gives a smooth,
+            near-continuous stream to the credit shaper.
+            end note
+        end loop
+    else Port-to-port modes [1]-[3]
+        GEN -> L3SW: near-MTU frames into ETH1 (Port1)\n(--mode flood --queue 0 | 1)
+        note right of GEN #D4E6F1
+        Needs several hundred Mbps of offered load to
+        prove a cap -- use a source that delivers >400-500 Mbps.
+        end note
+        loop every 1 ms, until a different mode number is typed
+            EP -> EP: idle-wait
+        end loop
+    end alt
+
+    L3SW --> PC: shaped egress on ETH0 (Port0)\n-> Wireshark I/O Graph: Q0 ~100 Mbps, Q1 ~300 Mbps
+
+    opt roughly once a second
+        EP -> EP: re-poll ETH0/ETH1 link status
+        opt a link is down
+            EP -> PC: console: "[CBS] WARNING: ETH0 link: .. ETH1 link: .. -- frames cannot flow on a down link"
+        end opt
+    end opt
+
+    opt a different valid mode number typed (non-blocking check)
+        PC -> EP: new mode number
+        EP -> EP: adopt it, go back to the top of the loop
+    else the same number typed again
+        EP -> PC: console: "[CBS] Mode N is already active."
+    end opt
+end loop
+
+@enduml

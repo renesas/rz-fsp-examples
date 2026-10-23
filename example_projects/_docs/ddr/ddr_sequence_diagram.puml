@@ -1,0 +1,200 @@
+@startuml ddr_Sequence_Diagram
+
+skinparam sequenceArrowThickness 2
+skinparam backgroundColor #FAFAFA
+
+title DDR (LPDDR4 bring-up via the Address Expander) Example Project\n(Cortex-R52 build, 6 modes -- see end-of-diagram note for the Cortex-A55 build)
+
+actor "Application\n(hal_entry)" as APP
+participant "DDR Example EP\n(ddr_example_run)" as EP
+participant "DDR EP module\n(ddr_ep.c)" as MOD
+participant "BSP / CP15\n(bsp_ddr, R_ADXC0, R_BSP_Cache*, PMU)" as BSP
+participant "Address Expander +\nLPDDR4 + CPU L1 D-cache" as HW
+participant "Console\n(SEGGER RTT / Tera Term)" as CON
+
+legend top left
+**loop**  : Repeated per menu selection
+**alt**   : Mode-specific branch
+**group** : One step of a merged mode
+**opt**   : Optional / conditional
+**note**  : Key design explanation
+endlegend
+
+== System Initialization (before main) ==
+
+BSP -> HW: bsp_ddr_init()  (R_BSP_WarmStart, BSP_WARM_START_POST_C)
+note over BSP #FFF9C4
+DDR is a BSP feature, not a driver -- there is no
+R_DDR_Open(). bsp_ddr_init() trains the LPDDR4 PHY
+and configures the controller. It is gated by the
+Configurator "onDDR" setting (BSP_CFG_DDR_INIT_ENABLE)
+and needs PLL2 released (bsp_ddr.h #errors otherwise).
+end note
+BSP -> HW: bsp_address_expander_init()
+note over BSP #FFF9C4
+Programs the power-on R_ADXC0->ADXCTL0 from the
+Configurator values: mirror0 = 0xC000_0000 (cached,
+MPU region 20), mirror1 = 0xE000_0000 (non-cached,
+MPU region 21). DDRMIR field = phys offset / 256 MB.
+end note
+
+== Application Start ==
+
+APP -> EP: ddr_example_run()
+EP -> CON: BANNER_INFO + EP_INFO + ddr_example_print_menu()
+EP -> CON: "Enter option: "
+CON -> EP: first menu digit (blocking, 1..6)
+
+loop Repeat forever -- type a different number any time to switch, same number re-runs
+
+    EP -> EP: ddr_run_one(choice)  ->  ddr_do_*()
+
+    alt choice 1 -- Bring-up & config info
+        EP -> MOD: ddr_ep_info_get(&info)
+        MOD -> BSP: read BSP_CFG_DDR_INIT_ENABLE / BSP_CFG_PLL2 / DDRCLK sel
+        MOD -> BSP: read live R_ADXC0->ADXCTL0, decode DDRMIR0/DDRMIR1 -> phys
+        MOD --> EP: ddr_ep_info_t
+        EP -> MOD: ddr_ep_otfde_report(&info)
+        MOD -> BSP: read BSP_FEATURE_BSP_HAS_OTFDE_PERIPHERAL, BSP_CFG_OTFDE0/1_SUPPORT_ENABLE, BSP_CFG_OTFDE_START/END_ADDRESS
+        MOD --> EP: ddr_otfde_info_t  (report only -- no decryption)
+
+    else choice 2 -- Memory integrity
+        group Full-window walk (cached mirror0, then non-cached mirror1)
+            loop region in {TOP, MID, END} of the selected 512 MB window
+                EP -> MOD: ddr_ep_region_sweep(&region, &res)
+                loop pattern in {00, FF, 55, AA, address-as-data}
+                    MOD -> HW: write block, __DSB()
+                    opt region is cached (mirror0)
+                        MOD -> BSP: R_BSP_CacheCleanInvalidateRange(block)
+                        note over MOD #D4E6F1
+                        A 4 KiB block fits entirely in L1D -- without this
+                        the "verify" read never reaches the DRAM cells.
+                        end note
+                    end opt
+                    MOD -> HW: read back + compare
+                end loop
+                MOD --> EP: ddr_result_t (bytes tested, error count, first mismatch)
+            end loop
+        end
+        group Data-pattern suite (both window tops)
+            loop pattern in the 8 pattern classes (const x4 / addr / walk-1 / walk-0 / LFSR)
+                EP -> MOD: ddr_ep_pattern_test(&region, &pattern, &res)
+                MOD -> HW: write + (flush if cached) + verify
+                MOD --> EP: ddr_result_t
+            end loop
+        end
+        group Address-line / aliasing test (both window midpoints)
+            EP -> MOD: ddr_ep_addrline_test(&region, &res)
+            MOD -> HW: unique marker at offset 0 and every power-of-two offset, then re-read all
+            MOD --> EP: ddr_result_t
+        end
+
+    else choice 3 -- Address Expander runtime remap  **(Cortex-R52 only)**
+        loop step in {alias, swap, restore}
+            EP -> MOD: ddr_ep_adxc_set(m0_phys, m1_phys, &state)
+            MOD -> BSP: R_BSP_RegisterProtectDisable(BSP_REG_PROTECT_SYSTEM)
+            MOD -> HW: R_ADXC0->ADXCTL0 = rebuilt word ; __DSB() ; __ISB()
+            MOD -> BSP: R_BSP_RegisterProtectEnable(BSP_REG_PROTECT_SYSTEM)
+            MOD -> BSP: R_BSP_CacheCleanInvalidateAll()
+            MOD -> BSP: ddr_ep_adxc_get() -- read ADXCTL0 back, confirm DDRMIR fields
+            MOD --> EP: ddr_adxc_state_t (matches_request)
+        end loop
+        opt alias step
+            EP -> MOD: ddr_ep_alias_verify(&res)
+            MOD -> HW: write signature via 0xC0.. , flush, read via 0xE0.. -> SAME CELLS
+        end opt
+        EP -> MOD: ddr_ep_adxc_restore(&state)  -- always restore power-on ADXCTL0
+
+    else choice 4 -- Cache / DMA coherency (run as a hazard/fix pair)  **(Cortex-R52 only)**
+        loop pass in {no flush, flush first}
+            EP -> MOD: ddr_ep_adxc_set(low_half, low_half, &state)  -- alias both windows onto the same physical DDR
+            EP -> MOD: ddr_ep_coherency_test(apply_fix, &res)
+            MOD -> HW: prime DRAM via the non-cached window
+            MOD -> HW: cached write of a new value (mirror0), __DSB()
+            opt flush-first pass
+                MOD -> BSP: R_BSP_CacheCleanRange(block)  -- push dirty lines to DRAM
+            end opt
+            MOD -> HW: read the same cells via the non-cached window, count mismatches
+            MOD --> EP: ddr_coherency_result_t
+            EP -> MOD: ddr_ep_adxc_restore(&state)
+        end loop
+        note over MOD #FFF9C4
+        On this CR52 the no-flush pass does not reproduce the hazard for
+        CPU-vs-CPU access (the core hazard-checks non-cacheable reads
+        against L1D) -- recorded as a finding. A real DMA master is a
+        separate observer; the flush-first pass stays the rule.
+        end note
+        note over MOD #FFF9C4
+        Cortex-A55 has no choice 3/4: it is not one of the bus masters the
+        Address Expander serves, so this two-window aliasing this demo
+        depends on does not exist on that core (see end-of-diagram note).
+        end note
+
+    else choice 5 -- DDR as system memory
+        group memcpy throughput
+            loop direction in the 4 memcpy directions (cached/non-cached DDR, DDR<->SYSTEM_RAM)
+                EP -> MOD: ddr_ep_bench(direction, &res)
+                MOD -> BSP: ddr_ep_cyc_reset() -- CPU PMU (PMCR / PMCNTENSET / PMCCNTR)
+                loop 16 iterations
+                    MOD -> HW: memcpy(DDR_EP_BENCH_BYTES)
+                end loop
+                MOD -> BSP: ddr_ep_cyc_read() -> elapsed cycles -> us via SystemCoreClock
+                MOD --> EP: ddr_bench_result_t (MiB/s, us, data_ok)
+            end loop
+            note over MOD #FFF9C4
+            The ARM generic timer's CNTFRQ reads 0 on this core, so the
+            PMU cycle counter is used. This is a scalar-memcpy cached-vs-
+            non-cached ratio check, not a controller bandwidth figure.
+            end note
+        end
+        group DDR-resident buffer
+            EP -> MOD: ddr_ep_resident_test(&res)
+            MOD -> HW: fill 256 KiB at 0xC040_0000 (Knuth hash), __DSB()
+            MOD -> BSP: R_BSP_CacheCleanInvalidateRange(buffer)
+            MOD -> HW: read back + running XOR checksum + verify
+            MOD --> EP: ddr_resident_result_t (address, checksum, data_ok)
+        end
+
+    else choice 6 -- Run all
+        loop m = 1 .. 5
+            EP -> CON: "----" separator
+            EP -> EP: ddr_run_one(m)  (as above, prints that mode's result block(s) + own MODE verdict)
+            EP -> BSP: R_BSP_SoftwareDelay(40 ms)  -- let the host console drain the up-buffer
+        end loop
+        EP -> CON: "[DDR] RESULT: <n>/5 modes PASS"
+        EP -> EP: ddr_example_verdict(6, "Run all (1..5)", n == 5)
+        note over EP #FFF9C4
+        On the Cortex-A55 build this is choice 4, sweeping m = 1..3
+        (see end-of-diagram note).
+        end note
+    end alt
+
+    EP -> EP: ddr_example_handle_error(err)
+    opt err != FSP_SUCCESS
+        EP -> CON: "[DDR] ERROR: <msg> (0x..)"
+        EP -> EP: flag mode failed
+        note over EP #FFF9C4
+        No trap / no hang -- the sweep continues and the flag folds
+        into that mode's own PASS/FAIL verdict below.
+        end note
+    end opt
+
+    EP -> EP: ddr_example_verdict(mode, name, pass)  ->  "[DDR] MODE <n> PASS/FAIL -- <name>"
+    EP -> CON: result block(s) (APP_PRINT) + verdict line + reprint menu
+    CON -> EP: next menu digit (blocking)
+
+end loop
+
+note over EP #D4E6F1
+**Cortex-A55 build (4 modes):** this diagram shows the Cortex-R52 build. On
+Cortex-A55, ddr_run_one() omits the choice-3/4 handlers above -- that core is
+not one of the bus masters the Address Expander serves, so the two-window
+remap/coherency demos do not apply (see DDR_HLD.md Known Issues and
+DDR_CA55_port_findings.md). Its menu is choice 1 (Bring-up), 2 (Memory
+integrity), 3 (DDR as system memory -- same as choice 5 above), 4 (Run all,
+sweeping 1..3 -- same as choice 6 above). Console is UART / Tera Term instead
+of SEGGER RTT; the PMU registers read via mrs/msr (PMCR_EL0 / PMCNTENSET_EL0 /
+PMCCNTR_EL0) instead of CP15.
+end note
+
+@enduml

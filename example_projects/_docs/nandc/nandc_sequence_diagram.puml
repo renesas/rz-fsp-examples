@@ -1,0 +1,210 @@
+@startuml nandc_Sequence_Diagram
+
+skinparam sequenceArrowThickness 2
+skinparam backgroundColor #FAFAFA
+
+title NANDC Example Project
+
+actor "Application\n(hal_entry.c)" as APP
+participant "NANDC Example\n(nandc_example.c)" as EX
+participant "NANDC EP Layer\n(nandc_ep.c)" as EP
+participant "GPT Timer\n(r_gpt)" as GPT
+participant "NANDC Driver\n(r_nandc)" as DRV
+participant "NANDC HW" as HW
+
+legend top left
+**loop** : Repeated menu handling or polling
+**alt**  : Menu-specific or result-specific branch
+**opt**  : Conditional verification or cleanup
+**note** : Key implementation behavior
+endlegend
+
+== BSP Startup and Initialization ==
+
+APP -> APP: R_BSP_WarmStart(POST_C)\n-> R_IOPORT_Open()
+APP -> EX: hal_entry()\n-> nandc_example_entry()
+EX -> EX: R_FSP_VersionGet()\nInitialize normal/raw patterns\nInitialize OOB source to 0xFF
+EX -> EX: Print EP banner and project information
+
+EX -> EP: nandc_open()
+EP -> DRV: R_NANDC_Open(&g_nand_flash_ctrl,\n&g_nand_flash_cfg)
+DRV -> HW: Configure NANDC and initialize device interface
+HW --> DRV: Initialization result
+DRV --> EP: fsp_err_t
+EP --> EX: fsp_err_t
+
+alt NANDC open failed
+    EX -> EX: Print error and APP_ERR_TRAP(err)
+else NANDC open succeeded
+    EX -> EP: nandc_timer_init()
+    EP -> GPT: R_GPT_Open(&g_timer_ctrl, &g_timer_cfg)
+    GPT --> EX: fsp_err_t
+end alt
+
+note over EX, EP #D4E6F1
+NAND transfer buffers use .noncache_buffer
+because NANDC accesses them through DMA.
+end note
+
+== Main Menu ==
+
+EX -> EX: nandc_show_main_menu()\n1=Basic / 2=Remap / 3=Write Protection
+
+loop Forever
+    EX -> EX: Poll and read RTT input
+
+    alt Option 1: Basic NANDC commands
+        EX -> EX: nandc_basic_command_menu()
+        loop Until Return selected
+            EX -> EX: Poll Basic submenu input
+
+            alt Write five normal pages
+                EX -> EP: nandc_erase_block(block, &erase_time)
+                EP -> GPT: Reset and start measurement
+                EP -> DRV: R_NANDC_Erase(block, 1, CE0)
+                DRV -> HW: Erase one block
+                HW --> EP: callback(ERASE_COMPLETE)
+                EP -> GPT: Stop and calculate elapsed time
+                EP --> EX: erase result
+
+                opt Erase succeeded
+                    EX -> EP: nandc_write_pages(main, OOB, row, 5, &time)
+                    EP -> GPT: Reset and start measurement
+                    EP -> DRV: R_NANDC_Write(...)
+                    DRV -> HW: Program five logical pages\nwith ECC/CRC/OOB processing
+                    HW --> EP: callback(WRITE_COMPLETE)
+                    EP -> GPT: Stop and calculate elapsed time
+                    EP --> EX: write result and time
+                    EX -> EX: Set normal-data-programmed flag
+                end opt
+                EX -> EX: Print result and execution time
+
+            else Read and verify five normal pages
+                alt Data not programmed
+                    EX -> EX: Print "Run Write 5 pages before Read and Verify"
+                else Data programmed
+                    EX -> EP: nandc_read_pages(row, 5, destination, OOB, &time)
+                    EP -> GPT: Reset and start measurement
+                    EP -> DRV: R_NANDC_Read(...)
+                    DRV -> HW: Read five logical pages\nwith ECC/CRC/OOB processing
+                    HW --> EP: callback(READ_COMPLETE)
+                    EP -> GPT: Stop and calculate elapsed time
+                    EP --> EX: read result and time
+                    EX -> EP: nandc_verify_buffer(source, destination, size)
+                    EP --> EX: verification result
+                    EX -> EX: Print result and execution time
+                end alt
+
+            else Erase one block
+                EX -> EP: nandc_erase_block(block, &time)
+                EP -> GPT: Start measurement
+                EP -> DRV: R_NANDC_Erase(block, 1, CE0)
+                DRV -> HW: Erase block
+                HW --> EP: callback(ERASE_COMPLETE)
+                EP -> GPT: Finish measurement
+                EP --> EX: result and time
+                EX -> EX: Clear normal/raw programmed flags
+
+            else Raw write five physical pages
+                EX -> EP: nandc_erase_block(block, &erase_time)
+                EP -> GPT: Start measurement
+                EP -> DRV: R_NANDC_Erase(block, 1, CE0)
+                DRV -> HW: Erase one block
+                HW --> EP: callback(ERASE_COMPLETE)
+                EP -> GPT: Stop and calculate elapsed time
+                EP --> EX: erase result
+
+                opt Erase succeeded
+                    EX -> EP: nandc_raw_write_pages(source, row, 5, &time)
+                    EP -> DRV: Check controller ready
+                    EP -> DRV: R_NANDC_RawWrite(...)
+                    DRV -> HW: Program five physical pages
+                    HW --> EP: callback(WRITE_COMPLETE)
+                    EP --> EX: result and execution time
+                    EX -> EX: Set raw-data-programmed flag on success
+                end opt
+                EX -> EX: Print result and execution time
+
+            else Raw read five physical pages
+                alt No programmed data
+                    EX -> EX: Print "Run Write 5 pages or Raw Write 5 pages before Raw Read"
+                else Data available
+                    EX -> EP: nandc_raw_read_pages(row, 5, destination, &time)
+                    EP -> DRV: Check controller ready
+                    EP -> DRV: R_NANDC_RawRead(...)
+                    DRV -> HW: Read five physical pages
+                    HW --> EP: callback(READ_COMPLETE)
+                    EP --> EX: result and execution time
+                    opt Raw data was programmed
+                        EX -> EP: Verify raw source against destination
+                        EP --> EX: verification result
+                    end opt
+                    EX -> EX: Print result and raw-page summary
+                end alt
+
+            else Return to main menu
+                EX -> EX: Leave Basic submenu
+            end alt
+        end loop
+
+    else Option 2: Logical-to-physical remap
+        EX -> EX: nandc_run_remap_demo()\nPrepare Pattern A and Pattern B
+        EX -> EP: Wait ready and clear remap table
+        EP -> DRV: R_NANDC_RemapClear()
+        EX -> EP: Erase Page A and Page B blocks
+        EP -> DRV: R_NANDC_Erase() x2
+        EX -> EP: Write Pattern A to Page A
+        EP -> DRV: R_NANDC_Write(Page A, Pattern A)
+        EX -> EP: nandc_remap_set(Page A, Page B)
+        EP -> DRV: R_NANDC_RemapSet(A, B)
+        DRV -> HW: Enable address translation A -> B
+        EX -> EP: Write Pattern B through logical Page A
+        EP -> DRV: R_NANDC_Write(logical A, Pattern B)
+        EX -> EP: Read logical A and verify Pattern B
+        EP -> DRV: R_NANDC_Read(logical A)
+        EX -> EP: nandc_verify_buffer(Pattern B, read buffer)
+        EX -> EP: Clear remap, read A and B, verify both patterns
+        EP -> DRV: R_NANDC_RemapClear()\nR_NANDC_Read(A)\nR_NANDC_Read(B)
+        EP --> EX: A contains Pattern A\nB contains Pattern B
+        opt Error while remap is enabled
+            EX -> EP: Wait ready and clear remap table
+            EP -> DRV: R_NANDC_RemapClear()
+        end opt
+        EX -> EX: Print remap demo result
+
+    else Option 3: Write protection and recovery
+        EX -> EX: nandc_run_write_protect_demo()\nPrepare source pattern
+        EX -> EP: Erase target block and wait ready
+        EP -> DRV: R_NANDC_Erase()
+        EX -> EP: nandc_write_protect_enable(start, size, index)
+        EP -> DRV: R_NANDC_WriteProtectEnable()
+        DRV -> HW: Enable protected address range
+        EX -> EP: Attempt write to protected page
+        EP -> DRV: R_NANDC_Write(protected row)
+        HW --> EP: callback(WRITE_ERROR, prot_err=1)
+        EP --> EX: Protected-write verification passed
+        EX -> EP: Disable protection
+        EP -> DRV: R_NANDC_WriteProtectDisable(index)
+        EX -> EP: Write same page, read back, and verify data
+        EP -> DRV: R_NANDC_Write()\nR_NANDC_Read()
+        EP --> EX: Recovery verification result
+        opt Error while protection is enabled
+            EX -> EP: Wait ready and disable protection
+            EP -> DRV: R_NANDC_WriteProtectDisable(index)
+        end opt
+        EX -> EX: Print write-protection demo result
+
+    else Invalid input
+        EX -> EX: Print invalid-selection message
+    end alt
+
+    EX -> EX: Show Main menu again
+end loop
+
+note over EP, HW #FFF9C4
+Each measured operation resets callback state,
+starts GPT, issues the NANDC API, waits for the
+expected callback, then converts timer counts to ns.
+end note
+
+@enduml

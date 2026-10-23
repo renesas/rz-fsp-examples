@@ -1,0 +1,175 @@
+@startuml ethernet_frer_Sequence_Diagram
+
+skinparam sequenceArrowThickness 2
+skinparam backgroundColor #FAFAFA
+
+title Ethernet FRER (IEEE 802.1CB Frame Replication and Elimination) Example Project
+
+actor "Sender App\n(hal_entry)" as SAPP
+participant "Sender FRER EP\n(frer_example_run)" as SEP
+participant "Sender L3 Switch\n(r_layer3_switch)" as SSW
+participant "Receiver L3 Switch\n(r_layer3_switch)" as RSW
+participant "Receiver FRER EP\n(frer_example_run)" as REP
+actor "Receiver App\n(hal_entry)" as RAPP
+participant "Host PC\n(2x TeraTerm session)" as PC
+
+legend top left
+**loop**  : Repeated every cycle/interval
+**alt**   : Branch on condition
+**opt**   : Optional / conditional
+**note**  : Key design explanation
+endlegend
+
+== Sender: System Initialization ==
+
+SAPP -> SEP: frer_example_run()
+SEP -> SSW: frer_open()\n-> R_LAYER3_SWITCH_Open(g_layer3_switch0)
+SSW --> SEP: FSP_SUCCESS
+note over SSW #FFF9C4
+This Sender never needs the RMAC promiscuous-
+mode fix the Receiver's own frer_open() applies:
+that fix only matters for a board classifying
+frames arriving from an external port by a
+non-local destination MAC.
+end note
+
+SEP -> SEP: wait for ETH0 + ETH1 link UP\n(30 s timeout -- generous for manual\ntwo-board debug-attach pacing)
+SEP -> PC: console: "[FRER] ETH0 link: UP  ETH1 link: UP (after N ms)"
+
+SEP -> SSW: frer_configure_stream()\n-> ConfigureTable() + AddTableEntry()
+note over SEP, SSW #D4E6F1
+One L3 entry, destination_ports = Port0|Port1.
+Each port gets its own update config
+(p_mac_destination_address, r_tag_update_mode set
+to ALWAYS_ADD, sequence_number_generation_enable
+set to true) so the two member streams end up
+on distinct destination MACs with independent
+hardware sequence counters.
+end note
+SSW --> SEP: FSP_SUCCESS
+
+SEP -> SSW: frer_tx_queue_create()\n-> R_LAYER3_SWITCH_CreateDescriptorQueue()
+note over SEP, SSW #FFF9C4
+Deliberately NOT pre-primed: s_tx_desc[] already
+starts zero-initialised. Pre-populating every
+slot up front was tried and found to break the
+very first real send, since it advances the
+driver's internal tail index before any real
+frame exists.
+end note
+SSW --> SEP: FSP_SUCCESS
+SEP -> PC: console: "[FRER] L3 entries: 1  TX queue index: N"
+
+== Receiver: System Initialization (independent boot, other board) ==
+
+RAPP -> REP: frer_example_run()
+REP -> RSW: frer_open()\n-> R_LAYER3_SWITCH_Open(g_layer3_switch0)
+RSW --> REP: FSP_SUCCESS
+REP -> RSW: R_RMAC0/1->MRAFC = 0x03C703C7UL
+note over RSW #FFF9C4
+Required here (not on the Sender): frames
+addressed to the replicated stream's MACs
+(...0A/...0B) are not this board's own port
+MAC, so without this promiscuous-mode fix
+RMAC's receive filter drops them before they
+ever reach L3-table classification.
+end note
+
+REP -> RSW: frer_rx_queue_create(Port0)\nfrer_rx_queue_create(Port1)
+note over REP, RSW #D4E6F1
+One independent RX descriptor queue per
+ingress port. Arms + starts exactly the
+FIRST slot only -- see the note on
+frer_poll_receive() below for why.
+end note
+RSW --> REP: FSP_SUCCESS
+
+REP -> REP: wait for ETH0 + ETH1 link UP\n(30 s timeout, same reasoning as Sender)
+REP -> PC: console: "[FRER] ETH0 link: UP  ETH1 link: UP (after N ms)"
+
+REP -> RSW: frer_configure_recovery()\n-> ConfigureTable() + AddTableEntry() x2
+note over REP, RSW #D4E6F1
+Two L3 entries (one per ingress port), both
+pointing at ONE shared sequence-recovery
+context via p_frer_entry_cfg.p_sequence_recovery
+-- this is what makes recovery compound
+(cross-path) instead of two independent
+per-path ones.
+end note
+RSW --> REP: FSP_SUCCESS
+REP -> PC: console: "[FRER] L3 entries: 2  RX queues: Port0=N  Port1=M"
+REP -> PC: console: "[FRER] Waiting for the companion Sender's replicated frame..."
+
+== Run Loop: Sender (every FRER_SEND_PERIOD_MS = 100 ms) ==
+
+loop forever, no stop condition
+    SEP -> SSW: frer_send_one()\n-> SetDescriptor(FSINGLE) + StartDescriptorQueue()
+    note right of SEP #D4E6F1
+    Relies entirely on the matched L3 entry's
+    own destination_ports for replication --
+    never touches desc.info1_tx.fmt/dv/ipv
+    directly.
+    end note
+    SSW --> SSW: Hardware replicates the one frame onto\nboth Port0 and Port1, inserting each\nmember stream's own R-TAG + sequence number
+    SSW -> RSW: Member stream A (Port0->Port0, R-TAG seq=N)
+    SSW -> RSW: Member stream B (Port1->Port1, R-TAG seq=N)
+
+    opt every FRER_RATE_REPORT_EVERY (50) sends, ~5 s
+        SEP -> PC: console: "[FRER] Sent N frames (~10 frames/s injection rate)"
+        SEP -> PC: console: "[FRER] tx diag: submitted=.. skipped_busy=.. skipped_overflow=.."
+        SEP -> SEP: re-poll ETH0/ETH1 link status
+        opt a link is down
+            SEP -> PC: console: "[FRER] WARNING: ETH0 link: .. ETH1 link: .. -- frames cannot flow on a down link"
+        end opt
+    end opt
+end loop
+
+== Run Loop: Receiver (every FRER_POLL_PERIOD_MS = 10 ms) ==
+
+loop forever
+    REP -> REP: frer_example_check_console()\n(non-blocking: any line toggles STOP<->RESTART)
+    opt a line was typed while STOPPED
+        REP -> RSW: frer_restart()\n-> Close() + Open() + redo RX queues + recovery entries
+        note over REP, RSW #FFF9C4
+        Only way to give an RX queue a fresh
+        tail=0 without a board reset -- SetDescriptor()'s
+        internal tail index is a confirmed WHOLE-LIFETIME
+        counter for RX (never reset by Start(), unlike TX),
+        so FRER_RX_DESC_NUM-1 = 99 frames/port is the
+        total this queue can EVER capture between restarts.
+        end note
+        RSW --> REP: FSP_SUCCESS
+        REP -> PC: console: "[FRER] RUNNING again, all counters reset to zero"
+    end opt
+
+    RSW --> RSW: Individual recovery (per-port integrity check,\nentries #1/#2) then shared sequence recovery\n(entry #0): first arrival of a sequence number\npasses, every later duplicate of it is discarded\nin hardware before reaching a GWCA RX queue
+    REP -> RSW: frer_poll_receive(Port0)\n-> GetDescriptor()
+    alt a frame is pending
+        RSW --> REP: frame (R-TAG sequence number, length)
+        REP -> PC: console: "[FRER] port0 sequence number:XXXX  length:N"
+    else nothing pending yet
+        RSW --> REP: false
+    end alt
+    REP -> RSW: frer_poll_receive(Port1)\n-> GetDescriptor()
+    alt a frame is pending
+        RSW --> REP: frame (R-TAG sequence number, length)
+        REP -> PC: console: "[FRER] port1 sequence number:XXXX  length:N"
+    else nothing pending yet
+        RSW --> REP: false
+    end alt
+
+    opt every 1000 ms
+        REP -> RSW: frer_get_l3_classification()\n-> R_MFWD->FWLTHFDCN0/1 (ingress ground truth)
+        REP -> RSW: frer_get_hw_frer_counters()\n-> R_MFWD->FWFRPPCNi/FWFRDPCNi (recovery ground truth)
+        REP -> PC: console: Periodic pipeline summary (every ~1 s)\n(ingress -> individual recovery -> sequence\nrecovery -> delivered to CPU) + VERDICT line
+        REP -> REP: re-poll ETH0/ETH1 link status
+        opt a link is down
+            REP -> PC: console: "[FRER] WARNING: ETH0 link: .. ETH1 link: .. -- frames cannot flow on a down link"
+        end opt
+        opt a port just reached its 99-frame lifetime cap
+            REP -> PC: console: "[FRER] NOTE: portN has reached its 99-frame lifetime capacity..."
+        end opt
+    end opt
+end loop
+
+@enduml
