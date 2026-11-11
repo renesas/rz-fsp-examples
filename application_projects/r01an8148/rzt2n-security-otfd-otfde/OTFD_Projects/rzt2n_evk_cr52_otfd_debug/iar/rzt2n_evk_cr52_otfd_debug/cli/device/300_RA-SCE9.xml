@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+    File Name    :  xx_RA-SCE9.xml
+    Version      :  1.00
+    Device(s)    :  RA Family
+    Description  :  Device configuration file for Security key Management Tool.  
+-->
+<mcuTable>
+    <mcu name="RA" engine="SCE9 PM" ascii="RA-SCE9" cli="true" gui="true" keytypeValue="true" encMode="CBC-MAC" displayItem="RA Family, SCE9 Security Functions and Protected Mode" initKey="KEY_AES">
+        <key ascii="KEY_DLM" init="DLM-SSD">
+            <type>DLM-SSD</type>
+            <type>DLM-NSECSD</type>
+            <type>DLM-RMA-REQ</type>
+        </key>
+        <key ascii="KEY_KUK">
+            <type>key-update-key</type>
+        </key>
+        <key ascii="KEY_AES" init="AES-128">
+            <type>AES-128</type>
+            <type>AES-192</type>
+            <type>AES-256</type>
+            <type>AES-128XTS</type>
+            <type>AES-256XTS</type>
+        </key>
+        <key ascii="KEY_RSA" init="RSA-2048-public">
+            <type>RSA-1024-public</type>
+            <type>RSA-1024-private</type>
+            <type>RSA-2048-public</type>
+            <type>RSA-2048-private</type>
+            <type>RSA-3072-public</type>
+            <type>RSA-3072-private</type>
+            <type>RSA-4096-public</type>
+            <type>RSA-4096-private</type>
+            <type>RSA-2048-public-TLS</type>
+        </key>
+        <key ascii="KEY_ECC" init="secp256r1-public">
+            <type>secp192r1-public</type>
+            <type>secp192r1-private</type>
+            <type>secp224r1-public</type>
+            <type>secp224r1-private</type>
+            <type>secp256r1-public</type>
+            <type>secp256r1-private</type>
+            <type>secp384r1-public</type>
+            <type>secp384r1-private</type>
+            <type>brainpoolP256r1-public</type>
+            <type>brainpoolP256r1-private</type>
+            <type>brainpoolP384r1-public</type>
+            <type>brainpoolP384r1-private</type>
+            <type>brainpoolP512r1-public</type>
+            <type>brainpoolP512r1-private</type>
+            <type>secp256k1-public</type>
+            <type>secp256k1-private</type>
+        </key>
+        <key ascii="KEY_SHA_HMAC" init="HMAC-SHA256">
+            <type>HMAC-SHA224</type>
+            <type>HMAC-SHA256</type>
+        </key>
+        <ufpk>
+            <filetype>rfp</filetype>
+        </ufpk>
+        <kuk>
+            <filetype>csource</filetype>
+            <filetype>bin</filetype>
+            <filetype>mot</filetype>
+        </kuk>
+    </mcu>
+</mcuTable>

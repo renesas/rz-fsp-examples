@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+    File Name    :  xx_RX-TSIPLite.xml
+    Version      :  1.00
+    Device(s)    :  RX Family
+    Description  :  Device configuration file for Security key Management Tool.  
+-->
+<mcuTable>
+    <mcu name="RX" engine="TSIP-Lite" ascii="RX-TSIPLite" cli="true" gui="true" keytypeValue="false" encMode="CBC-MAC" displayItem="RX Family, TSIP Lite" initKey="KEY_AES">
+        <support>
+            <function>TSIP UPDATE</function>
+        </support>
+        <key ascii="KEY_KUK">
+            <type>key-update-key</type>
+        </key>
+        <key ascii="KEY_AES" init="AES-128">
+            <type>AES-128</type>
+            <type>AES-256</type>
+        </key>
+        <ufpk>
+            <filetype>csource</filetype>
+            <filetype>bin</filetype>
+            <filetype>mot</filetype>
+        </ufpk>
+        <kuk>
+            <filetype>csource</filetype>
+            <filetype>bin</filetype>
+            <filetype>mot</filetype>
+        </kuk>
+    </mcu>
+</mcuTable>

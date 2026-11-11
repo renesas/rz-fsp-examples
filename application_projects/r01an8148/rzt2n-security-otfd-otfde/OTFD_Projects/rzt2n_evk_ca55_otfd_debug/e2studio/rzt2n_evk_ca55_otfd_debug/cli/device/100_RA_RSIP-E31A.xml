@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+    File Name    :  xx_RA-RSIP-E31A.xml
+    Version      :  1.00
+    Device(s)    :  RA Family
+    Description  :  Device configuration file for Security key Management Tool.  
+-->
+<mcuTable>
+    <mcu name="RA" engine="RSIP-E31A PM" ascii="RA-RSIP-E31A" cli="true" gui="true" keytypeValue="true" encMode="CBC-MAC" displayItem="RA Family, RSIP-E31A Security Functions and Protected Mode" initKey="KEY_AES">
+        <support>
+            <function>SFP</function>
+        </support>
+        <key ascii="KEY_DLM" init="DLM-SSD">
+            <type>DLM-SSD</type>
+            <type>DLM-NSECSD</type>
+            <type>DLM-RMA-REQ</type>
+        </key>
+        <key ascii="KEY_KUK">
+            <type>key-update-key</type>
+        </key>
+        <key ascii="KEY_AES" init="AES-128">
+            <type>AES-128</type>
+            <type>AES-256</type>
+            <type>AES-128XTS</type>
+            <type>AES-256XTS</type>
+        </key>
+        <key ascii="KEY_ECC" init="secp256r1-public">
+            <type>secp256r1-public</type>
+            <type>secp256r1-private</type>
+            <type>secp384r1-public</type>
+            <type>secp384r1-private</type>
+            <type>brainpoolP256r1-public</type>
+            <type>brainpoolP256r1-private</type>
+            <type>brainpoolP384r1-public</type>
+            <type>brainpoolP384r1-private</type>
+            <type>secp256k1-public</type>
+            <type>secp256k1-private</type>
+            <type>Ed25519-public</type>
+            <type>Ed25519-private</type>
+        </key>
+        <key ascii="KEY_SHA_HMAC" init="HMAC-SHA256">
+            <type>HMAC-SHA256</type>
+            <type>HMAC-SHA384</type>
+            <type>HMAC-SHA512</type>
+            <type>HMAC-SHA512-224</type>
+            <type>HMAC-SHA512-256</type>
+        </key>
+        <ufpk>
+            <filetype>rfp</filetype>
+        </ufpk>
+        <kuk>
+            <filetype>csource</filetype>
+            <filetype>bin</filetype>
+            <filetype>mot</filetype>
+        </kuk>
+        <sfp>
+            <mcu>RA4C1</mcu>
+        </sfp>
+    </mcu>
+</mcuTable>

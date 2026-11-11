@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<programArea>
+    <mcu ascii="RA4C1" fileFormat="2" lifeCycle="DLM" keyNum="1" gui="true" extarea="false" displayItem="RA4C1">
+        <!-- Code Flash -->
+        <area start="00000000" end="0023FFFF" accessUnit="16" />
+
+        <!-- Data Flash -->
+        <area start="08000000" end="08001FFF" accessUnit="16" />
+        
+        <!-- Config area 0-->
+        <area start="0100A100" end="0100A2FF" accessUnit="16" />
+        
+        <trn>
+            <item displayItem="DPL with SECDBG_KEY and NONSECDBG_KEY" hex="0" />
+            <item displayItem="LCK_BOOT" hex="2" />
+        </trn>
+    </mcu>
+</programArea>

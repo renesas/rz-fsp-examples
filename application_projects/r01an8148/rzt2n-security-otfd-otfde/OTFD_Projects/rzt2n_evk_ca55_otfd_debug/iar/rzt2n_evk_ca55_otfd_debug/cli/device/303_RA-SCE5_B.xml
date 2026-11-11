@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+    File Name    :  xx_RA-SCE5_B.xml
+    Version      :  1.00
+    Device(s)    :  RA Family
+    Description  :  Device configuration file for Security key Management Tool.  
+-->
+<mcuTable>
+    <mcu name="RA" engine="SCE5_B PM" ascii="RA-SCE5_B" cli="true" gui="true" keytypeValue="true" encMode="CBC-MAC" displayItem="RA Family, SCE5_B" initKey="KEY_AES">
+        <key ascii="KEY_DLM" init="DLM-SSD">
+            <type>DLM-SSD</type>
+            <type>DLM-NSECSD</type>
+            <type>DLM-RMA-REQ</type>
+        </key>
+        <key ascii="KEY_AES" init="AES-128">
+            <type>AES-128</type>
+            <type>AES-192</type>
+            <type>AES-256</type>
+            <type>AES-128XTS</type>
+            <type>AES-256XTS</type>
+        </key>
+        <ufpk>
+            <filetype>csource</filetype>
+            <filetype>bin</filetype>
+            <filetype>mot</filetype>
+        </ufpk>
+        <kuk>
+            <filetype>csource</filetype>
+            <filetype>bin</filetype>
+            <filetype>mot</filetype>
+        </kuk>
+    </mcu>
+</mcuTable>

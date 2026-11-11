@@ -1,0 +1,961 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?fileVersion 4.0.0?><cproject storage_type_id="org.eclipse.cdt.core.XmlProjectDescriptionStorage">
+	<storageModule moduleId="org.eclipse.cdt.core.settings">
+		<cconfiguration id="com.renesas.cdt.managedbuild.gcc.rz.aarch64.none.configuration.debug.2116614025">
+			<storageModule buildSystemId="org.eclipse.cdt.managedbuilder.core.configurationDataProvider" id="com.renesas.cdt.managedbuild.gcc.rz.aarch64.none.configuration.debug.2116614025" moduleId="org.eclipse.cdt.core.settings" name="Debug">
+				<externalSettings/>
+				<extensions>
+					<extension id="org.eclipse.cdt.core.GNU_ELF" point="org.eclipse.cdt.core.BinaryParser"/>
+					<extension id="org.eclipse.cdt.core.GASErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+					<extension id="org.eclipse.cdt.core.GmakeErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+					<extension id="org.eclipse.cdt.core.CWDLocator" point="org.eclipse.cdt.core.ErrorParser"/>
+					<extension id="org.eclipse.cdt.core.GCCErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+				</extensions>
+			</storageModule>
+			<storageModule moduleId="com.renesas.cdt.managedbuild.core.toolchainInfo">
+				<option id="toolchain.id" value="gcc-arm-a-profile-aarch64"/>
+				<option id="toolchain.version" value="13.2.1.arm-13-7"/>
+				<option id="toolchain.enable" value="true"/>
+			</storageModule>
+			<storageModule moduleId="cdtBuildSystem" version="4.0.0">
+				<configuration artifactName="${ProjName}" buildArtefactType="org.eclipse.cdt.build.core.buildArtefactType.exe" buildProperties="org.eclipse.cdt.build.core.buildArtefactType=org.eclipse.cdt.build.core.buildArtefactType.exe,org.eclipse.cdt.build.core.buildType=org.eclipse.cdt.build.core.buildType.debug" description="" id="com.renesas.cdt.managedbuild.gcc.rz.aarch64.none.configuration.debug.2116614025" name="Debug" parent="com.renesas.cdt.managedbuild.gcc.rz.aarch64.none.configuration.debug" postbuildStep="../cli/skmt.exe /encdotf /keytype &quot;AES-128&quot; /enckey &quot;4BF34EDDE418A23B4EA7F49744BD5073&quot; /nonce &quot;BF89F643B5849AA0F19502CBC0000000&quot; /startaddr &quot;50031000&quot; /endaddr &quot;50031FFF&quot;  /prg &quot;rzt2n_evk_ca55_otfd_debug.srec&quot; /output &quot;rzt2n_evk_ca55_otfd_encrypt.srec&quot; /destaddr &quot;50031000&quot;">
+					<folderInfo id="com.renesas.cdt.managedbuild.gcc.rz.aarch64.none.configuration.debug.2116614025." name="/" resourcePath="">
+						<toolChain id="com.renesas.cdt.managedbuild.gcc.rz.aarch64.none.toolchain.elf.debug.1520492104" name="GCC for Renesas RZ (A-Profile AArch64 bare-metal)" superClass="com.renesas.cdt.managedbuild.gcc.rz.aarch64.none.toolchain.elf.debug">
+							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.addtools.createflash.1162181578" name="Create flash image" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.addtools.createflash" value="true" valueType="boolean"/>
+							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.addtools.createlisting.886003227" name="Create extended listing" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.addtools.createlisting"/>
+							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.addtools.printsize.185815002" name="Print size" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.addtools.printsize" value="true" valueType="boolean"/>
+							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.addtools.showCommand.402650197" name="Echo tool command" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.addtools.showCommand"/>
+							<option id="com.renesas.cdt.managedbuild.gcc.rz.option.optimizationLevel.544895766" name="Optimization Level" superClass="com.renesas.cdt.managedbuild.gcc.rz.option.optimizationLevel" value="ilg.gnuarmeclipse.managedbuild.cross.option.optimization.level.size" valueType="enumerated"/>
+							<option id="com.renesas.cdt.managedbuild.gcc.rz.option.messagelenght.1052189126" name="Message length (-fmessage-length=0)" superClass="com.renesas.cdt.managedbuild.gcc.rz.option.messagelenght" value="true" valueType="boolean"/>
+							<option id="com.renesas.cdt.managedbuild.gcc.rz.option.signedchar.1830246513" name="'char' is signed (-fsigned-char)" superClass="com.renesas.cdt.managedbuild.gcc.rz.option.signedchar" value="true" valueType="boolean"/>
+							<option id="com.renesas.cdt.managedbuild.gcc.rz.option.functionsection.2014322051" name="Function sections (-ffunction-sections)" superClass="com.renesas.cdt.managedbuild.gcc.rz.option.functionsection" value="true" valueType="boolean"/>
+							<option id="com.renesas.cdt.managedbuild.gcc.rz.option.datasections.431318039" name="Data sections (-fdata-sections)" superClass="com.renesas.cdt.managedbuild.gcc.rz.option.datasections" value="true" valueType="boolean"/>
+							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.debugging.level.1196236864" name="Debug level" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.debugging.level"/>
+							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.debugging.format.104415088" name="Debug format" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.debugging.format"/>
+							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.toolchain.name.302134851" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.toolchain.name" value="Linaro AArch64 bare-metal ELF" valueType="string"/>
+							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.architecture.1536094387" name="Architecture" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.architecture" value="ilg.gnuarmeclipse.managedbuild.cross.option.architecture.aarch64" valueType="enumerated"/>
+							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.aarch64.target.family.2056408465" name="AArch64 family" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.aarch64.target.family" value="ilg.gnuarmeclipse.managedbuild.cross.option.aarch64.target.mcpu.default" valueType="enumerated"/>
+							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.aarch64.target.feature.simd.577953619" name="Feature simd" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.aarch64.target.feature.simd" value="ilg.gnuarmeclipse.managedbuild.cross.option.aarch64.target.feature.simd.enabled" valueType="enumerated"/>
+							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.aarch64.target.cmodel.838942861" name="Code model" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.aarch64.target.cmodel" value="ilg.gnuarmeclipse.managedbuild.cross.option.aarch64.target.cmodel.small" valueType="enumerated"/>
+							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.command.prefix.279475455" name="Prefix" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.command.prefix" value="aarch64-none-elf-" valueType="string"/>
+							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.command.c.1036933718" name="C compiler" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.command.c" value="gcc" valueType="string"/>
+							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.command.cpp.2050659654" name="C++ compiler" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.command.cpp" value="g++" valueType="string"/>
+							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.optimization.nostrictaliasing.1298438990" name="Disable optimizations based on the type of expressions (-fno-strict-aliasing)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.optimization.nostrictaliasing" value="false" valueType="boolean"/>
+							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.command.ar.772397911" name="Archiver" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.command.ar" value="ar" valueType="string"/>
+							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.command.objcopy.798918077" name="Hex/Bin converter" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.command.objcopy" value="objcopy" valueType="string"/>
+							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.command.objdump.855968148" name="Listing generator" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.command.objdump" value="objdump" valueType="string"/>
+							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.command.size.1461934615" name="Size command" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.command.size" value="size" valueType="string"/>
+							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.command.make.1578977647" name="Build command" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.command.make" value="make" valueType="string"/>
+							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.command.rm.178065162" name="Remove command" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.command.rm" value="rm" valueType="string"/>
+							<option id="com.renesas.cdt.managedbuild.gcc.rz.deviceName.929769819" name="Device name" superClass="com.renesas.cdt.managedbuild.gcc.rz.deviceName" value="R9A07G076M48GBG" valueType="string"/>
+							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.warnings.unused.1896177383" name="Warn on various unused elements (-Wunused)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.warnings.unused" value="true" valueType="boolean"/>
+							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.warnings.uninitialized.741738000" name="Warn on uninitialized variables (-Wuninitialised)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.warnings.uninitialized" value="true" valueType="boolean"/>
+							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.warnings.allwarn.107119543" name="Enable all common warnings (-Wall)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.warnings.allwarn" value="true" valueType="boolean"/>
+							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.warnings.extrawarn.155494097" name="Enable extra warnings (-Wextra)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.warnings.extrawarn" value="true" valueType="boolean"/>
+							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.warnings.missingdeclaration.591267897" name="Warn on undeclared global function (-Wmissing-declaration)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.warnings.missingdeclaration" value="true" valueType="boolean"/>
+							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.warnings.conversion.307481784" name="Warn on implicit conversions (-Wconversion)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.warnings.conversion" value="true" valueType="boolean"/>
+							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.warnings.pointerarith.29334330" name="Warn if pointer arithmetic (-Wpointer-arith)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.warnings.pointerarith" value="true" valueType="boolean"/>
+							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.warnings.shadow.1971961896" name="Warn if shadowed variable (-Wshadow)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.warnings.shadow" value="true" valueType="boolean"/>
+							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.warnings.logicalop.512516472" name="Warn if suspicious logical ops (-Wlogical-op)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.warnings.logicalop" value="true" valueType="boolean"/>
+							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.warnings.agreggatereturn.531302550" name="Warn if struct is returned (-Wagreggate-return)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.warnings.agreggatereturn" value="true" valueType="boolean"/>
+							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.warnings.floatequal.1972587676" name="Warn if floats are compared as equal (-Wfloat-equal)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.warnings.floatequal" value="true" valueType="boolean"/>
+							<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="com.renesas.cdt.managedbuild.gcc.rz.option.otherTarget.1261110913" name="Other target flags" superClass="com.renesas.cdt.managedbuild.gcc.rz.option.otherTarget" valueType="stringList">
+								<listOptionValue builtIn="false" value="-mcpu=cortex-a55+simd"/>
+								<listOptionValue builtIn="false" value="-mcmodel=large"/>
+							</option>
+							<option id="com.renesas.cdt.managedbuild.gcc.rz.option.family.877460434" name="Arm family (-mcpu)" superClass="com.renesas.cdt.managedbuild.gcc.rz.option.family" value="ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.mcpu.cortex-a55" valueType="enumerated"/>
+							<option id="com.renesas.cdt.managedbuild.gcc.rz.option.instructionset.930167127" name="Instruction set" superClass="com.renesas.cdt.managedbuild.gcc.rz.option.instructionset" value="ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.instructionset.default" valueType="enumerated"/>
+							<targetPlatform archList="all" binaryParser="org.eclipse.cdt.core.GNU_ELF" id="ilg.gnuarmeclipse.managedbuild.cross.targetPlatform.667394505" isAbstract="false" osList="all" superClass="ilg.gnuarmeclipse.managedbuild.cross.targetPlatform"/>
+							<builder buildPath="${workspace_loc:/rzt2n_evk_ca55_otfd_debug}/Debug" id="com.renesas.cdt.managedbuild.gcc.rz.builder.737500116" keepEnvironmentInBuildfile="false" managedBuildOn="true" name="GCC for Renesas Builder" parallelBuildOn="true" parallelizationNumber="optimal" superClass="com.renesas.cdt.managedbuild.gcc.rz.builder"/>
+							<tool id="com.renesas.cdt.managedbuild.gcc.rz.aarch64.none.tool.assembler.1007477091" name="Cross ARM GNU Assembler" superClass="com.renesas.cdt.managedbuild.gcc.rz.aarch64.none.tool.assembler">
+								<option id="ilg.gnuarmeclipse.managedbuild.cross.option.assembler.usepreprocessor.858240444" name="Use preprocessor" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.assembler.usepreprocessor" value="true" valueType="boolean"/>
+								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="ilg.gnuarmeclipse.managedbuild.cross.option.assembler.defs.306495828" name="Defined symbols (-D)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.assembler.defs" valueType="definedSymbols">
+									<listOptionValue builtIn="false" value="_RENESAS_RZ_"/>
+									<listOptionValue builtIn="false" value="_RZ_CORE=CA55_0"/>
+									<listOptionValue builtIn="false" value="_RZ_ORDINAL=1"/>
+								</option>
+								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="com.renesas.cdt.managedbuild.gcc.rz.option.assembler.include.1729307460" name="Include paths (-I)" superClass="com.renesas.cdt.managedbuild.gcc.rz.option.assembler.include" valueType="includePath">
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/rz_cfg/fsp_cfg/bsp}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/rz_gen}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/rz_cfg/fsp_cfg}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/rz/fsp/inc}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/src}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/rz/fsp/inc/api}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/rz/fsp/inc/instances}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/rz/arm/CMSIS_6/CMSIS/Core/Include}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/rz_cfg/driver}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/rz/fsp/src/r_rsip_protected/src/rzt_rzn/private/lib/sb_lib/inc}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/rz/fsp/src/r_rsip_protected/src/rzt_rzn/private/lib/rsip/inc}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/rz/fsp/src/r_rsip_protected/src/rzt_rzn/private/lib/otp/inc}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/rz/fsp/src/r_rsip_protected/src/rzt_rzn/private/lib/inc}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/rz/fsp/src/r_rsip_protected/src/rzt_rzn/private}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/rz/fsp/src/r_rsip_protected/src/common/primitive}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/rz/fsp/src/r_rsip_protected/src/common/private}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/rz/fsp/src/r_rsip_protected/src/common/public}&quot;"/>
+								</option>
+								<inputType id="ilg.gnuarmeclipse.managedbuild.cross.tool.assembler.input.564298767" superClass="ilg.gnuarmeclipse.managedbuild.cross.tool.assembler.input"/>
+							</tool>
+							<tool id="com.renesas.cdt.managedbuild.gcc.rz.aarch64.none.tool.compiler.c.744437006" name="Cross ARM C Compiler" superClass="com.renesas.cdt.managedbuild.gcc.rz.aarch64.none.tool.compiler.c">
+								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="com.renesas.cdt.managedbuild.gcc.rz.option.compiler.include.208900958" name="Include paths (-I)" superClass="com.renesas.cdt.managedbuild.gcc.rz.option.compiler.include" useByScannerDiscovery="false" valueType="includePath">
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/rz_cfg/fsp_cfg/bsp}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/rz_gen}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/rz_cfg/fsp_cfg}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/rz/fsp/inc}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/src}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/rz/fsp/inc/api}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/rz/fsp/inc/instances}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/rz/arm/CMSIS_6/CMSIS/Core/Include}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/rz_cfg/driver}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/rz/fsp/src/r_rsip_protected/src/rzt_rzn/private/lib/sb_lib/inc}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/rz/fsp/src/r_rsip_protected/src/rzt_rzn/private/lib/rsip/inc}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/rz/fsp/src/r_rsip_protected/src/rzt_rzn/private/lib/otp/inc}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/rz/fsp/src/r_rsip_protected/src/rzt_rzn/private/lib/inc}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/rz/fsp/src/r_rsip_protected/src/rzt_rzn/private}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/rz/fsp/src/r_rsip_protected/src/common/primitive}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/rz/fsp/src/r_rsip_protected/src/common/private}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/rz/fsp/src/r_rsip_protected/src/common/public}&quot;"/>
+								</option>
+								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="com.renesas.cdt.managedbuild.gcc.rz.option.compiler.otherWarnings.79846338" name="Other warning flags" superClass="com.renesas.cdt.managedbuild.gcc.rz.option.compiler.otherWarnings" useByScannerDiscovery="true" valueType="stringList">
+									<listOptionValue builtIn="false" value="-Wno-format-truncation"/>
+									<listOptionValue builtIn="false" value="-Wno-stringop-overflow"/>
+								</option>
+								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="com.renesas.cdt.managedbuild.gcc.rz.option.compiler.userDefined.1299644245" name="Other compiler flags" superClass="com.renesas.cdt.managedbuild.gcc.rz.option.compiler.userDefined" useByScannerDiscovery="true" valueType="stringList">
+									<listOptionValue builtIn="false" value="--param=min-pagesize=0"/>
+								</option>
+								<option id="ilg.gnuarmeclipse.managedbuild.cross.option.c.compiler.std.819515044" name="Language standard" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.c.compiler.std" useByScannerDiscovery="true" value="ilg.gnuarmeclipse.managedbuild.cross.option.c.compiler.std.c99" valueType="enumerated"/>
+								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="ilg.gnuarmeclipse.managedbuild.cross.option.c.compiler.defs.2100177197" name="Defined symbols (-D)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.c.compiler.defs" useByScannerDiscovery="true" valueType="definedSymbols">
+									<listOptionValue builtIn="false" value="_RENESAS_RZ_"/>
+									<listOptionValue builtIn="false" value="_RZ_CORE=CA55_0"/>
+									<listOptionValue builtIn="false" value="_RZ_ORDINAL=1"/>
+								</option>
+								<inputType id="ilg.gnuarmeclipse.managedbuild.cross.tool.c.compiler.input.688915549" superClass="ilg.gnuarmeclipse.managedbuild.cross.tool.c.compiler.input"/>
+							</tool>
+							<tool id="com.renesas.cdt.managedbuild.gcc.rz.aarch64.none.tool.compiler.cpp.834439535" name="Cross ARM C++ Compiler" superClass="com.renesas.cdt.managedbuild.gcc.rz.aarch64.none.tool.compiler.cpp">
+								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="com.renesas.cdt.managedbuild.gcc.rz.option.compiler.cpp.include.660788152" name="Include paths (-I)" superClass="com.renesas.cdt.managedbuild.gcc.rz.option.compiler.cpp.include" useByScannerDiscovery="true" valueType="includePath">
+									<listOptionValue builtIn="false" value="&quot;${ProjDirPath}/generate&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${ProjDirPath}/src&quot;"/>
+								</option>
+								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="com.renesas.cdt.managedbuild.gcc.rz.option.compiler.cpp.otherWarnings.2092429779" name="Other warning flags" superClass="com.renesas.cdt.managedbuild.gcc.rz.option.compiler.cpp.otherWarnings" useByScannerDiscovery="true" valueType="stringList">
+									<listOptionValue builtIn="false" value="-Wno-format-truncation"/>
+									<listOptionValue builtIn="false" value="-Wno-stringop-overflow"/>
+								</option>
+								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="com.renesas.cdt.managedbuild.gcc.rz.option.compiler.cpp.userDefined.647977421" name="Other compiler flags" superClass="com.renesas.cdt.managedbuild.gcc.rz.option.compiler.cpp.userDefined" useByScannerDiscovery="true" valueType="stringList">
+									<listOptionValue builtIn="false" value="--param=min-pagesize=0"/>
+								</option>
+								<option id="com.renesas.cdt.managedbuild.gcc.rz.option.compiler.cpp.language.1197853250" name="Language standard" superClass="com.renesas.cdt.managedbuild.gcc.rz.option.compiler.cpp.language" useByScannerDiscovery="true" value="com.renesas.cdt.managedbuild.gcc.rz.option.compiler.cpp.language.cpp11" valueType="enumerated"/>
+							</tool>
+							<tool id="com.renesas.cdt.managedbuild.gcc.rz.aarch64.none.tool.linker.c.252439771" name="Cross ARM C Linker" superClass="com.renesas.cdt.managedbuild.gcc.rz.aarch64.none.tool.linker.c">
+								<option id="ilg.gnuarmeclipse.managedbuild.cross.option.c.linker.gcsections.1756145758" name="Remove unused sections (-Xlinker --gc-sections)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.c.linker.gcsections" value="true" valueType="boolean"/>
+								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="true" id="com.renesas.cdt.managedbuild.gcc.rz.archives.includePath.1334657654" name="Standard archive search directories (-L)" superClass="com.renesas.cdt.managedbuild.gcc.rz.archives.includePath" valueType="libPaths"/>
+								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="true" id="com.renesas.cdt.managedbuild.gcc.rz.archives.includeFiles.667566091" name="Standard archive (library) files (-l)" superClass="com.renesas.cdt.managedbuild.gcc.rz.archives.includeFiles" valueType="libs"/>
+								<option id="com.renesas.cdt.managedbuild.gcc.rz.option.linker.entrypoint.992148327" name="Entry Point:" superClass="com.renesas.cdt.managedbuild.gcc.rz.option.linker.entrypoint" value="-Wl,-esystem_init" valueType="string"/>
+								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="com.renesas.cdt.managedbuild.gcc.rz.option.linker.userDefined.980769089" name="Other linker flags" superClass="com.renesas.cdt.managedbuild.gcc.rz.option.linker.userDefined" valueType="stringList">
+									<listOptionValue builtIn="false" value="--specs=nosys.specs"/>
+								</option>
+								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="com.renesas.cdt.managedbuild.gcc.rz.option.linkerscript.2049123888" name="Script files (-T)" superClass="com.renesas.cdt.managedbuild.gcc.rz.option.linkerscript" valueType="stringList">
+									<listOptionValue builtIn="false" value="&quot;fsp_ram_execution.ld&quot;"/>
+								</option>
+								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="com.renesas.cdt.managedbuild.gcc.rz.archives.userIncludePath.1133016335" name="User defined archive search directories (-L)" superClass="com.renesas.cdt.managedbuild.gcc.rz.archives.userIncludePath" valueType="stringList">
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}}/script&quot;"/>
+								</option>
+								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="com.renesas.cdt.managedbuild.gcc.rz.option.linkageOrder.1924664031" name="Linkage Order List" superClass="com.renesas.cdt.managedbuild.gcc.rz.option.linkageOrder" valueType="stringList">
+									<listOptionValue builtIn="false" value="&quot;src/hal_entry.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;src/led_func.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;src/otfd_key.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;src/otfd_param.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;src/ssbl.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz_gen/common_data.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz_gen/hal_data.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz_gen/main.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz_gen/pin_data.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz_gen/vector_data.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_xspi_qspi/r_xspi_qspi.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/public/r_rsip_rzt_rzn.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/private/lib/sb_lib/src/r_sb_api.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/private/lib/sb_lib/src/r_sb_cmn.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/private/lib/sb_lib/src/r_sb_cmn_drv.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/private/lib/sb_lib/src/r_sb_manifest.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/private/lib/sb_lib/src/r_sb_sb.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/private/lib/rsip/src/r_cip_drv_api.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/private/lib/rsip/src/rsip_check_param.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/private/lib/otp/src/r_otp_drv.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/private/r_rsip_hal.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/private/r_rsip_otp.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/private/r_rsip_wrapper.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_data.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_func008.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_func016.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_func017.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_func022.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_func023.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_func027.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_func028.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_func030.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_func040.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_func041.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_func043.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_func044.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_func045.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_func046.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_func047.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_func050.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_func051.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_func052.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_func053.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_func054.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_func055.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_func056.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_func057.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_func058.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_func059.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_func061.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_func062.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_func071.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_func072.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_func073.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_func074.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_func075.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_func076.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_func077.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_func078.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_func079.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_func084.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_func085.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_func086.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_func087.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_func088.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_func089.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_func091.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_func100.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_func101.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_func102.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_func103.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_func205.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_func206.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_func215.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_func216.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_func220.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_func221.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_func300.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_func301.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_func302.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_func303.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_func304.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_func305.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_func306.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_func307.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_func308.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_func309.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_func310.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_func311.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_func400.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_func401.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_func402.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_func403.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_func404.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_func405.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_func406.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_func407.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_func408.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_func420.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_func421.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_func422.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_func423.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_func431.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_func432.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_func433.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_func434.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_func435.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_func436.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_func440.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_func441.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_func443.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_func450.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_func501.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_p00.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_p01.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_p02.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_p03.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_p04.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_p06.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_p07.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_p08.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_p0b.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_p0c.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_p0d.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_p0e.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_p0f.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_p10.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_p11.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_p12.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_p13.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_p15.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_p16.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_p17.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_p18.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_p19.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_p1a.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_p1b.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_p1c.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_p1d.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_p1e.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_p1f.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_p20.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_p21.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_p24.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_p25.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_p29a.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_p29f.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_p29i.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_p29t.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_p29u.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_p2a.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_p2b.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_p2c.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_p2d.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_p2e.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_p32a.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_p32f.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_p32i.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_p32t.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_p32u.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_p34a.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_p34f.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_p34i.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_p34t.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_p34u.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_p36a.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_p36f.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_p36i.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_p36t.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_p36u.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_p37.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_p38.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_p3a.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_p3b.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_p3c.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_p3d.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_p3e.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_p3f.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_p40.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_p41f.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_p41i.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_p41u.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_p42.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_p43.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_p44f.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_p44i.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_p44u.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_p45.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_p47f.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_p47i.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_p47u.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_p48f.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_p48i.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_p48u.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_p4a.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_p4c.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_p4d.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_p4e.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_p4f.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_p50f.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_p50i.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_p50u.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_p51f.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_p51i.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_p52f.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_p52i.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_p53.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_p54.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_p56.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_p57.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_p59.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_p5e.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_p5ff.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_p5fi.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_p60.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_p62.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_p63.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_p6d.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_p6e.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_p6f.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_p70f.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_p70i.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_p70r.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_p70s.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_p70u.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_p75f.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_p75i.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_p75r.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_p75s.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_p75u.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_p79.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_p7a.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_p7b.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_p7c.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_p7d.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_p7e.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_p7f.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_p80.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_p83a.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_p83f.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_p83i.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_p83t.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_p83u.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_p84.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_p85a.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_p85f.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_p85i.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_p85t.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_p85u.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_p86.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_p87f.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_p87i.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_p87u.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_p88.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_p89f.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_p89i.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_p89u.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_p8a.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_p8b.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_p8c.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_p8d.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_p8f.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_p90.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_p92.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_p93.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_p95f.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_p95i.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_p95u.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_p98f.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_p98i.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_p98u.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_p9d.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_p9e.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_p9f.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_pa1f.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_pa1i.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_pa1u.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_pa4f.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_pa4i.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_pa4u.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_pa7f.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_pa7i.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_pa7u.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_pa8.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_pa9.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_paa.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_pab.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_pb0f.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_pb0i.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_pb0u.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_pb1.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_pb2.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_pb3f.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_pb3i.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_pb3u.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_pb6f.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_pb6i.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_pb6u.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_pb9f.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_pb9i.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_pb9u.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_pba.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_pbc.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_pc2f.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_pc2i.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_pc2u.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_pe0.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_pe1.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_pe2.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_pe3.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_pe4.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_pe5e.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_pe5f.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_pe5i.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_pe5r.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_pe5s.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_pe5u.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_pe6.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_pe7.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_pe8.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_pe9.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_pea.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_peb.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_pec.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_pedf.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_pedi.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_peef.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_peei.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_pf0.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_pf1.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_pf3.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_pf4.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_pf5.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_pf6.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_pf7.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_pf8.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_pf9.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_pfa.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_pfb.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/rzt2n/r_rsip_pfc.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive/r_rsip_primitive.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/common/public/r_rsip.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/common/public/r_rsip_aes.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/common/public/r_rsip_chacha.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/common/public/r_rsip_ecc.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/common/public/r_rsip_kdf.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/common/public/r_rsip_otf.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/common/public/r_rsip_pki.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/common/public/r_rsip_rsa.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/common/public/r_rsip_sha.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/common/private/r_rsip_private.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/common/private/r_rsip_private_sub1.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/common/private/r_rsip_private_sub2.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_rsip_protected/src/common/primitive/r_rsip_reg.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/r_ioport/r_ioport.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/bsp/mcu/rzt2n/bsp_ddr.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/bsp/mcu/rzt2n/bsp_irq_sense.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/bsp/mcu/rzt2n/bsp_loader_param.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/bsp/mcu/all/ca/bsp_cache_core.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/bsp/mcu/all/ca/bsp_delay_core.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/bsp/mcu/all/ca/bsp_irq_core.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/bsp/mcu/all/ca/bsp_mmu_core.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/bsp/mcu/all/bsp_address_expander.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/bsp/mcu/all/bsp_cache.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/bsp/mcu/all/bsp_clocks.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/bsp/mcu/all/bsp_common.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/bsp/mcu/all/bsp_delay.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/bsp/mcu/all/bsp_io.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/bsp/mcu/all/bsp_irq.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/bsp/mcu/all/bsp_mbr_param.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/bsp/mcu/all/bsp_otfde.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/bsp/mcu/all/bsp_register_protection.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/bsp/mcu/all/bsp_reset.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/bsp/mcu/all/bsp_sbrk.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/bsp/mcu/all/bsp_sdhi.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/bsp/mcu/all/bsp_semaphore.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/bsp/mcu/all/bsp_slave_stop.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/bsp/mcu/all/bsp_tzc400.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/bsp/cmsis/Device/RENESAS/Source/ca/startup_core.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/bsp/cmsis/Device/RENESAS/Source/ca/system_core.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/bsp/cmsis/Device/RENESAS/Source/startup.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/fsp/src/bsp/cmsis/Device/RENESAS/Source/system.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/board/rzt2n_evb/board_ddr_param.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/board/rzt2n_evb/board_init.o&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;rz/board/rzt2n_evb/board_leds.o&quot;"/>
+								</option>
+								<inputType id="com.renesas.cdt.managedbuild.gcc.rz.inputType.linker.c.323212800" superClass="com.renesas.cdt.managedbuild.gcc.rz.inputType.linker.c">
+									<additionalInput kind="additionalinputdependency" paths="$(USER_OBJS)"/>
+									<additionalInput kind="additionalinputdependency" paths="$(LIBRARY_GENERATOR_OUTPUTTYPE_OUTPUTS)"/>
+									<additionalInput kind="additionaldependency" paths="$(LINKER_SCRIPT)"/>
+								</inputType>
+							</tool>
+							<tool id="com.renesas.cdt.managedbuild.gcc.rz.aarch64.none.tool.linker.cpp.1388605002" name="Cross ARM C++ Linker" superClass="com.renesas.cdt.managedbuild.gcc.rz.aarch64.none.tool.linker.cpp">
+								<option id="ilg.gnuarmeclipse.managedbuild.cross.option.cpp.linker.gcsections.1906837455" name="Remove unused sections (-Xlinker --gc-sections)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.cpp.linker.gcsections" value="true" valueType="boolean"/>
+								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="true" id="com.renesas.cdt.managedbuild.gcc.rz.archives.cpp.includePath.796952278" name="Standard archive search directories (-L)" superClass="com.renesas.cdt.managedbuild.gcc.rz.archives.cpp.includePath" valueType="libPaths"/>
+								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="true" id="com.renesas.cdt.managedbuild.gcc.rz.archives.cpp.includeFiles.1562761416" name="Standard archive (library) files (-l)" superClass="com.renesas.cdt.managedbuild.gcc.rz.archives.cpp.includeFiles" valueType="libs"/>
+								<option id="com.renesas.cdt.managedbuild.gcc.rz.option.linker.cpp.entrypoint.1615290993" name="Entry Point:" superClass="com.renesas.cdt.managedbuild.gcc.rz.option.linker.cpp.entrypoint" value="-Wl,-esystem_init" valueType="string"/>
+								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="com.renesas.cdt.managedbuild.gcc.rz.option.linker.cpp.userDefined.1255197220" name="Other linker flags" superClass="com.renesas.cdt.managedbuild.gcc.rz.option.linker.cpp.userDefined" valueType="stringList">
+									<listOptionValue builtIn="false" value="--specs=nosys.specs"/>
+								</option>
+								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="com.renesas.cdt.managedbuild.gcc.rz.option.cpp.linkerscript.1741573256" name="Script files (-T)" superClass="com.renesas.cdt.managedbuild.gcc.rz.option.cpp.linkerscript" valueType="stringList">
+									<listOptionValue builtIn="false" value="&quot;fsp_ram_execution.ld&quot;"/>
+								</option>
+							</tool>
+							<tool id="com.renesas.cdt.managedbuild.gcc.rz.aarch64.none.tool.archiver.1319190014" name="Cross ARM GNU Archiver" superClass="com.renesas.cdt.managedbuild.gcc.rz.aarch64.none.tool.archiver"/>
+							<tool id="com.renesas.cdt.managedbuild.gcc.rz.aarch64.none.tool.flash.1719337215" name="Cross ARM GNU Create Flash Image" superClass="com.renesas.cdt.managedbuild.gcc.rz.aarch64.none.tool.flash">
+								<option id="com.renesas.cdt.managedbuild.gcc.rz.option.flash.choice.956184983" name="Output file format (-O)" superClass="com.renesas.cdt.managedbuild.gcc.rz.option.flash.choice" value="ilg.gnuarmeclipse.managedbuild.cross.option.createflash.choice.srec" valueType="enumerated"/>
+							</tool>
+							<tool id="com.renesas.cdt.managedbuild.gcc.rz.aarch64.none.tool.listing.679682074" name="Cross ARM GNU Create Listing" superClass="com.renesas.cdt.managedbuild.gcc.rz.aarch64.none.tool.listing">
+								<option id="ilg.gnuarmeclipse.managedbuild.cross.option.createlisting.source.626927213" name="Display source (--source|-S)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.createlisting.source" value="true" valueType="boolean"/>
+								<option id="ilg.gnuarmeclipse.managedbuild.cross.option.createlisting.allheaders.1436290831" name="Display all headers (--all-headers|-x)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.createlisting.allheaders" value="true" valueType="boolean"/>
+								<option id="ilg.gnuarmeclipse.managedbuild.cross.option.createlisting.demangle.1939925660" name="Demangle names (--demangle|-C)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.createlisting.demangle" value="true" valueType="boolean"/>
+								<option id="ilg.gnuarmeclipse.managedbuild.cross.option.createlisting.linenumbers.718023793" name="Display line numbers (--line-numbers|-l)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.createlisting.linenumbers" value="true" valueType="boolean"/>
+								<option id="ilg.gnuarmeclipse.managedbuild.cross.option.createlisting.wide.376920496" name="Wide lines (--wide|-w)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.createlisting.wide" value="true" valueType="boolean"/>
+							</tool>
+							<tool id="com.renesas.cdt.managedbuild.gcc.rz.aarch64.none.tool.size.746421187" name="Cross ARM GNU Print Size" superClass="com.renesas.cdt.managedbuild.gcc.rz.aarch64.none.tool.size">
+								<option id="ilg.gnuarmeclipse.managedbuild.cross.option.printsize.format.1384780352" name="Size format" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.printsize.format"/>
+							</tool>
+							<tool id="com.renesas.cdt.managedbuild.gcc.rz.tool.libgen.541828554" name="Library Generator" superClass="com.renesas.cdt.managedbuild.gcc.rz.tool.libgen">
+								<option id="com.renesas.cdt.managedbuild.gcc.rz.option.libraryType.2033389524" name="Library type" superClass="com.renesas.cdt.managedbuild.gcc.rz.option.libraryType" value="com.renesas.cdt.managedbuild.gcc.core.option.librarygenerator.settings.libraryType.preBuilt" valueType="enumerated"/>
+								<option id="com.renesas.cdt.managedbuild.gcc.rz.option.selectlibrary.714752109" name="Select Library" superClass="com.renesas.cdt.managedbuild.gcc.rz.option.selectlibrary" value="com.renesas.cdt.managedbuild.gcc.core.option.librarygenerator.settings.selectLibrary.newLib" valueType="enumerated"/>
+							</tool>
+						</toolChain>
+					</folderInfo>
+					<folderInfo id="com.renesas.cdt.managedbuild.gcc.rz.aarch64.none.configuration.debug.2116614025./rz/arm" name="arm" resourcePath="rz/arm">
+						<toolChain id="com.renesas.cdt.managedbuild.gcc.rz.aarch64.none.toolchain.elf.debug.1801672453" name="GCC for Renesas RZ (A-Profile AArch64 bare-metal)" superClass="com.renesas.cdt.managedbuild.gcc.rz.aarch64.none.toolchain.elf.debug" unusedChildren="">
+							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.addtools.createflash.1162181578.13499050" name="Create flash image" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.addtools.createflash.1162181578"/>
+							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.addtools.createlisting.886003227.2046107100" name="Create extended listing" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.addtools.createlisting.886003227"/>
+							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.addtools.printsize.185815002.1658611043" name="Print size" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.addtools.printsize.185815002"/>
+							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.addtools.showCommand.402650197.1088802343" name="Echo tool command" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.addtools.showCommand.402650197"/>
+							<option id="com.renesas.cdt.managedbuild.gcc.rz.option.optimizationLevel.544895766.2086462622" name="Optimization Level" superClass="com.renesas.cdt.managedbuild.gcc.rz.option.optimizationLevel.544895766"/>
+							<option id="com.renesas.cdt.managedbuild.gcc.rz.option.messagelenght.1052189126.885187698" name="Message length (-fmessage-length=0)" superClass="com.renesas.cdt.managedbuild.gcc.rz.option.messagelenght.1052189126"/>
+							<option id="com.renesas.cdt.managedbuild.gcc.rz.option.signedchar.1830246513.762994448" name="'char' is signed (-fsigned-char)" superClass="com.renesas.cdt.managedbuild.gcc.rz.option.signedchar.1830246513"/>
+							<option id="com.renesas.cdt.managedbuild.gcc.rz.option.functionsection.2014322051.956471333" name="Function sections (-ffunction-sections)" superClass="com.renesas.cdt.managedbuild.gcc.rz.option.functionsection.2014322051"/>
+							<option id="com.renesas.cdt.managedbuild.gcc.rz.option.datasections.431318039.1870742197" name="Data sections (-fdata-sections)" superClass="com.renesas.cdt.managedbuild.gcc.rz.option.datasections.431318039"/>
+							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.debugging.level.1196236864.281634881" name="Debug level" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.debugging.level.1196236864"/>
+							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.debugging.format.104415088.2138518678" name="Debug format" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.debugging.format.104415088"/>
+							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.toolchain.name.302134851.1425177805" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.toolchain.name.302134851"/>
+							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.architecture.1536094387.1273341437" name="Architecture" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.architecture.1536094387"/>
+							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.aarch64.target.family.2056408465.1768868790" name="AArch64 family" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.aarch64.target.family.2056408465"/>
+							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.aarch64.target.feature.simd.577953619.2014292940" name="Feature simd" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.aarch64.target.feature.simd.577953619"/>
+							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.aarch64.target.cmodel.838942861.1999271183" name="Code model" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.aarch64.target.cmodel.838942861"/>
+							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.command.prefix.279475455.1943732544" name="Prefix" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.command.prefix.279475455"/>
+							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.command.c.1036933718.1493632385" name="C compiler" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.command.c.1036933718"/>
+							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.command.cpp.2050659654.1845731023" name="C++ compiler" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.command.cpp.2050659654"/>
+							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.optimization.nostrictaliasing.1298438990.1503979542" name="Disable optimizations based on the type of expressions (-fno-strict-aliasing)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.optimization.nostrictaliasing.1298438990"/>
+							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.command.ar.772397911.1425631891" name="Archiver" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.command.ar.772397911"/>
+							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.command.objcopy.798918077.1442607662" name="Hex/Bin converter" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.command.objcopy.798918077"/>
+							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.command.objdump.855968148.321491081" name="Listing generator" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.command.objdump.855968148"/>
+							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.command.size.1461934615.509028945" name="Size command" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.command.size.1461934615"/>
+							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.command.make.1578977647.1304969864" name="Build command" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.command.make.1578977647"/>
+							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.command.rm.178065162.1499325284" name="Remove command" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.command.rm.178065162"/>
+							<option id="com.renesas.cdt.managedbuild.gcc.rz.deviceName.929769819.17943363" name="Device name" superClass="com.renesas.cdt.managedbuild.gcc.rz.deviceName.929769819"/>
+							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.warnings.unused.1896177383.4330132" name="Warn on various unused elements (-Wunused)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.warnings.unused.1896177383"/>
+							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.warnings.uninitialized.741738000.557752298" name="Warn on uninitialized variables (-Wuninitialised)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.warnings.uninitialized.741738000"/>
+							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.warnings.allwarn.107119543.132177888" name="Enable all common warnings (-Wall)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.warnings.allwarn.107119543"/>
+							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.warnings.extrawarn.155494097.710470869" name="Enable extra warnings (-Wextra)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.warnings.extrawarn.155494097"/>
+							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.warnings.missingdeclaration.591267897.1940220763" name="Warn on undeclared global function (-Wmissing-declaration)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.warnings.missingdeclaration.591267897"/>
+							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.warnings.conversion.307481784.2014725321" name="Warn on implicit conversions (-Wconversion)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.warnings.conversion.307481784"/>
+							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.warnings.pointerarith.29334330.1037170036" name="Warn if pointer arithmetic (-Wpointer-arith)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.warnings.pointerarith.29334330"/>
+							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.warnings.shadow.1971961896.498582887" name="Warn if shadowed variable (-Wshadow)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.warnings.shadow.1971961896"/>
+							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.warnings.logicalop.512516472.1125560159" name="Warn if suspicious logical ops (-Wlogical-op)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.warnings.logicalop.512516472"/>
+							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.warnings.agreggatereturn.531302550.1980985175" name="Warn if struct is returned (-Wagreggate-return)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.warnings.agreggatereturn.531302550"/>
+							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.warnings.floatequal.1972587676.867092397" name="Warn if floats are compared as equal (-Wfloat-equal)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.warnings.floatequal.1972587676"/>
+							<option id="com.renesas.cdt.managedbuild.gcc.rz.option.otherTarget.1261110913.1949450377" name="Other target flags" superClass="com.renesas.cdt.managedbuild.gcc.rz.option.otherTarget.1261110913"/>
+							<option id="com.renesas.cdt.managedbuild.gcc.rz.option.family.877460434.590253061" name="Arm family (-mcpu)" superClass="com.renesas.cdt.managedbuild.gcc.rz.option.family.877460434"/>
+							<option id="com.renesas.cdt.managedbuild.gcc.rz.option.instructionset.930167127.2080771220" name="Instruction set" superClass="com.renesas.cdt.managedbuild.gcc.rz.option.instructionset.930167127"/>
+							<targetPlatform archList="all" binaryParser="org.eclipse.cdt.core.GNU_ELF" id="ilg.gnuarmeclipse.managedbuild.cross.targetPlatform" isAbstract="false" osList="all" superClass="ilg.gnuarmeclipse.managedbuild.cross.targetPlatform"/>
+							<tool id="com.renesas.cdt.managedbuild.gcc.rz.aarch64.none.tool.assembler.1021007488" name="Cross ARM GNU Assembler" superClass="com.renesas.cdt.managedbuild.gcc.rz.aarch64.none.tool.assembler.1007477091">
+								<inputType id="ilg.gnuarmeclipse.managedbuild.cross.tool.assembler.input.1709216420" superClass="ilg.gnuarmeclipse.managedbuild.cross.tool.assembler.input"/>
+							</tool>
+							<tool id="com.renesas.cdt.managedbuild.gcc.rz.aarch64.none.tool.compiler.c.715847897" name="Cross ARM C Compiler" superClass="com.renesas.cdt.managedbuild.gcc.rz.aarch64.none.tool.compiler.c.744437006">
+								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="com.renesas.cdt.managedbuild.gcc.rz.option.compiler.userDefined.1202295972" name="Other compiler flags" superClass="com.renesas.cdt.managedbuild.gcc.rz.option.compiler.userDefined" valueType="stringList">
+									<listOptionValue builtIn="false" value="--param=min-pagesize=0"/>
+									<listOptionValue builtIn="false" value="-w"/>
+								</option>
+								<inputType id="ilg.gnuarmeclipse.managedbuild.cross.tool.c.compiler.input.1380237328" superClass="ilg.gnuarmeclipse.managedbuild.cross.tool.c.compiler.input"/>
+							</tool>
+							<tool id="com.renesas.cdt.managedbuild.gcc.rz.aarch64.none.tool.compiler.cpp.1482071362" name="Cross ARM C++ Compiler" superClass="com.renesas.cdt.managedbuild.gcc.rz.aarch64.none.tool.compiler.cpp.834439535">
+								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="com.renesas.cdt.managedbuild.gcc.rz.option.compiler.cpp.userDefined.467439627" name="Other compiler flags" superClass="com.renesas.cdt.managedbuild.gcc.rz.option.compiler.cpp.userDefined" valueType="stringList">
+									<listOptionValue builtIn="false" value="--param=min-pagesize=0"/>
+									<listOptionValue builtIn="false" value="-w"/>
+								</option>
+							</tool>
+							<tool id="com.renesas.cdt.managedbuild.gcc.rz.aarch64.none.tool.linker.c.1796307877" name="Cross ARM C Linker" superClass="com.renesas.cdt.managedbuild.gcc.rz.aarch64.none.tool.linker.c.252439771"/>
+							<tool id="com.renesas.cdt.managedbuild.gcc.rz.aarch64.none.tool.linker.cpp.22315508" name="Cross ARM C++ Linker" superClass="com.renesas.cdt.managedbuild.gcc.rz.aarch64.none.tool.linker.cpp.1388605002"/>
+							<tool id="com.renesas.cdt.managedbuild.gcc.rz.aarch64.none.tool.archiver.843901258" name="Cross ARM GNU Archiver" superClass="com.renesas.cdt.managedbuild.gcc.rz.aarch64.none.tool.archiver.1319190014"/>
+							<tool id="com.renesas.cdt.managedbuild.gcc.rz.aarch64.none.tool.flash.484100132" name="Cross ARM GNU Create Flash Image" superClass="com.renesas.cdt.managedbuild.gcc.rz.aarch64.none.tool.flash.1719337215"/>
+							<tool id="com.renesas.cdt.managedbuild.gcc.rz.aarch64.none.tool.listing.1481298684" name="Cross ARM GNU Create Listing" superClass="com.renesas.cdt.managedbuild.gcc.rz.aarch64.none.tool.listing.679682074"/>
+							<tool id="com.renesas.cdt.managedbuild.gcc.rz.aarch64.none.tool.size.448238563" name="Cross ARM GNU Print Size" superClass="com.renesas.cdt.managedbuild.gcc.rz.aarch64.none.tool.size.746421187"/>
+							<tool id="com.renesas.cdt.managedbuild.gcc.rz.tool.libgen.996022864" name="Library Generator" superClass="com.renesas.cdt.managedbuild.gcc.rz.tool.libgen.541828554"/>
+						</toolChain>
+					</folderInfo>
+					<sourceEntries>
+						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="rz"/>
+						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="rz_gen"/>
+						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src"/>
+					</sourceEntries>
+				</configuration>
+			</storageModule>
+			<storageModule moduleId="org.eclipse.cdt.core.externalSettings"/>
+			<storageModule moduleId="com.renesas.cdt.managedbuild.core.boardInfo"/>
+		</cconfiguration>
+		<cconfiguration id="com.renesas.cdt.managedbuild.gcc.rz.aarch64.none.configuration.release.998727881">
+			<storageModule buildSystemId="org.eclipse.cdt.managedbuilder.core.configurationDataProvider" id="com.renesas.cdt.managedbuild.gcc.rz.aarch64.none.configuration.release.998727881" moduleId="org.eclipse.cdt.core.settings" name="Release">
+				<externalSettings/>
+				<extensions>
+					<extension id="org.eclipse.cdt.core.GNU_ELF" point="org.eclipse.cdt.core.BinaryParser"/>
+					<extension id="org.eclipse.cdt.core.GASErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+					<extension id="org.eclipse.cdt.core.GmakeErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+					<extension id="org.eclipse.cdt.core.CWDLocator" point="org.eclipse.cdt.core.ErrorParser"/>
+					<extension id="org.eclipse.cdt.core.GCCErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+				</extensions>
+			</storageModule>
+			<storageModule moduleId="com.renesas.cdt.managedbuild.core.toolchainInfo">
+				<option id="toolchain.id" value="gcc-arm-a-profile-aarch64"/>
+				<option id="toolchain.version" value="13.2.1.arm-13-7"/>
+			</storageModule>
+			<storageModule moduleId="cdtBuildSystem" version="4.0.0">
+				<configuration artifactName="${ProjName}" buildArtefactType="org.eclipse.cdt.build.core.buildArtefactType.exe" buildProperties="org.eclipse.cdt.build.core.buildArtefactType=org.eclipse.cdt.build.core.buildArtefactType.exe,org.eclipse.cdt.build.core.buildType=org.eclipse.cdt.build.core.buildType.release" description="" id="com.renesas.cdt.managedbuild.gcc.rz.aarch64.none.configuration.release.998727881" name="Release" parent="com.renesas.cdt.managedbuild.gcc.rz.aarch64.none.configuration.release">
+					<folderInfo id="com.renesas.cdt.managedbuild.gcc.rz.aarch64.none.configuration.release.998727881." name="/" resourcePath="">
+						<toolChain id="com.renesas.cdt.managedbuild.gcc.rz.aarch64.none.toolchain.elf.release.798195462" name="GCC for Renesas RZ (A-Profile AArch64 bare-metal)" superClass="com.renesas.cdt.managedbuild.gcc.rz.aarch64.none.toolchain.elf.release">
+							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.addtools.createflash.1564009429" name="Create flash image" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.addtools.createflash" value="true" valueType="boolean"/>
+							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.addtools.createlisting.1353686410" name="Create extended listing" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.addtools.createlisting"/>
+							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.addtools.printsize.1015132058" name="Print size" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.addtools.printsize" value="true" valueType="boolean"/>
+							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.addtools.showCommand.122905793" name="Echo tool command" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.addtools.showCommand"/>
+							<option id="com.renesas.cdt.managedbuild.gcc.rz.option.optimizationLevel.1873918417" name="Optimization Level" superClass="com.renesas.cdt.managedbuild.gcc.rz.option.optimizationLevel" value="ilg.gnuarmeclipse.managedbuild.cross.option.optimization.level.debug" valueType="enumerated"/>
+							<option id="com.renesas.cdt.managedbuild.gcc.rz.option.messagelenght.11273575" name="Message length (-fmessage-length=0)" superClass="com.renesas.cdt.managedbuild.gcc.rz.option.messagelenght" value="true" valueType="boolean"/>
+							<option id="com.renesas.cdt.managedbuild.gcc.rz.option.signedchar.1956180435" name="'char' is signed (-fsigned-char)" superClass="com.renesas.cdt.managedbuild.gcc.rz.option.signedchar" value="true" valueType="boolean"/>
+							<option id="com.renesas.cdt.managedbuild.gcc.rz.option.functionsection.1512113993" name="Function sections (-ffunction-sections)" superClass="com.renesas.cdt.managedbuild.gcc.rz.option.functionsection" value="true" valueType="boolean"/>
+							<option id="com.renesas.cdt.managedbuild.gcc.rz.option.datasections.1401517268" name="Data sections (-fdata-sections)" superClass="com.renesas.cdt.managedbuild.gcc.rz.option.datasections" value="true" valueType="boolean"/>
+							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.debugging.level.280451937" name="Debug level" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.debugging.level"/>
+							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.debugging.format.1082632595" name="Debug format" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.debugging.format"/>
+							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.toolchain.name.922947981" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.toolchain.name" value="Linaro AArch64 bare-metal ELF" valueType="string"/>
+							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.architecture.869322117" name="Architecture" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.architecture" value="ilg.gnuarmeclipse.managedbuild.cross.option.architecture.aarch64" valueType="enumerated"/>
+							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.aarch64.target.family.1737449731" name="AArch64 family" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.aarch64.target.family" value="ilg.gnuarmeclipse.managedbuild.cross.option.aarch64.target.mcpu.default" valueType="enumerated"/>
+							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.aarch64.target.feature.simd.1394841384" name="Feature simd" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.aarch64.target.feature.simd" value="ilg.gnuarmeclipse.managedbuild.cross.option.aarch64.target.feature.simd.enabled" valueType="enumerated"/>
+							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.aarch64.target.cmodel.1388128779" name="Code model" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.aarch64.target.cmodel" value="ilg.gnuarmeclipse.managedbuild.cross.option.aarch64.target.cmodel.small" valueType="enumerated"/>
+							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.command.prefix.1369636185" name="Prefix" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.command.prefix" value="aarch64-none-elf-" valueType="string"/>
+							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.command.c.392522585" name="C compiler" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.command.c" value="gcc" valueType="string"/>
+							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.command.cpp.1987517962" name="C++ compiler" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.command.cpp" value="g++" valueType="string"/>
+							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.optimization.nostrictaliasing.1812410268" name="Disable optimizations based on the type of expressions (-fno-strict-aliasing)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.optimization.nostrictaliasing" value="false" valueType="boolean"/>
+							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.command.ar.1308728036" name="Archiver" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.command.ar" value="ar" valueType="string"/>
+							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.command.objcopy.388520792" name="Hex/Bin converter" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.command.objcopy" value="objcopy" valueType="string"/>
+							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.command.objdump.314024623" name="Listing generator" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.command.objdump" value="objdump" valueType="string"/>
+							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.command.size.524960584" name="Size command" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.command.size" value="size" valueType="string"/>
+							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.command.make.536589797" name="Build command" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.command.make" value="make" valueType="string"/>
+							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.command.rm.448131133" name="Remove command" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.command.rm" value="rm" valueType="string"/>
+							<option id="com.renesas.cdt.managedbuild.gcc.rz.deviceName.267242686" name="Device name" superClass="com.renesas.cdt.managedbuild.gcc.rz.deviceName" value="R9A07G076M48GBG" valueType="string"/>
+							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.warnings.unused.1413940482" name="Warn on various unused elements (-Wunused)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.warnings.unused" value="true" valueType="boolean"/>
+							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.warnings.uninitialized.842898326" name="Warn on uninitialized variables (-Wuninitialised)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.warnings.uninitialized" value="true" valueType="boolean"/>
+							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.warnings.allwarn.285596305" name="Enable all common warnings (-Wall)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.warnings.allwarn" value="true" valueType="boolean"/>
+							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.warnings.extrawarn.799695352" name="Enable extra warnings (-Wextra)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.warnings.extrawarn" value="true" valueType="boolean"/>
+							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.warnings.missingdeclaration.1405682281" name="Warn on undeclared global function (-Wmissing-declaration)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.warnings.missingdeclaration" value="true" valueType="boolean"/>
+							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.warnings.conversion.735235733" name="Warn on implicit conversions (-Wconversion)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.warnings.conversion" value="true" valueType="boolean"/>
+							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.warnings.pointerarith.322823329" name="Warn if pointer arithmetic (-Wpointer-arith)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.warnings.pointerarith" value="true" valueType="boolean"/>
+							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.warnings.shadow.666626878" name="Warn if shadowed variable (-Wshadow)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.warnings.shadow" value="true" valueType="boolean"/>
+							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.warnings.logicalop.2105139625" name="Warn if suspicious logical ops (-Wlogical-op)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.warnings.logicalop" value="true" valueType="boolean"/>
+							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.warnings.agreggatereturn.1469744285" name="Warn if struct is returned (-Wagreggate-return)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.warnings.agreggatereturn" value="true" valueType="boolean"/>
+							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.warnings.floatequal.153272130" name="Warn if floats are compared as equal (-Wfloat-equal)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.warnings.floatequal" value="true" valueType="boolean"/>
+							<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="com.renesas.cdt.managedbuild.gcc.rz.option.otherTarget.2028142816" name="Other target flags" superClass="com.renesas.cdt.managedbuild.gcc.rz.option.otherTarget" valueType="stringList">
+								<listOptionValue builtIn="false" value="-mcpu=cortex-a55+simd"/>
+								<listOptionValue builtIn="false" value="-mcmodel=large"/>
+							</option>
+							<option id="com.renesas.cdt.managedbuild.gcc.rz.option.family.892689474" name="Arm family (-mcpu)" superClass="com.renesas.cdt.managedbuild.gcc.rz.option.family" value="ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.mcpu.cortex-a55" valueType="enumerated"/>
+							<option id="com.renesas.cdt.managedbuild.gcc.rz.option.instructionset.666351487" name="Instruction set" superClass="com.renesas.cdt.managedbuild.gcc.rz.option.instructionset" value="ilg.gnuarmeclipse.managedbuild.cross.option.arm.target.instructionset.default" valueType="enumerated"/>
+							<targetPlatform archList="all" binaryParser="org.eclipse.cdt.core.GNU_ELF" id="ilg.gnuarmeclipse.managedbuild.cross.targetPlatform.195401566" isAbstract="false" osList="all" superClass="ilg.gnuarmeclipse.managedbuild.cross.targetPlatform"/>
+							<builder buildPath="${workspace_loc:/rzt2n_evk_ca55_otfd_debug}/Release" id="com.renesas.cdt.managedbuild.gcc.rz.builder.280742564" keepEnvironmentInBuildfile="false" managedBuildOn="true" name="GCC for Renesas Builder" parallelBuildOn="true" parallelizationNumber="optimal" superClass="com.renesas.cdt.managedbuild.gcc.rz.builder"/>
+							<tool id="com.renesas.cdt.managedbuild.gcc.rz.aarch64.none.tool.assembler.504626577" name="Cross ARM GNU Assembler" superClass="com.renesas.cdt.managedbuild.gcc.rz.aarch64.none.tool.assembler">
+								<option id="ilg.gnuarmeclipse.managedbuild.cross.option.assembler.usepreprocessor.1572630441" name="Use preprocessor" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.assembler.usepreprocessor" value="true" valueType="boolean"/>
+								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="ilg.gnuarmeclipse.managedbuild.cross.option.assembler.defs.1721478098" name="Defined symbols (-D)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.assembler.defs" valueType="definedSymbols">
+									<listOptionValue builtIn="false" value="_RENESAS_RZ_"/>
+									<listOptionValue builtIn="false" value="_RZ_CORE=CA55_0"/>
+									<listOptionValue builtIn="false" value="_RZ_ORDINAL=1"/>
+								</option>
+								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="com.renesas.cdt.managedbuild.gcc.rz.option.assembler.include.1555017690" name="Include paths (-I)" superClass="com.renesas.cdt.managedbuild.gcc.rz.option.assembler.include" valueType="includePath">
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/rz_cfg/fsp_cfg/bsp}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/rz_gen}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/rz_cfg/fsp_cfg}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/rz/fsp/inc}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/src}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/rz/fsp/inc/api}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/rz/fsp/inc/instances}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/rz/arm/CMSIS_6/CMSIS/Core/Include}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/rz_cfg/driver}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/rz/fsp/src/r_rsip_protected/src/rzt_rzn/private/lib/sb_lib/inc}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/rz/fsp/src/r_rsip_protected/src/rzt_rzn/private/lib/rsip/inc}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/rz/fsp/src/r_rsip_protected/src/rzt_rzn/private/lib/otp/inc}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/rz/fsp/src/r_rsip_protected/src/rzt_rzn/private/lib/inc}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/rz/fsp/src/r_rsip_protected/src/rzt_rzn/private}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/rz/fsp/src/r_rsip_protected/src/common/primitive}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/rz/fsp/src/r_rsip_protected/src/common/private}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/rz/fsp/src/r_rsip_protected/src/common/public}&quot;"/>
+								</option>
+								<inputType id="ilg.gnuarmeclipse.managedbuild.cross.tool.assembler.input.1657704300" superClass="ilg.gnuarmeclipse.managedbuild.cross.tool.assembler.input"/>
+							</tool>
+							<tool id="com.renesas.cdt.managedbuild.gcc.rz.aarch64.none.tool.compiler.c.1504696539" name="Cross ARM C Compiler" superClass="com.renesas.cdt.managedbuild.gcc.rz.aarch64.none.tool.compiler.c">
+								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="com.renesas.cdt.managedbuild.gcc.rz.option.compiler.include.941596614" name="Include paths (-I)" superClass="com.renesas.cdt.managedbuild.gcc.rz.option.compiler.include" useByScannerDiscovery="false" valueType="includePath">
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/rz_cfg/fsp_cfg/bsp}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;.&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/rz_gen}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/rz_cfg/fsp_cfg}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/rz/fsp/inc}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/src}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/rz/fsp/inc/api}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/rz/fsp/inc/instances}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/rz/arm/CMSIS_6/CMSIS/Core/Include}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/rz_cfg/driver}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/rz/fsp/src/r_rsip_protected/src/rzt_rzn/primitive}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/rz/fsp/src/r_rsip_protected/src/rzt_rzn/private/lib/sb_lib/inc}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/rz/fsp/src/r_rsip_protected/src/rzt_rzn/private/lib/rsip/inc}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/rz/fsp/src/r_rsip_protected/src/rzt_rzn/private/lib/otp/inc}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/rz/fsp/src/r_rsip_protected/src/rzt_rzn/private/lib/inc}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/rz/fsp/src/r_rsip_protected/src/rzt_rzn/private}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/rz/fsp/src/r_rsip_protected/src/common/primitive}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/rz/fsp/src/r_rsip_protected/src/common/private}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/rz/fsp/src/r_rsip_protected/src/common/public}&quot;"/>
+								</option>
+								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="com.renesas.cdt.managedbuild.gcc.rz.option.compiler.otherWarnings.1147218468" name="Other warning flags" superClass="com.renesas.cdt.managedbuild.gcc.rz.option.compiler.otherWarnings" useByScannerDiscovery="true" valueType="stringList">
+									<listOptionValue builtIn="false" value="-Wno-format-truncation"/>
+									<listOptionValue builtIn="false" value="-Wno-stringop-overflow"/>
+								</option>
+								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="com.renesas.cdt.managedbuild.gcc.rz.option.compiler.userDefined.351799230" name="Other compiler flags" superClass="com.renesas.cdt.managedbuild.gcc.rz.option.compiler.userDefined" useByScannerDiscovery="true" valueType="stringList">
+									<listOptionValue builtIn="false" value="--param=min-pagesize=0"/>
+								</option>
+								<option id="ilg.gnuarmeclipse.managedbuild.cross.option.c.compiler.std.1724347523" name="Language standard" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.c.compiler.std" useByScannerDiscovery="true" value="ilg.gnuarmeclipse.managedbuild.cross.option.c.compiler.std.c99" valueType="enumerated"/>
+								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="ilg.gnuarmeclipse.managedbuild.cross.option.c.compiler.defs.544058539" name="Defined symbols (-D)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.c.compiler.defs" useByScannerDiscovery="true" valueType="definedSymbols">
+									<listOptionValue builtIn="false" value="_RENESAS_RZ_"/>
+									<listOptionValue builtIn="false" value="_RZ_CORE=CA55_0"/>
+									<listOptionValue builtIn="false" value="_RZ_ORDINAL=1"/>
+								</option>
+								<inputType id="ilg.gnuarmeclipse.managedbuild.cross.tool.c.compiler.input.721780315" superClass="ilg.gnuarmeclipse.managedbuild.cross.tool.c.compiler.input"/>
+							</tool>
+							<tool id="com.renesas.cdt.managedbuild.gcc.rz.aarch64.none.tool.compiler.cpp.1626046197" name="Cross ARM C++ Compiler" superClass="com.renesas.cdt.managedbuild.gcc.rz.aarch64.none.tool.compiler.cpp">
+								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="com.renesas.cdt.managedbuild.gcc.rz.option.compiler.cpp.include.649650464" name="Include paths (-I)" superClass="com.renesas.cdt.managedbuild.gcc.rz.option.compiler.cpp.include" useByScannerDiscovery="true" valueType="includePath">
+									<listOptionValue builtIn="false" value="&quot;${ProjDirPath}/generate&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${ProjDirPath}/src&quot;"/>
+								</option>
+								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="com.renesas.cdt.managedbuild.gcc.rz.option.compiler.cpp.otherWarnings.1441392524" name="Other warning flags" superClass="com.renesas.cdt.managedbuild.gcc.rz.option.compiler.cpp.otherWarnings" useByScannerDiscovery="true" valueType="stringList">
+									<listOptionValue builtIn="false" value="-Wno-format-truncation"/>
+									<listOptionValue builtIn="false" value="-Wno-stringop-overflow"/>
+								</option>
+								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="com.renesas.cdt.managedbuild.gcc.rz.option.compiler.cpp.userDefined.1425103345" name="Other compiler flags" superClass="com.renesas.cdt.managedbuild.gcc.rz.option.compiler.cpp.userDefined" useByScannerDiscovery="true" valueType="stringList">
+									<listOptionValue builtIn="false" value="--param=min-pagesize=0"/>
+								</option>
+								<option id="com.renesas.cdt.managedbuild.gcc.rz.option.compiler.cpp.language.1210798248" name="Language standard" superClass="com.renesas.cdt.managedbuild.gcc.rz.option.compiler.cpp.language" useByScannerDiscovery="true" value="com.renesas.cdt.managedbuild.gcc.rz.option.compiler.cpp.language.cpp11" valueType="enumerated"/>
+							</tool>
+							<tool id="com.renesas.cdt.managedbuild.gcc.rz.aarch64.none.tool.linker.c.254445675" name="Cross ARM C Linker" superClass="com.renesas.cdt.managedbuild.gcc.rz.aarch64.none.tool.linker.c">
+								<option id="ilg.gnuarmeclipse.managedbuild.cross.option.c.linker.gcsections.404259784" name="Remove unused sections (-Xlinker --gc-sections)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.c.linker.gcsections" value="true" valueType="boolean"/>
+								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="true" id="com.renesas.cdt.managedbuild.gcc.rz.archives.includePath.1778561661" name="Standard archive search directories (-L)" superClass="com.renesas.cdt.managedbuild.gcc.rz.archives.includePath" valueType="libPaths"/>
+								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="true" id="com.renesas.cdt.managedbuild.gcc.rz.archives.includeFiles.1844799092" name="Standard archive (library) files (-l)" superClass="com.renesas.cdt.managedbuild.gcc.rz.archives.includeFiles" valueType="libs"/>
+								<option id="com.renesas.cdt.managedbuild.gcc.rz.option.linker.entrypoint.229483808" name="Entry Point:" superClass="com.renesas.cdt.managedbuild.gcc.rz.option.linker.entrypoint" value="-Wl,-esystem_init" valueType="string"/>
+								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="com.renesas.cdt.managedbuild.gcc.rz.option.linker.userDefined.1864106131" name="Other linker flags" superClass="com.renesas.cdt.managedbuild.gcc.rz.option.linker.userDefined" valueType="stringList">
+									<listOptionValue builtIn="false" value="--specs=nosys.specs"/>
+								</option>
+								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="com.renesas.cdt.managedbuild.gcc.rz.option.linkerscript.1053170772" name="Script files (-T)" superClass="com.renesas.cdt.managedbuild.gcc.rz.option.linkerscript" valueType="stringList">
+									<listOptionValue builtIn="false" value="&quot;fsp_ram_execution.ld&quot;"/>
+								</option>
+								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="com.renesas.cdt.managedbuild.gcc.rz.archives.userIncludePath.723606933" name="User defined archive search directories (-L)" superClass="com.renesas.cdt.managedbuild.gcc.rz.archives.userIncludePath" valueType="stringList">
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}}/script&quot;"/>
+								</option>
+								<inputType id="com.renesas.cdt.managedbuild.gcc.rz.inputType.linker.c.1951333687" superClass="com.renesas.cdt.managedbuild.gcc.rz.inputType.linker.c">
+									<additionalInput kind="additionalinputdependency" paths="$(USER_OBJS)"/>
+									<additionalInput kind="additionalinputdependency" paths="$(LIBRARY_GENERATOR_OUTPUTTYPE_OUTPUTS)"/>
+									<additionalInput kind="additionaldependency" paths="$(LINKER_SCRIPT)"/>
+								</inputType>
+							</tool>
+							<tool id="com.renesas.cdt.managedbuild.gcc.rz.aarch64.none.tool.linker.cpp.1516534136" name="Cross ARM C++ Linker" superClass="com.renesas.cdt.managedbuild.gcc.rz.aarch64.none.tool.linker.cpp">
+								<option id="ilg.gnuarmeclipse.managedbuild.cross.option.cpp.linker.gcsections.1152454276" name="Remove unused sections (-Xlinker --gc-sections)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.cpp.linker.gcsections" value="true" valueType="boolean"/>
+								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="true" id="com.renesas.cdt.managedbuild.gcc.rz.archives.cpp.includePath.72681313" name="Standard archive search directories (-L)" superClass="com.renesas.cdt.managedbuild.gcc.rz.archives.cpp.includePath" valueType="libPaths"/>
+								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="true" id="com.renesas.cdt.managedbuild.gcc.rz.archives.cpp.includeFiles.1734914884" name="Standard archive (library) files (-l)" superClass="com.renesas.cdt.managedbuild.gcc.rz.archives.cpp.includeFiles" valueType="libs"/>
+								<option id="com.renesas.cdt.managedbuild.gcc.rz.option.linker.cpp.entrypoint.1115393444" name="Entry Point:" superClass="com.renesas.cdt.managedbuild.gcc.rz.option.linker.cpp.entrypoint" value="-Wl,-esystem_init" valueType="string"/>
+								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="com.renesas.cdt.managedbuild.gcc.rz.option.linker.cpp.userDefined.1196715671" name="Other linker flags" superClass="com.renesas.cdt.managedbuild.gcc.rz.option.linker.cpp.userDefined" valueType="stringList">
+									<listOptionValue builtIn="false" value="--specs=nosys.specs"/>
+								</option>
+								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="com.renesas.cdt.managedbuild.gcc.rz.option.cpp.linkerscript.1052221262" name="Script files (-T)" superClass="com.renesas.cdt.managedbuild.gcc.rz.option.cpp.linkerscript" valueType="stringList">
+									<listOptionValue builtIn="false" value="&quot;fsp_ram_execution.ld&quot;"/>
+								</option>
+							</tool>
+							<tool id="com.renesas.cdt.managedbuild.gcc.rz.aarch64.none.tool.archiver.1030367658" name="Cross ARM GNU Archiver" superClass="com.renesas.cdt.managedbuild.gcc.rz.aarch64.none.tool.archiver"/>
+							<tool id="com.renesas.cdt.managedbuild.gcc.rz.aarch64.none.tool.flash.467088557" name="Cross ARM GNU Create Flash Image" superClass="com.renesas.cdt.managedbuild.gcc.rz.aarch64.none.tool.flash">
+								<option id="com.renesas.cdt.managedbuild.gcc.rz.option.flash.choice.560184906" name="Output file format (-O)" superClass="com.renesas.cdt.managedbuild.gcc.rz.option.flash.choice" value="ilg.gnuarmeclipse.managedbuild.cross.option.createflash.choice.srec" valueType="enumerated"/>
+							</tool>
+							<tool id="com.renesas.cdt.managedbuild.gcc.rz.aarch64.none.tool.listing.1457892537" name="Cross ARM GNU Create Listing" superClass="com.renesas.cdt.managedbuild.gcc.rz.aarch64.none.tool.listing">
+								<option id="ilg.gnuarmeclipse.managedbuild.cross.option.createlisting.source.1292094902" name="Display source (--source|-S)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.createlisting.source" value="true" valueType="boolean"/>
+								<option id="ilg.gnuarmeclipse.managedbuild.cross.option.createlisting.allheaders.1604706912" name="Display all headers (--all-headers|-x)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.createlisting.allheaders" value="true" valueType="boolean"/>
+								<option id="ilg.gnuarmeclipse.managedbuild.cross.option.createlisting.demangle.1554020648" name="Demangle names (--demangle|-C)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.createlisting.demangle" value="true" valueType="boolean"/>
+								<option id="ilg.gnuarmeclipse.managedbuild.cross.option.createlisting.linenumbers.1397464446" name="Display line numbers (--line-numbers|-l)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.createlisting.linenumbers" value="true" valueType="boolean"/>
+								<option id="ilg.gnuarmeclipse.managedbuild.cross.option.createlisting.wide.700271031" name="Wide lines (--wide|-w)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.createlisting.wide" value="true" valueType="boolean"/>
+							</tool>
+							<tool id="com.renesas.cdt.managedbuild.gcc.rz.aarch64.none.tool.size.274825253" name="Cross ARM GNU Print Size" superClass="com.renesas.cdt.managedbuild.gcc.rz.aarch64.none.tool.size">
+								<option id="ilg.gnuarmeclipse.managedbuild.cross.option.printsize.format.1234236607" name="Size format" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.printsize.format"/>
+							</tool>
+							<tool id="com.renesas.cdt.managedbuild.gcc.rz.tool.libgen.1968676606" name="Library Generator" superClass="com.renesas.cdt.managedbuild.gcc.rz.tool.libgen">
+								<option id="com.renesas.cdt.managedbuild.gcc.rz.option.libraryType.894716909" name="Library type" superClass="com.renesas.cdt.managedbuild.gcc.rz.option.libraryType" value="com.renesas.cdt.managedbuild.gcc.core.option.librarygenerator.settings.libraryType.preBuilt" valueType="enumerated"/>
+								<option id="com.renesas.cdt.managedbuild.gcc.rz.option.selectlibrary.539955356" name="Select Library" superClass="com.renesas.cdt.managedbuild.gcc.rz.option.selectlibrary" value="com.renesas.cdt.managedbuild.gcc.core.option.librarygenerator.settings.selectLibrary.newLib" valueType="enumerated"/>
+							</tool>
+						</toolChain>
+					</folderInfo>
+					<folderInfo id="com.renesas.cdt.managedbuild.gcc.rz.aarch64.none.configuration.release.998727881./rz/arm" name="arm" resourcePath="rz/arm">
+						<toolChain id="com.renesas.cdt.managedbuild.gcc.rz.aarch64.none.toolchain.elf.release.517144061" name="GCC for Renesas RZ (A-Profile AArch64 bare-metal)" superClass="com.renesas.cdt.managedbuild.gcc.rz.aarch64.none.toolchain.elf.release" unusedChildren="">
+							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.addtools.createflash.1564009429.504736339" name="Create flash image" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.addtools.createflash.1564009429"/>
+							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.addtools.createlisting.1353686410.1039123168" name="Create extended listing" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.addtools.createlisting.1353686410"/>
+							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.addtools.printsize.1015132058.1629956460" name="Print size" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.addtools.printsize.1015132058"/>
+							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.addtools.showCommand.122905793.1683635979" name="Echo tool command" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.addtools.showCommand.122905793"/>
+							<option id="com.renesas.cdt.managedbuild.gcc.rz.option.optimizationLevel.1873918417.1985223699" name="Optimization Level" superClass="com.renesas.cdt.managedbuild.gcc.rz.option.optimizationLevel.1873918417"/>
+							<option id="com.renesas.cdt.managedbuild.gcc.rz.option.messagelenght.11273575.2051919911" name="Message length (-fmessage-length=0)" superClass="com.renesas.cdt.managedbuild.gcc.rz.option.messagelenght.11273575"/>
+							<option id="com.renesas.cdt.managedbuild.gcc.rz.option.signedchar.1956180435.972736136" name="'char' is signed (-fsigned-char)" superClass="com.renesas.cdt.managedbuild.gcc.rz.option.signedchar.1956180435"/>
+							<option id="com.renesas.cdt.managedbuild.gcc.rz.option.functionsection.1512113993.596673619" name="Function sections (-ffunction-sections)" superClass="com.renesas.cdt.managedbuild.gcc.rz.option.functionsection.1512113993"/>
+							<option id="com.renesas.cdt.managedbuild.gcc.rz.option.datasections.1401517268.1892521924" name="Data sections (-fdata-sections)" superClass="com.renesas.cdt.managedbuild.gcc.rz.option.datasections.1401517268"/>
+							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.debugging.level.280451937.712158171" name="Debug level" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.debugging.level.280451937"/>
+							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.debugging.format.1082632595.88358839" name="Debug format" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.debugging.format.1082632595"/>
+							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.toolchain.name.922947981.847298197" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.toolchain.name.922947981"/>
+							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.architecture.869322117.1726096135" name="Architecture" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.architecture.869322117"/>
+							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.aarch64.target.family.1737449731.263450848" name="AArch64 family" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.aarch64.target.family.1737449731"/>
+							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.aarch64.target.feature.simd.1394841384.1232524491" name="Feature simd" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.aarch64.target.feature.simd.1394841384"/>
+							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.aarch64.target.cmodel.1388128779.1288808696" name="Code model" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.aarch64.target.cmodel.1388128779"/>
+							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.command.prefix.1369636185.994713872" name="Prefix" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.command.prefix.1369636185"/>
+							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.command.c.392522585.835507467" name="C compiler" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.command.c.392522585"/>
+							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.command.cpp.1987517962.1251992665" name="C++ compiler" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.command.cpp.1987517962"/>
+							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.optimization.nostrictaliasing.1812410268.1898358142" name="Disable optimizations based on the type of expressions (-fno-strict-aliasing)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.optimization.nostrictaliasing.1812410268"/>
+							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.command.ar.1308728036.157998769" name="Archiver" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.command.ar.1308728036"/>
+							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.command.objcopy.388520792.1017753397" name="Hex/Bin converter" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.command.objcopy.388520792"/>
+							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.command.objdump.314024623.1698580823" name="Listing generator" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.command.objdump.314024623"/>
+							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.command.size.524960584.1683482685" name="Size command" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.command.size.524960584"/>
+							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.command.make.536589797.109043684" name="Build command" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.command.make.536589797"/>
+							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.command.rm.448131133.401052790" name="Remove command" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.command.rm.448131133"/>
+							<option id="com.renesas.cdt.managedbuild.gcc.rz.deviceName.267242686.1278028869" name="Device name" superClass="com.renesas.cdt.managedbuild.gcc.rz.deviceName.267242686"/>
+							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.warnings.unused.1413940482.86138271" name="Warn on various unused elements (-Wunused)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.warnings.unused.1413940482"/>
+							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.warnings.uninitialized.842898326.1427399916" name="Warn on uninitialized variables (-Wuninitialised)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.warnings.uninitialized.842898326"/>
+							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.warnings.allwarn.285596305.559081571" name="Enable all common warnings (-Wall)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.warnings.allwarn.285596305"/>
+							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.warnings.extrawarn.799695352.1521727164" name="Enable extra warnings (-Wextra)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.warnings.extrawarn.799695352"/>
+							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.warnings.missingdeclaration.1405682281.617339752" name="Warn on undeclared global function (-Wmissing-declaration)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.warnings.missingdeclaration.1405682281"/>
+							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.warnings.conversion.735235733.652321865" name="Warn on implicit conversions (-Wconversion)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.warnings.conversion.735235733"/>
+							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.warnings.pointerarith.322823329.1687546956" name="Warn if pointer arithmetic (-Wpointer-arith)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.warnings.pointerarith.322823329"/>
+							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.warnings.shadow.666626878.2144774483" name="Warn if shadowed variable (-Wshadow)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.warnings.shadow.666626878"/>
+							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.warnings.logicalop.2105139625.98041878" name="Warn if suspicious logical ops (-Wlogical-op)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.warnings.logicalop.2105139625"/>
+							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.warnings.agreggatereturn.1469744285.225406136" name="Warn if struct is returned (-Wagreggate-return)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.warnings.agreggatereturn.1469744285"/>
+							<option id="ilg.gnuarmeclipse.managedbuild.cross.option.warnings.floatequal.153272130.1226014064" name="Warn if floats are compared as equal (-Wfloat-equal)" superClass="ilg.gnuarmeclipse.managedbuild.cross.option.warnings.floatequal.153272130"/>
+							<option id="com.renesas.cdt.managedbuild.gcc.rz.option.otherTarget.2028142816.1737643896" name="Other target flags" superClass="com.renesas.cdt.managedbuild.gcc.rz.option.otherTarget.2028142816"/>
+							<option id="com.renesas.cdt.managedbuild.gcc.rz.option.family.892689474.674440997" name="Arm family (-mcpu)" superClass="com.renesas.cdt.managedbuild.gcc.rz.option.family.892689474"/>
+							<option id="com.renesas.cdt.managedbuild.gcc.rz.option.instructionset.666351487.1780069409" name="Instruction set" superClass="com.renesas.cdt.managedbuild.gcc.rz.option.instructionset.666351487"/>
+							<targetPlatform archList="all" binaryParser="org.eclipse.cdt.core.GNU_ELF" id="ilg.gnuarmeclipse.managedbuild.cross.targetPlatform" isAbstract="false" osList="all" superClass="ilg.gnuarmeclipse.managedbuild.cross.targetPlatform"/>
+							<tool id="com.renesas.cdt.managedbuild.gcc.rz.aarch64.none.tool.assembler.1766219719" name="Cross ARM GNU Assembler" superClass="com.renesas.cdt.managedbuild.gcc.rz.aarch64.none.tool.assembler.504626577">
+								<inputType id="ilg.gnuarmeclipse.managedbuild.cross.tool.assembler.input.1998385385" superClass="ilg.gnuarmeclipse.managedbuild.cross.tool.assembler.input"/>
+							</tool>
+							<tool id="com.renesas.cdt.managedbuild.gcc.rz.aarch64.none.tool.compiler.c.1573991194" name="Cross ARM C Compiler" superClass="com.renesas.cdt.managedbuild.gcc.rz.aarch64.none.tool.compiler.c.1504696539">
+								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="com.renesas.cdt.managedbuild.gcc.rz.option.compiler.userDefined.1040248671" name="Other compiler flags" superClass="com.renesas.cdt.managedbuild.gcc.rz.option.compiler.userDefined" valueType="stringList">
+									<listOptionValue builtIn="false" value="--param=min-pagesize=0"/>
+									<listOptionValue builtIn="false" value="-w"/>
+								</option>
+								<inputType id="ilg.gnuarmeclipse.managedbuild.cross.tool.c.compiler.input.1483849807" superClass="ilg.gnuarmeclipse.managedbuild.cross.tool.c.compiler.input"/>
+							</tool>
+							<tool id="com.renesas.cdt.managedbuild.gcc.rz.aarch64.none.tool.compiler.cpp.1051878415" name="Cross ARM C++ Compiler" superClass="com.renesas.cdt.managedbuild.gcc.rz.aarch64.none.tool.compiler.cpp.1626046197">
+								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="com.renesas.cdt.managedbuild.gcc.rz.option.compiler.cpp.userDefined.1558181824" name="Other compiler flags" superClass="com.renesas.cdt.managedbuild.gcc.rz.option.compiler.cpp.userDefined" valueType="stringList">
+									<listOptionValue builtIn="false" value="--param=min-pagesize=0"/>
+									<listOptionValue builtIn="false" value="-w"/>
+								</option>
+							</tool>
+							<tool id="com.renesas.cdt.managedbuild.gcc.rz.aarch64.none.tool.linker.c.1436297935" name="Cross ARM C Linker" superClass="com.renesas.cdt.managedbuild.gcc.rz.aarch64.none.tool.linker.c.254445675"/>
+							<tool id="com.renesas.cdt.managedbuild.gcc.rz.aarch64.none.tool.linker.cpp.234393824" name="Cross ARM C++ Linker" superClass="com.renesas.cdt.managedbuild.gcc.rz.aarch64.none.tool.linker.cpp.1516534136"/>
+							<tool id="com.renesas.cdt.managedbuild.gcc.rz.aarch64.none.tool.archiver.547863728" name="Cross ARM GNU Archiver" superClass="com.renesas.cdt.managedbuild.gcc.rz.aarch64.none.tool.archiver.1030367658"/>
+							<tool id="com.renesas.cdt.managedbuild.gcc.rz.aarch64.none.tool.flash.1567804739" name="Cross ARM GNU Create Flash Image" superClass="com.renesas.cdt.managedbuild.gcc.rz.aarch64.none.tool.flash.467088557"/>
+							<tool id="com.renesas.cdt.managedbuild.gcc.rz.aarch64.none.tool.listing.1899392474" name="Cross ARM GNU Create Listing" superClass="com.renesas.cdt.managedbuild.gcc.rz.aarch64.none.tool.listing.1457892537"/>
+							<tool id="com.renesas.cdt.managedbuild.gcc.rz.aarch64.none.tool.size.762326485" name="Cross ARM GNU Print Size" superClass="com.renesas.cdt.managedbuild.gcc.rz.aarch64.none.tool.size.274825253"/>
+							<tool id="com.renesas.cdt.managedbuild.gcc.rz.tool.libgen.310365550" name="Library Generator" superClass="com.renesas.cdt.managedbuild.gcc.rz.tool.libgen.1968676606"/>
+						</toolChain>
+					</folderInfo>
+					<sourceEntries>
+						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="rz"/>
+						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="rz_gen"/>
+						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src"/>
+					</sourceEntries>
+				</configuration>
+			</storageModule>
+			<storageModule moduleId="org.eclipse.cdt.core.externalSettings"/>
+		</cconfiguration>
+	</storageModule>
+	<storageModule moduleId="cdtBuildSystem" version="4.0.0">
+		<project id="rzt2n_evk_ca55_otfd_debug.com.renesas.cdt.managedbuild.gcc.rz.aarch64.none.target.elf.305676508" name="Executable" projectType="com.renesas.cdt.managedbuild.gcc.rz.aarch64.none.target.elf"/>
+	</storageModule>
+	<storageModule moduleId="scannerConfiguration">
+		<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId=""/>
+		<scannerConfigBuildInfo instanceId="com.renesas.cdt.managedbuild.gcc.rz.aarch64.none.configuration.debug.2116614025;com.renesas.cdt.managedbuild.gcc.rz.aarch64.none.configuration.debug.2116614025.;com.renesas.cdt.managedbuild.gcc.rz.aarch64.none.tool.compiler.c.744437006;ilg.gnuarmeclipse.managedbuild.cross.tool.c.compiler.input.688915549">
+			<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId=""/>
+		</scannerConfigBuildInfo>
+		<scannerConfigBuildInfo instanceId="com.renesas.cdt.managedbuild.gcc.rz.aarch64.none.configuration.release.998727881;com.renesas.cdt.managedbuild.gcc.rz.aarch64.none.configuration.release.998727881.;com.renesas.cdt.managedbuild.gcc.rz.aarch64.none.tool.compiler.c.1504696539;ilg.gnuarmeclipse.managedbuild.cross.tool.c.compiler.input.721780315">
+			<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId=""/>
+		</scannerConfigBuildInfo>
+	</storageModule>
+	<storageModule moduleId="org.eclipse.cdt.core.LanguageSettingsProviders"/>
+	<storageModule moduleId="refreshScope"/>
+	<storageModule moduleId="org.eclipse.cdt.make.core.buildtargets"/>
+</cproject>
