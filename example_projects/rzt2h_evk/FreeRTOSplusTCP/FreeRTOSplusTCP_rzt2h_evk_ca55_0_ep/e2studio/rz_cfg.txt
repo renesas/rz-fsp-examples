@@ -3461,7 +3461,6 @@ FSP Configuration
     Optional Functions: uxTaskPriorityGet() Function: Enabled
     Optional Functions: vTaskDelete() Function: Enabled
     Optional Functions: vTaskSuspend() Function: Enabled
-    Optional Functions: xResumeFromISR() Function: Enabled
     Optional Functions: vTaskDelayUntil() Function: Enabled
     Optional Functions: vTaskDelay() Function: Enabled
     Optional Functions: xTaskGetSchedulerState() Function: Enabled
@@ -3469,7 +3468,6 @@ FSP Configuration
     Optional Functions: uxTaskGetStackHighWaterMark() Function: Disabled
     Optional Functions: xTaskGetIdleTaskHandle() Function: Disabled
     Optional Functions: eTaskGetState() Function: Disabled
-    Optional Functions: xEventGroupSetBitFromISR() Function: Enabled
     Optional Functions: xTimerPendFunctionCall() Function: Enabled
     Optional Functions: xTaskAbortDelay() Function: Disabled
     Optional Functions: xTaskGetHandle() Function: Disabled
@@ -3554,8 +3552,8 @@ FSP Configuration
       Baud: Baud Rate Modulation: Disabled
       Baud: Max Error (%): 5
       Baud: Synchronizer Bypass: Not Bypassed (The operation clock is SCInASYNCCLK)
-      Flow Controls: CTS/RTS Selection: Hardware RTS
-      Flow Controls: Software RTS Pin: Disabled
+      Flow Control: CTS/RTS Selection: Hardware RTS
+      Flow Control: Software RTS Pin: Disabled
       Extra: Clock Source: Internal Clock
       Extra: Start bit detection: Falling Edge
       Extra: Noise Filter: Disable
@@ -3564,6 +3562,7 @@ FSP Configuration
       Extra: RS-485: DE Pin Polarity: Active High
       Extra: RS-485: DE Pin Assertion Time: 1
       Extra: RS-485: DE Pin Negation Time: 1
+      Extra: TXI/TEI Synchronization Delay Cycles: 0
       Interrupts: Callback: uart0_cb_stdio
       Interrupts: Receive Interrupt Priority: Priority 5
       Interrupts: Transmit Data Empty Interrupt Priority: Priority 5

@@ -732,9 +732,14 @@ void test_main(void)
     fsp_err_t err;
     uint32_t  index;
 
-    app_printf(BANNER_INFO,
-               EP_VERSION,
-               4, 2, 0);
+    fsp_pack_version_t version;
+ 
+    /* Get the FSP version */
+    R_FSP_VersionGet(&version);
+ 
+    /* Example project information printed on the console */
+    app_printf(BANNER_INFO, EP_VERSION, version.version_id_b.major, version.version_id_b.minor,
+        version.version_id_b.patch);
 
     app_printf("\r\nExample Project Overview\r\n");
     app_printf("This example demonstrates GMAC-B and Ethernet Switch operation across three Ethernet ports.\r\n");

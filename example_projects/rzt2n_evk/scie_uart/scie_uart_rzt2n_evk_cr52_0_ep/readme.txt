@@ -13,12 +13,12 @@
     Any API or event failure message is displayed via RTT Viewer.
 
 2. Software Requirements:
-    Renesas Flexible Software Package (FSP): Version 4.2.0
-    e2 studio: Version 2026-07
-    FSP Smart Configurator: Version 2026-07
+    Renesas Flexible Software Package (FSP): Version 4.3.0
+    e2 studio: Version 2026-10
+    FSP Smart Configurator: Version 2026-10
     IAR: Version 9.60.3
     GCC ARM Embedded Toolchain: Version 13.3.1.arm-13-24
-    SEGGER J-Link RTT Viewer: Version 9.44
+    SEGGER J-Link RTT Viewer: Version 9.70
     Terminal Console Application: Tera Term or a similar application
 
 3. Hardware Requirements:

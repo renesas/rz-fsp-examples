@@ -27,10 +27,13 @@ To build and run the FreeRTOS+TCP example project, the following resources are n
 Refer to [readme.txt](./readme.txt) for information on how to connect the hardware.
 
 ### Software ###
-1. IAR Embedded Workbench for ARM 9.60.3 + patch, with Smart Configurator and RZ_FSP_Packs_v4.2.0
-2. e²studio 2026-07 with RZ FSP 4.2.0, toolchain GNU ARM Embedded 13.3.1.arm-13-24
-3. J-Link v9.44
-4. A packet sending tool on the host PC for the UDP and TCP echo tests
+- Renesas Flexible Software Package (FSP): Version 4.3.0
+- e² studio: Version 2026-10
+- FSP Smart Configurator: Version 2026-10
+- IAR: Version 9.60.3
+- GCC ARM Embedded Toolchain: Version 13.3.1.arm-13-24
+- J-Link: Version 9.70
+- A packet sending tool on the host PC for the UDP and TCP echo tests
 
 ## Related Collateral References ##
 The following documents can be referred to for enhancing your understanding of

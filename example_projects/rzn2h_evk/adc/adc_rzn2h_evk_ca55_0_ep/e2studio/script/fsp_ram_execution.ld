@@ -184,13 +184,15 @@ SECTIONS
     {
         _loader_text_start = .;
         *(.loader_text)
-        */startup_core.o(.text*)
-        */system_core.o(.text*)
-        */startup.o(.text*)
-        */system.o(.text*)
-        */all*/bsp_*.o(.text*)
-        */r_ioport.o(.text*)
+        */startup_core.*(.text*)
+        */system_core.*(.text*)
+        */startup.*(.text*)
+        */system.*(.text*)
+        */all*/bsp_*.*(.text*)
+        */r_ioport.*(.text*)
         KEEP(*(.warm_start))
+        . = ALIGN(8);
+        KEEP(*(.software_delay)) /* Place software delay function on an 8-byte boundary. */
         _loader_text_end = .;
     } > LOADER_TEXT_STACK
 
@@ -201,16 +203,16 @@ SECTIONS
     .loader_data _loader_text_end :
     {
         __loader_data_start = .;
-        */startup_core.o(.data*)
-        */system_core.o(.data*)
-        */startup.o(.data*)
-        */system.o(.data*)
-        */all*/bsp_*.o(.data*)
-        */r_ioport.o(.data*)
-        */bsp_mpu_core.o(.rodata*)
-        */bsp_mmu_core.o(.rodata*)
-        */bsp_register_protection.o(.rodata*)
-        */bsp_tzc400.o(.rodata*)
+        */startup_core.*(.data*)
+        */system_core.*(.data*)
+        */startup.*(.data*)
+        */system.*(.data*)
+        */all*/bsp_*.*(.data*)
+        */r_ioport.*(.data*)
+        */bsp_mpu_core.*(.rodata*)
+        */bsp_mmu_core.*(.rodata*)
+        */bsp_register_protection.*(.rodata*)
+        */bsp_tzc400.*(.rodata*)
         KEEP(*(.warm_start.data*))
         . = ALIGN(8);
         __loader_data_end = .;
@@ -220,20 +222,20 @@ SECTIONS
     .loader_bss (NOLOAD) :
     {
         __loader_bss_start = .;
-        */startup_core.o(.bss*)
-        */system_core.o(.bss*)
-        */startup.o(.bss*)
-        */system.o(.bss*)
-        */all*/bsp_*.o(.bss*)
-        */r_ioport.o(.bss*)
+        */startup_core.*(.bss*)
+        */system_core.*(.bss*)
+        */startup.*(.bss*)
+        */system.*(.bss*)
+        */all*/bsp_*.*(.bss*)
+        */r_ioport.*(.bss*)
         KEEP(*(.warm_start.bss*))
         KEEP(*(.ttbr))
-        */startup_core.o(COMMON)
-        */system_core.o(COMMON)
-        */startup.o(COMMON)
-        */system.o(COMMON)
-        */all*/bsp_*.o(COMMON)
-        */r_ioport.o(COMMON)
+        */startup_core.*(COMMON)
+        */system_core.*(COMMON)
+        */startup.*(COMMON)
+        */system.*(COMMON)
+        */all*/bsp_*.*(COMMON)
+        */r_ioport.*(COMMON)
         . = ALIGN(8);
         __loader_bss_end = . ;
 
@@ -439,35 +441,6 @@ SECTIONS
         _data_end = .;
     } > RAM_DATA
 
-    /* Place the noncache variables. */
-    .noncache NONCACHE_AREA_START : AT(NONCACHE_AREA_INIT_START)
-    {
-        _noncache_start = .;
-
-        /* Place the noncache variables. */
-        . = ALIGN(8);
-        _data_noncache_start = .;
-        *(.bss._SEGGER_RTT)
-        *(.bss._acDownBuffer)
-        *(.bss._acUpBuffer)
-        KEEP(*(.data_noncache*))
-        _data_noncache_end = .;
-
-        /* Place the noncache variables to be used in DMAC_LINK_MODE. */
-        . = ALIGN(8);
-        _dmac_link_mode_start = .;
-        KEEP(*(.dmac_link_mode*))
-        _dmac_link_mode_end = .;
-
-        /* Place the core non-common noncache variables. */
-        . = ALIGN(32);
-        _ncbuffer_start = .;
-        KEEP(*(.noncache_buffer*))
-        _ncbuffer_end = .;
-
-        _noncache_end = .;
-    } > NONCACHE
-
     /* Place the variables in the user program that do not have initial values. */
     .bss (NOLOAD) :
     {
@@ -521,6 +494,32 @@ SECTIONS
 /*-----------------------------------------------*/
 /*  NONCACHE                                     */
 /*-----------------------------------------------*/
+    /* Place the noncache variables. */
+    .noncache NONCACHE_AREA_START : AT(NONCACHE_AREA_INIT_START)
+    {
+        _noncache_start = .;
+
+        /* Place the noncache variables. */
+        . = ALIGN(8);
+        _data_noncache_start = .;
+        KEEP(*(.data_noncache*))
+        _data_noncache_end = .;
+
+        /* Place the noncache variables to be used in DMAC_LINK_MODE. */
+        . = ALIGN(8);
+        _dmac_link_mode_start = .;
+        KEEP(*(.dmac_link_mode*))
+        _dmac_link_mode_end = .;
+
+        /* Place the core non-common noncache variables. */
+        . = ALIGN(32);
+        _ncbuffer_start = .;
+        KEEP(*(.noncache_buffer*))
+        _ncbuffer_end = .;
+
+        _noncache_end = .;
+    } > NONCACHE
+
     /* Place the core common noncache variables. */
     .shared_noncache_buffer SHARED_NONCACHE_BUFFER_START : AT(SHARED_NONCACHE_BUFFER_INIT_START)
     {

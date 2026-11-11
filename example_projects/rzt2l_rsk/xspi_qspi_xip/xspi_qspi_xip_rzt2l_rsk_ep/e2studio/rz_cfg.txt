@@ -1067,9 +1067,12 @@ FSP Configuration
       General: unit: 1
       General: Chip Select: Chip Select 0
       General: Flash Size: 16MB
+      General: Flash Page Size Bytes: 256
       General: SPI Protocol: 1S-1S-1S
       General: Address Bytes: 3
+      General: Address MSB Mask: 0x00
       General: Dummy Clocks for Read: 6
+      General: Wrap Transaction Behavior: Separate xSPI transfer at the wrapping address boundary
       Command Definitions: Page Program Command: 0x02
       Command Definitions: Read Command: 0xEB
       Command Definitions: Write Enable Command: 0x06

@@ -27,9 +27,14 @@ void main_task(void);
 void hal_entry(void)
 {
     /* Display the example banner before starting the USB Host Vendor event loop. */
-    APP_PRINT(BANNER_INFO,
-              EP_VERSION,
-              4, 2, 0);
+    fsp_pack_version_t version;
+ 
+    /* Get the FSP version */
+    R_FSP_VersionGet(&version);
+ 
+    /* Example project information printed on the console */
+    APP_PRINT(BANNER_INFO, EP_VERSION, version.version_id_b.major, version.version_id_b.minor,
+        version.version_id_b.patch);
 
     APP_PRINT("\r\nExample Project Overview\r\n");
     APP_PRINT("This example demonstrates USB Host Vendor communication using control, bulk, and "

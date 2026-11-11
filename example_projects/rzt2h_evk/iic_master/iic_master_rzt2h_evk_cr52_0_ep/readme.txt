@@ -11,10 +11,10 @@
     RTTviewer. Any API/event failure will be displayed on RTTviewer.
 
 2. Software Requirements:
-    Renesas Flexible Software Package (FSP): Version 4.2.0
-    e2 studio: Version 2026-07
+    Renesas Flexible Software Package (FSP): Version 4.3.0
+    e2 studio: Version 2026-10
     GCC ARM Embedded Toolchain: Version 13.3.1.arm-13-24
-    SEGGER J-Link RTT Viewer: Version 9.44
+    SEGGER J-Link RTT Viewer: Version 9.70
 
 3. Hardware Requirements:
     RZ supported boards: RZ/T2H-EVK.

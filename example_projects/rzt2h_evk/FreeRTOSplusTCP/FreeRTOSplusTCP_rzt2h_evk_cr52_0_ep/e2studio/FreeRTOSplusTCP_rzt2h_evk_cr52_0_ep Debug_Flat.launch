@@ -21,7 +21,7 @@
     <stringAttribute key="com.renesas.cdt.core.secondGDBExe" value="green_dsp-elf-gdb"/>
     <booleanAttribute key="com.renesas.cdt.core.secondGDBSupport" value="false"/>
     <intAttribute key="com.renesas.cdt.core.secondGdbPortNumber" value="61237"/>
-    <stringAttribute key="com.renesas.cdt.core.serverParam" value="-g SEGGERJLINKARM -t R9A09G077M44_R52_0 -uConnectionTimeout= 30 -uSelect= &quot;USB&quot; -uJLinkSetting= &quot;${workspace_loc:/${ProjName}}/${LaunchConfigName}.jlink&quot; -uJLinkLog= &quot;${workspace_loc:/${ProjName}}/JLinkLog.log&quot; -uLowPower= 0 -uInteface= &quot;SWD&quot; -uIfSpeed= &quot;4000&quot; -uResetBeginConnection= 0 -uNoReset= 1 -uIdCodeBytes=  &quot;FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF&quot; -uDisconnectionMode= &quot;2&quot; -uSWOcoreClock= &quot;0&quot; -uresetOnReload= 1 -n &quot;0&quot; -uFlashBp= 1 -uSimulation= 0 -ueraseRomOnDownload= 0 -ueraseDataRomOnDownload= 0 -uOSRestriction= 0 -uAllowCachingFlash= 0 -uResetBehavior= &quot;Reset&quot;"/>
+    <stringAttribute key="com.renesas.cdt.core.serverParam" value="-g SEGGERJLINKARM -t R9A09G077M44_R52_0 -uConnectionTimeout= 30 -uSelect= &quot;USB&quot; -uJLinkSetting= &quot;${workspace_loc:/${ProjName}}/${LaunchConfigName}.jlink&quot; -uJLinkLog= &quot;${workspace_loc:/${ProjName}}/JLinkLog.log&quot; -uLowPower= 0 -uInteface= &quot;SWD&quot; -uIfSpeed= &quot;4000&quot; -uResetBeginConnection= 0 -uNoReset= 1 -uIdCodeBytes=  &quot;FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF&quot; -uSetArmModeAfterDownload= 1 -uDisconnectionMode= &quot;2&quot; -uSWOcoreClock= &quot;0&quot; -uresetOnReload= 1 -n &quot;0&quot; -uFlashBp= 1 -uSimulation= 0 -ueraseRomOnDownload= 0 -ueraseDataRomOnDownload= 0 -uOSRestriction= 0 -uAllowCachingFlash= 0 -uResetBehavior= &quot;Reset&quot;"/>
     <booleanAttribute key="com.renesas.cdt.core.setResume" value="true"/>
     <booleanAttribute key="com.renesas.cdt.core.startServer" value="true"/>
     <stringAttribute key="com.renesas.cdt.core.targetDevice" value="R9A09G077M44_CR52_0"/>
@@ -56,7 +56,7 @@
     <booleanAttribute key="com.renesas.hardwaredebug.arm.jlink.connection.resetBeginConnection" value="false"/>
     <booleanAttribute key="com.renesas.hardwaredebug.arm.jlink.connection.resetCon" value="false"/>
     <booleanAttribute key="com.renesas.hardwaredebug.arm.jlink.connection.resetPreRun" value="false"/>
-    <booleanAttribute key="com.renesas.hardwaredebug.arm.jlink.connection.setArMModeAfterDownload" value="false"/>
+    <booleanAttribute key="com.renesas.hardwaredebug.arm.jlink.connection.setArMModeAfterDownload" value="true"/>
     <stringAttribute key="com.renesas.hardwaredebug.arm.jlink.connection.swv.coreClockSpeed" value="0"/>
     <booleanAttribute key="com.renesas.hardwaredebug.arm.jlink.connection.wakeupallcores" value="false"/>
     <booleanAttribute key="com.renesas.hardwaredebug.arm.jlink.enable.hot.plug" value="false"/>
@@ -103,6 +103,7 @@
     <stringAttribute key="com.renesas.hardwaredebug.arm.jlink.security.productSpecific_id" value=""/>
     <booleanAttribute key="com.renesas.hardwaredebug.arm.jlink.security.use_authentication_dll" value="false"/>
     <stringAttribute key="com.renesas.hardwaredebug.arm.jlink.semihosting.breakpointAddress" value=""/>
+    <stringAttribute key="com.renesas.hardwaredebug.arm.jlink.setSignedProvSw" value=""/>
     <stringAttribute key="com.renesas.hardwaredebug.arm.jlink.setTZAuthKey" value=""/>
     <stringAttribute key="com.renesas.hardwaredebug.arm.jlink.setTZAuthLevel" value="0"/>
     <booleanAttribute key="com.renesas.hardwaredebug.arm.jlink.setTZBoundaries" value="false"/>

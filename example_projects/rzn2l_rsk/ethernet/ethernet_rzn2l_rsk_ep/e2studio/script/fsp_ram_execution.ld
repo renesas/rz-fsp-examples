@@ -51,6 +51,7 @@ USER_PROGRAM_LOCATION_PRV = (0 == ASSERT_TCM) ? 2 : USER_PROGRAM_LOCATION_PRV;
 /* The start address of the SYSTEM_RAM in the secondary project is located 0x20000 from the end address of the primary project. */
 SYSTEM_RAM_ALIGN_START             = ALIGN(SYSTEM_RAM_PRV_START, 0x00020000);
 SYSTEM_RAM_ALIGN_LENGTH            = SYSTEM_RAM_PRV_LENGTH - (SYSTEM_RAM_PRV_LENGTH % 0x00020000);
+
 /* This is the offset of the mirror region of SYSTEM_RAM. It varies depending on the device. */
 SYSTEM_RAM_MIRROR_OFFSET           = DEFINED(SYSTEM_RAM_START) ?
                                          DEFINED(SYSTEM_RAM_MIRROR_START) ?
@@ -59,6 +60,7 @@ SYSTEM_RAM_MIRROR_OFFSET           = DEFINED(SYSTEM_RAM_START) ?
                                                  0x00000000 :
                                                  0x00200000 :
                                          0;
+
 /* Specifies the region where the user program is placed. */
 RAM_START                          = (0 == USER_PROGRAM_LOCATION_PRV) ? ATCM_PRV_START :
                                      (1 == USER_PROGRAM_LOCATION_PRV) ? BTCM_PRV_START :
@@ -116,8 +118,8 @@ SHARED_NONCACHE_BUFFER_LENGTH      = SHARED_NONCACHE_BUFFER_INIT_LENGTH;
 
 /* Calculate the start address of the noncache region used by the LCDC. */
 LCDC_FRAME_BUFFER_START            = (DEFINED(CR52_0) || DEFINED(CR52_1)) ?
-                                         DDR_MIRROR1_PRV_START + DDR_MIRROR1_PRV_LENGTH - LCDC_FRAME_BUFFER_OFFSET :
-                                         DDR_MIRROR0_PRV_START + DDR_MIRROR0_PRV_LENGTH - LCDC_FRAME_BUFFER_OFFSET;
+                                        DDR_MIRROR1_PRV_START + DDR_MIRROR1_PRV_LENGTH - LCDC_FRAME_BUFFER_OFFSET :
+                                        DDR_MIRROR0_PRV_START + DDR_MIRROR0_PRV_LENGTH - LCDC_FRAME_BUFFER_OFFSET;
 LCDC_FRAME_BUFFER_LENGTH           = LCDC_FRAME_BUFFER_OFFSET;
 
 /*============================================================================*/
@@ -177,18 +179,20 @@ SECTIONS
 /*-----------------------------------------------*/
 /*  LOADER PROGRAM                               */
 /*-----------------------------------------------*/
-	/* Place the functions to be used in the loader program (SSBL). */
+    /* Place the functions to be used in the loader program (SSBL). */
     .loader_text LOADER_TEXT_ADDRESS :
     {
         _loader_text_start = .;
         *(.loader_text)
-        */startup_core.o(.text*)
-        */system_core.o(.text*)
-        */startup.o(.text*)
-        */system.o(.text*)
-        */all*/bsp_*.o(.text*)
-        */r_ioport.o(.text*)
+        */startup_core.*(.text*)
+        */system_core.*(.text*)
+        */startup.*(.text*)
+        */system.*(.text*)
+        */all*/bsp_*.*(.text*)
+        */r_ioport.*(.text*)
         KEEP(*(.warm_start))
+        . = ALIGN(8);
+        KEEP(*(.software_delay)) /* Place software delay function on an 8-byte boundary. */
         _loader_text_end = .;
     } > LOADER_TEXT_STACK
 
@@ -199,16 +203,16 @@ SECTIONS
     .loader_data _loader_text_end :
     {
         __loader_data_start = .;
-        */startup_core.o(.data*)
-        */system_core.o(.data*)
-        */startup.o(.data*)
-        */system.o(.data*)
-        */all*/bsp_*.o(.data*)
-        */r_ioport.o(.data*)
-        */bsp_mpu_core.o(.rodata*)
-        */bsp_mmu_core.o(.rodata*)
-        */bsp_register_protection.o(.rodata*)
-        */bsp_tzc400.o(.rodata*)
+        */startup_core.*(.data*)
+        */system_core.*(.data*)
+        */startup.*(.data*)
+        */system.*(.data*)
+        */all*/bsp_*.*(.data*)
+        */r_ioport.*(.data*)
+        */bsp_mpu_core.*(.rodata*)
+        */bsp_mmu_core.*(.rodata*)
+        */bsp_register_protection.*(.rodata*)
+        */bsp_tzc400.*(.rodata*)
         KEEP(*(.warm_start.data*))
         . = ALIGN(8);
         __loader_data_end = .;
@@ -218,20 +222,20 @@ SECTIONS
     .loader_bss (NOLOAD) :
     {
         __loader_bss_start = .;
-        */startup_core.o(.bss*)
-        */system_core.o(.bss*)
-        */startup.o(.bss*)
-        */system.o(.bss*)
-        */all*/bsp_*.o(.bss*)
-        */r_ioport.o(.bss*)
+        */startup_core.*(.bss*)
+        */system_core.*(.bss*)
+        */startup.*(.bss*)
+        */system.*(.bss*)
+        */all*/bsp_*.*(.bss*)
+        */r_ioport.*(.bss*)
         KEEP(*(.warm_start.bss*))
         KEEP(*(.ttbr))
-        */startup_core.o(COMMON)
-        */system_core.o(COMMON)
-        */startup.o(COMMON)
-        */system.o(COMMON)
-        */all*/bsp_*.o(COMMON)
-        */r_ioport.o(COMMON)
+        */startup_core.*(COMMON)
+        */system_core.*(COMMON)
+        */startup.*(COMMON)
+        */system.*(COMMON)
+        */all*/bsp_*.*(COMMON)
+        */r_ioport.*(COMMON)
         . = ALIGN(8);
         __loader_bss_end = . ;
 

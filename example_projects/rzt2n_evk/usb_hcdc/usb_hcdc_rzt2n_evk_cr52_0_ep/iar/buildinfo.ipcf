@@ -20,7 +20,7 @@
         <group name="RA Smart Configurator">
             <argVar>
                 <name>RASC_EXE_PATH</name>
-                <value>C:\Renesas\rz\sc_v2026-07_fsp_v4.2.0\eclipse\rasc.exe</value>
+                <value>C:\Renesas\rz\sc_v2026-10_fsp_v4.3.0\eclipse\rascc.exe</value>
             </argVar>
             <argVar>
                 <name>RASC_DEVICE_FAMILY</name>
@@ -31,18 +31,33 @@
     <files>
         <group name="Components">
             <group name="arm">
+                <group name="r-profile">
+                    <path>rz/arm/CMSIS_6/CMSIS/Core/Include/r-profile/gicv2.h</path>
+                </group>
+                <path>rz/arm/CMSIS_6/CMSIS/Core/Include/a-profile/armv7a.h</path>
+                <path>rz/arm/CMSIS_6/CMSIS/Core/Include/a-profile/armv7a_cp15.h</path>
+                <path>rz/arm/CMSIS_6/CMSIS/Core/Include/a-profile/armv8a.h</path>
+                <path>rz/arm/CMSIS_6/CMSIS/Core/Include/a-profile/armv8a_cp15.h</path>
                 <path>rz/arm/CMSIS_6/CMSIS/Core/Include/a-profile/cmsis_armclang_a.h</path>
                 <path>rz/arm/CMSIS_6/CMSIS/Core/Include/a-profile/cmsis_clang_a.h</path>
-                <path>rz/arm/CMSIS_6/CMSIS/Core/Include/a-profile/cmsis_cp15.h</path>
                 <path>rz/arm/CMSIS_6/CMSIS/Core/Include/a-profile/cmsis_gcc_a.h</path>
                 <path>rz/arm/CMSIS_6/CMSIS/Core/Include/a-profile/cmsis_iccarm_a.h</path>
+                <path>rz/arm/CMSIS_6/CMSIS/Core/Include/a-profile/gicv2.h</path>
                 <path>rz/arm/CMSIS_6/CMSIS/Core/Include/a-profile/irq_ctrl.h</path>
                 <path>rz/arm/CMSIS_6/CMSIS/Core/Include/cmsis_armclang.h</path>
                 <path>rz/arm/CMSIS_6/CMSIS/Core/Include/cmsis_clang.h</path>
                 <path>rz/arm/CMSIS_6/CMSIS/Core/Include/cmsis_compiler.h</path>
                 <path>rz/arm/CMSIS_6/CMSIS/Core/Include/cmsis_gcc.h</path>
+                <path>rz/arm/CMSIS_6/CMSIS/Core/Include/cmsis_iccarm.h</path>
                 <path>rz/arm/CMSIS_6/CMSIS/Core/Include/cmsis_version.h</path>
                 <path>rz/arm/CMSIS_6/CMSIS/Core/Include/core_ca.h</path>
+                <path>rz/arm/CMSIS_6/CMSIS/Core/Include/core_ca35.h</path>
+                <path>rz/arm/CMSIS_6/CMSIS/Core/Include/core_ca5.h</path>
+                <path>rz/arm/CMSIS_6/CMSIS/Core/Include/core_ca53.h</path>
+                <path>rz/arm/CMSIS_6/CMSIS/Core/Include/core_ca55.h</path>
+                <path>rz/arm/CMSIS_6/CMSIS/Core/Include/core_ca57.h</path>
+                <path>rz/arm/CMSIS_6/CMSIS/Core/Include/core_ca7.h</path>
+                <path>rz/arm/CMSIS_6/CMSIS/Core/Include/core_ca9.h</path>
                 <path>rz/arm/CMSIS_6/CMSIS/Core/Include/core_cm0.h</path>
                 <path>rz/arm/CMSIS_6/CMSIS/Core/Include/core_cm0plus.h</path>
                 <path>rz/arm/CMSIS_6/CMSIS/Core/Include/core_cm1.h</path>
@@ -55,9 +70,15 @@
                 <path>rz/arm/CMSIS_6/CMSIS/Core/Include/core_cm55.h</path>
                 <path>rz/arm/CMSIS_6/CMSIS/Core/Include/core_cm7.h</path>
                 <path>rz/arm/CMSIS_6/CMSIS/Core/Include/core_cm85.h</path>
+                <path>rz/arm/CMSIS_6/CMSIS/Core/Include/core_cr4.h</path>
+                <path>rz/arm/CMSIS_6/CMSIS/Core/Include/core_cr5.h</path>
+                <path>rz/arm/CMSIS_6/CMSIS/Core/Include/core_cr52.h</path>
+                <path>rz/arm/CMSIS_6/CMSIS/Core/Include/core_cr7.h</path>
+                <path>rz/arm/CMSIS_6/CMSIS/Core/Include/core_cr8.h</path>
                 <path>rz/arm/CMSIS_6/CMSIS/Core/Include/core_sc000.h</path>
                 <path>rz/arm/CMSIS_6/CMSIS/Core/Include/core_sc300.h</path>
                 <path>rz/arm/CMSIS_6/CMSIS/Core/Include/core_starmc1.h</path>
+                <path>rz/arm/CMSIS_6/CMSIS/Core/Include/core_starmc3.h</path>
                 <path>rz/arm/CMSIS_6/CMSIS/Core/Include/m-profile/armv7m_cachel1.h</path>
                 <path>rz/arm/CMSIS_6/CMSIS/Core/Include/m-profile/armv7m_mpu.h</path>
                 <path>rz/arm/CMSIS_6/CMSIS/Core/Include/m-profile/armv81m_pac.h</path>
@@ -67,10 +88,14 @@
                 <path>rz/arm/CMSIS_6/CMSIS/Core/Include/m-profile/cmsis_clang_m.h</path>
                 <path>rz/arm/CMSIS_6/CMSIS/Core/Include/m-profile/cmsis_gcc_m.h</path>
                 <path>rz/arm/CMSIS_6/CMSIS/Core/Include/m-profile/cmsis_iccarm_m.h</path>
-                <path>rz/arm/CMSIS_6/CMSIS/Core/Include/m-profile/cmsis_tiarmclang_m.h</path>
+                <path>rz/arm/CMSIS_6/CMSIS/Core/Include/r-profile/armv7r.h</path>
+                <path>rz/arm/CMSIS_6/CMSIS/Core/Include/r-profile/armv7r_cp15.h</path>
+                <path>rz/arm/CMSIS_6/CMSIS/Core/Include/r-profile/armv8r.h</path>
+                <path>rz/arm/CMSIS_6/CMSIS/Core/Include/r-profile/armv8r_cp15.h.h</path>
                 <path>rz/arm/CMSIS_6/CMSIS/Core/Include/r-profile/cmsis_armclang_r.h</path>
                 <path>rz/arm/CMSIS_6/CMSIS/Core/Include/r-profile/cmsis_clang_r.h</path>
                 <path>rz/arm/CMSIS_6/CMSIS/Core/Include/r-profile/cmsis_gcc_r.h</path>
+                <path>rz/arm/CMSIS_6/CMSIS/Core/Include/r-profile/cmsis_iccarm_r.h</path>
                 <path>rz/arm/CMSIS_6/CMSIS/Core/Include/tz_context.h</path>
                 <path>rz/arm/CMSIS_6/LICENSE</path>
             </group>
@@ -97,6 +122,7 @@
                 <path>rz/fsp/inc/instances/r_ioport.h</path>
                 <path>rz/fsp/inc/instances/r_sci_uart.h</path>
                 <path>rz/fsp/inc/instances/r_usb_basic.h</path>
+                <path>rz/fsp/inc/instances/r_usb_hcdc.h</path>
                 <path>rz/fsp/src/bsp/cmsis/Device/RENESAS/Include/cmsis_compiler_rz.h</path>
                 <path>rz/fsp/src/bsp/cmsis/Device/RENESAS/Include/cr/cmsis_cp15.h</path>
                 <path>rz/fsp/src/bsp/cmsis/Device/RENESAS/Include/cr/cmsis_iccarm.h</path>
@@ -238,7 +264,7 @@
                 <path>rz/fsp/src/r_usb_basic/src/hw/r_usb_preg_abs.c</path>
                 <path>rz/fsp/src/r_usb_basic/src/hw/r_usb_preg_access.c</path>
                 <path>rz/fsp/src/r_usb_hcdc/r_usb_hcdc.c</path>
-                <path>rz/fsp/src/r_usb_hcdc/src/inc/r_usb_hcdc.h</path>
+                <path>rz/fsp/src/r_usb_hcdc/src/inc/r_usb_hcdc_driver.h</path>
                 <path>rz/fsp/src/r_usb_hcdc/src/r_usb_hcdc_driver.c</path>
             </group>
         </group>

@@ -58,11 +58,11 @@ Description : Readme of the RZ/T2N ADC example project (adc_rzt2n_evk_ca55_0_ep)
 2. Software Requirements:
 
     - IAR Embedded Workbench for ARM : 9.60.3 + patch
-      Smart Configurator + RZ_FSP_Packs_v4.2.0
+      Smart Configurator + RZ_FSP_Packs_v4.3.0
 
-    - e²studio_2026-07 with RZ FSP
+    - e²studio_2026-10 with RZ FSP
       Toolchain : GCC ARM A-Profile(AArch64 bare-metal) (Version:13.2.1.arm-13-7)
-      RZ FSP version : 4.2.0
+      RZ FSP version : 4.3.0
 
     - Terminal Emulator (Tera Term)
 
@@ -179,7 +179,7 @@ Start Debugging:
 
   7. Select [Project]-[Rebuild All] from the EWARM menu.
   Note:
-    - During the build, if a window appears searching for Smart Configurator, enter the number that indicates fsp v4.2.0 and press Enter.
+    - During the build, if a window appears searching for Smart Configurator, enter the number that indicates fsp v4.3.0 and press Enter.
 
   8. While the board and I-jet are connected, click on the [Download and debug] button in the "Project" toolbar.
      The program will break at the first code in "main".

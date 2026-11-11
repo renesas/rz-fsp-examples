@@ -41,9 +41,12 @@ User's Manual.
 
 ### Software ###
 
-- IAR Embedded Workbench for ARM 9.60.3 + patch, Smart Configurator + RZ_FSP_Packs_v4.2.0
-- e²studio_2026-07 with RZ FSP, toolchain GCC ARM A-Profile (AArch64 bare-metal) (Version:13.2.1.arm-13-7)
-- RZ FSP version 4.2.0
+- Renesas Flexible Software Package (FSP): Version 4.3.0
+- e² studio: Version 2026-10
+- FSP Smart Configurator: Version 2026-10
+- IAR: Version 9.60.3
+- GCC ARM A-Profile (AArch64 bare-metal): Version 13.2.1.arm-13-7
+- J-Link: Version 9.70
 - Terminal Emulator (Tera Term v5.40)
 
 ## Related Collateral References ##

@@ -17,6 +17,11 @@ Set DIP switches to select **xSPI1 boot mode** and **peripheral pins**:
 |              | SW8-3    | ON            |
 |              | SW10-10  | ON (for CR52) |
 |              |          | OFF(for CA55) |
+|              | SW7-3    | OFF           |
+|              | SW7-5    | OFF           |
+
+**Note:** SW7-3/SW7-5 must be OFF to observe the Q3/Q1 TAS gate pins
+(P16_1/P15_7).
 
 ## Specific Connections
 

@@ -10,8 +10,8 @@
     - If the User SW1 on board is pressed, IRQ is triggered, the LED (User LED1 on board) is OFF and program is exit.
 
 2. Software Requirements:
-    Renesas Flexible Software Package (FSP): Version 4.2.0
-    e2 studio: Version 2026-07
+    Renesas Flexible Software Package (FSP): Version 4.3.0
+    e2 studio: Version 2026-10
     GCC ARM A-Profile (AArch64 bare-metal): Version 13.2 rel1
     Terminal Console Application: Tera Term or a similar application
 

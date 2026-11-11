@@ -8,8 +8,6 @@ FSP Configuration
     package_pins: 361
     
   RZA3M
-    series: 2
-    
   RZA3M Family
     
   RZ/A FSP Common
@@ -555,7 +553,7 @@ FSP Configuration
     DMAC Support: Disable
     RS485 Flow (Driver Enable) Control Support: Disable
     
-  Module "Display Driver on r_lcdc"
+  Module "LCD (r_lcdc)"
     Parameter Checking: Default (BSP)
     
   Module "MIPI Display (r_mipi_dsi_b)"
@@ -617,7 +615,6 @@ FSP Configuration
     Optional Functions: uxTaskPriorityGet() Function: Enabled
     Optional Functions: vTaskDelete() Function: Enabled
     Optional Functions: vTaskSuspend() Function: Enabled
-    Optional Functions: xResumeFromISR() Function: Enabled
     Optional Functions: vTaskDelayUntil() Function: Enabled
     Optional Functions: vTaskDelay() Function: Enabled
     Optional Functions: xTaskGetSchedulerState() Function: Enabled
@@ -625,7 +622,6 @@ FSP Configuration
     Optional Functions: uxTaskGetStackHighWaterMark() Function: Disabled
     Optional Functions: xTaskGetIdleTaskHandle() Function: Disabled
     Optional Functions: eTaskGetState() Function: Enabled
-    Optional Functions: xEventGroupSetBitFromISR() Function: Enabled
     Optional Functions: xTimerPendFunctionCall() Function: Enabled
     Optional Functions: xTaskAbortDelay() Function: Disabled
     Optional Functions: xTaskGetHandle() Function: Disabled
@@ -683,7 +679,7 @@ FSP Configuration
       Interrupts: Receive Interrupt Priority: 24
       Interrupts: Transmit Data Empty Interrupt Priority: 24
       
-    Instance "g_display Display Driver on r_lcdc"
+    Instance "g_display LCD (r_lcdc)"
       General: Name: g_display
       Interrupts: Callback Function: disp_buf_change
       Interrupts: Frame End Interrupt Priority: 18
@@ -714,6 +710,7 @@ FSP Configuration
       Input: Graphics Layer 2: General: 32bit swap: Disabled
       Input: Graphics Layer 2: General: 16bit swap: Disabled
       Input: Graphics Layer 2: General: 8bit swap: Disabled
+      Output: Source: Mode: MIPI-DSI
       Output: Timing: Horizontal total cycles: 953
       Output: Timing: Horizontal active video cycles: 720
       Output: Timing: Horizontal back porch cycles: 100

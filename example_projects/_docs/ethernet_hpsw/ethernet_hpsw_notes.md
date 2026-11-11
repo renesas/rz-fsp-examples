@@ -99,13 +99,13 @@ To build and run the Ethernet HPSW example project, the following resources are 
 
 ## Software Requirements
 
-- Renesas Flexible Software Package (FSP): Version 4.2.0
-- e² studio: Version 2026-07
-- FSP Smart Configurator: Version 2026-07
+- Renesas Flexible Software Package (FSP): Version 4.3.0
+- e² studio: Version 2026-10
+- FSP Smart Configurator: Version 2026-10
 - IAR: Version 9.60.3
 - GCC ARM Embedded Toolchain: Version 13.3.1.arm-13-24
-- GCC ARM A-Profile (AArch64 bare-metal): Version 13.2 rel1
-- J-Link: Version 9.44
+- GCC ARM A-Profile (AArch64 bare-metal): Version 13.2.1.arm-13-7
+- J-Link: Version 9.70
 - Terminal Console Application: Tera Term or a similar application
 - Wireshark (optional): For observing ARP and ICMP Ethernet traffic. Download from https://www.wireshark.org/download.html - install with Npcap (included in installer). See [Wireshark Verification Guide](#wireshark-verification-guide) for setup details.
 

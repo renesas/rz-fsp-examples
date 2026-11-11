@@ -44,7 +44,7 @@ USER_PROGRAM_LOCATION_PRV   = DEFINED(USER_PROGRAM_LOCATION) ?
 
 /* In the primary project, selecting any loader program location other than BTCM will cause a build error.
  * SYSTEM_RAM is available as a loader program location only for RZ/T2N. */
-ASSERT_LOADER_PROGRAM_LOCATION = ((1 == _RZ_ORDINAL) && (1 == IMPLEMENTED_TCM) && 
+ASSERT_LOADER_PROGRAM_LOCATION = ((1 == _RZ_ORDINAL) && (1 == IMPLEMENTED_TCM) &&
                                   ((0 == LOADER_PROGRAM_LOCATION_PRV) || ((2 == LOADER_PROGRAM_LOCATION_PRV) && (0 == LOADER_SYSTEM_RAM_ENABLE)))) ? 0 : 1;
 ASSERT(ASSERT_LOADER_PROGRAM_LOCATION, "ERROR: In the primary project, the location of the loader program cannot be changed.");
 
@@ -301,6 +301,23 @@ SECTIONS
         _msecondray = .;
 	} > FLASH_CONTENTS
 
+    /*-----------------------------------------------*/
+    /*  QSPI FLASH (XiP)                             */
+    /*-----------------------------------------------*/
+    /* Place the functions that are executed directly from Serial Flash (XiP, e.g. BSP_PLACE_IN_SECTION(".qspi_flash")).
+     * These are NOT copied to RAM, so no AT() is specified here: the output address is the actual execution
+     * address in Serial Flash. This section must be explicitly placed; otherwise the linker treats it as an
+     * orphan section and may insert it into the RAM_TEXT image, which both breaks the XiP execution intent and
+     * can make the hand-computed LMA of the following RAM_TEXT sections (.ARM.extab/.ARM.exidx/.data, via the
+     * _mextab/_mexidx/_mdata symbols above) overlap with it. */
+    . = ALIGN(8);
+    .qspi_flash :
+    {
+        _qspi_flash_start = .;
+        KEEP(*(.qspi_flash))
+        _qspi_flash_end = .;
+    } > FLASH_CONTENTS
+
 /*-----------------------------------------------*/
 /*  LOADER PROGRAM                               */
 /*-----------------------------------------------*/
@@ -310,13 +327,15 @@ SECTIONS
     {
         _loader_text_start = .;
         *(.loader_text)
-        */startup_core.o(.text*)
-        */system_core.o(.text*)
-        */startup.o(.text*)
-        */system.o(.text*)
-        */all*/bsp_*.o(.text*)
-        */r_ioport.o(.text*)
+        */startup_core.*(.text*)
+        */system_core.*(.text*)
+        */startup.*(.text*)
+        */system.*(.text*)
+        */all*/bsp_*.*(.text*)
+        */r_ioport.*(.text*)
         KEEP(*(.warm_start))
+        . = ALIGN(8);
+        KEEP(*(.software_delay)) /* Place software delay function on an 8-byte boundary. */
         KEEP(*(.loader_user_data*))
         _loader_text_end = .;
     } > LOADER_TEXT_STACK
@@ -330,16 +349,16 @@ SECTIONS
     .loader_data LOADER_DATA_START : AT (LOADER_DATA_IMAGE)
     {
         __loader_data_start = .;
-        */startup_core.o(.data*)
-        */system_core.o(.data*)
-        */startup.o(.data*)
-        */system.o(.data*)
-        */all*/bsp_*.o(.data*)
-        */r_ioport.o(.data*)
-        */bsp_mpu_core.o(.rodata*)
-        */bsp_mmu_core.o(.rodata*)
-        */bsp_register_protection.o(.rodata*)
-        */bsp_tzc400.o(.rodata*)
+        */startup_core.*(.data*)
+        */system_core.*(.data*)
+        */startup.*(.data*)
+        */system.*(.data*)
+        */all*/bsp_*.*(.data*)
+        */r_ioport.*(.data*)
+        */bsp_mpu_core.*(.rodata*)
+        */bsp_mmu_core.*(.rodata*)
+        */bsp_register_protection.*(.rodata*)
+        */bsp_tzc400.*(.rodata*)
         KEEP(*(.warm_start.data*))
         . = ALIGN(8);
         __loader_data_end = .;
@@ -349,20 +368,20 @@ SECTIONS
     .loader_bss (NOLOAD) :
     {
         __loader_bss_start = .;
-        */startup_core.o(.bss*)
-        */system_core.o(.bss*)
-        */startup.o(.bss*)
-        */system.o(.bss*)
-        */all*/bsp_*.o(.bss*)
-        */r_ioport.o(.bss*)
+        */startup_core.*(.bss*)
+        */system_core.*(.bss*)
+        */startup.*(.bss*)
+        */system.*(.bss*)
+        */all*/bsp_*.*(.bss*)
+        */r_ioport.*(.bss*)
         KEEP(*(.warm_start.bss*))
         KEEP(*(.ttbr))
-        */startup_core.o(COMMON)
-        */system_core.o(COMMON)
-        */startup.o(COMMON)
-        */system.o(COMMON)
-        */all*/bsp_*.o(COMMON)
-        */r_ioport.o(COMMON)
+        */startup_core.*(COMMON)
+        */system_core.*(COMMON)
+        */startup.*(COMMON)
+        */system.*(COMMON)
+        */all*/bsp_*.*(COMMON)
+        */r_ioport.*(COMMON)
         . = ALIGN(8);
         __loader_bss_end = . ;
 

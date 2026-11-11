@@ -15,6 +15,17 @@
  * @{
  **********************************************************************************************************************/
 
+/* Console flags set by uart0_cb_stdio() and polled by IoGetchar()/IoPutchar() in siochar.c */
+uint32_t volatile g_transfer_complete = 0;
+uint32_t volatile g_receive_complete  = 0;
+
+/* Characters typed while no read is pending arrive as UART_EVENT_RX_CHAR. They are kept here so the run loop can
+ * poll for a key without blocking, and app_read() can return them as the start of the line */
+#define KEY_BUF_SIZE (16U)
+static uint8_t           s_key_buf[KEY_BUF_SIZE];
+static volatile uint32_t s_key_head = 0U;
+static volatile uint32_t s_key_tail = 0U;
+
 /***********************************************************************************************************************
  * USER-CONFIGURABLE: PC NIC MAC addresses.
  * Run "ipconfig /all", copy Physical Address for NIC1 (ETH0) and NIC2 (ETH1), then rebuild.
@@ -1573,6 +1584,111 @@ void l3_forwarding_main(void)
 
         l3_forwarding_clear_table();
     }
+}
+
+/***********************************************************************************************************************
+ * @brief       This function is the UART callback. It flags TX/RX completion for IoPutchar()/IoGetchar() and stores
+ *              characters received while no read is pending.
+ * @param[in]   p_args  Pointer to argument information.
+ * @retval      None.
+ **********************************************************************************************************************/
+void uart0_cb_stdio (uart_callback_args_t * p_args)
+{
+    uint32_t head;
+    uint32_t next;
+
+    switch (p_args->event)
+    {
+        case UART_EVENT_RX_CHAR:
+        {
+            head = s_key_head;
+            next = (head + 1U) % KEY_BUF_SIZE;
+            if (next != s_key_tail)
+            {
+                s_key_buf[head] = (uint8_t) p_args->data;
+                s_key_head      = next;
+            }
+            break;
+        }
+
+        case UART_EVENT_RX_COMPLETE:
+        {
+            g_receive_complete = 1;
+            break;
+        }
+
+        case UART_EVENT_TX_COMPLETE:
+        {
+            g_transfer_complete = 1;
+            break;
+        }
+
+        default:
+        {
+            break;
+        }
+    }
+}
+
+/***********************************************************************************************************************
+ * @brief       This function reports, without blocking, whether a character has been typed. A line terminator
+ *              (CR or LF) alone is not input and is dropped.
+ * @param[in]   None.
+ * @retval      1 if a character is waiting, otherwise 0.
+ **********************************************************************************************************************/
+int app_check_data (void)
+{
+    uint32_t tail = s_key_tail;
+
+    while ((s_key_head != tail) && (('\r' == (char) s_key_buf[tail]) || ('\n' == (char) s_key_buf[tail])))
+    {
+        tail = (tail + 1U) % KEY_BUF_SIZE;
+    }
+    s_key_tail = tail;
+
+    return (s_key_head != tail) ? 1 : 0;
+}
+
+/***********************************************************************************************************************
+ * @brief       This function reads one line from the console without echoing it, blocking until a line terminator
+ *              (CR or LF) is received. At most "size" characters are stored, the rest of the line is discarded and no
+ *              terminator is added.
+ * @param[out]  p_data  Destination buffer.
+ * @param[in]   size    Size of the destination buffer.
+ * @retval      Number of characters stored.
+ **********************************************************************************************************************/
+uint32_t app_read (uint8_t * p_data, size_t size)
+{
+    uint32_t count = 0U;
+    uint32_t tail;
+    int32_t  data_char;
+
+    while (true)
+    {
+        tail = s_key_tail;
+        if (s_key_head != tail)
+        {
+            data_char  = (int32_t) s_key_buf[tail];
+            s_key_tail = (tail + 1U) % KEY_BUF_SIZE;
+        }
+        else
+        {
+            data_char = IoGetchar();
+        }
+
+        if ((-1 == data_char) || ('\r' == (char) data_char) || ('\n' == (char) data_char))
+        {
+            break;
+        }
+
+        if ((uint32_t) size > count)
+        {
+            p_data[count] = (uint8_t) data_char;
+            count++;
+        }
+    }
+
+    return count;
 }
 
 /***********************************************************************************************************************

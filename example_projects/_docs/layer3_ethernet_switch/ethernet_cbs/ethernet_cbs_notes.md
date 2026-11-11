@@ -109,14 +109,14 @@ block is at the address listed in the table above, the same for the e² studio a
       `[1]`-`[3]` only) - no switch or router in between.
 
 ### Software Requirements
-* Renesas Flexible Software Package (FSP): Version 4.2.0
-* e2 studio: Version 2026-07
-* FSP Smart Configurator: Version 2026-07
+* Renesas Flexible Software Package (FSP): Version 4.3.0
+* e2 studio: Version 2026-10
+* FSP Smart Configurator: Version 2026-10
 * IAR: Version 9.60.3
-* GCC ARM Embedded Toolchain: Version 13.3.1.arm-13-24 for cortexR-52
-* GCC ARM A-Profile (AArch64 bare-metal): Version 13.2 rel1 for cortexA-55
-* J-Link: Version 9.44
-* SEGGER J-Link RTT Viewer: Version 9.44 (console output and mode-menu input, for cortexR-52)
+* GCC ARM Embedded Toolchain: Version 13.3.1.arm-13-24
+* GCC ARM A-Profile (AArch64 bare-metal): Version 13.2.1.arm-13-7
+* J-Link: Version 9.70
+* SEGGER J-Link RTT Viewer: Version 9.70
 * Terminal Console Application: Tera Term or a similar application (for cortexA-55)
 * Wireshark with Npcap: verifies the shaped bandwidth on ETH0. Download from
   https://www.wireshark.org/download.html - install with Npcap (included in installer). See
@@ -598,10 +598,10 @@ a coincidental ceiling of the traffic source.
   descriptor queues (higher queue index favoured), independent of CBS credit state; this could
   not be confirmed without lower-level bus tracing. Each queue's cap is verified reliably in
   isolation, which is what modes `[2]`, `[3]`, `[5]` and `[6]` do.
-* **`max_burst_num` has no observable effect.** In FSP v4.2.0 the driver's credit-upper-limit
-  register write (`EACAULCq`) is multiplied by zero, so the register is always 0 whatever
-  `max_burst_num` is set to. The field is still filled in correctly in `cbs_config.c` in case a
-  later FSP release honours it. Only `band_width_pct` shapes traffic.
+* **`max_burst_num` has no observable effect.** The driver's credit-upper-limit register write
+  (`EACAULCq`) is multiplied by zero, so the register is always 0 whatever `max_burst_num` is
+  set to. The field is still filled in correctly in `cbs_config.c` in case a later FSP release
+  honours it. Only `band_width_pct` shapes traffic.
 * **The disabled baselines depend on an explicit commit.** Disabling a queue needs an
   admin-to-oper commit (`EACC.CC[q]`, manual 34.4.2.8), but `R_LAYER3_SWITCH_ConfigurePort()`
   commits only the queues it enables, so a queue switched off would otherwise keep its previous

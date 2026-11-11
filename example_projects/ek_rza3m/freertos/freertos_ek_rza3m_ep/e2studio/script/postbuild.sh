@@ -1,15 +1,22 @@
 echo "Post build script started"
 
-if [ -n "$BuildArtifactFileName" ]; then
+if [ -n "$1" ]; then
+  inputfilename=$1
+elif [ -n "$BuildArtifactFileName" ]; then
   inputfilename=$BuildArtifactFileName
-fi
-if [ -n "$BUILDARTIFACTFILENAME" ]; then
+elif [ -n "$BUILDARTIFACTFILENAME" ]; then
   inputfilename=$BUILDARTIFACTFILENAME
+fi
+
+if [ -n "$2" ]; then
+  objcopy=$2
+else
+  objcopy=aarch64-none-elf-objcopy
 fi
 
 filebody=${inputfilename%.*}
 
-aarch64-none-elf-objcopy -O binary ${filebody}.elf ${filebody}.bin
-aarch64-none-elf-objcopy -I binary -O srec --adjust-vma=0x20020000 --srec-forceS3 ${filebody}.bin ${filebody}.srec
+"${objcopy}" -O binary "${filebody}.elf" "${filebody}.bin"
+"${objcopy}" -I binary -O srec --adjust-vma=0x20020000 --srec-forceS3 "${filebody}.bin" "${filebody}.srec"
 
 echo "Post build script complete"

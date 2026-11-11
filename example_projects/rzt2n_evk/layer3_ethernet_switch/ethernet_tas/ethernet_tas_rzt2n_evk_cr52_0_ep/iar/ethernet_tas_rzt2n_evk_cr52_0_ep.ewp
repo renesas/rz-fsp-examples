@@ -2359,6 +2359,18 @@
             <name>Components</name>
             <group>
                 <name>arm</name>
+                <group>
+                    <name>r-profile</name>
+                    <file>
+                        <name>$PROJ_DIR$\rz\arm\CMSIS_6\CMSIS\Core\Include\r-profile\gicv2.h</name>
+                    </file>
+                </group>
+                <file>
+                    <name>$PROJ_DIR$\rz\arm\CMSIS_6\CMSIS\Core\Include\a-profile\armv7a.h</name>
+                </file>
+                <file>
+                    <name>$PROJ_DIR$\rz\arm\CMSIS_6\CMSIS\Core\Include\a-profile\armv7a_cp15.h</name>
+                </file>
                 <file>
                     <name>$PROJ_DIR$\rz\arm\CMSIS_6\CMSIS\Core\Include\m-profile\armv7m_cachel1.h</name>
                 </file>
@@ -2366,13 +2378,31 @@
                     <name>$PROJ_DIR$\rz\arm\CMSIS_6\CMSIS\Core\Include\m-profile\armv7m_mpu.h</name>
                 </file>
                 <file>
+                    <name>$PROJ_DIR$\rz\arm\CMSIS_6\CMSIS\Core\Include\r-profile\armv7r.h</name>
+                </file>
+                <file>
+                    <name>$PROJ_DIR$\rz\arm\CMSIS_6\CMSIS\Core\Include\r-profile\armv7r_cp15.h</name>
+                </file>
+                <file>
                     <name>$PROJ_DIR$\rz\arm\CMSIS_6\CMSIS\Core\Include\m-profile\armv81m_pac.h</name>
+                </file>
+                <file>
+                    <name>$PROJ_DIR$\rz\arm\CMSIS_6\CMSIS\Core\Include\a-profile\armv8a.h</name>
+                </file>
+                <file>
+                    <name>$PROJ_DIR$\rz\arm\CMSIS_6\CMSIS\Core\Include\a-profile\armv8a_cp15.h</name>
                 </file>
                 <file>
                     <name>$PROJ_DIR$\rz\arm\CMSIS_6\CMSIS\Core\Include\m-profile\armv8m_mpu.h</name>
                 </file>
                 <file>
                     <name>$PROJ_DIR$\rz\arm\CMSIS_6\CMSIS\Core\Include\m-profile\armv8m_pmu.h</name>
+                </file>
+                <file>
+                    <name>$PROJ_DIR$\rz\arm\CMSIS_6\CMSIS\Core\Include\r-profile\armv8r.h</name>
+                </file>
+                <file>
+                    <name>$PROJ_DIR$\rz\arm\CMSIS_6\CMSIS\Core\Include\r-profile\armv8r_cp15.h.h</name>
                 </file>
                 <file>
                     <name>$PROJ_DIR$\rz\arm\CMSIS_6\CMSIS\Core\Include\cmsis_armclang.h</name>
@@ -2402,9 +2432,6 @@
                     <name>$PROJ_DIR$\rz\arm\CMSIS_6\CMSIS\Core\Include\cmsis_compiler.h</name>
                 </file>
                 <file>
-                    <name>$PROJ_DIR$\rz\arm\CMSIS_6\CMSIS\Core\Include\a-profile\cmsis_cp15.h</name>
-                </file>
-                <file>
                     <name>$PROJ_DIR$\rz\arm\CMSIS_6\CMSIS\Core\Include\cmsis_gcc.h</name>
                 </file>
                 <file>
@@ -2417,19 +2444,43 @@
                     <name>$PROJ_DIR$\rz\arm\CMSIS_6\CMSIS\Core\Include\r-profile\cmsis_gcc_r.h</name>
                 </file>
                 <file>
+                    <name>$PROJ_DIR$\rz\arm\CMSIS_6\CMSIS\Core\Include\cmsis_iccarm.h</name>
+                </file>
+                <file>
                     <name>$PROJ_DIR$\rz\arm\CMSIS_6\CMSIS\Core\Include\a-profile\cmsis_iccarm_a.h</name>
                 </file>
                 <file>
                     <name>$PROJ_DIR$\rz\arm\CMSIS_6\CMSIS\Core\Include\m-profile\cmsis_iccarm_m.h</name>
                 </file>
                 <file>
-                    <name>$PROJ_DIR$\rz\arm\CMSIS_6\CMSIS\Core\Include\m-profile\cmsis_tiarmclang_m.h</name>
+                    <name>$PROJ_DIR$\rz\arm\CMSIS_6\CMSIS\Core\Include\r-profile\cmsis_iccarm_r.h</name>
                 </file>
                 <file>
                     <name>$PROJ_DIR$\rz\arm\CMSIS_6\CMSIS\Core\Include\cmsis_version.h</name>
                 </file>
                 <file>
                     <name>$PROJ_DIR$\rz\arm\CMSIS_6\CMSIS\Core\Include\core_ca.h</name>
+                </file>
+                <file>
+                    <name>$PROJ_DIR$\rz\arm\CMSIS_6\CMSIS\Core\Include\core_ca35.h</name>
+                </file>
+                <file>
+                    <name>$PROJ_DIR$\rz\arm\CMSIS_6\CMSIS\Core\Include\core_ca5.h</name>
+                </file>
+                <file>
+                    <name>$PROJ_DIR$\rz\arm\CMSIS_6\CMSIS\Core\Include\core_ca53.h</name>
+                </file>
+                <file>
+                    <name>$PROJ_DIR$\rz\arm\CMSIS_6\CMSIS\Core\Include\core_ca55.h</name>
+                </file>
+                <file>
+                    <name>$PROJ_DIR$\rz\arm\CMSIS_6\CMSIS\Core\Include\core_ca57.h</name>
+                </file>
+                <file>
+                    <name>$PROJ_DIR$\rz\arm\CMSIS_6\CMSIS\Core\Include\core_ca7.h</name>
+                </file>
+                <file>
+                    <name>$PROJ_DIR$\rz\arm\CMSIS_6\CMSIS\Core\Include\core_ca9.h</name>
                 </file>
                 <file>
                     <name>$PROJ_DIR$\rz\arm\CMSIS_6\CMSIS\Core\Include\core_cm0.h</name>
@@ -2468,6 +2519,21 @@
                     <name>$PROJ_DIR$\rz\arm\CMSIS_6\CMSIS\Core\Include\core_cm85.h</name>
                 </file>
                 <file>
+                    <name>$PROJ_DIR$\rz\arm\CMSIS_6\CMSIS\Core\Include\core_cr4.h</name>
+                </file>
+                <file>
+                    <name>$PROJ_DIR$\rz\arm\CMSIS_6\CMSIS\Core\Include\core_cr5.h</name>
+                </file>
+                <file>
+                    <name>$PROJ_DIR$\rz\arm\CMSIS_6\CMSIS\Core\Include\core_cr52.h</name>
+                </file>
+                <file>
+                    <name>$PROJ_DIR$\rz\arm\CMSIS_6\CMSIS\Core\Include\core_cr7.h</name>
+                </file>
+                <file>
+                    <name>$PROJ_DIR$\rz\arm\CMSIS_6\CMSIS\Core\Include\core_cr8.h</name>
+                </file>
+                <file>
                     <name>$PROJ_DIR$\rz\arm\CMSIS_6\CMSIS\Core\Include\core_sc000.h</name>
                 </file>
                 <file>
@@ -2475,6 +2541,12 @@
                 </file>
                 <file>
                     <name>$PROJ_DIR$\rz\arm\CMSIS_6\CMSIS\Core\Include\core_starmc1.h</name>
+                </file>
+                <file>
+                    <name>$PROJ_DIR$\rz\arm\CMSIS_6\CMSIS\Core\Include\core_starmc3.h</name>
+                </file>
+                <file>
+                    <name>$PROJ_DIR$\rz\arm\CMSIS_6\CMSIS\Core\Include\a-profile\gicv2.h</name>
                 </file>
                 <file>
                     <name>$PROJ_DIR$\rz\arm\CMSIS_6\CMSIS\Core\Include\a-profile\irq_ctrl.h</name>

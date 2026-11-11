@@ -10,10 +10,10 @@
     Based on the period and capture event, the time period of pulse is calculated and displayed on RTT Viewer.
 
 2. Software Requirements:
-    Renesas Flexible Software Package (FSP): Version 4.2.0
-    e2 studio: Version 2026-07
+    Renesas Flexible Software Package (FSP): Version 4.3.0
+    e2 studio: Version 2026-10
     GCC ARM Embedded Toolchain: Version 13.3.1.arm-13-24
-    SEGGER J-Link RTT Viewer: Version 9.44
+    SEGGER J-Link RTT Viewer: Version 9.70
     
 3. Hardware Requirements:
     RZ supported boards: RZ/G3E-EVK.
@@ -56,7 +56,7 @@
 Note:
 1. Segger RTT block address may be needed to download and observe EP operation using a hex file with RTT-Viewer.
    RTT Block address for hex file committed in repository are as follows:
-   a. e2studio: 0x0800ce80
+   a. e2studio: 0x0800d288
 
 2. If an EP is modified, compiled, and downloaded please find the block address (for the variable in RAM called
    _SEGGER_RTT) in .map file generated in the build configuration folder (Debug/Release).

@@ -28,7 +28,14 @@ void hal_entry(void)
 {
     /* TODO: add your own code here */
     __enable_irq();
-    APP_PRINT(BANNER_INFO,EP_VERSION,4, 2, 0);
+    fsp_pack_version_t version;
+ 
+    /* Get the FSP version */
+    R_FSP_VersionGet(&version);
+ 
+    /* Example project information printed on the console */
+    APP_PRINT(BANNER_INFO, EP_VERSION, version.version_id_b.major, version.version_id_b.minor,
+        version.version_id_b.patch);
     APP_PRINT("\r\nExample Project Overview\r\n");
     APP_PRINT("This example demonstrates USB Peripheral CDC communication.\r\n");
     APP_PRINT("\r\n");

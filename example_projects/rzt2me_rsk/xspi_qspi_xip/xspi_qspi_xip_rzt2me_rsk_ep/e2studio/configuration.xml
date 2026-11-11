@@ -9,7 +9,7 @@
     <option key="#DeviceCommand#" value="R9A07G075M29_CR52_0"/>
     <option key="#RTOS#" value="_none"/>
     <option key="#pinconfiguration#" value="R9A07G075M29GBG.pincfg"/>
-    <option key="#FSPVersion#" value="4.2.0"/>
+    <option key="#FSPVersion#" value="4.3.0"/>
     <option key="#ConfigurationFragments#" value="Renesas##BSP##Board##rzt2me_rsk##xspi0_x1_boot"/>
     <option key="#SELECTED_TOOLCHAIN#" value="gcc-arm-embedded"/>
     <option key="#ToolchainVersion#" value="13.3.1.arm-13-24"/>
@@ -601,6 +601,18 @@
     <node id="board.clock.sci3asyncclk.sel" option="board.clock.sci3asyncclk.sel.1"/>
     <node id="board.clock.sci4asyncclk.sel" option="board.clock.sci4asyncclk.sel.1"/>
     <node id="board.clock.sci5asyncclk.sel" option="board.clock.sci5asyncclk.sel.1"/>
+    <node id="board.clock.scie0asyncclk.sel" option="board.clock.scie0asyncclk.sel.na"/>
+    <node id="board.clock.scie1asyncclk.sel" option="board.clock.scie1asyncclk.sel.na"/>
+    <node id="board.clock.scie2asyncclk.sel" option="board.clock.scie2asyncclk.sel.na"/>
+    <node id="board.clock.scie3asyncclk.sel" option="board.clock.scie3asyncclk.sel.na"/>
+    <node id="board.clock.scie4asyncclk.sel" option="board.clock.scie4asyncclk.sel.na"/>
+    <node id="board.clock.scie5asyncclk.sel" option="board.clock.scie5asyncclk.sel.na"/>
+    <node id="board.clock.scie6asyncclk.sel" option="board.clock.scie6asyncclk.sel.na"/>
+    <node id="board.clock.scie7asyncclk.sel" option="board.clock.scie7asyncclk.sel.na"/>
+    <node id="board.clock.scie8asyncclk.sel" option="board.clock.scie8asyncclk.sel.na"/>
+    <node id="board.clock.scie9asyncclk.sel" option="board.clock.scie9asyncclk.sel.na"/>
+    <node id="board.clock.scie10asyncclk.sel" option="board.clock.scie10asyncclk.sel.na"/>
+    <node id="board.clock.scie11asyncclk.sel" option="board.clock.scie11asyncclk.sel.na"/>
     <node id="board.clock.spi0asyncclk.sel" option="board.clock.spi0asyncclk.sel.1"/>
     <node id="board.clock.spi1asyncclk.sel" option="board.clock.spi1asyncclk.sel.1"/>
     <node id="board.clock.spi2asyncclk.sel" option="board.clock.spi2asyncclk.sel.1"/>
@@ -623,45 +635,45 @@
     <node id="board.clock.tclk.freq" option="board.clock.tclk.freq.100m"/>
   </raClockConfiguration>
   <raComponentSelection>
-    <component apiversion="" class="CMSIS" condition="" group="CMSIS6" subgroup="CoreM" variant="" vendor="Arm" version="6.1.0+fsp.4.2.0">
-      <description>Arm CMSIS Version 6 - Core</description>
-      <originalPack>Arm.CMSIS6.6.1.0+fsp.4.2.0.pack</originalPack>
-    </component>
-    <component apiversion="" class="BSP" condition="" group="Board" subgroup="rzt2me_rsk" variant="xspi0_x1_boot" vendor="Renesas" version="4.2.0">
+    <component apiversion="" class="BSP" condition="" group="Board" subgroup="rzt2me_rsk" variant="xspi0_x1_boot" vendor="Renesas" version="4.3.0">
       <description>RSK+RZT2ME Board Support Files (xSPI0 x1 boot mode)</description>
-      <originalPack>Renesas.RZT_board_rzt2me_rsk.4.2.0.pack</originalPack>
+      <originalPack>Renesas.RZT_board_rzt2me_rsk.4.3.0.pack</originalPack>
     </component>
-    <component apiversion="" class="Common" condition="" group="all" subgroup="fsp_common" variant="" vendor="Renesas" version="4.2.0">
+    <component apiversion="" class="CMSIS" condition="" group="CMSIS6" subgroup="CoreM" variant="" vendor="Arm" version="4.3.0">
+      <description>Arm CMSIS Version 6 - Core</description>
+      <originalPack>Arm.CMSIS6.4.3.0.pack</originalPack>
+    </component>
+    <component apiversion="" class="Common" condition="" group="all" subgroup="fsp_common" variant="" vendor="Renesas" version="4.3.0">
       <description>Board Support Package Common Files</description>
-      <originalPack>Renesas.RZ.4.2.0.pack</originalPack>
+      <originalPack>Renesas.RZ.4.3.0.pack</originalPack>
     </component>
-    <component apiversion="" class="BSP" condition="" group="rzt2me" subgroup="device" variant="R9A07G075M29GBG" vendor="Renesas" version="4.2.0">
-      <description>Board support package for R9A07G075M29GBG</description>
-      <originalPack>Renesas.RZT_mcu_rzt2me.4.2.0.pack</originalPack>
-    </component>
-    <component apiversion="" class="BSP" condition="" group="rzt2me" subgroup="device" variant="" vendor="Renesas" version="4.2.0">
-      <description>Board support package for RZT2ME</description>
-      <originalPack>Renesas.RZT_mcu_rzt2me.4.2.0.pack</originalPack>
-    </component>
-    <component apiversion="" class="BSP" condition="" group="rzt2me" subgroup="fsp" variant="" vendor="Renesas" version="4.2.0">
-      <description>Board support package for RZT2ME - FSP Data</description>
-      <originalPack>Renesas.RZT_mcu_rzt2me.4.2.0.pack</originalPack>
-    </component>
-    <component apiversion="" class="Common" condition="" group="rzt" subgroup="fsp_common" variant="" vendor="Renesas" version="4.2.0">
+    <component apiversion="" class="Common" condition="" group="rzt" subgroup="fsp_common" variant="" vendor="Renesas" version="4.3.0">
       <description>Board Support Package Common Files</description>
-      <originalPack>Renesas.RZT.4.2.0.pack</originalPack>
+      <originalPack>Renesas.RZT.4.3.0.pack</originalPack>
     </component>
-    <component apiversion="" class="BSP" condition="" group="rzt" subgroup="Memory" variant="" vendor="Renesas" version="4.2.0">
+    <component apiversion="" class="BSP" condition="" group="rzt" subgroup="Memory" variant="" vendor="Renesas" version="4.3.0">
       <description>Memory Config Checking</description>
-      <originalPack>Renesas.RZT.4.2.0.pack</originalPack>
+      <originalPack>Renesas.RZT.4.3.0.pack</originalPack>
     </component>
-    <component apiversion="" class="HAL Drivers" condition="" group="rzt" subgroup="r_ioport" variant="" vendor="Renesas" version="4.2.0">
+    <component apiversion="" class="HAL Drivers" condition="" group="rzt" subgroup="r_ioport" variant="" vendor="Renesas" version="4.3.0">
       <description>I/O Port</description>
-      <originalPack>Renesas.RZT.4.2.0.pack</originalPack>
+      <originalPack>Renesas.RZT.4.3.0.pack</originalPack>
     </component>
-    <component apiversion="" class="HAL Drivers" condition="" group="rzt" subgroup="r_xspi_qspi" variant="" vendor="Renesas" version="4.2.0">
+    <component apiversion="" class="HAL Drivers" condition="" group="rzt" subgroup="r_xspi_qspi" variant="" vendor="Renesas" version="4.3.0">
       <description>Quad Serial Peripheral Interface Flash on Expanded Serial Peripheral Interface</description>
-      <originalPack>Renesas.RZT.4.2.0.pack</originalPack>
+      <originalPack>Renesas.RZT.4.3.0.pack</originalPack>
+    </component>
+    <component apiversion="" class="BSP" condition="" group="rzt2me" subgroup="device" variant="R9A07G075M29GBG" vendor="Renesas" version="4.3.0">
+      <description>Board support package for R9A07G075M29GBG</description>
+      <originalPack>Renesas.RZT_mcu_rzt2me.4.3.0.pack</originalPack>
+    </component>
+    <component apiversion="" class="BSP" condition="" group="rzt2me" subgroup="device" variant="" vendor="Renesas" version="4.3.0">
+      <description>Board support package for RZT2ME</description>
+      <originalPack>Renesas.RZT_mcu_rzt2me.4.3.0.pack</originalPack>
+    </component>
+    <component apiversion="" class="BSP" condition="" group="rzt2me" subgroup="fsp" variant="" vendor="Renesas" version="4.3.0">
+      <description>Board support package for RZT2ME - FSP Data</description>
+      <originalPack>Renesas.RZT_mcu_rzt2me.4.3.0.pack</originalPack>
     </component>
   </raComponentSelection>
   <raElcConfiguration/>
@@ -733,9 +745,12 @@
       <property id="module.driver.rzt.xspi_qspi.unit" value="0"/>
       <property id="module.driver.rzt.xspi_qspi.chip_select" value="module.driver.rzt.xspi_qspi.chip_select.cs0"/>
       <property id="module.driver.rzt.xspi_qspi.flash_size" value="module.driver.rzt.xspi.memory_size.unsupported"/>
+      <property id="module.driver.rzt.xspi_qspi.page_size" value="256"/>
       <property id="module.driver.rzt.xspi_qspi.spi_protocol" value="module.driver.rzt.xspi_qspi.spi_protocol.protocol_1s_1s_1s"/>
       <property id="module.driver.rzt.xspi_qspi.address_bytes" value="module.driver.rzt.xspi_qspi.address_bytes.address_bytes_4"/>
+      <property id="module.driver.rzt.xspi_qspi.address_msb_mask" value="0x00"/>
       <property id="module.driver.rzt.xspi_qspi.dummy_clocks" value="module.driver.rzt.xspi_qspi.dummy_clocks.dummy_clocks_6"/>
+      <property id="module.driver.rzt.xspi_qspi.wrap_transaction" value="module.driver.rzt.xspi.wrap_transaction.separate"/>
       <property id="module.driver.rzt.xspi_qspi.page_program_command" value="0x02"/>
       <property id="module.driver.rzt.xspi_qspi.read_command" value="0xEB"/>
       <property id="module.driver.rzt.xspi_qspi.write_enable_command" value="0x06"/>

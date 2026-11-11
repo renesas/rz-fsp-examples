@@ -74,9 +74,14 @@ void hal_entry(void)
      * This project already has its own UART output path through app_printf().
      * Use it directly instead of printf()/APP_PRINT because no stdio retarget layer is required here.
      */
-    app_printf(BANNER_INFO,
-               EP_VERSION,
-               4, 2, 0);
+    fsp_pack_version_t version;
+ 
+    /* Get the FSP version */
+    R_FSP_VersionGet(&version);
+ 
+    /* Example project information printed on the console */
+    app_printf(BANNER_INFO, EP_VERSION, version.version_id_b.major, version.version_id_b.minor,
+        version.version_id_b.patch);
 
     app_printf("\r\nExample Project Overview\r\n");
     app_printf("This example demonstrates RTC calendar time operation with a one-second periodic interrupt.\r\n");

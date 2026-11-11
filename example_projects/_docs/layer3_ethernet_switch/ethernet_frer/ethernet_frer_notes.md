@@ -97,13 +97,13 @@ Port. This project uses the board's separate **UART-to-USB** console bridge inst
     * Connect J8B (ETH1) on the Sender board to J8B (ETH1) on the Receiver board.
 
 ### Software Requirements
-* Renesas Flexible Software Package (FSP): Version 4.2.0
-* e2 studio: Version 2026-07
-* FSP Smart Configurator: Version 2026-07
+* Renesas Flexible Software Package (FSP): Version 4.3.0
+* e2 studio: Version 2026-10
+* FSP Smart Configurator: Version 2026-10
 * IAR: Version 9.60.3
-* J-Link: Version 9.44
-* GCC ARM Embedded Toolchain: Version 13.3.1.arm-13-24 for cortexR-52
-* GCC ARM A-Profile (AArch64 bare-metal): Version 13.2 rel1 for cortexA-55
+* J-Link: Version 9.70
+* GCC ARM Embedded Toolchain: Version 13.3.1.arm-13-24
+* GCC ARM A-Profile (AArch64 bare-metal): Version 13.2.1.arm-13-7
 * Terminal Console Application: TeraTerm or a similar application - one session per board, via
   the on-board UART-to-USB bridge (J33), **not** SEGGER RTT Viewer (see
   [Board-Specific Guide](ethernet_frer_board_specific_notes.md#rzt2n-evk--board-specific-guide)).

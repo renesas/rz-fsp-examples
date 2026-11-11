@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <rzone>
     <device Dvendor="Renesas" Dname="R9A07G076M48GBG">
-        <processor Pname="CR52_0" Dcore="Cortex-R52" Dfpu="1" Dmpu="1" Dtz="NO_TZ" Ddsp="1" Dendian="Little-endian" Dclock="1000000000" DcoreVersion="r1p4" DnumInterrupts="640" DnumSauRegions="0" info="CR52 CPU0"/>
-        <processor Pname="CR52_1" Dcore="Cortex-R52" Dfpu="1" Dmpu="1" Dtz="NO_TZ" Ddsp="1" Dendian="Little-endian" Dclock="1000000000" DcoreVersion="r1p4" DnumInterrupts="640" DnumSauRegions="0" info="CR52 CPU1"/>
-        <processor Pname="CA55_0" Dcore="Cortex-A55" Dfpu="1" Dmpu="1" Dtz="NO_TZ" Ddsp="1" Dendian="Little-endian" Dclock="1000000000" DcoreVersion="r2p0" DnumInterrupts="640" DnumSauRegions="0" info="CA55 Core0"/>
-        <processor Pname="CA55_1" Dcore="Cortex-A55" Dfpu="1" Dmpu="1" Dtz="NO_TZ" Ddsp="1" Dendian="Little-endian" Dclock="1000000000" DcoreVersion="r2p0" DnumInterrupts="640" DnumSauRegions="0" info="CA55 Core1"/>
+        <processor Pname="CR52_0" Dcore="Cortex-R52" Dfpu="1" Dmpu="1" Dtz="NO_TZ" Ddsp="1" Dendian="Little-endian" Dclock="1000000000" DcoreVersion="r1p4" DnumInterrupts="640" DnumSauRegions="0" info="Cortex-R52 Core0"/>
+        <processor Pname="CR52_1" Dcore="Cortex-R52" Dfpu="1" Dmpu="1" Dtz="NO_TZ" Ddsp="1" Dendian="Little-endian" Dclock="1000000000" DcoreVersion="r1p4" DnumInterrupts="640" DnumSauRegions="0" info="Cortex-R52 Core1"/>
+        <processor Pname="CA55_0" Dcore="Cortex-A55" Dfpu="1" Dmpu="1" Dtz="NO_TZ" Ddsp="1" Dendian="Little-endian" Dclock="1000000000" DcoreVersion="r2p0" DnumInterrupts="640" DnumSauRegions="0" info="Cortex-A55 Core0"/>
+        <processor Pname="CA55_1" Dcore="Cortex-A55" Dfpu="1" Dmpu="1" Dtz="NO_TZ" Ddsp="1" Dendian="Little-endian" Dclock="1000000000" DcoreVersion="r2p0" DnumInterrupts="640" DnumSauRegions="0" info="Cortex-A55 Core1"/>
     </device>
     <resources>
         <memories>
@@ -106,16 +106,16 @@
             </group>
             <group name="MTU" info="Multi-Function Timer Pulse Unit">
                 <peripheral name="MTU" start="0x90001000" size="0x0A88"/>
-                <peripheral name="MTU3" start="0x90001100" size="0x0174"/>
-                <peripheral name="MTU4" start="0x90001200" size="0x0078"/>
+                <peripheral name="MTU33" start="0x90001100" size="0x0174"/>
+                <peripheral name="MTU34" start="0x90001200" size="0x0078"/>
                 <peripheral name="MTU_NF" start="0x90001290" size="0x0806"/>
-                <peripheral name="MTU0" start="0x90001300" size="0x002C"/>
-                <peripheral name="MTU1" start="0x90001380" size="0x002C"/>
-                <peripheral name="MTU2" start="0x90001400" size="0x0010"/>
-                <peripheral name="MTU8" start="0x90001600" size="0x001C"/>
-                <peripheral name="MTU6" start="0x90001900" size="0x0174"/>
-                <peripheral name="MTU7" start="0x90001A00" size="0x0078"/>
-                <peripheral name="MTU5" start="0x90001C00" size="0x00BA"/>
+                <peripheral name="MTU30" start="0x90001300" size="0x002C"/>
+                <peripheral name="MTU31" start="0x90001380" size="0x002C"/>
+                <peripheral name="MTU32" start="0x90001400" size="0x0010"/>
+                <peripheral name="MTU38" start="0x90001600" size="0x001C"/>
+                <peripheral name="MTU36" start="0x90001900" size="0x0174"/>
+                <peripheral name="MTU37" start="0x90001A00" size="0x0078"/>
+                <peripheral name="MTU35" start="0x90001C00" size="0x00BA"/>
             </group>
             <group name="MTU_POE3" info="Port Output Enable 3">
                 <peripheral name="POE3" start="0x90018000" size="0x0042"/>
@@ -255,10 +255,10 @@
                 <peripheral name="DSMIF3" start="0x90120000" size="0x06C0"/>
                 <peripheral name="DSMIF4" start="0x90121000" size="0x06C0"/>
             </group>
-            <group name="ADC12" info="12-Bit A/D converter">
-                <peripheral name="ADC120" start="0x90014000" size="0x00E4"/>
-                <peripheral name="ADC121" start="0x90014400" size="0x00E4"/>
-                <peripheral name="ADC122" start="0x80008000" size="0x00E8"/>
+            <group name="ADC" info="12-Bit A/D converter">
+                <peripheral name="ADC0" start="0x90014000" size="0x00E4"/>
+                <peripheral name="ADC1" start="0x90014400" size="0x00E4"/>
+                <peripheral name="ADC2" start="0x80008000" size="0x00E8"/>
             </group>
             <group name="TSU" info="Temperature Sensor Unit">
                 <peripheral name="TSU0" start="0x80086000" size="0x003C"/>

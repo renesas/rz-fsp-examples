@@ -8,7 +8,9 @@ INCLUDE memory_regions.ld
 SRAM_RESERVED_LENGTH = 0xE000;
 SRAM_MMU_START = SRAM_START + SRAM_RESERVED_LENGTH;
 SRAM_MMU_LENGTH = 0x5000;
-SRAM_CODE_START = SRAM_MMU_START + SRAM_MMU_LENGTH;
+SRAM_STACK_START = SRAM_MMU_START + SRAM_MMU_LENGTH;
+SRAM_STACK_LENGTH = 0x2000;
+SRAM_CODE_START = SRAM_STACK_START + SRAM_STACK_LENGTH;
 SRAM_CODE_LENGTH = (SRAM_START + SRAM_LENGTH) - SRAM_CODE_START;
 
 FSP_DDR_OFFSET = 0x001FFFE0;
@@ -27,6 +29,7 @@ UNCACHEDRAM_S_LENGTH = DDR_LENGTH;
 /* Define memory regions. */
 MEMORY {
     SRAM_MMU          (rw)  : ORIGIN = SRAM_MMU_START,      LENGTH = SRAM_MMU_LENGTH
+    SRAM_STACK        (rw)  : ORIGIN = SRAM_STACK_START,    LENGTH = SRAM_STACK_LENGTH
     SRAM              (rwx) : ORIGIN = SRAM_CODE_START,     LENGTH = SRAM_CODE_LENGTH
     HEADER_REGION     (rx)  : ORIGIN = FSP_HEADER_START,    LENGTH = FSP_HEADER_LENGTH
     ENTRY_S           (rx)  : ORIGIN = ENTRY_S_START,       LENGTH = ENTRY_S_LENGTH
@@ -76,6 +79,13 @@ SECTIONS
         . = ALIGN( 0x8 );
         __sram_fastcopy_load_end = LOADADDR(.text.sram_fastcopy) + ( . - ADDR(.text.sram_fastcopy) );
     } > SRAM AT > CACHED_RAM_S_CODE
+
+    /* Dedicated FIQ/IRQ stack (SP_EL3), kept in on-chip SRAM for latency. */
+    .stack.isr (NOLOAD) : ALIGN( 0x10 ) {
+        __isr_stack_start = .;
+        . += 0x2000;
+        __isr_stack_end = .;
+    } > SRAM_STACK
 
     .rodata.header : {
         QUAD(Start)

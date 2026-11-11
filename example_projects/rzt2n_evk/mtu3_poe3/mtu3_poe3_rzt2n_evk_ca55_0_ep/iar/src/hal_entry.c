@@ -58,9 +58,14 @@ void hal_entry(void)
     /* Calculate the delay in terms of bsp_delay_units. */
     const uint32_t delay = bsp_delay_units / freq_in_hz;
 
-    APP_PRINT(BANNER_INFO,
-              EP_VERSION,
-              4, 2, 0);
+    fsp_pack_version_t version;
+ 
+    /* Get the FSP version */
+    R_FSP_VersionGet(&version);
+ 
+    /* Example project information printed on the console */
+    APP_PRINT(BANNER_INFO, EP_VERSION, version.version_id_b.major, version.version_id_b.minor,
+        version.version_id_b.patch);
 
     APP_PRINT("\r\nExample Project Overview\r\n");
     APP_PRINT("This example demonstrates three-phase MTU3 PWM duty control and POE3 output disable operation.\r\n");

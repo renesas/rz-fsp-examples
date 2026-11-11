@@ -46,9 +46,12 @@ The three things this example project verifies are:
 
 ### Software ###
 
-- IAR Embedded Workbench for ARM 9.60.3 + patch, Smart Configurator + RZ_FSP_Packs_v4.2.0
-- e²studio_2026-07 with RZ FSP, toolchain GNU ARM Embedded (Version:13.3.1.arm-13-24)
-- RZ FSP version 4.2.0, SEGGER J-Link Base Ver.11.0
+- Renesas Flexible Software Package (FSP): Version 4.3.0
+- e² studio: Version 2026-10
+- FSP Smart Configurator: Version 2026-10
+- IAR: Version 9.60.3
+- GCC ARM Embedded Toolchain: Version 13.3.1.arm-13-24
+- J-Link: Version 9.70
 - Terminal Emulator (Tera Term v5.40)
 
 ## Related Collateral References ##

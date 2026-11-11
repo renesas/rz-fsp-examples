@@ -101,22 +101,22 @@ SECTIONS
 
     .text.secure_code :
     {
-        *\bsp_security.o (.text)
-        *\bsp_security.o (.text.*)
-        *\bsp_security.o (.rodata)
-        *\bsp_security.o (.rodata.*)
-        *\bsp_irqs.o (.text)
-        *\bsp_irqs.o (.text.*)
-        *\bsp_irqs.o (.rodata)
-        *\bsp_irqs.o (.rodata.*)
-        *\startups.o (.text)
-        *\startups.o (.text.*)
-        *\startups.o (.rodata)
-        *\startups.o (.rodata.*)
-        *\systems.o (.text)
-        *\systems.o (.text.*)
-        *\systems.o (.rodata)
-        *\systems.o (.rodata.*)
+        *\bsp_security.* (.text)
+        *\bsp_security.* (.text.*)
+        *\bsp_security.* (.rodata)
+        *\bsp_security.* (.rodata.*)
+        *\bsp_irqs.* (.text)
+        *\bsp_irqs.* (.text.*)
+        *\bsp_irqs.* (.rodata)
+        *\bsp_irqs.* (.rodata.*)
+        *\startups.* (.text)
+        *\startups.* (.text.*)
+        *\startups.* (.rodata)
+        *\startups.* (.rodata.*)
+        *\systems.* (.text)
+        *\systems.* (.text.*)
+        *\systems.* (.rodata)
+        *\systems.* (.rodata.*)
 
         __CODE_S_End = .;
     } >CODE_S

@@ -8,21 +8,18 @@ FSP Configuration
     package_pins: 361
     
   RZA3M
-    series: 2
-    
   RZA3M Family
     
   RZ/A FSP Common
     Secure stack size (bytes): 0x200
     Main stack size (bytes): 0x2000
     Heap size (bytes): 0x2000
-    MCU Vcc (mV): 3300
+    MPU Vcc (mV): 3300
     Parameter checking: Enabled
     Assert Failures: Return FSP_ERR_ASSERTION
     Error Log: No Error Log
     PFS Protect: Enabled
     C Runtime Initialization : Enabled
-    Device Family RZA: RZA
     
   RZ all Common
   RZ/A FSP Common
@@ -537,19 +534,19 @@ FSP Configuration
       ZQ H20 - - - - - - - - - None - - 
     
   User Events
-    ID:174 DSI dsi_int_seq0 (Sequence operation channel0 interrupt): mipi_dsi_seq0
-    ID:175 DSI dsi_int_seq1 (Sequence operation channel1 interrupt): mipi_dsi_seq1
-    ID:176 DSI dsi_int_vin1 (Video-Input operation channel1 interrupt): mipi_dsi_vin1
-    ID:177 DSI dsi_int_rcv (DSI Packet Receive interrupt): mipi_dsi_rcv
-    ID:178 DSI dsi_int_ferr (DSI Fatal Error interrupt): mipi_dsi_ferr
-    ID:179 DSI dsi_int_ppi (DSI D-PHY PPI interrupt): mipi_dsi_ppi
+    ID:174 DSI dsi_int_seq0 (Sequence operation channel0 interrupt): mipi_dsi_seq0_isr
+    ID:175 DSI dsi_int_seq1 (Sequence operation channel1 interrupt): mipi_dsi_seq1_isr
+    ID:176 DSI dsi_int_vin1 (Video-Input operation channel1 interrupt): mipi_dsi_vin1_isr
+    ID:177 DSI dsi_int_rcv (DSI Packet Receive interrupt): mipi_dsi_rcv_isr
+    ID:178 DSI dsi_int_ferr (DSI Fatal Error interrupt): mipi_dsi_ferr_isr
+    ID:179 DSI dsi_int_ppi (DSI D-PHY PPI interrupt): mipi_dsi_ppi_isr
     
   Linker Section Mappings
     
   Module "I/O Port (r_ioport)"
     Parameter Checking: Default (BSP)
     
-  Module "MMU Driver on r_mmu"
+  Module "MMU (r_mmu)"
     Parameter Checking: Default (BSP)
     
   Module "I2C Master (r_riic_master)"
@@ -557,22 +554,22 @@ FSP Configuration
     DMAC Support: Disabled
     10-bit slave addressing: Disabled
     
-  Module "UART Driver on r_scif_uart"
+  Module "UART (r_scif_uart)"
     Parameter Checking: Default (BSP)
     DMAC Support: Disable
     RS485 Flow (Driver Enable) Control Support: Disable
     
-  Module "Display Driver on r_lcdc"
+  Module "LCD (r_lcdc)"
     Parameter Checking: Default (BSP)
     
   Module "MIPI Display (r_mipi_dsi_b)"
     Parameter Checking: Default (BSP)
     
   Module "MIPI Physical Layer (r_mipi_phy_b)"
-  Module "External IRQ Driver on r_intc_irq"
+  Module "External IRQ (r_intc_irq)"
     Parameter Checking: Default (BSP)
     
-  Module "Timer (r_gtm)"
+  Module "Timer, General Timer (r_gtm)"
     Parameter Checking: Default (BSP)
     
   HAL
@@ -580,7 +577,7 @@ FSP Configuration
       Name: g_ioport
       Pin Configuration Name: g_bsp_pin_cfg
       
-    Instance "g_mmu MMU Driver on r_mmu"
+    Instance "g_mmu MMU (r_mmu)"
       Name: g_mmu
       
     Instance "g_i2c_master I2C Master (r_riic_master)"
@@ -599,7 +596,7 @@ FSP Configuration
       Callback: i2c_master_callback
       Interrupt Priority Level: 24
       
-    Instance "g_uart0 UART Driver on r_scif_uart"
+    Instance "g_uart0 UART (r_scif_uart)"
       General: Name: g_uart0
       General: Channel: 0
       General: Data Bits: 8bits
@@ -623,7 +620,7 @@ FSP Configuration
       Interrupts: Receive Interrupt Priority: 24
       Interrupts: Transmit Data Empty Interrupt Priority: 24
       
-    Instance "g_display Display Driver on r_lcdc"
+    Instance "g_display LCD (r_lcdc)"
       General: Name: g_display
       Interrupts: Callback Function: lcdc_callback
       Interrupts: Frame End Interrupt Priority: 5
@@ -654,6 +651,7 @@ FSP Configuration
       Input: Graphics Layer 2: General: 32bit swap: Disabled
       Input: Graphics Layer 2: General: 16bit swap: Disabled
       Input: Graphics Layer 2: General: 8bit swap: Disabled
+      Output: Source: Mode: MIPI-DSI
       Output: Timing: Horizontal total cycles: 828
       Output: Timing: Horizontal active video cycles: 720
       Output: Timing: Horizontal back porch cycles: 56
@@ -730,14 +728,14 @@ FSP Configuration
           General: Name: g_mipi_phy0
           Transmission Rate (Mbps): 1500
           
-    Instance "g_external_irq External IRQ Driver on r_intc_irq"
+    Instance "g_external_irq External IRQ (r_intc_irq)"
       Name: g_external_irq
       Channel: 1
       Trigger: Rising
       Callback: external_irq_callback
       Pin Interrupt Priority: 24
       
-    Instance "g_timer0 Timer (r_gtm)"
+    Instance "g_timer0 Timer, General Timer (r_gtm)"
       General: Name: g_timer0
       General: Channel: 1
       General: Mode: Periodic

@@ -3002,7 +3002,6 @@ FSP Configuration
     MPU/MMU Type: MPU
     
   Module "FreeRTOS Port (rm_freertos_port)"
-  Module "FreeRTOS Heap 4"
   Module "FreeRTOS+TCP"
     Print debug messages: Disable
     Backward Compatible Mode: Yes 
@@ -3080,6 +3079,7 @@ FSP Configuration
     Parameter Checking: Default (BSP)
     
   Module "FreeRTOS Buffer Allocation 2"
+  Module "FreeRTOS Heap 4"
   FreeRTOS
     General: Custom FreeRTOSConfig.h: 
     General: Use MPU: Disabled
@@ -3133,7 +3133,6 @@ FSP Configuration
     Optional Functions: uxTaskPriorityGet() Function: Enabled
     Optional Functions: vTaskDelete() Function: Enabled
     Optional Functions: vTaskSuspend() Function: Enabled
-    Optional Functions: xResumeFromISR() Function: Enabled
     Optional Functions: vTaskDelayUntil() Function: Enabled
     Optional Functions: vTaskDelay() Function: Enabled
     Optional Functions: xTaskGetSchedulerState() Function: Enabled
@@ -3141,8 +3140,7 @@ FSP Configuration
     Optional Functions: uxTaskGetStackHighWaterMark() Function: Disabled
     Optional Functions: xTaskGetIdleTaskHandle() Function: Disabled
     Optional Functions: eTaskGetState() Function: Disabled
-    Optional Functions: xEventGroupSetBitFromISR() Function: Enabled
-    Optional Functions: xTimerPendFunctionCall() Function: Disabled
+    Optional Functions: xTimerPendFunctionCall() Function: Enabled
     Optional Functions: xTaskAbortDelay() Function: Disabled
     Optional Functions: xTaskGetHandle() Function: Disabled
     Optional Functions: xTaskResumeFromISR() Function: Enabled
@@ -3224,7 +3222,6 @@ FSP Configuration
     Memory Allocation: Static
     Allocate Secure Context: Enable
     
-    Instance "FreeRTOS Heap 4"
     Instance "g_freertos_plus_tcp FreeRTOS+TCP"
       General: Name: g_freertos_plus_tcp
       
@@ -3334,6 +3331,7 @@ FSP Configuration
             Interrupts: Context: &g_ether0_ctrl
             
         Instance "FreeRTOS Buffer Allocation 2"
+    Instance "FreeRTOS Heap 4"
   Thread "TCP Echo Server"
     Symbol: tcp_echo_server_thread
     Name: TCP Echo Server

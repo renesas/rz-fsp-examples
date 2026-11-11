@@ -436,7 +436,8 @@ define block LDR_PRG_RBLOCK with fixed order, alignment = 8
                                ro code object copy_init3.o,
                                ro code section .warm_start }
                                except { section .intvec*,
-                                        section .reset_handler };
+                                        section .reset_handler,
+                                        section .software_delay };
 
 /* Place the variables in the loader program (SSBL). */
 define block LDR_DATA_WBLOCK with fixed order, alignment = 8
@@ -466,6 +467,9 @@ define block LDR_DATA_ZBLOCK with alignment = 8
                                section .bss object copy_init3.o,
                                section .warm_start.bss*,
                                section .ttbr };
+
+define block SOFTWARE_DELAY_RBLOCK with fixed order, alignment = 8
+                             { section .software_delay };
 
 /* Place Software_Reset_Handler, which is called when a software reset is executed in the CA55 project. */
 define block SOFTWARE_RESET_ZBLOCK
@@ -710,7 +714,8 @@ place in PCIE1_region { };
 
 place at start of INTVEC_region                 { block VECTOR_RBLOCK };
 
-place at start of D_LOADER_STACK_region         { block LDR_PRG_RBLOCK };
+place at start of D_LOADER_STACK_region         { block LDR_PRG_RBLOCK,
+                                                  block SOFTWARE_DELAY_RBLOCK };
 place in D_LOADER_STACK_region                  { block LDR_DATA_WBLOCK };
 place in D_LOADER_STACK_region                  { block LDR_DATA_ZBLOCK,
                                                   block SOFTWARE_RESET_ZBLOCK,

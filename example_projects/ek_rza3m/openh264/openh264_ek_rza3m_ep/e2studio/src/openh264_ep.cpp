@@ -7,8 +7,13 @@
 *
 * SPDX-License-Identifier: BSD-3-Clause
 ***********************************************************************************************************************/
-
+#ifdef __cplusplus
+extern "C" {
+#endif
 #include "FreeRTOS.h"
+#ifdef __cplusplus
+}
+#endif
 #include "task.h"
 #include "codec_api.h"
 #include <string.h>

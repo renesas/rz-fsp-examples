@@ -91,14 +91,14 @@ for general information on example projects.
     * Connect J8B (ETH1) on the RZT2N EVK to PC NIC #2.
 
 ### Software Requirements
-* Renesas Flexible Software Package (FSP): Version 4.2.0
-* e2 studio: Version 2026-07
-* FSP Smart Configurator: Version 2026-07
+* Renesas Flexible Software Package (FSP): Version 4.3.0
+* e2 studio: Version 2026-10
+* FSP Smart Configurator: Version 2026-10
 * IAR: Version 9.60.3
-* GCC ARM Embedded Toolchain: Version 13.3.1.arm-13-24 for cortexR-52
-* GCC ARM A-Profile (AArch64 bare-metal): Version 13.2 rel1 for cortexA-55
+* GCC ARM Embedded Toolchain: Version 13.3.1.arm-13-24
+* GCC ARM A-Profile (AArch64 bare-metal): Version 13.2.1.arm-13-7
 * Terminal Console Application: Tera Term or a similar application (for CA55 output)
-* SEGGER J-Link RTT Viewer: Version 9.44 (For CR52 output)
+* SEGGER J-Link RTT Viewer: Version 9.70
 * Python 3 + `pip install scapy` - runs `tas_send_test_frames.py`, needed for modes `[1]`/`[3]`
 * Wireshark (optional, recommended): For verifying forwarded frames on PC NICs. Download from https://www.wireshark.org/download.html - install with Npcap (included in installer). See [Wireshark Verification Guide](#wireshark-verification-guide) for setup details.
 

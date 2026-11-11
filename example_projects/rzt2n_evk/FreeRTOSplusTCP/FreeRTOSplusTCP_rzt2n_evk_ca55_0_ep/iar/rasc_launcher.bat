@@ -90,7 +90,7 @@ IF %RASC_OPERATION_NAME%=="--gensmartbundle" SET CLI=true
 IF %RASC_OPERATION_NAME%=="--gensmartbundleandpartition" SET CLI=true
 IF "%CLI%"=="true" (
     SET "WaitRasc=/b /wait"
-    SET RascExe=%RascExe:rasc.exe=rascc.exe%
+    SET RascExe=%RascExe:rasc.exe=fspsc-cli.exe%
 )
 
 set Parameters=

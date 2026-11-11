@@ -1,29 +1,40 @@
 # OpenH264 Example Project on RZ Boards
 
 ## Table of Contents
-1. [Introduction](#introduction)
-    1. [Supported Boards](#supported-boards)
-2. [Required Resources](#required-resources)
-    1. [Hardware Requirements](#hardware-requirements)
-        1. [Common Hardware](#common-hardware)
-        2. [Additional Hardware](#additional-hardware)
-        3. [Hardware Connections](#hardware-connections)
-    2. [Software Requirements](#software-requirements)
-3. [Application Execution](#application-execution)
-4. [Project Notes](#project-notes)
-    1. [System-Level Block Diagram](#system-level-block-diagram)
-    2. [FSP Modules Used](#fsp-modules-used)
-    3. [Module Configuration Notes](#module-configuration-notes)
-    4. [API Usage](#api-usage)
-    5. [Memory Usage](#memory-usage)
-    6. [Clock Configuration](#clock-configuration)
-    7. [Application Execution Flow](#application-execution-flow)
-    8. [Troubleshooting Tips](#troubleshooting-tips)
-    9. [Known Limitations](#known-limitations)
-5. [Special Topics](#special-topics)
-6. [Conclusion and Next Steps](#conclusion-and-next-steps)
-7. [References](#references)
-8. [Notice](#notice)
+- [OpenH264 Example Project on RZ Boards](#openh264-example-project-on-rz-boards)
+  - [Table of Contents](#table-of-contents)
+  - [Introduction](#introduction)
+    - [Supported Boards](#supported-boards)
+  - [Required Resources](#required-resources)
+    - [Hardware Requirements](#hardware-requirements)
+      - [Common Hardware](#common-hardware)
+      - [Additional Hardware](#additional-hardware)
+      - [Hardware Connections](#hardware-connections)
+    - [Software Requirements](#software-requirements)
+  - [Application Execution](#application-execution)
+    - [Execution Output](#execution-output)
+  - [Project Notes](#project-notes)
+    - [System-Level Block Diagram](#system-level-block-diagram)
+    - [FSP Modules Used](#fsp-modules-used)
+    - [Module Configuration Notes](#module-configuration-notes)
+    - [API Usage](#api-usage)
+    - [Memory Usage](#memory-usage)
+    - [Clock Configuration](#clock-configuration)
+    - [Application Execution Flow](#application-execution-flow)
+    - [Troubleshooting Tips](#troubleshooting-tips)
+    - [Known Limitations](#known-limitations)
+  - [Special Topics](#special-topics)
+    - [Pre-build Configuration](#pre-build-configuration)
+      - [Background](#background)
+      - [Steps](#steps)
+        - [Step 1: Verify FreeRTOS-POSIX Paths to C++ Compiler](#step-1-verify-freertos-posix-paths-to-c-compiler)
+        - [Step 2: Verify Folder-Specific Settings for FreeRTOS-POSIX Source](#step-2-verify-folder-specific-settings-for-freertos-posix-source)
+  - [Conclusion and Next Steps](#conclusion-and-next-steps)
+  - [References](#references)
+  - [Notice](#notice)
+  - [Corporate Headquarters](#corporate-headquarters)
+  - [Contact information](#contact-information)
+  - [Trademarks](#trademarks)
 
 ## Introduction
 
@@ -72,8 +83,8 @@ To build and run the Open H264 example project, the following resources are need
     * After completing board-specific hardware connections, connect the RZA board's USB debug port to the host PC using the appropriate USB cable.
 
 ### Software Requirements
-* Renesas Flexible Software Package (FSP): Version 4.2.0
-* e2 studio: Version 2026-07
+* Renesas Flexible Software Package (FSP): Version 4.3.0
+* e2 studio: Version 2026-10
 * GCC ARM A-Profile (AArch64 bare-metal): Version 13.2 rel1
 * Terminal Console Application: Tera Term or a similar application
 

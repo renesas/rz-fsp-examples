@@ -94,11 +94,11 @@ Description : Readme of the RZ/T2N MTU3 complementary PWM / POE3 example project
 2. Software Requirements:
 
     - IAR Embedded Workbench for ARM : 9.60.3 + patch
-      Smart Configurator + RZ_FSP_Packs_v4.2.0
+      Smart Configurator + RZ_FSP_Packs_v4.3.0
 
-    - e²studio_2026-07 with RZ FSP
+    - e²studio_2026-10 with RZ FSP
       Toolchain           : GNU ARM Embedded (Version:13.3.1.arm-13-24)
-      RZ FSP version   : 4.2.0
+      RZ FSP version   : 4.3.0
 
     - Terminal Emulator (Tera Term v5.40)
 
@@ -282,7 +282,7 @@ Start Debugging:
 
   7. Select [Project]-[Rebuild All] from the EWARM menu.
      - During the build, if a window appears searching for Smart Configurator, enter the number
-       that indicates fsp v4.2.0 and press Enter.
+       that indicates fsp v4.3.0 and press Enter.
 
   8. While the board and I-jet are connected, click on the [Download and debug] button in the
      "Project" toolbar.

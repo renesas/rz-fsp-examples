@@ -231,11 +231,11 @@ Description : Readme of the RZ/T2N PCIe Endpoint example project
 2. Software Requirements:
 
     - IAR Embedded Workbench for ARM : 9.60.3 + patch
-      Smart Configurator + RZ_FSP_Packs_v4.2.0
+      Smart Configurator + RZ_FSP_Packs_v4.3.0
 
-    - e²studio_2026-07 with RZ FSP
+    - e²studio_2026-10 with RZ FSP
       Toolchain           : GCC ARM A-Profile(AArch64 bare-metal) (Version:13.2.1.arm-13-7)
-      RZ FSP version   : 4.2.0
+      RZ FSP version   : 4.3.0
 
     - Terminal Emulator (Tera Term)
 
@@ -411,7 +411,7 @@ Start Debugging:
   7. Select [Project]-[Rebuild All] from the EWARM menu.
 
      - During the build, if a window appears searching for Smart Configurator, enter the
-       number that indicates FSP v4.2.0 and press Enter.
+       number that indicates FSP v4.3.0 and press Enter.
 
      - If the build error "FSP version 4.x.x is not installed..." is displayed, make the
        project name and folder name the same and generate the code again.

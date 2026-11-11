@@ -85,9 +85,14 @@ void freertos_plus_fat_sdhi_example(void)
     err = R_SCI_UART_Open(&g_uart0_ctrl, &g_uart0_cfg);
     handle_error(err);
 
-    APP_PRINT(BANNER_INFO,
-              EP_VERSION,
-              4, 2, 0);
+    fsp_pack_version_t version;
+ 
+    /* Get the FSP version */
+    R_FSP_VersionGet(&version);
+ 
+    /* Example project information printed on the console */
+    APP_PRINT(BANNER_INFO, EP_VERSION, version.version_id_b.major, version.version_id_b.minor,
+        version.version_id_b.patch);
 
     APP_PRINT("\r\nExample Project Overview\r\n");
     APP_PRINT("This example demonstrates FreeRTOS+FAT with SDHI using a microSD card. It optionally formats the card "
