@@ -560,9 +560,15 @@ define block THREAD_STACK with alignment = 8
 /*  NONCACHE                                     */
 /*-----------------------------------------------*/
 
+define block RTT_ZBLOCK with alignment = 8
+{
+    section .bss object SEGGER_RTT.o
+};
+
 /* Place the noncache variables. */
 define block NONCACHE_WBLOCK with fixed order
-                             { block USER_DATA_NONCACHE_WBLOCK with alignment = 8 { section .data_noncache* },
+                             { block RTT_ZBLOCK,
+                               block USER_DATA_NONCACHE_WBLOCK with alignment = 8 { section .data_noncache* },
                                block DMAC_LINK_MODE_WBLOCK with alignment = 8 { section .dmac_link_mode* },
                                block NONCACHE_BUFFER_WBLOCK with alignment = 32 { section .noncache_buffer* }};
 

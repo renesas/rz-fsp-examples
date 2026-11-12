@@ -446,6 +446,40 @@ SECTIONS
         _data_end = .;
     } > RAM_DATA
 
+    /* Place the noncache variables. */
+    .noncache NONCACHE_AREA_START : AT(NONCACHE_AREA_INIT_START)
+    {
+        _noncache_start = .;
+
+        /* Place the noncache variables to be used in DMAC_LINK_MODE. */
+        . = ALIGN(8);
+        _dmac_link_mode_start = .;
+        KEEP(*(.dmac_link_mode*))
+        _dmac_link_mode_end = .;
+
+        /* Place the core non-common noncache variables. */
+        . = ALIGN(32);
+        _ncbuffer_start = .;
+        KEEP(*(.noncache_buffer*))
+        _ncbuffer_end = .;
+
+        _noncache_end = .;
+    } > NONCACHE
+
+    .bss_noncache (NOLOAD) :
+    {
+      _bss_noncache_start = .;
+    
+      /* Collect all non-cacheable BSS-style symbols (including legacy section names) */
+      *(.bss_noncache*)
+      *(.bss._SEGGER_RTT)
+      *(.bss._acDownBuffer)
+      *(.bss._acUpBuffer)
+    
+      . = ALIGN(8);
+      _bss_noncache_end = .;
+    } > NONCACHE
+    
     /* Place the variables in the user program that do not have initial values. */
     .bss (NOLOAD) :
     {
@@ -499,31 +533,6 @@ SECTIONS
 /*-----------------------------------------------*/
 /*  NONCACHE                                     */
 /*-----------------------------------------------*/
-    /* Place the noncache variables. */
-    .noncache NONCACHE_AREA_START : AT(NONCACHE_AREA_INIT_START)
-    {
-        _noncache_start = .;
-
-        /* Place the noncache variables. */
-        . = ALIGN(8);
-        _data_noncache_start = .;
-        KEEP(*(.data_noncache*))
-        _data_noncache_end = .;
-
-        /* Place the noncache variables to be used in DMAC_LINK_MODE. */
-        . = ALIGN(8);
-        _dmac_link_mode_start = .;
-        KEEP(*(.dmac_link_mode*))
-        _dmac_link_mode_end = .;
-
-        /* Place the core non-common noncache variables. */
-        . = ALIGN(32);
-        _ncbuffer_start = .;
-        KEEP(*(.noncache_buffer*))
-        _ncbuffer_end = .;
-
-        _noncache_end = .;
-    } > NONCACHE
 
     /* Place the core common noncache variables. */
     .shared_noncache_buffer SHARED_NONCACHE_BUFFER_START : AT(SHARED_NONCACHE_BUFFER_INIT_START)
